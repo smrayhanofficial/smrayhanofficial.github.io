@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SM RAYHAN | Contact</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#fff;
+min-height:100vh;
+
+background:
+radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+linear-gradient(135deg,#080914,#12152a,#080914);
+
+transition:.4s;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+}
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(70px);
+opacity:.22;
+animation:float 8s ease-in-out infinite alternate;
+}
+
+.blob1{
+width:280px;
+height:280px;
+background:#735cff;
+left:-100px;
+top:10%;
+}
+
+.blob2{
+width:300px;
+height:300px;
+background:#ff3cac;
+right:-120px;
+bottom:5%;
+}
+
+.blob3{
+width:180px;
+height:180px;
+background:#00d4ff;
+left:45%;
+top:40%;
+}
+
+@keyframes float{
+
+to{
+transform:translate(45px,40px) scale(1.18);
+}
+
+}
+
+
+/* =========================
+   INDEX STYLE MENU BUTTON
+========================= */
+
+.menu-btn{
+position:fixed;
+left:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:5px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+cursor:pointer;
+z-index:10002;
+
+transition:.3s;
+}
+
+.menu-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+.menu-btn span{
+width:23px;
+height:2px;
+
+background:#fff;
+
+border-radius:10px;
+
+transition:.3s;
+}
+
+
+/* =========================
+   THEME
+========================= */
+
+.theme-btn{
+position:fixed;
+right:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+z-index:10002;
+
+backdrop-filter:blur(15px);
+
+transition:.3s;
+}
+
+.theme-btn:hover{
+
+box-shadow:
+0 0 15px rgba(115,92,255,.7),
+0 0 30px rgba(255,60,172,.3);
+
+transform:scale(1.05);
+}
+
+
+/* =========================
+   INDEX STYLE SIDE MENU
+========================= */
+
+.side-menu{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:50%;
+height:100vh;
+
+padding:90px 20px 30px;
+
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(99,91,255,.35),
+transparent 35%
+),
+radial-gradient(
+circle at 80% 80%,
+rgba(255,60,172,.25),
+transparent 35%
+),
+rgba(8,9,20,.97);
+
+border-right:1px solid rgba(255,255,255,.18);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.35),
+0 0 30px rgba(115,92,255,.25);
+
+transform:translateX(-100%);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:
+transform .4s ease,
+opacity .3s ease,
+visibility .4s ease;
+
+overflow-y:auto;
+
+z-index:10001;
+}
+
+.side-menu.show{
+
+transform:translateX(0);
+
+opacity:1;
+
+visibility:visible;
+}
+
+
+.side-menu a{
+
+display:block;
+
+text-decoration:none;
+
+color:#fff;
+
+padding:15px 14px;
+
+border-radius:14px;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+}
+
+.side-menu a:hover{
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+transform:translateX(5px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.4),
+0 0 25px rgba(255,60,172,.25);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+width:92%;
+max-width:800px;
+
+margin:auto;
+
+padding:90px 0 40px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-section{
+
+text-align:center;
+
+animation:appear .8s ease;
+}
+
+.profile{
+
+width:125px;
+height:125px;
+
+margin:auto;
+
+position:relative;
+}
+
+.profile img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:4px solid rgba(255,255,255,.8);
+
+box-shadow:
+0 0 25px rgba(124,92,255,.7),
+0 0 50px rgba(255,60,172,.25);
+
+animation:profileGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes profileGlow{
+
+to{
+
+box-shadow:
+0 0 40px rgba(124,92,255,.9),
+0 0 70px rgba(255,60,172,.4);
+
+}
+
+}
+
+.profile-section h1{
+
+margin-top:20px;
+
+font-size:34px;
+
+background:linear-gradient(
+90deg,
+#fff,
+#b9afff,
+#ff8bd4
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+.profile-section p{
+
+margin-top:8px;
+
+opacity:.65;
+}
+
+.page-label{
+
+margin-top:15px;
+
+color:#cfc8ff;
+
+font-size:15px;
+
+opacity:.75;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+margin-top:25px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.13);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.2),
+0 0 25px rgba(115,92,255,.08);
+
+animation:appear .8s ease;
+
+transition:.3s;
+}
+
+.card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.25),
+0 0 30px rgba(115,92,255,.18);
+}
+
+.card h2{
+
+margin-bottom:18px;
+
+background:linear-gradient(
+90deg,
+#fff,
+#c5bcff,
+#ff9ddd
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info{
+
+text-align:left;
+
+padding:17px;
+
+border-radius:18px;
+
+margin:12px 0;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.1);
+
+transition:.3s;
+}
+
+.contact-info:hover{
+
+background:rgba(255,255,255,.1);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.15);
+
+transform:translateX(3px);
+}
+
+.contact-info b{
+
+display:block;
+
+margin-bottom:7px;
+
+color:#dcd6ff;
+}
+
+.contact-info p{
+
+line-height:1.6;
+
+opacity:.72;
+
+white-space:pre-line;
+
+word-break:break-word;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-group{
+
+margin-top:10px;
+}
+
+input,
+textarea{
+
+width:100%;
+
+padding:14px;
+
+margin:8px 0;
+
+border-radius:14px;
+
+border:1px solid rgba(255,255,255,.15);
+
+outline:none;
+
+background:rgba(255,255,255,.07);
+
+color:#fff;
+
+font-size:15px;
+
+font-family:Arial,sans-serif;
+
+backdrop-filter:blur(10px);
+
+transition:.3s;
+}
+
+input::placeholder,
+textarea::placeholder{
+
+color:rgba(255,255,255,.5);
+}
+
+input:focus,
+textarea:focus{
+
+border-color:#735cff;
+
+box-shadow:
+0 0 15px rgba(115,92,255,.3);
+
+}
+
+textarea{
+
+height:130px;
+
+resize:vertical;
+}
+
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+.send-button{
+
+margin-top:10px;
+
+padding:13px 28px;
+
+border:0;
+
+border-radius:30px;
+
+background:linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+color:#fff;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:
+0 0 15px rgba(115,92,255,.3);
+
+transition:.3s;
+}
+
+.send-button:hover{
+
+transform:translateY(-3px) scale(1.03);
+
+box-shadow:
+0 0 25px rgba(115,92,255,.7),
+0 0 40px rgba(255,60,172,.3);
+}
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social{
+
+margin-top:28px;
+
+padding-top:22px;
+
+border-top:1px solid rgba(255,255,255,.1);
+
+text-align:center;
+}
+
+.social h2{
+
+margin-bottom:16px;
+}
+
+.social-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+.social-buttons a{
+
+width:52px;
+height:52px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+border-radius:50%;
+
+text-decoration:none;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:bold;
+
+background:rgba(255,255,255,.1);
+
+border:1px solid rgba(255,255,255,.15);
+
+transition:.3s;
+}
+
+.social-buttons a:hover{
+
+transform:translateY(-5px) scale(1.08);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.5);
+}
+
+
+/* =========================
+   APPEAR
+========================= */
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* =========================
+   LIGHT
+========================= */
+
+body.light{
+
+color:#222;
+
+background:
+radial-gradient(circle at 10% 10%,#b9b1ff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
+linear-gradient(135deg,#eef1ff,#fff,#f9edff);
+}
+
+
+body.light .card{
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.1);
+}
+
+
+body.light .side-menu{
+
+background:
+radial-gradient(
+circle at 15% 15%,
+rgba(115,92,255,.15),
+transparent 32%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(255,60,172,.15),
+transparent 32%
+),
+rgba(255,255,255,.97);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.12),
+0 0 30px rgba(115,92,255,.12);
+}
+
+
+body.light .side-menu a{
+
+color:#222;
+
+background:rgba(0,0,0,.035);
+
+border-color:rgba(0,0,0,.07);
+}
+
+
+body.light .theme-btn{
+
+color:#222;
+}
+
+body.light .menu-btn span{
+
+background:#222;
+}
+
+body.light input,
+body.light textarea{
+
+background:rgba(255,255,255,.7);
+
+color:#222;
+
+border-color:rgba(0,0,0,.12);
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder{
+
+color:rgba(0,0,0,.45);
+}
+
+body.light .contact-info{
+
+background:rgba(0,0,0,.035);
+
+border-color:rgba(0,0,0,.08);
+}
+
+body.light .contact-info b{
+
+color:#333;
+}
+
+body.light .social-buttons a{
+
+color:#222;
+
+background:rgba(0,0,0,.05);
+
+border-color:rgba(0,0,0,.08);
+}
+
+body.light .profile-section h1,
+body.light .card h2{
+
+background:linear-gradient(
+90deg,
+#222,
+#635bff,
+#ff3cac
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+
+/* =========================
+   MOBILE — INDEX STYLE
+========================= */
+
+@media(max-width:600px){
+
+.container{
+
+width:94%;
+
+padding-top:85px;
+}
+
+.profile{
+
+width:110px;
+height:110px;
+}
+
+.profile-section h1{
+
+font-size:28px;
+}
+
+.card{
+
+padding:20px 15px;
+}
+
+.social-buttons a{
+
+width:48px;
+height:48px;
+}
+
+
+/* INDEX MOBILE MENU = 75% */
+
+.side-menu{
+
+width:75%;
+
+padding:85px 18px 25px;
+}
+
+.side-menu a{
+
+padding:15px;
+
+font-size:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="bg">
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="blob blob3"></div>
+
+</div>
+
+
+<!-- =========================
+     MENU BUTTON
+========================= -->
+
+<div
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<!-- =========================
+     THEME BUTTON
+========================= -->
+
+<button
+class="theme-btn"
+id="themeBtn"
+onclick="toggleTheme()">
+
+🌙
+
+</button>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+class="side-menu"
+id="sideMenu">
+
+<a href="index.html">
+
+🏠 Home
+
+</a>
+
+<a href="about.html">
+
+👤 About
+
+</a>
+
+<a href="contact.html">
+
+📞 Contact
+
+</a>
+
+<a href="gallery.html">
+
+📸 Gallery
+
+</a>
+
+<a
+id="menuFacebook"
+href="#"
+target="_blank">
+
+🔵 Facebook
+
+</a>
+
+<a
+id="menuLinkedin"
+href="#"
+target="_blank">
+
+💼 LinkedIn
+
+</a>
+
+<a
+id="menuWhatsapp"
+href="#"
+target="_blank">
+
+☎️ WhatsApp
+
+</a>
+
+<a href="admin.html">
+
+🔐 Admin Login
+
+</a>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+<section class="profile-section">
+
+
+<div class="profile">
+
+<img
+src="smraihan.jpg"
+alt="SM RAYHAN">
+
+</div>
+
+
+<h1 id="profileName">
+SM RAYHAN
+</h1>
+
+
+<p id="profileSubtitle">
+Welcome to My Website ❤️
+</p>
+
+
+<div class="page-label">
+📞 Contact Me
+</div>
+
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT INFORMATION
+========================= -->
+
+<div class="card">
+
+<h2>
+📞 Contact Information
+</h2>
+
+
+<div class="contact-info">
+
+<b>
+📱 Phone
+</b>
+
+<p id="phone">
+Not added
+</p>
+
+</div>
+
+
+<div class="contact-info">
+
+<b>
+📧 Email
+</b>
+
+<p id="email">
+Not added
+</p>
+
+</div>
+
+
+<div class="contact-info">
+
+<b>
+💬 WhatsApp
+</b>
+
+<p id="whatsapp">
+Not added
+</p>
+
+</div>
+
+
+<div class="contact-info">
+
+<b>
+📍 Location
+</b>
+
+<p id="location">
+Not added
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     MESSAGE
+========================= -->
+
+<div class="card">
+
+<h2>
+📩 Send Me a Message
+</h2>
+
+
+<input
+id="name"
+type="text"
+placeholder="Your Name">
+
+
+<input
+id="mobile"
+type="tel"
+placeholder="Mobile Number">
+
+
+<textarea
+id="message"
+placeholder="Write your message..."></textarea>
+
+
+<button
+class="send-button"
+onclick="sendMessage()">
+
+Send ❤️
+
+</button>
+
+
+
+<!-- =========================
+     SOCIAL
+========================= -->
+
+<div class="social">
+
+<h2>
+🌐 Follow Me
+</h2>
+
+
+<div class="social-buttons">
+
+
+<a
+id="facebookLink"
+href="#"
+target="_blank"
+title="Facebook">
+
+f
+
+</a>
+
+
+<a
+id="linkedinLink"
+href="#"
+target="_blank"
+title="LinkedIn">
+
+in
+
+</a>
+
+
+<a
+id="whatsappLink"
+href="#"
+target="_blank"
+title="WhatsApp">
+
+☎
+
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL=
+"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
+
+const SUPABASE_KEY=
+"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
+
+const supabaseClient=
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+let whatsappNumber="";
+
+
+/* =========================
+   INDEX STYLE MENU
+========================= */
+
+function toggleMenu(){
+
+const menu=
+document.getElementById("sideMenu");
+
+menu.classList.toggle("show");
+
+}
+
+
+/* =========================
+   OUTSIDE CLICK = CLOSE
+========================= */
+
+document.addEventListener(
+"click",
+function(event){
+
+const menu=
+document.getElementById("sideMenu");
+
+const button=
+document.getElementById("menuBtn");
+
+
+if(
+menu.classList.contains("show") &&
+!menu.contains(event.target) &&
+!button.contains(event.target)
+){
+
+menu.classList.remove("show");
+
+}
+
+});
+
+
+/* =========================
+   CLOSE MENU AFTER LINK CLICK
+========================= */
+
+document
+.querySelectorAll("#sideMenu a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+document
+.getElementById("sideMenu")
+.classList.remove("show");
+
+});
+
+});
+
+
+/* =========================
+   THEME
+========================= */
+
+function applyTheme(){
+
+if(
+localStorage.getItem("theme")==="light"
+){
+
+document.body.classList.add("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="☀️";
+
+}else{
+
+document.body.classList.remove("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="🌙";
+
+}
+
+}
+
+
+function toggleTheme(){
+
+document.body.classList.toggle("light");
+
+const button=
+document.getElementById("themeBtn");
+
+if(
+document.body.classList.contains("light")
+){
+
+button.innerText="☀️";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}else{
+
+button.innerText="🌙";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+}
+
+
+applyTheme();
+
+
+/* =========================
+   TEXT
+========================= */
+
+function setText(id,value){
+
+const el=
+document.getElementById(id);
+
+if(
+el &&
+value!==undefined &&
+value!==null &&
+value!==""
+){
+
+el.innerText=value;
+
+}
+
+}
+
+
+/* =========================
+   WHATSAPP LINK
+========================= */
+
+function makeWhatsAppLink(value){
+
+if(!value){
+
+return "";
+}
+
+value=value.trim();
+
+if(value.startsWith("http")){
+
+return value;
+
+}
+
+let number=
+value.replace(/\D/g,"");
+
+if(number.startsWith("0")){
+
+number="88"+number;
+
+}
+
+return "https://wa.me/"+number;
+
+}
+
+
+/* =========================
+   LOAD CONTACT
+========================= */
+
+async function loadContact(){
+
+try{
+
+const {data,error}=
+await supabaseClient
+.from("website_content")
+.select("section,content");
+
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+
+const content={};
+
+
+(data||[]).forEach(row=>{
+
+content[row.section]=
+row.content||{};
+
+});
+
+
+const home=
+content.home||{};
+
+const contact=
+content.contact||{};
+
+const social=
+content.social||{};
+
+
+/* HOME */
+
+setText(
+"profileName",
+home.name ||
+"SM RAYHAN"
+);
+
+setText(
+"profileSubtitle",
+home.subtitle ||
+"Welcome to My Website ❤️"
+);
+
+
+/* CONTACT */
+
+setText(
+"phone",
+contact.contact_phone
+);
+
+setText(
+"email",
+contact.contact_email
+);
+
+setText(
+"location",
+contact.contact_location
+);
+
+
+/* WHATSAPP */
+
+whatsappNumber=
+contact.contact_whatsapp ||
+social.whatsapp ||
+"";
+
+
+setText(
+"whatsapp",
+whatsappNumber
+);
+
+
+let whatsappLink=
+makeWhatsAppLink(
+whatsappNumber
+);
+
+
+if(whatsappLink){
+
+document.getElementById(
+"whatsappLink"
+).href=
+whatsappLink;
+
+}
+
+
+/* FACEBOOK */
+
+if(social.facebook){
+
+document.getElementById(
+"facebookLink"
+).href=
+social.facebook;
+
+document.getElementById(
+"menuFacebook"
+).href=
+social.facebook;
+
+}
+
+
+/* LINKEDIN */
+
+if(social.linkedin){
+
+document.getElementById(
+"linkedinLink"
+).href=
+social.linkedin;
+
+document.getElementById(
+"menuLinkedin"
+).href=
+social.linkedin;
+
+}
+
+
+/* WHATSAPP MENU */
+
+if(whatsappLink){
+
+document.getElementById(
+"menuWhatsapp"
+).href=
+whatsappLink;
+
+}
+
+}catch(error){
+
+console.error(
+"Contact loading failed:",
+error
+);
+
+}
+
+}
+
+
+loadContact();
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+function sendMessage(){
+
+let name=
+document.getElementById(
+"name"
+).value.trim();
+
+let mobile=
+document.getElementById(
+"mobile"
+).value.trim();
+
+let message=
+document.getElementById(
+"message"
+).value.trim();
+
+
+if(name===""){
+
+alert(
+"⚠️ Please enter your name!"
+);
+
+return;
+
+}
+
+
+if(mobile===""){
+
+alert(
+"⚠️ Please enter your mobile number!"
+);
+
+return;
+
+}
+
+
+if(message===""){
+
+alert(
+"⚠️ Please write a message!"
+);
+
+return;
+
+}
+
+
+let link=
+makeWhatsAppLink(
+whatsappNumber
+);
+
+
+if(!link){
+
+alert(
+"⚠️ Admin WhatsApp number দেওয়া নেই!"
+);
+
+return;
+
+}
+
+
+let text=
+`📩 New Message from Website
+
+👤 Name: ${name}
+📱 Mobile: ${mobile}
+💬 Message: ${message}`;
+
+
+let separator=
+link.includes("?")
+?
+"&"
+:
+"?";
+
+
+window.open(
+link+
+separator+
+"text="+
+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+
+</html>

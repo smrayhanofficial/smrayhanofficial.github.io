@@ -1,0 +1,2572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SM RAYHAN | Personal Website</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#fff;
+min-height:100vh;
+
+background:
+radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+linear-gradient(135deg,#080914,#12152a,#080914);
+
+transition:.4s;
+}
+
+
+/* BACKGROUND */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+}
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(70px);
+opacity:.22;
+animation:float 8s ease-in-out infinite alternate;
+}
+
+.blob1{
+width:280px;
+height:280px;
+background:#735cff;
+left:-100px;
+top:10%;
+}
+
+.blob2{
+width:300px;
+height:300px;
+background:#ff3cac;
+right:-120px;
+bottom:5%;
+}
+
+.blob3{
+width:180px;
+height:180px;
+background:#00d4ff;
+left:45%;
+top:40%;
+}
+
+@keyframes float{
+
+to{
+transform:translate(45px,40px) scale(1.18);
+}
+
+}
+
+
+/* MENU BUTTON */
+
+.menu-btn{
+
+position:fixed;
+
+left:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
+gap:5px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+cursor:pointer;
+
+z-index:10002;
+
+transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+.menu-btn span{
+
+width:23px;
+height:2px;
+
+background:#fff;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+
+/* HALF SCREEN MENU */
+
+.side-menu{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:50%;
+height:100vh;
+
+padding:90px 20px 30px;
+
+background:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(99,91,255,.35),
+transparent 35%
+),
+
+radial-gradient(
+circle at 80% 80%,
+rgba(255,60,172,.25),
+transparent 35%
+),
+
+rgba(8,9,20,.97);
+
+border-right:
+1px solid rgba(255,255,255,.18);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.35),
+0 0 30px rgba(115,92,255,.25);
+
+transform:translateX(-100%);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:
+transform .4s ease,
+opacity .3s ease,
+visibility .4s ease;
+
+overflow-y:auto;
+
+z-index:10001;
+
+}
+
+
+.side-menu.show{
+
+transform:translateX(0);
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+
+/* MENU LINKS */
+
+.side-menu a{
+
+display:block;
+
+text-decoration:none;
+
+color:#fff;
+
+padding:15px 14px;
+
+border-radius:14px;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+background:
+rgba(255,255,255,.06);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+
+}
+
+.side-menu a:hover{
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+transform:translateX(5px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.4),
+0 0 25px rgba(255,60,172,.25);
+
+}
+
+
+/* THEME BUTTON */
+
+.theme-btn{
+
+position:fixed;
+
+right:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+border-radius:15px;
+
+background:
+rgba(255,255,255,.1);
+
+border:
+1px solid rgba(255,255,255,.2);
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+
+z-index:10002;
+
+transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+
+/* CONTAINER */
+
+.container{
+
+width:92%;
+
+max-width:1050px;
+
+margin:auto;
+
+padding:90px 0 40px;
+
+}
+
+
+/* PROFILE */
+
+.profile-section{
+
+text-align:center;
+
+}
+
+.profile{
+
+width:125px;
+height:125px;
+
+margin:auto;
+
+position:relative;
+
+}
+
+.profile img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:
+4px solid rgba(255,255,255,.8);
+
+box-shadow:
+0 0 35px rgba(124,92,255,.7);
+
+animation:
+profileGlow 2.5s ease-in-out infinite alternate;
+
+}
+
+@keyframes profileGlow{
+
+from{
+
+box-shadow:
+0 0 25px rgba(124,92,255,.5);
+
+}
+
+to{
+
+box-shadow:
+0 0 45px rgba(255,60,172,.7),
+0 0 70px rgba(115,92,255,.3);
+
+}
+
+}
+
+.online{
+
+position:absolute;
+
+width:19px;
+height:19px;
+
+right:4px;
+bottom:7px;
+
+background:#20e676;
+
+border:
+3px solid #111426;
+
+border-radius:50%;
+
+}
+
+
+.profile-section h1{
+
+margin-top:20px;
+
+font-size:34px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#b9afff,
+#ff8bd4
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+.profile-section p{
+
+margin-top:8px;
+
+opacity:.65;
+
+}
+
+
+/* LOVE */
+
+.love-area{
+
+text-align:center;
+
+margin-top:15px;
+
+}
+
+.love-btn{
+
+border:0;
+
+padding:10px 20px;
+
+border-radius:30px;
+
+background:
+rgba(255,255,255,.1);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+color:#fff;
+
+cursor:pointer;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.love-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(255,60,172,.6),
+0 0 30px rgba(255,60,172,.25);
+
+}
+
+.love-btn.loved{
+
+background:
+linear-gradient(
+135deg,
+#ff3cac,
+#ff5b7f
+);
+
+box-shadow:
+0 0 15px rgba(255,60,172,.8),
+0 0 30px rgba(255,60,172,.35);
+
+cursor:default;
+
+}
+
+.love-count{
+
+margin-top:7px;
+
+opacity:.6;
+
+font-size:13px;
+
+}
+
+
+/* CARD */
+
+.card{
+
+margin-top:25px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.07);
+
+border:
+1px solid rgba(255,255,255,.13);
+
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.2);
+
+}
+
+.card h2{
+
+margin-bottom:10px;
+
+}
+
+.card p{
+
+line-height:1.8;
+
+opacity:.7;
+
+white-space:pre-line;
+
+}
+
+
+/* MAIN BUTTON */
+
+.main-btn{
+
+display:inline-block;
+
+margin-top:17px;
+
+padding:12px 22px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+transition:.3s;
+
+}
+
+.main-btn:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.5),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+
+/* CLOCK */
+
+.clock{
+
+margin-top:20px;
+
+text-align:center;
+
+font-size:27px;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+text-shadow:
+0 0 8px rgba(255,255,255,.6),
+0 0 18px rgba(115,92,255,.8);
+
+animation:
+clockGlow 2s ease-in-out infinite alternate;
+
+}
+
+@keyframes clockGlow{
+
+from{
+
+text-shadow:
+0 0 6px rgba(255,255,255,.5),
+0 0 12px rgba(115,92,255,.5);
+
+}
+
+to{
+
+text-shadow:
+0 0 10px rgba(255,255,255,.9),
+0 0 25px rgba(255,60,172,.9);
+
+}
+
+}
+
+
+/* TYPING */
+
+.typing{
+
+text-align:center;
+
+margin-top:18px;
+
+min-height:25px;
+
+color:#bdb5ff;
+
+}
+
+
+/* SKILLS */
+
+.skill{
+
+margin-top:17px;
+
+}
+
+.skill-head{
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:14px;
+
+margin-bottom:7px;
+
+}
+
+.skill-bar{
+
+height:10px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.1);
+
+overflow:hidden;
+
+}
+
+.skill-fill{
+
+height:100%;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+#735cff,
+#ff3cac
+);
+
+transition:width 1s;
+
+}
+
+
+/* PROJECTS */
+
+.projects{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(220px,1fr));
+
+gap:15px;
+
+margin-top:18px;
+
+}
+
+.project{
+
+padding:20px;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.06);
+
+border:
+1px solid rgba(255,255,255,.1);
+
+transition:.3s;
+
+}
+
+.project:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.35),
+0 0 35px rgba(255,60,172,.2);
+
+}
+
+.project h3{
+
+margin-bottom:8px;
+
+}
+
+.project p{
+
+font-size:13px;
+
+}
+
+
+/* GALLERY */
+
+.gallery-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(150px,1fr));
+
+gap:12px;
+
+margin-top:18px;
+
+}
+
+.gallery-grid img{
+
+width:100%;
+
+height:170px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+transition:.3s;
+
+}
+
+.gallery-grid img:hover{
+
+transform:scale(1.03);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.5);
+
+}
+
+
+/* SOCIAL */
+
+.social{
+
+text-align:center;
+
+}
+
+.social-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:18px;
+
+}
+
+.social-buttons a{
+
+width:48px;
+height:48px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:bold;
+
+font-size:18px;
+
+background:
+rgba(255,255,255,.1);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+transition:.3s;
+
+}
+
+.social-buttons a:hover{
+
+transform:
+translateY(-4px)
+scale(1.08);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 25px rgba(255,60,172,.4);
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+text-align:center;
+
+padding:30px 10px;
+
+opacity:.5;
+
+font-size:13px;
+
+}
+
+
+/* LIGHT MODE */
+
+body.light{
+
+color:#222;
+
+background:
+radial-gradient(
+circle at 10% 10%,
+#b9b1ff 0,
+transparent 28%
+),
+
+radial-gradient(
+circle at 90% 85%,
+#ffc4e7 0,
+transparent 28%
+),
+
+linear-gradient(
+135deg,
+#eef1ff,
+#fff,
+#f9edff
+);
+
+}
+
+body.light .card{
+
+background:
+rgba(255,255,255,.65);
+
+border-color:
+rgba(0,0,0,.08);
+
+}
+
+body.light .side-menu{
+
+background:
+radial-gradient(
+circle at 15% 15%,
+rgba(115,92,255,.15),
+transparent 32%
+),
+
+radial-gradient(
+circle at 85% 85%,
+rgba(255,60,172,.15),
+transparent 32%
+),
+
+rgba(255,255,255,.97);
+
+}
+
+body.light .side-menu a{
+
+color:#222;
+
+background:
+rgba(0,0,0,.035);
+
+border-color:
+rgba(0,0,0,.07);
+
+}
+
+body.light .theme-btn{
+
+color:#222;
+
+}
+
+body.light .menu-btn span{
+
+background:#222;
+
+}
+
+body.light .love-btn,
+body.light .social-buttons a{
+
+color:#222;
+
+}
+
+body.light .love-btn.loved{
+
+color:#fff;
+
+}
+
+body.light .clock{
+
+text-shadow:
+0 0 8px rgba(115,92,255,.5),
+0 0 18px rgba(255,60,172,.4);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.container{
+
+width:94%;
+
+padding-top:85px;
+
+}
+
+.profile{
+
+width:110px;
+height:110px;
+
+}
+
+.profile-section h1{
+
+font-size:28px;
+
+}
+
+.card{
+
+padding:20px;
+
+}
+
+.projects{
+
+grid-template-columns:1fr;
+
+}
+
+.clock{
+
+font-size:24px;
+
+}
+
+/* PHONE MENU */
+
+.side-menu{
+
+width:75%;
+
+padding:
+85px 18px 25px;
+
+}
+
+.side-menu a{
+
+padding:15px;
+
+font-size:15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- BACKGROUND -->
+
+<div class="bg">
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="blob blob3"></div>
+
+</div>
+
+
+<!-- MENU BUTTON -->
+
+<div
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<!-- THEME BUTTON -->
+
+<button
+class="theme-btn"
+id="themeBtn"
+onclick="toggleTheme()">
+
+🌙
+
+</button>
+
+
+<!-- HALF SCREEN MENU -->
+
+<div
+class="side-menu"
+id="sideMenu">
+
+
+<a href="index.html">
+🏠 Home
+</a>
+
+
+<a href="about.html">
+👤 About
+</a>
+
+
+<a href="contact.html">
+📞 Contact
+</a>
+
+
+<a href="gallery.html">
+📸 Gallery
+</a>
+
+
+<a
+id="menuFacebook"
+href="#"
+target="_blank">
+
+🔵 Facebook
+
+</a>
+
+
+<a
+id="menuLinkedin"
+href="#"
+target="_blank">
+
+💼 LinkedIn
+
+</a>
+
+
+<a
+id="menuWhatsapp"
+href="#"
+target="_blank">
+
+☎️ WhatsApp
+
+</a>
+
+
+<a href="admin.html">
+
+🔐 Admin Login
+
+</a>
+
+
+</div>
+
+
+<!-- MAIN CONTAINER -->
+
+<div class="container">
+
+
+<!-- PROFILE -->
+
+<section class="profile-section">
+
+
+<div class="profile">
+
+<img
+src="smraihan.jpg"
+alt="SM RAYHAN">
+
+<div class="online"></div>
+
+</div>
+
+
+<h1 id="profileName">
+SM RAYHAN
+</h1>
+
+
+<p id="profileSubtitle">
+Welcome To My Personal Website ❤️
+</p>
+
+
+<!-- LOVE -->
+
+<div class="love-area">
+
+
+<button
+class="love-btn"
+id="loveButton"
+onclick="loveClick()">
+
+❤️ Love
+
+</button>
+
+
+<div
+class="love-count"
+id="loveCount">
+
+0 people liked this ❤️
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- HOME -->
+
+<section class="card">
+
+
+<h2 id="homeTitle">
+
+👋 Most Welcome In My Website
+
+</h2>
+
+
+<p id="homeWelcome">
+
+Hello! I am SM RAYHAN.
+This is my personal website where
+I share my projects, skills, photos
+and other information.
+
+</p>
+
+
+<a
+href="about.html"
+class="main-btn">
+
+👤 Know More
+
+</a>
+
+
+</section>
+
+
+<!-- LIVE TIME -->
+
+<section class="card">
+
+
+<h2>
+
+🕒 Live Time
+
+</h2>
+
+
+<div
+class="clock"
+id="clock">
+
+12:00:00 AM
+
+</div>
+
+
+</section>
+
+
+<!-- TYPING -->
+
+<section class="typing">
+
+<span id="typingText"></span>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section class="card">
+
+
+<h2>
+
+💻 My Skills
+
+</h2>
+
+
+<div class="skills">
+
+
+<div class="skill">
+
+
+<div class="skill-head">
+
+<span>HTML</span>
+
+<span id="htmlPercent">
+80%
+</span>
+
+</div>
+
+
+<div class="skill-bar">
+
+<div
+class="skill-fill"
+id="htmlBar"
+style="width:80%">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="skill">
+
+
+<div class="skill-head">
+
+<span>CSS</span>
+
+<span id="cssPercent">
+70%
+</span>
+
+</div>
+
+
+<div class="skill-bar">
+
+<div
+class="skill-fill"
+id="cssBar"
+style="width:70%">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="skill">
+
+
+<div class="skill-head">
+
+<span>JavaScript</span>
+
+<span id="jsPercent">
+55%
+</span>
+
+</div>
+
+
+<div class="skill-bar">
+
+<div
+class="skill-fill"
+id="jsBar"
+style="width:55%">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="skill">
+
+
+<div class="skill-head">
+
+<span>Excel</span>
+
+<span id="excelPercent">
+75%
+</span>
+
+</div>
+
+
+<div class="skill-bar">
+
+<div
+class="skill-fill"
+id="excelBar"
+style="width:75%">
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="card">
+
+
+<h2>
+
+🚀 My Projects
+
+</h2>
+
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3 id="project1Name">
+🌐 Personal Website
+</h3>
+
+<p id="project1Desc">
+My own personal website
+created with HTML, CSS and JavaScript.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<h3 id="project2Name">
+📊 Excel Project
+</h3>
+
+<p id="project2Desc">
+Excel based projects,
+formulas and automation.
+</p>
+
+</div>
+
+
+<div class="project">
+
+<h3 id="project3Name">
+📱 Mobile Web Design
+</h3>
+
+<p id="project3Desc">
+Mobile friendly website
+design and development.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section class="card">
+
+
+<h2>
+📸 Gallery
+</h2>
+
+
+<p>
+আমার Gallery দেখতে নিচের button-এ চাপ দাও।
+</p>
+
+
+<div class="gallery-grid">
+
+
+<img
+src="smraihan.jpg">
+
+
+<img
+src="https://picsum.photos/500/500?random=11">
+
+
+<img
+src="https://picsum.photos/500/500?random=12">
+
+
+</div>
+
+
+<a
+href="gallery.html"
+class="main-btn">
+
+📸 Open Full Gallery
+
+</a>
+
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section class="card social">
+
+
+<h2>
+🔗 Social Media
+</h2>
+
+
+<p>
+Connect with me
+</p>
+
+
+<div class="social-buttons">
+
+
+<a
+id="facebookLink"
+href="#"
+target="_blank">
+
+f
+
+</a>
+
+
+<a
+id="linkedinLink"
+href="#"
+target="_blank">
+
+in
+
+</a>
+
+
+<a
+id="whatsappLink"
+href="#"
+target="_blank">
+
+☎
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer id="footerText">
+
+© 2026 SM RAYHAN |
+My Personal Website ❤️
+
+</footer>
+
+
+<script>
+
+
+/* SUPABASE */
+
+const SUPABASE_URL=
+"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
+
+
+const SUPABASE_KEY=
+"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
+
+
+const supabaseClient=
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* MENU */
+
+function toggleMenu(){
+
+const menu=
+document.getElementById(
+"sideMenu"
+);
+
+menu.classList.toggle(
+"show"
+);
+
+}
+
+
+/* CLOSE MENU WHEN TOUCHING OUTSIDE */
+
+document.addEventListener(
+"click",
+function(event){
+
+const menu=
+document.getElementById(
+"sideMenu"
+);
+
+const button=
+document.getElementById(
+"menuBtn"
+);
+
+
+/*
+Menu খোলা থাকলে
+menu-এর বাইরে touch করলে
+menu বন্ধ হবে
+*/
+
+if(
+
+menu.classList.contains("show") &&
+
+!menu.contains(event.target) &&
+
+!button.contains(event.target)
+
+){
+
+menu.classList.remove("show");
+
+}
+
+}
+);
+
+
+/* MENU LINK CLICK */
+
+document.querySelectorAll(
+"#sideMenu a"
+).forEach(
+function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+document
+.getElementById("sideMenu")
+.classList.remove("show");
+
+});
+
+}
+);
+
+
+/* THEME */
+
+function toggleTheme(){
+
+document.body.classList.toggle(
+"light"
+);
+
+
+const btn=
+document.getElementById(
+"themeBtn"
+);
+
+
+if(
+document.body.classList.contains(
+"light"
+)
+){
+
+btn.innerText="☀️";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}else{
+
+btn.innerText="🌙";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+}
+
+
+if(
+localStorage.getItem("theme")
+===
+"light"
+){
+
+document.body.classList.add(
+"light"
+);
+
+document.getElementById(
+"themeBtn"
+).innerText="☀️";
+
+}
+
+
+/* LOVE SYSTEM */
+
+function getVisitorId(){
+
+let visitorId=
+localStorage.getItem(
+"smRayhanVisitorId"
+);
+
+
+if(!visitorId){
+
+visitorId=
+"visitor_"+
+
+Date.now()+"_"+
+
+Math.random()
+.toString(36)
+.substring(2,12);
+
+
+localStorage.setItem(
+"smRayhanVisitorId",
+visitorId
+);
+
+}
+
+
+return visitorId;
+
+}
+
+
+const visitorId=
+getVisitorId();
+
+
+async function loadLove(){
+
+try{
+
+
+const {count,error}=
+await supabaseClient
+.from("love_reactions")
+.select(
+"*",
+{
+count:"exact",
+head:true
+}
+);
+
+
+if(error){
+
+console.error(
+"Love count error:",
+error
+);
+
+return;
+
+}
+
+
+document.getElementById(
+"loveCount"
+).innerText=
+
+(count||0)+
+" people liked this ❤️";
+
+
+const {
+data:myLove,
+error:myError
+}=
+await supabaseClient
+.from("love_reactions")
+.select("id")
+.eq(
+"visitor_id",
+visitorId
+)
+.maybeSingle();
+
+
+if(myError){
+
+console.error(
+"Visitor love check error:",
+myError
+);
+
+return;
+
+}
+
+
+if(myLove){
+
+const button=
+document.getElementById(
+"loveButton"
+);
+
+
+button.innerText=
+"❤️ Loved";
+
+
+button.classList.add(
+"loved"
+);
+
+
+button.disabled=true;
+
+}
+
+}catch(error){
+
+console.error(
+"Love system error:",
+error
+);
+
+}
+
+}
+
+
+/* LOVE CLICK */
+
+async function loveClick(){
+
+const button=
+document.getElementById(
+"loveButton"
+);
+
+
+if(
+button.disabled ||
+button.classList.contains(
+"loved"
+)
+){
+
+return;
+
+}
+
+
+button.disabled=true;
+
+button.innerText=
+"❤️ Saving...";
+
+
+try{
+
+
+const {error}=
+await supabaseClient
+.from("love_reactions")
+.insert({
+
+visitor_id:
+visitorId
+
+});
+
+
+if(error){
+
+
+if(
+error.code==="23505" ||
+error.message?.includes(
+"duplicate"
+) ||
+error.message?.includes(
+"unique"
+)
+){
+
+button.innerText=
+"❤️ Loved";
+
+button.classList.add(
+"loved"
+);
+
+button.disabled=true;
+
+await loadLove();
+
+return;
+
+}
+
+
+console.error(
+"Love insert error:",
+error
+);
+
+
+button.innerText=
+"❤️ Love";
+
+button.disabled=false;
+
+return;
+
+}
+
+
+/* SUCCESS */
+
+button.innerText=
+"❤️ Loved";
+
+button.classList.add(
+"loved"
+);
+
+button.disabled=true;
+
+
+await loadLove();
+
+
+}catch(error){
+
+console.error(
+"Love error:",
+error
+);
+
+button.innerText=
+"❤️ Love";
+
+button.disabled=false;
+
+}
+
+}
+
+
+loadLove();
+
+
+/* CLOCK */
+
+function updateClock(){
+
+const now=
+new Date();
+
+
+let h=
+now.getHours();
+
+
+let m=
+String(
+now.getMinutes()
+).padStart(
+2,
+"0"
+);
+
+
+let s=
+String(
+now.getSeconds()
+).padStart(
+2,
+"0"
+);
+
+
+let ampm=
+h>=12
+?
+"PM"
+:
+"AM";
+
+
+h=
+h%12;
+
+
+if(h===0){
+
+h=12;
+
+}
+
+
+h=
+String(h)
+.padStart(
+2,
+"0"
+);
+
+
+document.getElementById(
+"clock"
+).innerText=
+h+":"+m+":"+s+" "+ampm;
+
+}
+
+
+setInterval(
+updateClock,
+1000
+);
+
+updateClock();
+
+
+/* TYPING */
+
+let texts=[
+
+"💻 I'm Learning Web Development",
+
+"🌐 I Love Creating Websites",
+
+"🚀 My Goal Is To Become Better",
+
+"❤️ Welcome To My Website"
+
+];
+
+
+let textIndex=0;
+
+let charIndex=0;
+
+let deleting=false;
+
+
+function typingEffect(){
+
+const element=
+document.getElementById(
+"typingText"
+);
+
+
+const current=
+texts[textIndex];
+
+
+if(!deleting){
+
+element.innerText=
+current.substring(
+0,
+charIndex+1
+);
+
+charIndex++;
+
+
+if(
+charIndex===
+current.length
+){
+
+deleting=true;
+
+
+setTimeout(
+typingEffect,
+1500
+);
+
+return;
+
+}
+
+}else{
+
+element.innerText=
+current.substring(
+0,
+charIndex-1
+);
+
+charIndex--;
+
+
+if(
+charIndex===0
+){
+
+deleting=false;
+
+
+textIndex=
+(textIndex+1)
+%
+texts.length;
+
+}
+
+}
+
+
+setTimeout(
+typingEffect,
+deleting
+?
+45
+:
+75
+);
+
+}
+
+
+typingEffect();
+
+
+/* TEXT */
+
+function setText(
+id,
+value
+){
+
+const el=
+document.getElementById(
+id
+);
+
+
+if(
+el &&
+value!==undefined &&
+value!==null &&
+value!==""
+){
+
+el.innerText=value;
+
+}
+
+}
+
+
+/* SKILL */
+
+function setSkill(
+percentId,
+barId,
+value
+){
+
+if(
+value===undefined ||
+value===null ||
+value===""
+){
+
+return;
+
+}
+
+
+let number=
+parseInt(value);
+
+
+if(isNaN(number)){
+
+return;
+
+}
+
+
+number=
+Math.max(
+0,
+Math.min(
+100,
+number
+)
+);
+
+
+document.getElementById(
+percentId
+).innerText=
+number+"%";
+
+
+document.getElementById(
+barId
+).style.width=
+number+"%";
+
+}
+
+
+/* WHATSAPP */
+
+function makeWhatsAppLink(
+value
+){
+
+if(!value){
+
+return "";
+
+}
+
+
+value=
+value.trim();
+
+
+if(
+value.startsWith("http")
+){
+
+return value;
+
+}
+
+
+let number=
+value.replace(
+/\D/g,
+""
+);
+
+
+if(
+number.startsWith("0")
+){
+
+number=
+"88"+number;
+
+}
+
+
+return
+"https://wa.me/"+
+number;
+
+}
+
+
+/* LOAD WEBSITE CONTENT */
+
+async function loadWebsiteContent(){
+
+try{
+
+
+const {data,error}=
+await supabaseClient
+.from("website_content")
+.select(
+"section,content"
+);
+
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+
+const content={};
+
+
+(data||[]).forEach(
+row=>{
+
+content[
+row.section
+]=
+row.content||{};
+
+});
+
+
+/* HOME */
+
+const home=
+content.home||{};
+
+
+setText(
+"profileName",
+home.name
+);
+
+
+setText(
+"profileSubtitle",
+home.subtitle
+);
+
+
+setText(
+"homeTitle",
+home.home_title ||
+home.title
+);
+
+
+setText(
+"homeWelcome",
+home.home_welcome ||
+home.welcome
+);
+
+
+/* TYPING */
+
+if(
+home.home_type1 ||
+home.home_type2 ||
+home.home_type3 ||
+home.home_type4 ||
+home.type1
+){
+
+texts=[
+
+home.home_type1 ||
+home.type1 ||
+"💻 I'm Learning Web Development",
+
+home.home_type2 ||
+home.type2 ||
+"🌐 I Love Creating Websites",
+
+home.home_type3 ||
+home.type3 ||
+"🚀 My Goal Is To Become Better",
+
+home.home_type4 ||
+home.type4 ||
+"❤️ Welcome To My Website"
+
+];
+
+}
+
+
+/* SKILLS */
+
+const skills=
+content.skills||{};
+
+
+setSkill(
+"htmlPercent",
+"htmlBar",
+skills.html
+);
+
+
+setSkill(
+"cssPercent",
+"cssBar",
+skills.css
+);
+
+
+setSkill(
+"jsPercent",
+"jsBar",
+skills.javascript ||
+skills.js
+);
+
+
+setSkill(
+"excelPercent",
+"excelBar",
+skills.excel
+);
+
+
+/* PROJECTS */
+
+const projects=
+content.projects||{};
+
+
+setText(
+"project1Name",
+projects.project1_name
+);
+
+
+setText(
+"project1Desc",
+projects.project1_desc
+);
+
+
+setText(
+"project2Name",
+projects.project2_name
+);
+
+
+setText(
+"project2Desc",
+projects.project2_desc
+);
+
+
+setText(
+"project3Name",
+projects.project3_name
+);
+
+
+setText(
+"project3Desc",
+projects.project3_desc
+);
+
+
+/* SOCIAL */
+
+const social=
+content.social||{};
+
+
+if(
+social.facebook
+){
+
+document.getElementById(
+"facebookLink"
+).href=
+social.facebook;
+
+
+document.getElementById(
+"menuFacebook"
+).href=
+social.facebook;
+
+}
+
+
+if(
+social.linkedin
+){
+
+document.getElementById(
+"linkedinLink"
+).href=
+social.linkedin;
+
+
+document.getElementById(
+"menuLinkedin"
+).href=
+social.linkedin;
+
+}
+
+
+if(
+social.whatsapp
+){
+
+let whatsapp=
+makeWhatsAppLink(
+social.whatsapp
+);
+
+
+document.getElementById(
+"whatsappLink"
+).href=
+whatsapp;
+
+
+document.getElementById(
+"menuWhatsapp"
+).href=
+whatsapp;
+
+}
+
+
+}catch(error){
+
+console.error(
+"Content loading failed:",
+error
+);
+
+}
+
+}
+
+
+loadWebsiteContent();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SM RAYHAN | Gallery</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#fff;
+min-height:100vh;
+
+background:
+radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+linear-gradient(135deg,#080914,#12152a,#080914);
+
+transition:.4s;
+}
+
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+}
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(70px);
+opacity:.22;
+animation:float 8s ease-in-out infinite alternate;
+}
+
+.blob1{
+width:280px;
+height:280px;
+background:#735cff;
+left:-100px;
+top:10%;
+}
+
+.blob2{
+width:300px;
+height:300px;
+background:#ff3cac;
+right:-120px;
+bottom:5%;
+}
+
+.blob3{
+width:180px;
+height:180px;
+background:#00d4ff;
+left:45%;
+top:40%;
+}
+
+@keyframes float{
+
+to{
+transform:
+translate(45px,40px)
+scale(1.18);
+}
+
+}
+
+
+/* =========================
+   INDEX STYLE MENU BUTTON
+========================= */
+
+.menu-btn{
+position:fixed;
+left:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:5px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+cursor:pointer;
+z-index:10002;
+
+transition:.3s;
+}
+
+.menu-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+.menu-btn span{
+
+width:23px;
+height:2px;
+
+background:#fff;
+
+border-radius:10px;
+
+transition:.3s;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-btn{
+
+position:fixed;
+
+right:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+
+border:1px solid rgba(255,255,255,.2);
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+
+z-index:10002;
+
+backdrop-filter:blur(15px);
+
+transition:.3s;
+}
+
+.theme-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+}
+
+
+/* =========================
+   INDEX STYLE SIDE MENU
+========================= */
+
+.side-menu{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:50%;
+height:100vh;
+
+padding:90px 20px 30px;
+
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(99,91,255,.35),
+transparent 35%
+),
+radial-gradient(
+circle at 80% 80%,
+rgba(255,60,172,.25),
+transparent 35%
+),
+rgba(8,9,20,.97);
+
+border-right:1px solid rgba(255,255,255,.18);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.35),
+0 0 30px rgba(115,92,255,.25);
+
+transform:translateX(-100%);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:
+transform .4s ease,
+opacity .3s ease,
+visibility .4s ease;
+
+overflow-y:auto;
+
+z-index:10001;
+}
+
+.side-menu.show{
+
+transform:translateX(0);
+
+opacity:1;
+
+visibility:visible;
+}
+
+
+.side-menu a{
+
+display:block;
+
+text-decoration:none;
+
+color:#fff;
+
+padding:15px 14px;
+
+border-radius:14px;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+}
+
+.side-menu a:hover{
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+transform:translateX(5px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.4),
+0 0 25px rgba(255,60,172,.25);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+width:92%;
+
+max-width:900px;
+
+margin:auto;
+
+padding:90px 0 40px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+
+text-align:center;
+
+animation:appear .8s ease;
+}
+
+.header h1{
+
+font-size:34px;
+
+margin-top:10px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#b9afff,
+#ff8bd4
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+.header p{
+
+margin-top:8px;
+
+opacity:.65;
+}
+
+.gallery-label{
+
+margin-top:14px;
+
+font-size:15px;
+
+color:#cfc8ff;
+
+opacity:.75;
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin-top:25px;
+}
+
+.tabs button{
+
+border:1px solid rgba(255,255,255,.15);
+
+padding:12px 20px;
+
+border-radius:25px;
+
+font-size:15px;
+
+color:#fff;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.tabs button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.3);
+}
+
+.tabs button.active{
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.45),
+0 0 30px rgba(255,60,172,.15);
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+
+display:none;
+
+padding:25px 0 20px;
+
+animation:fade .45s ease;
+}
+
+.section.active{
+
+display:block;
+}
+
+.section h2{
+
+text-align:center;
+
+margin-bottom:18px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#c5bcff,
+#ff9ddd
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(15px);
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+}
+
+}
+
+
+/* =========================
+   REFRESH
+========================= */
+
+.refresh{
+
+border:1px solid rgba(255,255,255,.15);
+
+background:rgba(255,255,255,.08);
+
+color:#fff;
+
+padding:10px 18px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+margin:0 auto 18px;
+
+display:block;
+
+transition:.3s;
+
+backdrop-filter:blur(10px);
+}
+
+.refresh:hover{
+
+transform:scale(1.05);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.35);
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+
+padding:30px 10px;
+
+text-align:center;
+
+color:#ccc;
+
+font-size:15px;
+}
+
+.spinner{
+
+width:40px;
+height:40px;
+
+border:4px solid rgba(255,255,255,.15);
+
+border-top:4px solid #735cff;
+
+border-right:4px solid #ff3cac;
+
+border-radius:50%;
+
+margin:0 auto 15px;
+
+animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+
+padding:30px 15px;
+
+color:#bbb;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.1);
+
+border-radius:20px;
+
+max-width:550px;
+
+margin:auto;
+
+backdrop-filter:blur(15px);
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:12px;
+
+max-width:750px;
+
+margin:auto;
+}
+
+.photo-item{
+
+position:relative;
+
+overflow:hidden;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.25);
+
+transition:.3s;
+}
+
+.photo-item:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 25px rgba(115,92,255,.25);
+}
+
+.photo-item img{
+
+width:100%;
+
+height:190px;
+
+object-fit:cover;
+
+display:block;
+
+cursor:pointer;
+
+transition:.4s;
+}
+
+.photo-item:hover img{
+
+transform:scale(1.07);
+}
+
+.photo-name{
+
+position:absolute;
+
+bottom:0;
+
+left:0;
+right:0;
+
+padding:10px;
+
+background:
+linear-gradient(
+transparent,
+rgba(0,0,0,.85)
+);
+
+font-size:12px;
+
+text-align:left;
+
+overflow:hidden;
+
+white-space:nowrap;
+
+text-overflow:ellipsis;
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-list{
+
+max-width:650px;
+
+margin:auto;
+}
+
+.music-card{
+
+margin:15px auto;
+
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.2);
+
+transition:.3s;
+}
+
+.music-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 25px rgba(115,92,255,.25);
+}
+
+.music-icon{
+
+font-size:45px;
+
+text-align:center;
+
+animation:musicGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes musicGlow{
+
+to{
+
+filter:
+drop-shadow(
+0 0 12px #ff3cac
+);
+
+}
+
+}
+
+.music-card h3{
+
+margin:10px 0;
+
+text-align:center;
+
+word-break:break-word;
+}
+
+.music-card audio{
+
+width:100%;
+
+margin-top:10px;
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-list{
+
+max-width:750px;
+
+margin:auto;
+}
+
+.video-card{
+
+margin:15px auto;
+
+padding:15px;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.2);
+
+transition:.3s;
+}
+
+.video-card:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 0 25px rgba(255,60,172,.2);
+}
+
+.video-card h3{
+
+margin:5px 0 12px;
+
+word-break:break-word;
+}
+
+.video-card video{
+
+width:100%;
+
+max-height:500px;
+
+border-radius:15px;
+
+display:block;
+
+background:#000;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back{
+
+display:block;
+
+width:max-content;
+
+margin:25px auto;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+color:#fff;
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.3);
+
+transition:.3s;
+}
+
+.back:hover{
+
+transform:translateY(-3px) scale(1.03);
+
+box-shadow:
+0 0 25px rgba(115,92,255,.7);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+text-align:center;
+
+padding:25px 10px;
+
+opacity:.5;
+
+font-size:13px;
+}
+
+
+/* =========================
+   IMAGE VIEWER
+========================= */
+
+.viewer{
+
+display:none;
+
+position:fixed;
+
+z-index:9999;
+
+inset:0;
+
+background:rgba(0,0,0,.94);
+
+align-items:center;
+
+justify-content:center;
+
+padding:20px;
+}
+
+.viewer.show{
+
+display:flex;
+}
+
+.viewer img{
+
+max-width:95%;
+
+max-height:85vh;
+
+object-fit:contain;
+
+border-radius:15px;
+
+box-shadow:
+0 0 35px rgba(115,92,255,.5);
+}
+
+.close{
+
+position:absolute;
+
+top:15px;
+
+right:20px;
+
+font-size:40px;
+
+cursor:pointer;
+
+color:#fff;
+
+z-index:10000;
+
+transition:.3s;
+}
+
+.close:hover{
+
+color:#ff8bd4;
+
+transform:scale(1.1);
+}
+
+
+/* =========================
+   APPEAR
+========================= */
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+}
+
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light{
+
+color:#222;
+
+background:
+radial-gradient(
+circle at 10% 10%,
+#b9b1ff 0,
+transparent 28%
+),
+radial-gradient(
+circle at 90% 85%,
+#ffc4e7 0,
+transparent 28%
+),
+linear-gradient(
+135deg,
+#eef1ff,
+#fff,
+#f9edff
+);
+}
+
+body.light .side-menu{
+
+background:
+radial-gradient(
+circle at 15% 15%,
+rgba(115,92,255,.15),
+transparent 32%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(255,60,172,.15),
+transparent 32%
+),
+rgba(255,255,255,.97);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.12),
+0 0 30px rgba(115,92,255,.12);
+}
+
+body.light .side-menu a{
+
+color:#222;
+
+background:rgba(0,0,0,.035);
+
+border-color:rgba(0,0,0,.07);
+}
+
+body.light .theme-btn{
+
+color:#222;
+}
+
+body.light .menu-btn span{
+
+background:#222;
+}
+
+body.light .tabs button,
+body.light .refresh{
+
+color:#222;
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.08);
+}
+
+body.light .music-card,
+body.light .video-card,
+body.light .empty{
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.08);
+}
+
+body.light .header h1,
+body.light .section h2{
+
+background:
+linear-gradient(
+90deg,
+#222,
+#635bff,
+#ff3cac
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+body.light .gallery-label{
+
+color:#555;
+}
+
+body.light .loading{
+
+color:#555;
+}
+
+body.light .empty{
+
+color:#555;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+.container{
+
+width:94%;
+
+padding-top:85px;
+}
+
+.header h1{
+
+font-size:28px;
+}
+
+.gallery{
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:9px;
+}
+
+.photo-item img{
+
+height:150px;
+}
+
+.tabs button{
+
+padding:10px 16px;
+
+font-size:14px;
+}
+
+
+/* INDEX MOBILE MENU = 75% */
+
+.side-menu{
+
+width:75%;
+
+padding:85px 18px 25px;
+}
+
+.side-menu a{
+
+padding:15px;
+
+font-size:15px;
+}
+
+}
+
+@media(max-width:350px){
+
+.gallery{
+
+grid-template-columns:1fr;
+}
+
+.photo-item img{
+
+height:220px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="bg">
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="blob blob3"></div>
+
+</div>
+
+
+<!-- =========================
+     MENU BUTTON
+========================= -->
+
+<div
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<!-- =========================
+     THEME BUTTON
+========================= -->
+
+<button
+class="theme-btn"
+id="themeBtn"
+onclick="toggleTheme()">
+
+🌙
+
+</button>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+class="side-menu"
+id="sideMenu">
+
+<a href="index.html">
+🏠 Home
+</a>
+
+<a href="about.html">
+👤 About
+</a>
+
+<a href="contact.html">
+📞 Contact
+</a>
+
+<a href="gallery.html">
+📸 Gallery
+</a>
+
+<a
+id="menuFacebook"
+href="#"
+target="_blank">
+
+🔵 Facebook
+
+</a>
+
+<a
+id="menuLinkedin"
+href="#"
+target="_blank">
+
+💼 LinkedIn
+
+</a>
+
+<a
+id="menuWhatsapp"
+href="#"
+target="_blank">
+
+☎️ WhatsApp
+
+</a>
+
+<a href="admin.html">
+🔐 Admin Login
+</a>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+<div class="header">
+
+<h1>
+📂 My Gallery
+</h1>
+
+<p>
+SM RAYHAN
+</p>
+
+<div class="gallery-label">
+📸 Photos • 🎵 Music • 🎬 Videos
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     TABS
+========================= -->
+
+<div class="tabs">
+
+<button
+id="photoBtn"
+class="active"
+onclick="showSection('photo',this)">
+
+📸 Photo
+
+</button>
+
+
+<button
+id="musicBtn"
+onclick="showSection('music',this)">
+
+🎵 Music
+
+</button>
+
+
+<button
+id="videoBtn"
+onclick="showSection('video',this)">
+
+🎬 Video
+
+</button>
+
+</div>
+
+
+
+<!-- =========================
+     PHOTO
+========================= -->
+
+<div
+id="photo"
+class="section active">
+
+<h2>
+📸 My Photos
+</h2>
+
+
+<button
+class="refresh"
+onclick="loadPhotos()">
+
+🔄 Refresh Photos
+
+</button>
+
+
+<div
+id="photoLoading"
+class="loading">
+
+<div class="spinner"></div>
+
+Photos loading...
+
+</div>
+
+
+<div
+id="photoGallery"
+class="gallery">
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<div
+id="music"
+class="section">
+
+<h2>
+🎵 My Music
+</h2>
+
+
+<button
+class="refresh"
+onclick="loadMusic()">
+
+🔄 Refresh Music
+
+</button>
+
+
+<div
+id="musicLoading"
+class="loading">
+
+<div class="spinner"></div>
+
+Music loading...
+
+</div>
+
+
+<div
+id="musicList"
+class="music-list">
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<div
+id="video"
+class="section">
+
+<h2>
+🎬 My Videos
+</h2>
+
+
+<button
+class="refresh"
+onclick="loadVideos()">
+
+🔄 Refresh Videos
+
+</button>
+
+
+<div
+id="videoLoading"
+class="loading">
+
+<div class="spinner"></div>
+
+Videos loading...
+
+</div>
+
+
+<div
+id="videoList"
+class="video-list">
+</div>
+
+</div>
+
+
+
+<a
+href="index.html"
+class="back">
+
+🏠 Back Home
+
+</a>
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer">
+
+© 2026 SM RAYHAN |
+My Gallery ❤️
+
+</div>
+
+
+
+<!-- =========================
+     IMAGE VIEWER
+========================= -->
+
+<div
+id="viewer"
+class="viewer"
+onclick="closeViewer()">
+
+<span
+class="close">
+
+×
+</span>
+
+
+<img
+id="viewerImage"
+src=""
+alt="Full Image"
+onclick="event.stopPropagation()">
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL=
+"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
+
+const SUPABASE_KEY=
+"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
+
+const supabaseClient=
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* =========================
+   INDEX STYLE MENU
+========================= */
+
+function toggleMenu(){
+
+const menu=
+document.getElementById("sideMenu");
+
+menu.classList.toggle("show");
+
+}
+
+
+/* =========================
+   OUTSIDE CLICK = CLOSE
+========================= */
+
+document.addEventListener(
+"click",
+function(event){
+
+const menu=
+document.getElementById("sideMenu");
+
+const button=
+document.getElementById("menuBtn");
+
+
+if(
+menu.classList.contains("show") &&
+!menu.contains(event.target) &&
+!button.contains(event.target)
+){
+
+menu.classList.remove("show");
+
+}
+
+});
+
+
+/* =========================
+   CLOSE MENU AFTER LINK CLICK
+========================= */
+
+document
+.querySelectorAll("#sideMenu a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+document
+.getElementById("sideMenu")
+.classList.remove("show");
+
+});
+
+});
+
+
+/* =========================
+   THEME
+========================= */
+
+function applyTheme(){
+
+if(
+localStorage.getItem("theme")==="light"
+){
+
+document.body.classList.add("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="☀️";
+
+}else{
+
+document.body.classList.remove("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="🌙";
+
+}
+
+}
+
+
+function toggleTheme(){
+
+document.body.classList.toggle("light");
+
+const btn=
+document.getElementById("themeBtn");
+
+if(
+document.body.classList.contains("light")
+){
+
+btn.innerText="☀️";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}else{
+
+btn.innerText="🌙";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+}
+
+
+applyTheme();
+
+
+/* =========================
+   SHOW SECTION
+========================= */
+
+function showSection(
+sectionName,
+button
+){
+
+document
+.querySelectorAll(".section")
+.forEach(function(section){
+
+section.classList.remove("active");
+
+});
+
+
+document
+.querySelectorAll(".tabs button")
+.forEach(function(btn){
+
+btn.classList.remove("active");
+
+});
+
+
+document
+.getElementById(sectionName)
+.classList.add("active");
+
+
+button.classList.add("active");
+
+
+if(sectionName==="photo"){
+
+loadPhotos();
+
+}
+
+
+if(sectionName==="music"){
+
+loadMusic();
+
+}
+
+
+if(sectionName==="video"){
+
+loadVideos();
+
+}
+
+}
+
+
+/* =========================
+   FILE NAME
+========================= */
+
+function cleanFileName(name){
+
+if(!name){
+
+return "";
+
+}
+
+return name
+
+.replace(/\.[^/.]+$/,"")
+
+.replace(/[_-]+/g," ")
+
+.trim();
+
+}
+
+
+/* =========================
+   PHOTOS
+========================= */
+
+async function loadPhotos(){
+
+const loading=
+document.getElementById(
+"photoLoading"
+);
+
+const gallery=
+document.getElementById(
+"photoGallery"
+);
+
+loading.style.display="block";
+
+gallery.innerHTML="";
+
+
+const {data,error}=
+await supabaseClient
+
+.storage
+
+.from("media")
+
+.list(
+"photos",
+{
+limit:100,
+
+sortBy:{
+column:"name",
+order:"desc"
+}
+
+}
+);
+
+
+loading.style.display="none";
+
+
+if(error){
+
+gallery.innerHTML=`
+
+<div class="empty">
+
+❌ Photos load করা যাচ্ছে না।
+
+<br><br>
+
+${error.message}
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const files=
+(data||[]).filter(
+function(file){
+
+return file.name &&
+file.id!==null;
+
+}
+);
+
+
+if(files.length===0){
+
+gallery.innerHTML=`
+
+<div
+class="empty"
+style="grid-column:1/-1;">
+
+📭 এখনো কোনো Photo upload করা হয়নি।
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+files.forEach(
+function(file){
+
+const path=
+"photos/"+file.name;
+
+
+const result=
+supabaseClient
+
+.storage
+
+.from("media")
+
+.getPublicUrl(path);
+
+
+const imageUrl=
+result.data.publicUrl;
+
+
+const item=
+document.createElement("div");
+
+item.className=
+"photo-item";
+
+
+item.innerHTML=`
+
+<img
+
+src="${imageUrl}"
+
+alt="${file.name}"
+
+loading="lazy"
+
+onclick="openViewer('${imageUrl}')"
+
+>
+
+
+<div class="photo-name">
+
+${cleanFileName(file.name)}
+
+</div>
+
+`;
+
+
+gallery.appendChild(item);
+
+});
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+async function loadMusic(){
+
+const loading=
+document.getElementById(
+"musicLoading"
+);
+
+const list=
+document.getElementById(
+"musicList"
+);
+
+loading.style.display="block";
+
+list.innerHTML="";
+
+
+const {data,error}=
+await supabaseClient
+
+.storage
+
+.from("media")
+
+.list(
+"music",
+{
+limit:100,
+
+sortBy:{
+column:"name",
+order:"desc"
+}
+
+}
+);
+
+
+loading.style.display="none";
+
+
+if(error){
+
+list.innerHTML=`
+
+<div class="empty">
+
+❌ Music load করা যাচ্ছে না।
+
+<br><br>
+
+${error.message}
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const files=
+(data||[]).filter(
+function(file){
+
+return file.name &&
+file.id!==null;
+
+}
+);
+
+
+if(files.length===0){
+
+list.innerHTML=`
+
+<div class="empty">
+
+🎵 এখনো কোনো Music upload করা হয়নি।
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+files.forEach(
+function(file){
+
+const path=
+"music/"+file.name;
+
+
+const result=
+supabaseClient
+
+.storage
+
+.from("media")
+
+.getPublicUrl(path);
+
+
+const musicUrl=
+result.data.publicUrl;
+
+
+const card=
+document.createElement("div");
+
+card.className=
+"music-card";
+
+
+card.innerHTML=`
+
+<div class="music-icon">
+
+🎧
+
+</div>
+
+
+<h3>
+
+${cleanFileName(file.name)}
+
+</h3>
+
+
+<audio
+controls
+preload="none">
+
+<source
+
+src="${musicUrl}"
+
+type="${
+file.metadata?.mimetype ||
+"audio/mpeg"
+}">
+
+তোমার browser audio support করে না।
+
+</audio>
+
+`;
+
+
+list.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   VIDEOS
+========================= */
+
+async function loadVideos(){
+
+const loading=
+document.getElementById(
+"videoLoading"
+);
+
+const list=
+document.getElementById(
+"videoList"
+);
+
+loading.style.display="block";
+
+list.innerHTML="";
+
+
+const {data,error}=
+await supabaseClient
+
+.storage
+
+.from("media")
+
+.list(
+"videos",
+{
+limit:100,
+
+sortBy:{
+column:"name",
+order:"desc"
+}
+
+}
+);
+
+
+loading.style.display="none";
+
+
+if(error){
+
+list.innerHTML=`
+
+<div class="empty">
+
+❌ Videos load করা যাচ্ছে না।
+
+<br><br>
+
+${error.message}
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+const files=
+(data||[]).filter(
+function(file){
+
+return file.name &&
+file.id!==null;
+
+}
+);
+
+
+if(files.length===0){
+
+list.innerHTML=`
+
+<div class="empty">
+
+🎬 এখনো কোনো Video upload করা হয়নি।
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+files.forEach(
+function(file){
+
+const path=
+"videos/"+file.name;
+
+
+const result=
+supabaseClient
+
+.storage
+
+.from("media")
+
+.getPublicUrl(path);
+
+
+const videoUrl=
+result.data.publicUrl;
+
+
+const card=
+document.createElement("div");
+
+card.className=
+"video-card";
+
+
+card.innerHTML=`
+
+<h3>
+
+🎬 ${cleanFileName(file.name)}
+
+</h3>
+
+
+<video
+controls
+preload="metadata">
+
+<source
+
+src="${videoUrl}"
+
+type="${
+file.metadata?.mimetype ||
+"video/mp4"
+}">
+
+তোমার browser video support করে না।
+
+</video>
+
+`;
+
+
+list.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   IMAGE VIEWER
+========================= */
+
+function openViewer(url){
+
+const viewer=
+document.getElementById(
+"viewer"
+);
+
+const image=
+document.getElementById(
+"viewerImage"
+);
+
+image.src=url;
+
+viewer.classList.add("show");
+
+}
+
+
+function closeViewer(){
+
+const viewer=
+document.getElementById(
+"viewer"
+);
+
+const image=
+document.getElementById(
+"viewerImage"
+);
+
+viewer.classList.remove("show");
+
+image.src="";
+
+}
+
+
+/* =========================
+   ESC CLOSE
+========================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+if(event.key==="Escape"){
+
+closeViewer();
+
+}
+
+}
+);
+
+
+/* =========================
+   SOCIAL MENU
+========================= */
+
+async function loadSocial(){
+
+try{
+
+const {data,error}=
+await supabaseClient
+
+.from("website_content")
+
+.select("section,content");
+
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+
+const content={};
+
+
+(data||[]).forEach(
+function(row){
+
+content[row.section]=
+row.content||{};
+
+});
+
+
+const social=
+content.social||{};
+
+
+if(social.facebook){
+
+document.getElementById(
+"menuFacebook"
+).href=
+social.facebook;
+
+}
+
+
+if(social.linkedin){
+
+document.getElementById(
+"menuLinkedin"
+).href=
+social.linkedin;
+
+}
+
+
+if(social.whatsapp){
+
+let value=
+String(
+social.whatsapp
+).trim();
+
+
+if(!value.startsWith("http")){
+
+let number=
+value.replace(/\D/g,"");
+
+
+if(number.startsWith("0")){
+
+number="88"+number;
+
+}
+
+
+value=
+"https://wa.me/"+number;
+
+}
+
+
+document.getElementById(
+"menuWhatsapp"
+).href=
+value;
+
+}
+
+}catch(error){
+
+console.error(
+"Social loading failed:",
+error
+);
+
+}
+
+}
+
+
+loadSocial();
+
+
+/* =========================
+   FIRST LOAD
+========================= */
+
+loadPhotos();
+
+</script>
+
+</body>
+
+</html>

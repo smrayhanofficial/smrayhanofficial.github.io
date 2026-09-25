@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>SM RAYHAN | About</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#fff;
+min-height:100vh;
+overflow-x:hidden;
+
+background:
+radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+linear-gradient(135deg,#080914,#12152a,#080914);
+
+transition:.4s;
+}
+
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+pointer-events:none;
+z-index:-1;
+}
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(70px);
+opacity:.22;
+animation:float 8s ease-in-out infinite alternate;
+}
+
+.blob1{
+width:280px;
+height:280px;
+background:#735cff;
+left:-100px;
+top:10%;
+}
+
+.blob2{
+width:300px;
+height:300px;
+background:#ff3cac;
+right:-120px;
+bottom:5%;
+animation-delay:1s;
+}
+
+.blob3{
+width:180px;
+height:180px;
+background:#00d4ff;
+left:45%;
+top:40%;
+animation-delay:2s;
+}
+
+@keyframes float{
+
+to{
+transform:translate(45px,40px) scale(1.18);
+}
+
+}
+
+
+/* =========================
+   INDEX STYLE MENU BUTTON
+========================= */
+
+.menu-btn{
+position:fixed;
+left:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+gap:5px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+
+cursor:pointer;
+z-index:10002;
+
+transition:.3s;
+}
+
+.menu-btn:hover{
+
+transform:scale(1.06);
+
+box-shadow:
+0 0 15px rgba(115,92,255,.6),
+0 0 30px rgba(255,60,172,.3);
+
+}
+
+.menu-btn span{
+width:23px;
+height:2px;
+
+background:#fff;
+
+border-radius:10px;
+
+transition:.3s;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-btn{
+position:fixed;
+right:15px;
+top:15px;
+
+width:48px;
+height:48px;
+
+border-radius:15px;
+
+background:rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.2);
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+z-index:10002;
+
+backdrop-filter:blur(15px);
+
+transition:.3s;
+}
+
+.theme-btn:hover{
+
+box-shadow:
+0 0 15px rgba(115,92,255,.7),
+0 0 30px rgba(255,60,172,.3);
+
+transform:scale(1.05);
+}
+
+
+/* =========================
+   INDEX STYLE SIDE MENU
+========================= */
+
+.side-menu{
+
+position:fixed;
+
+left:0;
+top:0;
+
+width:50%;
+height:100vh;
+
+padding:90px 20px 30px;
+
+background:
+radial-gradient(
+circle at 20% 20%,
+rgba(99,91,255,.35),
+transparent 35%
+),
+radial-gradient(
+circle at 80% 80%,
+rgba(255,60,172,.25),
+transparent 35%
+),
+rgba(8,9,20,.97);
+
+border-right:1px solid rgba(255,255,255,.18);
+
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.35),
+0 0 30px rgba(115,92,255,.25);
+
+transform:translateX(-100%);
+
+opacity:0;
+
+visibility:hidden;
+
+transition:
+transform .4s ease,
+opacity .3s ease,
+visibility .4s ease;
+
+overflow-y:auto;
+
+z-index:10001;
+}
+
+.side-menu.show{
+
+transform:translateX(0);
+
+opacity:1;
+
+visibility:visible;
+}
+
+
+.side-menu a{
+
+display:block;
+
+text-decoration:none;
+
+color:#fff;
+
+padding:15px 14px;
+
+border-radius:14px;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.3s;
+}
+
+.side-menu a:hover{
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+transform:translateX(5px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.4),
+0 0 25px rgba(255,60,172,.25);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+width:92%;
+max-width:900px;
+
+margin:auto;
+
+padding:90px 0 50px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-section{
+
+text-align:center;
+
+animation:appear .8s ease;
+}
+
+.profile{
+
+width:125px;
+height:125px;
+
+margin:auto;
+
+position:relative;
+}
+
+.profile img{
+
+width:100%;
+height:100%;
+
+object-fit:cover;
+
+border-radius:50%;
+
+border:4px solid rgba(255,255,255,.8);
+
+box-shadow:
+0 0 25px rgba(124,92,255,.7),
+0 0 50px rgba(255,60,172,.25);
+
+animation:profileGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes profileGlow{
+
+to{
+
+box-shadow:
+0 0 40px rgba(124,92,255,.9),
+0 0 70px rgba(255,60,172,.4);
+
+}
+
+}
+
+
+.profile-section h1{
+
+margin-top:20px;
+
+font-size:34px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#b9afff,
+#ff8bd4
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+text-shadow:
+0 0 20px rgba(115,92,255,.15);
+}
+
+
+.profile-section p{
+
+margin-top:8px;
+
+opacity:.65;
+}
+
+
+.page-label{
+
+margin-top:15px;
+
+font-size:15px;
+
+opacity:.75;
+
+color:#cfc8ff;
+
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+
+margin-top:25px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.13);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.2),
+0 0 25px rgba(115,92,255,.08);
+
+animation:appear .8s ease;
+
+transition:.35s;
+}
+
+.card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.25),
+0 0 30px rgba(115,92,255,.18),
+0 0 50px rgba(255,60,172,.05);
+}
+
+
+.card h2{
+
+margin-bottom:15px;
+
+background:
+linear-gradient(
+90deg,
+#fff,
+#c5bcff,
+#ff9ddd
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+
+.card > p{
+
+line-height:1.8;
+
+opacity:.72;
+
+white-space:pre-line;
+}
+
+
+/* =========================
+   INFO BOX
+========================= */
+
+.info{
+
+margin-top:15px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.1);
+
+transition:.35s;
+
+text-align:left;
+}
+
+.info:hover{
+
+background:rgba(255,255,255,.1);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.15),
+0 0 35px rgba(255,60,172,.05);
+
+transform:translateX(4px);
+}
+
+
+.info b{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:15px;
+
+color:#dcd6ff;
+}
+
+
+.info p{
+
+line-height:1.7;
+
+opacity:.72;
+
+white-space:pre-line;
+}
+
+
+/* =========================
+   VISION BOX
+========================= */
+
+.vision-box{
+
+text-align:center;
+
+margin-top:18px;
+
+padding:20px;
+
+border-radius:20px;
+
+background:rgba(115,92,255,.08);
+
+border:1px solid rgba(115,92,255,.2);
+
+box-shadow:
+0 0 20px rgba(115,92,255,.12);
+
+animation:visionGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes visionGlow{
+
+to{
+
+box-shadow:
+0 0 30px rgba(115,92,255,.28),
+0 0 50px rgba(255,60,172,.1);
+
+}
+
+}
+
+.vision-box p{
+
+line-height:1.8;
+
+opacity:.8;
+}
+
+
+/* =========================
+   APPEAR ANIMATION
+========================= */
+
+@keyframes appear{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light{
+
+color:#222;
+
+background:
+radial-gradient(circle at 10% 10%,#b9b1ff 0,transparent 28%),
+radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
+linear-gradient(135deg,#eef1ff,#fff,#f9edff);
+}
+
+
+body.light .side-menu{
+
+background:
+radial-gradient(
+circle at 15% 15%,
+rgba(115,92,255,.15),
+transparent 32%
+),
+radial-gradient(
+circle at 85% 85%,
+rgba(255,60,172,.15),
+transparent 32%
+),
+rgba(255,255,255,.97);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+10px 0 40px rgba(0,0,0,.12),
+0 0 30px rgba(115,92,255,.12);
+}
+
+
+body.light .side-menu a{
+
+color:#222;
+
+background:rgba(0,0,0,.035);
+
+border-color:rgba(0,0,0,.07);
+}
+
+
+body.light .theme-btn{
+
+color:#222;
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.1);
+}
+
+
+body.light .menu-btn{
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.1);
+}
+
+
+body.light .menu-btn span{
+
+background:#222;
+}
+
+
+body.light .profile-section h1{
+
+background:
+linear-gradient(
+90deg,
+#222,
+#635bff,
+#ff3cac
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+
+body.light .card{
+
+background:rgba(255,255,255,.65);
+
+border-color:rgba(0,0,0,.08);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.1);
+}
+
+
+body.light .card h2{
+
+background:
+linear-gradient(
+90deg,
+#222,
+#635bff,
+#ff3cac
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+}
+
+
+body.light .info{
+
+background:rgba(0,0,0,.035);
+
+border-color:rgba(0,0,0,.08);
+}
+
+
+body.light .info b{
+
+color:#333;
+}
+
+
+body.light .page-label{
+
+color:#555;
+}
+
+
+body.light .profile-section p{
+
+color:#444;
+}
+
+
+body.light .card > p,
+body.light .info p{
+
+color:#333;
+}
+
+
+body.light .vision-box{
+
+background:rgba(115,92,255,.08);
+
+border-color:rgba(115,92,255,.2);
+}
+
+
+/* =========================
+   MOBILE — INDEX STYLE
+========================= */
+
+@media(max-width:600px){
+
+.container{
+
+width:94%;
+
+padding-top:85px;
+}
+
+
+.profile{
+
+width:110px;
+
+height:110px;
+}
+
+
+.profile-section h1{
+
+font-size:28px;
+}
+
+
+.card{
+
+padding:20px 15px;
+}
+
+
+.info{
+
+padding:15px;
+}
+
+
+/* INDEX MOBILE MENU = 75% */
+
+.side-menu{
+
+width:75%;
+
+padding:85px 18px 25px;
+}
+
+
+.side-menu a{
+
+padding:15px;
+
+font-size:15px;
+}
+
+}
+
+
+/* =========================
+   SMALL DEVICES
+========================= */
+
+@media(max-width:380px){
+
+.side-menu a{
+
+font-size:15px;
+
+padding:15px;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="bg">
+
+<div class="blob blob1"></div>
+
+<div class="blob blob2"></div>
+
+<div class="blob blob3"></div>
+
+</div>
+
+
+<!-- =========================
+     INDEX STYLE MENU BUTTON
+========================= -->
+
+<div
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+
+<!-- =========================
+     THEME BUTTON
+========================= -->
+
+<button
+class="theme-btn"
+id="themeBtn"
+onclick="toggleTheme()">
+
+🌙
+
+</button>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<div
+class="side-menu"
+id="sideMenu">
+
+
+<a href="index.html">
+
+🏠 Home
+
+</a>
+
+
+<a href="about.html">
+
+👤 About
+
+</a>
+
+
+<a href="contact.html">
+
+📞 Contact
+
+</a>
+
+
+<a href="gallery.html">
+
+📸 Gallery
+
+</a>
+
+
+<a
+id="menuFacebook"
+href="#"
+target="_blank">
+
+🔵 Facebook
+
+</a>
+
+
+<a
+id="menuLinkedin"
+href="#"
+target="_blank">
+
+💼 LinkedIn
+
+</a>
+
+
+<a
+id="menuWhatsapp"
+href="#"
+target="_blank">
+
+☎️ WhatsApp
+
+</a>
+
+
+<a href="admin.html">
+
+🔐 Admin Login
+
+</a>
+
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+
+<section class="profile-section">
+
+
+<div class="profile">
+
+<img
+src="smraihan.jpg"
+alt="SM RAYHAN">
+
+</div>
+
+
+<h1 id="profileName">
+
+SM RAYHAN
+
+</h1>
+
+
+<p id="profileSubtitle">
+
+Welcome to My Website ❤️
+
+</p>
+
+
+<div class="page-label">
+
+👤 About Me
+
+</div>
+
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<div class="card">
+
+<h2 id="aboutTitle">
+
+👤 About Me
+
+</h2>
+
+
+<p id="aboutText">
+
+Hello! I am SM RAYHAN.
+
+</p>
+
+</div>
+
+
+
+<!-- =========================
+     PERSONAL INFORMATION
+========================= -->
+
+<div class="card">
+
+<h2>
+
+📋 Personal Information
+
+</h2>
+
+
+<div class="info">
+
+<b>
+
+👤 Name
+
+</b>
+
+
+<p id="infoName">
+
+SM RAYHAN
+
+</p>
+
+</div>
+
+
+<div class="info">
+
+<b>
+
+💻 Learning
+
+</b>
+
+
+<p id="learning">
+
+HTML • CSS • JavaScript
+
+</p>
+
+</div>
+
+
+<div class="info">
+
+<b>
+
+📊 Other Skill
+
+</b>
+
+
+<p id="otherSkill">
+
+Microsoft Excel
+
+</p>
+
+</div>
+
+
+<div class="info">
+
+<b>
+
+🎯 Goal
+
+</b>
+
+
+<p id="goal">
+
+নিজের সুন্দর Professional Website তৈরি করা।
+
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     VISION
+========================= -->
+
+<div class="card">
+
+<h2>
+
+🚀 My Vision
+
+</h2>
+
+
+<div class="vision-box">
+
+<p id="vision">
+
+শিখতে থাকা, নতুন কিছু তৈরি করা
+এবং প্রতিদিন আগের চেয়ে ভালো হওয়া।
+
+</p>
+
+</div>
+
+
+<div class="vision-box">
+
+<p>
+
+💪 Never Stop Learning ❤️
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL=
+"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
+
+const SUPABASE_KEY=
+"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
+
+const supabaseClient=
+window.supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
+
+
+/* =========================
+   INDEX STYLE MENU
+========================= */
+
+function toggleMenu(){
+
+const menu=
+document.getElementById("sideMenu");
+
+menu.classList.toggle("show");
+
+}
+
+
+/* =========================
+   OUTSIDE CLICK = CLOSE
+========================= */
+
+document.addEventListener(
+"click",
+function(event){
+
+const menu=
+document.getElementById("sideMenu");
+
+const button=
+document.getElementById("menuBtn");
+
+
+if(
+menu.classList.contains("show") &&
+!menu.contains(event.target) &&
+!button.contains(event.target)
+){
+
+menu.classList.remove("show");
+
+}
+
+});
+
+
+/* =========================
+   CLOSE MENU AFTER LINK CLICK
+========================= */
+
+document
+.querySelectorAll("#sideMenu a")
+.forEach(function(link){
+
+link.addEventListener(
+"click",
+function(){
+
+document
+.getElementById("sideMenu")
+.classList.remove("show");
+
+});
+
+});
+
+
+/* =========================
+   THEME
+========================= */
+
+function applyTheme(){
+
+if(
+localStorage.getItem("theme")==="light"
+){
+
+document.body.classList.add("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="☀️";
+
+}else{
+
+document.body.classList.remove("light");
+
+document.getElementById(
+"themeBtn"
+).innerText="🌙";
+
+}
+
+}
+
+
+function toggleTheme(){
+
+document.body.classList.toggle("light");
+
+const btn=
+document.getElementById("themeBtn");
+
+
+if(
+document.body.classList.contains("light")
+){
+
+btn.innerText="☀️";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}else{
+
+btn.innerText="🌙";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+}
+
+
+applyTheme();
+
+
+/* =========================
+   TEXT HELPER
+========================= */
+
+function setText(id,value){
+
+const el=
+document.getElementById(id);
+
+
+if(
+el &&
+value!==undefined &&
+value!==null &&
+value!==""
+){
+
+el.innerText=value;
+
+}
+
+}
+
+
+/* =========================
+   LOAD ABOUT DATA
+========================= */
+
+async function loadAbout(){
+
+try{
+
+const {data,error}=
+await supabaseClient
+.from("website_content")
+.select("section,content");
+
+
+if(error){
+
+console.error(error);
+
+return;
+
+}
+
+
+const content={};
+
+
+(data||[]).forEach(row=>{
+
+content[row.section]=
+row.content||{};
+
+});
+
+
+const home=
+content.home||{};
+
+const about=
+content.about||{};
+
+
+
+/* HOME DATA */
+
+setText(
+"profileName",
+home.name || "SM RAYHAN"
+);
+
+
+setText(
+"profileSubtitle",
+home.subtitle ||
+"Welcome to My Website ❤️"
+);
+
+
+setText(
+"infoName",
+home.name ||
+"SM RAYHAN"
+);
+
+
+
+/* ABOUT DATA */
+
+setText(
+"aboutTitle",
+about.about_title ||
+"👤 About Me"
+);
+
+
+setText(
+"aboutText",
+about.about_text
+);
+
+
+setText(
+"learning",
+about.about_learning
+);
+
+
+setText(
+"otherSkill",
+about.about_skill
+);
+
+
+setText(
+"goal",
+about.about_goal
+);
+
+
+setText(
+"vision",
+about.about_vision
+);
+
+
+
+/* =========================
+   SOCIAL MENU
+========================= */
+
+if(content.social){
+
+const social=
+content.social;
+
+
+if(social.facebook){
+
+document.getElementById(
+"menuFacebook"
+).href=
+social.facebook;
+
+}
+
+
+if(social.linkedin){
+
+document.getElementById(
+"menuLinkedin"
+).href=
+social.linkedin;
+
+}
+
+
+if(social.whatsapp){
+
+let value=
+social.whatsapp.trim();
+
+
+if(
+!value.startsWith("http")
+){
+
+let number=
+value.replace(/\D/g,"");
+
+
+if(
+number.startsWith("0")
+){
+
+number="88"+number;
+
+}
+
+
+value=
+"https://wa.me/"+number;
+
+}
+
+
+document.getElementById(
+"menuWhatsapp"
+).href=
+value;
+
+}
+
+}
+
+
+}catch(error){
+
+console.error(
+"About loading failed:",
+error
+);
+
+}
+
+}
+
+
+loadAbout();
+
+</script>
+
+</body>
+
+</html>
