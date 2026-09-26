@@ -64,10 +64,13 @@ padding:75px 15px 20px;overflow-y:auto;transition:.35s ease
 
 .sideMenu.open{left:0}
 
-.menuTitle{text-align:center;font-size:22px;font-weight:bold;margin-bottom:20px}
+.menuTitle{
+text-align:center;font-size:22px;font-weight:bold;margin-bottom:20px
+}
 
 .menuItem{
-width:100%;padding:14px 16px;margin-bottom:9px;border:1px solid var(--border);
+width:100%;padding:14px 16px;margin-bottom:9px;
+border:1px solid var(--border);
 border-radius:13px;background:var(--bg);color:var(--text);
 cursor:pointer;font-size:15px;text-align:left;transition:.25s
 }
@@ -78,6 +81,14 @@ box-shadow:0 0 15px rgba(108,92,231,.18)
 }
 
 .logoutItem{color:#ff4d67}
+
+#loginMenu{
+display:block;
+}
+
+#adminMenu{
+display:none;
+}
 
 #loginPage{
 min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;
@@ -372,23 +383,82 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 <span>SM RAYHAN</span>
 </div>
 
+
+<!-- SIDE MENU -->
+
 <div class="sideMenu" id="sideMenu">
+
+<!-- LOGIN এর আগে ছোট MENU -->
+<div id="loginMenu">
+
+<div class="menuTitle">☰ Menu</div>
+
+<button class="menuItem" onclick="goHome()">🏠 Home</button>
+
+<button class="menuItem" onclick="goAbout()">👤 About</button>
+
+<button class="menuItem" onclick="goContact()">📞 Contact</button>
+
+<button class="menuItem" onclick="goBackWebsite()">
+🌐 Back to Website
+</button>
+
+</div>
+
+
+<!-- LOGIN এর পরে ADMIN MENU -->
+<div id="adminMenu">
 
 <div class="menuTitle">⚙️ Admin Menu</div>
 
-<button class="menuItem" onclick="showPanel('dashboard')">🏠 Dashboard</button>
-<button class="menuItem" onclick="showPanel('home')">🏡 Home</button>
-<button class="menuItem" onclick="showPanel('about')">👤 About</button>
-<button class="menuItem" onclick="showPanel('contact')">📞 Contact</button>
-<button class="menuItem" onclick="showPanel('skills')">🧠 Skills</button>
-<button class="menuItem" onclick="showPanel('projects')">💼 Projects</button>
-<button class="menuItem" onclick="showPanel('social')">🌐 Social</button>
-<button class="menuItem" onclick="showPanel('profile')">🖼️ Profile Picture</button>
-<button class="menuItem" onclick="showPanel('media')">📁 Media</button>
-<button class="menuItem" onclick="showPanel('password')">🔐 Password</button>
-<button class="menuItem logoutItem" onclick="logout()">🚪 Logout</button>
+<button class="menuItem" onclick="showPanel('dashboard')">
+🏠 Dashboard
+</button>
+
+<button class="menuItem" onclick="showPanel('home')">
+🏡 Home
+</button>
+
+<button class="menuItem" onclick="showPanel('about')">
+👤 About
+</button>
+
+<button class="menuItem" onclick="showPanel('contact')">
+📞 Contact
+</button>
+
+<button class="menuItem" onclick="showPanel('skills')">
+🧠 Skills
+</button>
+
+<button class="menuItem" onclick="showPanel('projects')">
+💼 Projects
+</button>
+
+<button class="menuItem" onclick="showPanel('social')">
+🌐 Social
+</button>
+
+<button class="menuItem" onclick="showPanel('profile')">
+🖼️ Profile Picture
+</button>
+
+<button class="menuItem" onclick="showPanel('media')">
+📁 Media
+</button>
+
+<button class="menuItem" onclick="showPanel('password')">
+🔐 Password
+</button>
+
+<button class="menuItem logoutItem" onclick="logout()">
+🚪 Logout
+</button>
 
 </div>
+
+</div>
+
 
 <!-- LOGIN -->
 
@@ -401,18 +471,36 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 </div>
 
 <div class="loginTitle">SM RAYHAN</div>
-<div class="loginSub">Admin Control Panel</div>
 
-<div class="inputGroup">
-<input type="email" id="loginEmail" placeholder="Email address">
+<div class="loginSub">
+Admin Control Panel
 </div>
 
 <div class="inputGroup">
-<input type="password" id="loginPassword" placeholder="Password">
+
+<input
+type="email"
+id="loginEmail"
+placeholder="Email address"
+>
+
+</div>
+
+<div class="inputGroup">
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Password"
+>
+
 <button class="eyeBtn" onclick="togglePassword()">👁️</button>
+
 </div>
 
-<button class="loginBtn" onclick="login()">🔐 Login</button>
+<button class="loginBtn" onclick="login()">
+🔐 Login
+</button>
 
 <div class="loginLinks">
 
@@ -431,14 +519,19 @@ Forgot Password?
 </div>
 </div>
 
+
 <!-- ADMIN PAGE -->
 
 <div id="adminPage">
 
 <div class="adminHeader">
+
 <h1>⚙️ Admin Control Panel</h1>
+
 <p>Manage your website from here</p>
+
 </div>
+
 
 <!-- DASHBOARD -->
 
@@ -450,7 +543,9 @@ Forgot Password?
 <img src="smraihan.jpg" alt="SM RAYHAN">
 </div>
 
-<div class="dashboardName">SM RAYHAN</div>
+<div class="dashboardName">
+SM RAYHAN
+</div>
 
 <div class="welcomeGlow">
 <span>✨ Welcome to Admin Panel ✨</span>
@@ -464,7 +559,9 @@ Forgot Password?
 তালা খুলতে পারে|***
 </div>
 
-<div class="quoteBanglaName">_এস এম রায়হান_</div>
+<div class="quoteBanglaName">
+_এস এম রায়হান_
+</div>
 
 <div class="quoteEnglish">
 *Effort should never be spared,
@@ -472,188 +569,386 @@ because even the last key in a bunch
 of keys can open the lock.*
 </div>
 
-<div class="quoteEnglishName">_SM RAYHAN_</div>
+<div class="quoteEnglishName">
+_SM RAYHAN_
+</div>
 
 </div>
 </div>
 </div>
+
 
 <!-- HOME -->
 
 <div class="adminPanel" id="home">
+
 <div class="section">
 
-<div class="sectionTitle">🏡 Home Content</div>
+<div class="sectionTitle">
+🏡 Home Content
+</div>
 
 <label class="fieldLabel">Name</label>
-<input class="textInput" id="home_name" placeholder="SM RAYHAN">
+
+<input
+class="textInput"
+id="home_name"
+placeholder="SM RAYHAN"
+>
 
 <label class="fieldLabel">Subtitle</label>
-<input class="textInput" id="home_subtitle" placeholder="Your subtitle">
+
+<input
+class="textInput"
+id="home_subtitle"
+placeholder="Your subtitle"
+>
 
 <label class="fieldLabel">Home Title</label>
-<input class="textInput" id="home_title" placeholder="Home title">
+
+<input
+class="textInput"
+id="home_title"
+placeholder="Home title"
+>
 
 <label class="fieldLabel">Welcome Text</label>
-<textarea id="home_welcome" placeholder="Welcome text"></textarea>
+
+<textarea
+id="home_welcome"
+placeholder="Welcome text"
+></textarea>
 
 <label class="fieldLabel">Typing Text 1</label>
-<input class="textInput" id="home_type1" placeholder="Typing text 1">
+
+<input
+class="textInput"
+id="home_type1"
+placeholder="Typing text 1"
+>
 
 <label class="fieldLabel">Typing Text 2</label>
-<input class="textInput" id="home_type2" placeholder="Typing text 2">
+
+<input
+class="textInput"
+id="home_type2"
+placeholder="Typing text 2"
+>
 
 <label class="fieldLabel">Typing Text 3</label>
-<input class="textInput" id="home_type3" placeholder="Typing text 3">
+
+<input
+class="textInput"
+id="home_type3"
+placeholder="Typing text 3"
+>
 
 <label class="fieldLabel">Typing Text 4</label>
-<input class="textInput" id="home_type4" placeholder="Typing text 4">
 
-<button class="saveBtn" onclick="saveHome()">💾 Save Home</button>
+<input
+class="textInput"
+id="home_type4"
+placeholder="Typing text 4"
+>
+
+<button class="saveBtn" onclick="saveHome()">
+💾 Save Home
+</button>
+
 <div class="status" id="homeStatus"></div>
 
 </div>
 </div>
 
+
 <!-- ABOUT -->
 
 <div class="adminPanel" id="about">
+
 <div class="section">
 
-<div class="sectionTitle">👤 About</div>
+<div class="sectionTitle">
+👤 About
+</div>
 
 <label class="fieldLabel">About Title</label>
-<input class="textInput" id="about_title" placeholder="About title">
+
+<input
+class="textInput"
+id="about_title"
+placeholder="About title"
+>
 
 <label class="fieldLabel">About Description</label>
-<textarea id="about_text" placeholder="About description"></textarea>
+
+<textarea
+id="about_text"
+placeholder="About description"
+></textarea>
 
 <label class="fieldLabel">What I'm Learning</label>
-<textarea id="about_learning" placeholder="What I'm Learning"></textarea>
+
+<textarea
+id="about_learning"
+placeholder="What I'm Learning"
+></textarea>
 
 <label class="fieldLabel">Other Skill</label>
-<textarea id="about_skill" placeholder="Other Skill"></textarea>
+
+<textarea
+id="about_skill"
+placeholder="Other Skill"
+></textarea>
 
 <label class="fieldLabel">Goal</label>
-<textarea id="about_goal" placeholder="Goal"></textarea>
+
+<textarea
+id="about_goal"
+placeholder="Goal"
+></textarea>
 
 <label class="fieldLabel">Vision</label>
-<textarea id="about_vision" placeholder="Vision"></textarea>
 
-<button class="saveBtn" onclick="saveAbout()">💾 Save About</button>
+<textarea
+id="about_vision"
+placeholder="Vision"
+></textarea>
+
+<button class="saveBtn" onclick="saveAbout()">
+💾 Save About
+</button>
+
 <div class="status" id="aboutStatus"></div>
 
 </div>
 </div>
 
+
 <!-- CONTACT -->
 
 <div class="adminPanel" id="contact">
+
 <div class="section">
 
-<div class="sectionTitle">📞 Contact</div>
+<div class="sectionTitle">
+📞 Contact
+</div>
 
 <label class="fieldLabel">Phone</label>
-<input class="textInput" id="contact_phone" placeholder="Phone number">
+
+<input
+class="textInput"
+id="contact_phone"
+placeholder="Phone number"
+>
 
 <label class="fieldLabel">Email</label>
-<input class="textInput" id="contact_email" placeholder="Email address">
+
+<input
+class="textInput"
+id="contact_email"
+placeholder="Email address"
+>
 
 <label class="fieldLabel">WhatsApp</label>
-<input class="textInput" id="contact_whatsapp" placeholder="WhatsApp">
+
+<input
+class="textInput"
+id="contact_whatsapp"
+placeholder="WhatsApp"
+>
 
 <label class="fieldLabel">Location</label>
-<input class="textInput" id="contact_location" placeholder="Location">
 
-<button class="saveBtn" onclick="saveContact()">💾 Save Contact</button>
+<input
+class="textInput"
+id="contact_location"
+placeholder="Location"
+>
+
+<button class="saveBtn" onclick="saveContact()">
+💾 Save Contact
+</button>
+
 <div class="status" id="contactStatus"></div>
 
 </div>
 </div>
 
+
 <!-- SKILLS -->
 
 <div class="adminPanel" id="skills">
+
 <div class="section">
 
-<div class="sectionTitle">🧠 Skills</div>
+<div class="sectionTitle">
+🧠 Skills
+</div>
 
 <label class="fieldLabel">HTML</label>
-<input class="textInput" id="skill_html" placeholder="HTML skill">
+
+<input
+class="textInput"
+id="skill_html"
+placeholder="HTML skill"
+>
 
 <label class="fieldLabel">CSS</label>
-<input class="textInput" id="skill_css" placeholder="CSS skill">
+
+<input
+class="textInput"
+id="skill_css"
+placeholder="CSS skill"
+>
 
 <label class="fieldLabel">JavaScript</label>
-<input class="textInput" id="skill_javascript" placeholder="JavaScript skill">
+
+<input
+class="textInput"
+id="skill_javascript"
+placeholder="JavaScript skill"
+>
 
 <label class="fieldLabel">Excel</label>
-<input class="textInput" id="skill_excel" placeholder="Excel skill">
 
-<button class="saveBtn" onclick="saveSkills()">💾 Save Skills</button>
+<input
+class="textInput"
+id="skill_excel"
+placeholder="Excel skill"
+>
+
+<button class="saveBtn" onclick="saveSkills()">
+💾 Save Skills
+</button>
+
 <div class="status" id="skillsStatus"></div>
 
 </div>
 </div>
 
+
 <!-- PROJECTS -->
 
 <div class="adminPanel" id="projects">
+
 <div class="section">
 
-<div class="sectionTitle">💼 Projects</div>
+<div class="sectionTitle">
+💼 Projects
+</div>
 
 <label class="fieldLabel">Project 1 Name</label>
-<input class="textInput" id="project1_name" placeholder="Project 1 name">
+
+<input
+class="textInput"
+id="project1_name"
+placeholder="Project 1 name"
+>
 
 <label class="fieldLabel">Project 1 Description</label>
-<textarea id="project1_desc" placeholder="Project 1 description"></textarea>
+
+<textarea
+id="project1_desc"
+placeholder="Project 1 description"
+></textarea>
 
 <label class="fieldLabel">Project 2 Name</label>
-<input class="textInput" id="project2_name" placeholder="Project 2 name">
+
+<input
+class="textInput"
+id="project2_name"
+placeholder="Project 2 name"
+>
 
 <label class="fieldLabel">Project 2 Description</label>
-<textarea id="project2_desc" placeholder="Project 2 description"></textarea>
+
+<textarea
+id="project2_desc"
+placeholder="Project 2 description"
+></textarea>
 
 <label class="fieldLabel">Project 3 Name</label>
-<input class="textInput" id="project3_name" placeholder="Project 3 name">
+
+<input
+class="textInput"
+id="project3_name"
+placeholder="Project 3 name"
+>
 
 <label class="fieldLabel">Project 3 Description</label>
-<textarea id="project3_desc" placeholder="Project 3 description"></textarea>
 
-<button class="saveBtn" onclick="saveProjects()">💾 Save Projects</button>
+<textarea
+id="project3_desc"
+placeholder="Project 3 description"
+></textarea>
+
+<button class="saveBtn" onclick="saveProjects()">
+💾 Save Projects
+</button>
+
 <div class="status" id="projectsStatus"></div>
 
 </div>
 </div>
 
+
 <!-- SOCIAL -->
 
 <div class="adminPanel" id="social">
+
 <div class="section">
 
-<div class="sectionTitle">🌐 Social Media</div>
+<div class="sectionTitle">
+🌐 Social Media
+</div>
 
-<input class="textInput" id="facebook" placeholder="Facebook link">
-<input class="textInput" id="linkedin" placeholder="LinkedIn link">
-<input class="textInput" id="whatsapp" placeholder="WhatsApp username/link">
+<input
+class="textInput"
+id="facebook"
+placeholder="Facebook link"
+>
 
-<button class="saveBtn" onclick="saveSocial()">💾 Save Social</button>
+<input
+class="textInput"
+id="linkedin"
+placeholder="LinkedIn link"
+>
+
+<input
+class="textInput"
+id="whatsapp"
+placeholder="WhatsApp username/link"
+>
+
+<button class="saveBtn" onclick="saveSocial()">
+💾 Save Social
+</button>
+
 <div class="status" id="socialStatus"></div>
 
 </div>
 </div>
 
+
 <!-- PROFILE -->
 
 <div class="adminPanel" id="profile">
+
 <div class="section profilePreview">
 
-<div class="sectionTitle">🖼️ Profile Picture</div>
+<div class="sectionTitle">
+🖼️ Profile Picture
+</div>
 
 <img src="smraihan.jpg" id="profilePreview">
 
-<input type="file" id="profileFile" accept="image/*" class="textInput">
+<input
+type="file"
+id="profileFile"
+accept="image/*"
+class="textInput"
+>
 
 <button class="saveBtn" onclick="uploadProfile()">
 📤 Upload Profile Picture
@@ -664,75 +959,184 @@ of keys can open the lock.*
 </div>
 </div>
 
+
 <!-- MEDIA -->
 
 <div class="adminPanel" id="media">
 
 <div class="section">
 
-<div class="sectionTitle">📁 Media</div>
+<div class="sectionTitle">
+📁 Media
+</div>
 
 <div class="mediaCountGrid">
 
-<div class="mediaCountCard" id="photoCard" onclick="toggleMediaCategory('photos')">
+<div
+class="mediaCountCard"
+id="photoCard"
+onclick="toggleMediaCategory('photos')"
+>
+
 <div class="mediaCountIcon">🖼️</div>
-<div class="mediaCountNumber" id="photoCount">0</div>
-<div class="mediaCountName">Photos</div>
+
+<div
+class="mediaCountNumber"
+id="photoCount"
+>
+0
 </div>
 
-<div class="mediaCountCard" id="musicCard" onclick="toggleMediaCategory('music')">
-<div class="mediaCountIcon">🎵</div>
-<div class="mediaCountNumber" id="musicCount">0</div>
-<div class="mediaCountName">Music</div>
-</div>
-
-<div class="mediaCountCard" id="videoCard" onclick="toggleMediaCategory('videos')">
-<div class="mediaCountIcon">🎬</div>
-<div class="mediaCountNumber" id="videoCount">0</div>
-<div class="mediaCountName">Videos</div>
+<div class="mediaCountName">
+Photos
 </div>
 
 </div>
 
-<div class="mediaCategoryList" id="photosList"></div>
-<div class="mediaCategoryList" id="musicList"></div>
-<div class="mediaCategoryList" id="videosList"></div>
+
+<div
+class="mediaCountCard"
+id="musicCard"
+onclick="toggleMediaCategory('music')"
+>
+
+<div class="mediaCountIcon">
+🎵
+</div>
+
+<div
+class="mediaCountNumber"
+id="musicCount"
+>
+0
+</div>
+
+<div class="mediaCountName">
+Music
+</div>
 
 </div>
+
+
+<div
+class="mediaCountCard"
+id="videoCard"
+onclick="toggleMediaCategory('videos')"
+>
+
+<div class="mediaCountIcon">
+🎬
+</div>
+
+<div
+class="mediaCountNumber"
+id="videoCount"
+>
+0
+</div>
+
+<div class="mediaCountName">
+Videos
+</div>
+
+</div>
+
+</div>
+
+
+<div
+class="mediaCategoryList"
+id="photosList"
+></div>
+
+<div
+class="mediaCategoryList"
+id="musicList"
+></div>
+
+<div
+class="mediaCategoryList"
+id="videosList"
+></div>
+
+</div>
+
 
 <div class="section">
 
-<div class="sectionTitle">📤 Add Media</div>
+<div class="sectionTitle">
+📤 Add Media
+</div>
 
 <div class="uploadGrid">
 
 <div class="mediaBox">
-<strong>🖼️ Add Photos</strong>
-<input type="file" id="photoFiles" accept="image/*" multiple>
+
+<strong>
+🖼️ Add Photos
+</strong>
+
+<input
+type="file"
+id="photoFiles"
+accept="image/*"
+multiple
+>
+
 </div>
 
-<div class="mediaBox">
-<strong>🎵 Add Music</strong>
-<input type="file" id="musicFiles" accept="audio/*" multiple>
-</div>
 
 <div class="mediaBox">
-<strong>🎬 Add Videos</strong>
-<input type="file" id="videoFiles" accept="video/*" multiple>
+
+<strong>
+🎵 Add Music
+</strong>
+
+<input
+type="file"
+id="musicFiles"
+accept="audio/*"
+multiple
+>
+
+</div>
+
+
+<div class="mediaBox">
+
+<strong>
+🎬 Add Videos
+</strong>
+
+<input
+type="file"
+id="videoFiles"
+accept="video/*"
+multiple
+>
+
 </div>
 
 </div>
 
 <br>
 
-<button class="saveBtn" onclick="uploadAllMedia()">
+<button
+class="saveBtn"
+onclick="uploadAllMedia()"
+>
 📤 Upload Selected Media
 </button>
 
-<div class="status" id="uploadStatus"></div>
+<div
+class="status"
+id="uploadStatus"
+></div>
 
 </div>
+
 </div>
+
 
 <!-- PASSWORD -->
 
@@ -740,26 +1144,47 @@ of keys can open the lock.*
 
 <div class="section">
 
-<div class="sectionTitle">🔐 Change Password</div>
+<div class="sectionTitle">
+🔐 Change Password
+</div>
 
-<input type="password" class="textInput" id="newPassword" placeholder="New password">
+<input
+type="password"
+class="textInput"
+id="newPassword"
+placeholder="New password"
+>
 
-<input type="password" class="textInput" id="confirmPassword" placeholder="Confirm new password">
+<input
+type="password"
+class="textInput"
+id="confirmPassword"
+placeholder="Confirm new password"
+>
 
-<button class="saveBtn" onclick="changePassword()">
+<button
+class="saveBtn"
+onclick="changePassword()"
+>
 🔐 Update Password
 </button>
 
-<div class="status" id="passwordStatus"></div>
+<div
+class="status"
+id="passwordStatus"
+></div>
 
 </div>
 </div>
 
 </div>
+
 
 <script>
 
-/* SUPABASE */
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
 "https://oppmdnnzgqdnwpqqkwsq.supabase.co";
@@ -768,27 +1193,36 @@ const SUPABASE_KEY =
 "sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
 
 const supabaseClient =
-supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+supabase.createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
 
-/* THEME */
+/* =========================
+   THEME
+========================= */
 
 function toggleTheme(){
 
 document.body.classList.toggle("dark");
 
-const dark=document.body.classList.contains("dark");
+const dark =
+document.body.classList.contains("dark");
 
 localStorage.setItem(
 "adminTheme",
-dark?"dark":"light"
+dark ? "dark" : "light"
 );
 
-document.getElementById("themeBtn").textContent=
-dark?"☀️":"🌙";
+document.getElementById("themeBtn").textContent =
+dark ? "☀️" : "🌙";
+
 }
 
-if(localStorage.getItem("adminTheme")==="dark"){
+if(
+localStorage.getItem("adminTheme")==="dark"
+){
 
 document.body.classList.add("dark");
 
@@ -797,30 +1231,146 @@ document.getElementById("themeBtn").textContent="☀️";
 }
 
 
-/* MENU */
+/* =========================
+   MENU MODE
+========================= */
 
-function toggleMenu(){
+function setMenuMode(isAdmin){
 
-document.getElementById("sideMenu").classList.toggle("open");
+const loginMenu =
+document.getElementById("loginMenu");
+
+const adminMenu =
+document.getElementById("adminMenu");
+
+if(!loginMenu || !adminMenu)return;
+
+if(isAdmin){
+
+loginMenu.style.display="none";
+adminMenu.style.display="block";
+
+}else{
+
+loginMenu.style.display="block";
+adminMenu.style.display="none";
+
+}
 
 }
 
 
-/* PANEL */
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+const menu =
+document.getElementById("sideMenu");
+
+menu.classList.toggle("open");
+
+}
+
+
+/* =========================
+   OUTSIDE CLICK = CLOSE MENU
+========================= */
+
+document.addEventListener(
+"click",
+function(e){
+
+const menu =
+document.getElementById("sideMenu");
+
+const menuBtn =
+document.querySelector(".menuBtn");
+
+if(!menu || !menuBtn)return;
+
+if(
+menu.classList.contains("open") &&
+!menu.contains(e.target) &&
+!menuBtn.contains(e.target)
+){
+
+menu.classList.remove("open");
+
+}
+
+}
+);
+
+
+/* =========================
+   LOGIN MENU LINKS
+========================= */
+
+function closeMenu(){
+
+const menu =
+document.getElementById("sideMenu");
+
+if(menu){
+menu.classList.remove("open");
+}
+
+}
+
+
+function goHome(){
+
+closeMenu();
+
+window.location.href =
+"https://smrayhanofficial.github.io/";
+
+}
+
+
+function goAbout(){
+
+closeMenu();
+
+window.location.href =
+"https://smrayhanofficial.github.io/about.html";
+
+}
+
+
+function goContact(){
+
+closeMenu();
+
+window.location.href =
+"https://smrayhanofficial.github.io/contact.html";
+
+}
+
+
+/* =========================
+   PANEL
+========================= */
 
 async function showPanel(panelId){
 
-document.querySelectorAll(".adminPanel").forEach(panel=>{
+document.querySelectorAll(".adminPanel")
+.forEach(panel=>{
 panel.classList.remove("active");
 });
 
-const panel=document.getElementById(panelId);
+const panel =
+document.getElementById(panelId);
 
-if(panel)panel.classList.add("active");
+if(panel)
+panel.classList.add("active");
 
-document.getElementById("sideMenu").classList.remove("open");
+closeMenu();
 
-if(panelId==="media")await loadMediaCounts();
+if(panelId==="media")
+await loadMediaCounts();
 
 if(
 panelId==="home"||
@@ -828,84 +1378,155 @@ panelId==="about"||
 panelId==="contact"||
 panelId==="skills"||
 panelId==="projects"
-)await loadSection(panelId);
+)
+await loadSection(panelId);
 
-if(panelId==="social")await loadSocial();
+if(panelId==="social")
+await loadSocial();
 
-if(panelId==="profile")await loadProfile();
+if(panelId==="profile")
+await loadProfile();
 
 }
 
 
-/* PASSWORD EYE */
+/* =========================
+   PASSWORD EYE
+========================= */
 
 function togglePassword(){
 
-const input=document.getElementById("loginPassword");
+const input =
+document.getElementById("loginPassword");
 
-input.type=input.type==="password"?"text":"password";
+input.type =
+input.type==="password"
+?"text"
+:"password";
 
 }
 
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
 async function login(){
 
-const email=document.getElementById("loginEmail").value.trim();
+const email =
+document.getElementById("loginEmail")
+.value.trim();
 
-const password=document.getElementById("loginPassword").value;
+const password =
+document.getElementById("loginPassword")
+.value;
 
-const status=document.getElementById("loginStatus");
+const status =
+document.getElementById("loginStatus");
 
-if(!email||!password){
+if(!email || !password){
 
-status.textContent="⚠️ Email ও Password দিন";
+status.textContent =
+"⚠️ Email ও Password দিন";
 
 return;
 
 }
 
-status.textContent="⏳ Logging in...";
+status.textContent =
+"⏳ Logging in...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.auth.signInWithPassword({
+
 email:email,
 password:password
+
 });
 
 if(error){
 
-status.textContent="❌ "+error.message;
+status.textContent =
+"❌ "+error.message;
 
 return;
 
 }
 
-status.textContent="✅ Login successful";
+status.textContent =
+"✅ Login successful";
 
-document.getElementById("loginPage").style.display="none";
-document.getElementById("adminPage").style.display="block";
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("adminPage")
+.style.display="block";
+
+
+/* LOGIN হওয়ার পর ADMIN MENU */
+
+setMenuMode(true);
+
+
+/* Dashboard দেখাবে */
+
+document.querySelectorAll(".adminPanel")
+.forEach(panel=>{
+panel.classList.remove("active");
+});
+
+document.getElementById("dashboard")
+.classList.add("active");
+
 
 await loadAllContent();
+
 await loadMediaCounts();
 
 }
 
 
-/* CHECK LOGIN */
+/* =========================
+   CHECK LOGIN
+========================= */
 
 async function checkLogin(){
 
-const {data}=await supabaseClient.auth.getSession();
+const {data} =
+await supabaseClient.auth.getSession();
 
 if(data.session){
 
-document.getElementById("loginPage").style.display="none";
-document.getElementById("adminPage").style.display="block";
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("adminPage")
+.style.display="block";
+
+
+/* আগে থেকেই login থাকলে ADMIN MENU */
+
+setMenuMode(true);
+
+
+document.querySelectorAll(".adminPanel")
+.forEach(panel=>{
+panel.classList.remove("active");
+});
+
+document.getElementById("dashboard")
+.classList.add("active");
+
 
 await loadAllContent();
+
 await loadMediaCounts();
+
+}else{
+
+/* Login না থাকলে ছোট MENU */
+
+setMenuMode(false);
 
 }
 
@@ -914,11 +1535,16 @@ await loadMediaCounts();
 checkLogin();
 
 
-/* LOGOUT */
+/* =========================
+   LOGOUT
+========================= */
 
 async function logout(){
 
-const ok=confirm("আপনি কি Logout করতে চান?");
+const ok =
+confirm(
+"আপনি কি Logout করতে চান?"
+);
 
 if(!ok)return;
 
@@ -929,16 +1555,22 @@ location.reload();
 }
 
 
-/* FORGOT PASSWORD */
+/* =========================
+   FORGOT PASSWORD
+========================= */
 
 async function forgotPassword(){
 
-const email=prompt("আপনার account-এর email দিন:");
+const email =
+prompt(
+"আপনার account-এর email দিন:"
+);
 
 if(!email)return;
 
-const {error}=
-await supabaseClient.auth.resetPasswordForEmail(
+const {error} =
+await supabaseClient.auth
+.resetPasswordForEmail(
 email,
 {
 redirectTo:window.location.href
@@ -951,105 +1583,134 @@ alert("❌ "+error.message);
 
 }else{
 
-alert("✅ Password reset link আপনার email-এ পাঠানো হয়েছে।");
+alert(
+"✅ Password reset link আপনার email-এ পাঠানো হয়েছে।"
+);
 
 }
 
 }
 
 
-/* BACK TO WEBSITE */
+/* =========================
+   BACK TO WEBSITE
+========================= */
 
 function goBackWebsite(){
 
-const mainWebsite=
+const mainWebsite =
 "https://smrayhanofficial.github.io/";
 
 try{
 
 if(
 document.referrer &&
-new URL(document.referrer).origin===location.origin
+new URL(document.referrer).origin === location.origin
 ){
 
 history.back();
 
 }else{
 
-window.location.href=mainWebsite;
+window.location.href =
+mainWebsite;
 
 }
 
 }catch(e){
 
-window.location.href=mainWebsite;
+window.location.href =
+mainWebsite;
 
 }
 
 }
 
 
-/* CHANGE PASSWORD */
+/* =========================
+   CHANGE PASSWORD
+========================= */
 
 async function changePassword(){
 
-const newPassword=
-document.getElementById("newPassword").value;
+const newPassword =
+document.getElementById("newPassword")
+.value;
 
-const confirmPassword=
-document.getElementById("confirmPassword").value;
+const confirmPassword =
+document.getElementById("confirmPassword")
+.value;
 
-const status=
+const status =
 document.getElementById("passwordStatus");
 
-if(!newPassword||!confirmPassword){
+if(
+!newPassword ||
+!confirmPassword
+){
 
-status.textContent="⚠️ সব ঘর পূরণ করুন";
-
-return;
-
-}
-
-if(newPassword!==confirmPassword){
-
-status.textContent="❌ Password মিলছে না";
+status.textContent =
+"⚠️ সব ঘর পূরণ করুন";
 
 return;
 
 }
 
-if(newPassword.length<6){
+if(
+newPassword !== confirmPassword
+){
 
-status.textContent="❌ Password কমপক্ষে 6 character হতে হবে";
+status.textContent =
+"❌ Password মিলছে না";
 
 return;
 
 }
 
-status.textContent="⏳ Updating...";
+if(
+newPassword.length < 6
+){
 
-const {error}=
-await supabaseClient.auth.updateUser({
+status.textContent =
+"❌ Password কমপক্ষে 6 character হতে হবে";
+
+return;
+
+}
+
+status.textContent =
+"⏳ Updating...";
+
+const {error} =
+await supabaseClient.auth
+.updateUser({
 password:newPassword
 });
 
 if(error){
 
-status.textContent="❌ "+error.message;
+status.textContent =
+"❌ "+error.message;
 
 return;
 
 }
 
-status.textContent="✅ Password successfully changed";
+status.textContent =
+"✅ Password successfully changed";
 
-document.getElementById("newPassword").value="";
-document.getElementById("confirmPassword").value="";
+document.getElementById("newPassword")
+.value="";
+
+document.getElementById("confirmPassword")
+.value="";
 
 }
 
 
-/* LOAD ALL CONTENT */
+/* =========================
+   LOAD ALL CONTENT
+========================= */
 
 async function loadAllContent(){
 
@@ -1064,7 +1725,9 @@ await loadProfile();
 }
 
 
-/* NORMALIZE */
+/* =========================
+   NORMALIZE
+========================= */
 
 function normalizeContent(content){
 
@@ -1073,25 +1736,34 @@ if(!content)return {};
 if(typeof content==="string"){
 
 try{
+
 return JSON.parse(content);
+
 }catch(e){
-return {text:content};
-}
+
+return {
+text:content
+};
 
 }
 
-if(typeof content==="object")return content;
+}
+
+if(typeof content==="object")
+return content;
 
 return {};
 
 }
 
 
-/* LOAD SECTION */
+/* =========================
+   LOAD SECTION
+========================= */
 
 async function loadSection(section){
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("website_content")
 .select("content")
@@ -1101,53 +1773,71 @@ await supabaseClient
 if(error){
 
 console.log(error);
+
 return;
 
 }
 
-const content=
-normalizeContent(data?data.content:null);
+const content =
+normalizeContent(
+data ? data.content : null
+);
 
 
 /* HOME */
 
 if(section==="home"){
 
-setValue("home_name",content.name||"");
+setValue(
+"home_name",
+content.name || ""
+);
 
 setValue(
 "home_subtitle",
-content.subtitle||""
+content.subtitle || ""
 );
 
 setValue(
 "home_title",
-content.home_title||content.title||""
+content.home_title ||
+content.title ||
+""
 );
 
 setValue(
 "home_welcome",
-content.home_welcome||content.welcome||""
+content.home_welcome ||
+content.welcome ||
+""
 );
 
 setValue(
 "home_type1",
-content.home_type1||content.type1||""
+content.home_type1 ||
+content.type1 ||
+""
 );
 
 setValue(
 "home_type2",
-content.home_type2||content.type2||""
+content.home_type2 ||
+content.type2 ||
+""
 );
 
 setValue(
 "home_type3",
-content.home_type3||content.type3||""
+content.home_type3 ||
+content.type3 ||
+""
 );
 
 setValue(
 "home_type4",
-content.home_type4||content.type4||""
+content.home_type4 ||
+content.type4 ||
+""
 );
 
 return;
@@ -1161,36 +1851,44 @@ if(section==="about"){
 
 setValue(
 "about_title",
-content.about_title||content.title||""
+content.about_title ||
+content.title ||
+""
 );
 
 setValue(
 "about_text",
-content.about_text||
-content.text||
-content.about||
-content.description||
+content.about_text ||
+content.text ||
+content.about ||
+content.description ||
 ""
 );
 
 setValue(
 "about_learning",
-content.about_learning||""
+content.about_learning ||
+""
 );
 
 setValue(
 "about_skill",
-content.about_skill||""
+content.about_skill ||
+""
 );
 
 setValue(
 "about_goal",
-content.about_goal||content.goal||""
+content.about_goal ||
+content.goal ||
+""
 );
 
 setValue(
 "about_vision",
-content.about_vision||content.vision||""
+content.about_vision ||
+content.vision ||
+""
 );
 
 return;
@@ -1204,22 +1902,30 @@ if(section==="contact"){
 
 setValue(
 "contact_phone",
-content.contact_phone||content.phone||""
+content.contact_phone ||
+content.phone ||
+""
 );
 
 setValue(
 "contact_email",
-content.contact_email||content.email||""
+content.contact_email ||
+content.email ||
+""
 );
 
 setValue(
 "contact_whatsapp",
-content.contact_whatsapp||content.whatsapp||""
+content.contact_whatsapp ||
+content.whatsapp ||
+""
 );
 
 setValue(
 "contact_location",
-content.contact_location||content.location||""
+content.contact_location ||
+content.location ||
+""
 );
 
 return;
@@ -1233,22 +1939,27 @@ if(section==="skills"){
 
 setValue(
 "skill_html",
-content.html||""
+content.html ||
+""
 );
 
 setValue(
 "skill_css",
-content.css||""
+content.css ||
+""
 );
 
 setValue(
 "skill_javascript",
-content.javascript||content.js||""
+content.javascript ||
+content.js ||
+""
 );
 
 setValue(
 "skill_excel",
-content.excel||""
+content.excel ||
+""
 );
 
 return;
@@ -1262,32 +1973,38 @@ if(section==="projects"){
 
 setValue(
 "project1_name",
-content.project1_name||""
+content.project1_name ||
+""
 );
 
 setValue(
 "project1_desc",
-content.project1_desc||""
+content.project1_desc ||
+""
 );
 
 setValue(
 "project2_name",
-content.project2_name||""
+content.project2_name ||
+""
 );
 
 setValue(
 "project2_desc",
-content.project2_desc||""
+content.project2_desc ||
+""
 );
 
 setValue(
 "project3_name",
-content.project3_name||""
+content.project3_name ||
+""
 );
 
 setValue(
 "project3_desc",
-content.project3_desc||""
+content.project3_desc ||
+""
 );
 
 }
@@ -1295,212 +2012,301 @@ content.project3_desc||""
 }
 
 
-/* SET VALUE */
+/* =========================
+   SET VALUE
+========================= */
 
 function setValue(id,value){
 
-const element=document.getElementById(id);
+const element =
+document.getElementById(id);
 
-if(element)element.value=value??"";
+if(element)
+element.value =
+value ?? "";
 
 }
 
 
-/* SAVE HOME */
+/* =========================
+   SAVE HOME
+========================= */
 
 async function saveHome(){
 
-const status=document.getElementById("homeStatus");
+const status =
+document.getElementById("homeStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const homeName=
-document.getElementById("home_name").value.trim();
+const homeName =
+document.getElementById("home_name")
+.value.trim();
 
-const subtitle=
-document.getElementById("home_subtitle").value.trim();
+const subtitle =
+document.getElementById("home_subtitle")
+.value.trim();
 
-const homeTitle=
-document.getElementById("home_title").value.trim();
+const homeTitle =
+document.getElementById("home_title")
+.value.trim();
 
-const welcome=
-document.getElementById("home_welcome").value.trim();
+const welcome =
+document.getElementById("home_welcome")
+.value.trim();
 
-const type1=
-document.getElementById("home_type1").value.trim();
+const type1 =
+document.getElementById("home_type1")
+.value.trim();
 
-const type2=
-document.getElementById("home_type2").value.trim();
+const type2 =
+document.getElementById("home_type2")
+.value.trim();
 
-const type3=
-document.getElementById("home_type3").value.trim();
+const type3 =
+document.getElementById("home_type3")
+.value.trim();
 
-const type4=
-document.getElementById("home_type4").value.trim();
+const type4 =
+document.getElementById("home_type4")
+.value.trim();
 
-const content={
+const content = {
 
 name:homeName,
+
 subtitle:subtitle,
+
 home_title:homeTitle,
+
 title:homeTitle,
+
 home_welcome:welcome,
+
 welcome:welcome,
+
 home_type1:type1,
 type1:type1,
+
 home_type2:type2,
 type2:type2,
+
 home_type3:type3,
 type3:type3,
+
 home_type4:type4,
 type4:type4
 
 };
 
-await saveContent("home",content,status);
+await saveContent(
+"home",
+content,
+status
+);
 
 }
 
 
-/* SAVE ABOUT */
+/* =========================
+   SAVE ABOUT
+========================= */
 
 async function saveAbout(){
 
-const status=document.getElementById("aboutStatus");
+const status =
+document.getElementById("aboutStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const content={
+const content = {
 
 about_title:
-document.getElementById("about_title").value.trim(),
+document.getElementById("about_title")
+.value.trim(),
 
 about_text:
-document.getElementById("about_text").value.trim(),
+document.getElementById("about_text")
+.value.trim(),
 
 about_learning:
-document.getElementById("about_learning").value.trim(),
+document.getElementById("about_learning")
+.value.trim(),
 
 about_skill:
-document.getElementById("about_skill").value.trim(),
+document.getElementById("about_skill")
+.value.trim(),
 
 about_goal:
-document.getElementById("about_goal").value.trim(),
+document.getElementById("about_goal")
+.value.trim(),
 
 about_vision:
-document.getElementById("about_vision").value.trim()
+document.getElementById("about_vision")
+.value.trim()
 
 };
 
-await saveContent("about",content,status);
+await saveContent(
+"about",
+content,
+status
+);
 
 }
 
 
-/* SAVE CONTACT */
+/* =========================
+   SAVE CONTACT
+========================= */
 
 async function saveContact(){
 
-const status=document.getElementById("contactStatus");
+const status =
+document.getElementById("contactStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const content={
+const content = {
 
 contact_phone:
-document.getElementById("contact_phone").value.trim(),
+document.getElementById("contact_phone")
+.value.trim(),
 
 contact_email:
-document.getElementById("contact_email").value.trim(),
+document.getElementById("contact_email")
+.value.trim(),
 
 contact_whatsapp:
-document.getElementById("contact_whatsapp").value.trim(),
+document.getElementById("contact_whatsapp")
+.value.trim(),
 
 contact_location:
-document.getElementById("contact_location").value.trim()
+document.getElementById("contact_location")
+.value.trim()
 
 };
 
-await saveContent("contact",content,status);
+await saveContent(
+"contact",
+content,
+status
+);
 
 }
 
 
-/* SAVE SKILLS */
+/* =========================
+   SAVE SKILLS
+========================= */
 
 async function saveSkills(){
 
-const status=document.getElementById("skillsStatus");
+const status =
+document.getElementById("skillsStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const javascript=
-document.getElementById("skill_javascript").value.trim();
+const javascript =
+document.getElementById("skill_javascript")
+.value.trim();
 
-const content={
+const content = {
 
 html:
-document.getElementById("skill_html").value.trim(),
+document.getElementById("skill_html")
+.value.trim(),
 
 css:
-document.getElementById("skill_css").value.trim(),
+document.getElementById("skill_css")
+.value.trim(),
 
 javascript:javascript,
 
 js:javascript,
 
 excel:
-document.getElementById("skill_excel").value.trim()
+document.getElementById("skill_excel")
+.value.trim()
 
 };
 
-await saveContent("skills",content,status);
+await saveContent(
+"skills",
+content,
+status
+);
 
 }
 
 
-/* SAVE PROJECTS */
+/* =========================
+   SAVE PROJECTS
+========================= */
 
 async function saveProjects(){
 
-const status=document.getElementById("projectsStatus");
+const status =
+document.getElementById("projectsStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const content={
+const content = {
 
 project1_name:
-document.getElementById("project1_name").value.trim(),
+document.getElementById("project1_name")
+.value.trim(),
 
 project1_desc:
-document.getElementById("project1_desc").value.trim(),
+document.getElementById("project1_desc")
+.value.trim(),
 
 project2_name:
-document.getElementById("project2_name").value.trim(),
+document.getElementById("project2_name")
+.value.trim(),
 
 project2_desc:
-document.getElementById("project2_desc").value.trim(),
+document.getElementById("project2_desc")
+.value.trim(),
 
 project3_name:
-document.getElementById("project3_name").value.trim(),
+document.getElementById("project3_name")
+.value.trim(),
 
 project3_desc:
-document.getElementById("project3_desc").value.trim()
+document.getElementById("project3_desc")
+.value.trim()
 
 };
 
-await saveContent("projects",content,status);
+await saveContent(
+"projects",
+content,
+status
+);
 
 }
 
 
-/* SAVE CONTENT */
+/* =========================
+   SAVE CONTENT
+========================= */
 
-async function saveContent(section,content,status){
+async function saveContent(
+section,
+content,
+status
+){
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const {error}=
+const {error} =
 await supabaseClient
 .from("website_content")
 .upsert(
@@ -1516,26 +2322,33 @@ onConflict:"section"
 
 if(error){
 
-status.textContent="❌ "+error.message;
+status.textContent =
+"❌ "+error.message;
 
-console.log("Save Error:",error);
+console.log(
+"Save Error:",
+error
+);
 
 return false;
 
 }
 
-status.textContent="✅ Saved successfully";
+status.textContent =
+"✅ Saved successfully";
 
 return true;
 
 }
 
 
-/* LOAD SOCIAL */
+/* =========================
+   LOAD SOCIAL
+========================= */
 
 async function loadSocial(){
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("website_content")
 .select("content")
@@ -1545,72 +2358,101 @@ await supabaseClient
 if(error){
 
 console.log(error);
+
 return;
 
 }
 
-const c=
-normalizeContent(data?data.content:null);
+const c =
+normalizeContent(
+data ? data.content : null
+);
 
-document.getElementById("facebook").value=c.facebook||"";
-document.getElementById("linkedin").value=c.linkedin||"";
-document.getElementById("whatsapp").value=c.whatsapp||"";
+document.getElementById("facebook")
+.value =
+c.facebook || "";
+
+document.getElementById("linkedin")
+.value =
+c.linkedin || "";
+
+document.getElementById("whatsapp")
+.value =
+c.whatsapp || "";
 
 }
 
 
-/* SAVE SOCIAL */
+/* =========================
+   SAVE SOCIAL
+========================= */
 
 async function saveSocial(){
 
-const status=document.getElementById("socialStatus");
+const status =
+document.getElementById("socialStatus");
 
-status.textContent="⏳ Saving...";
+status.textContent =
+"⏳ Saving...";
 
-const content={
+const content = {
 
 facebook:
-document.getElementById("facebook").value.trim(),
+document.getElementById("facebook")
+.value.trim(),
 
 linkedin:
-document.getElementById("linkedin").value.trim(),
+document.getElementById("linkedin")
+.value.trim(),
 
 whatsapp:
-document.getElementById("whatsapp").value.trim()
+document.getElementById("whatsapp")
+.value.trim()
 
 };
 
-await saveContent("social",content,status);
+await saveContent(
+"social",
+content,
+status
+);
 
 }
 
 
-/* PROFILE UPLOAD */
+/* =========================
+   PROFILE UPLOAD
+========================= */
 
 async function uploadProfile(){
 
-const file=
-document.getElementById("profileFile").files[0];
+const file =
+document.getElementById("profileFile")
+.files[0];
 
-const status=
+const status =
 document.getElementById("profileStatus");
 
 if(!file){
 
-status.textContent="⚠️ একটি ছবি select করুন";
+status.textContent =
+"⚠️ একটি ছবি select করুন";
 
 return;
 
 }
 
-status.textContent="⏳ Uploading...";
+status.textContent =
+"⏳ Uploading...";
 
-const fileName=
-"profile-"+Date.now()+"-"+sanitizeFileName(file.name);
+const fileName =
+"profile-"+Date.now()+"-"+
+sanitizeFileName(file.name);
 
-const path="photos/"+fileName;
+const path =
+"photos/"+fileName;
 
-const {error}=
+const {error} =
 await supabaseClient
 .storage
 .from("media")
@@ -1622,27 +2464,31 @@ file,
 
 if(error){
 
-status.textContent="❌ "+error.message;
+status.textContent =
+"❌ "+error.message;
 
 return;
 
 }
 
-const {data:urlData}=
+const {data:urlData} =
 supabaseClient
 .storage
 .from("media")
 .getPublicUrl(path);
 
-const publicUrl=urlData.publicUrl;
+const publicUrl =
+urlData.publicUrl;
 
-const {error:dbError}=
+const {error:dbError} =
 await supabaseClient
 .from("website_content")
 .upsert(
 {
 section:"profile",
-content:{image:publicUrl},
+content:{
+image:publicUrl
+},
 updated_at:new Date().toISOString()
 },
 {
@@ -1652,20 +2498,27 @@ onConflict:"section"
 
 if(dbError){
 
-status.textContent="❌ "+dbError.message;
+status.textContent =
+"❌ "+dbError.message;
 
 return;
 
 }
 
-document.getElementById("profilePreview").src=publicUrl;
+document.getElementById(
+"profilePreview"
+).src =
+publicUrl;
 
-status.textContent="✅ Profile picture uploaded";
+status.textContent =
+"✅ Profile picture uploaded";
 
 }
 
 
-/* SANITIZE */
+/* =========================
+   SANITIZE
+========================= */
 
 function sanitizeFileName(name){
 
@@ -1676,58 +2529,82 @@ return name
 }
 
 
-/* MEDIA COUNTS */
+/* =========================
+   MEDIA COUNTS
+========================= */
 
 async function loadMediaCounts(){
 
 const folders=[
 
-{folder:"photos",id:"photoCount"},
-{folder:"music",id:"musicCount"},
-{folder:"videos",id:"videoCount"}
+{
+folder:"photos",
+id:"photoCount"
+},
+
+{
+folder:"music",
+id:"musicCount"
+},
+
+{
+folder:"videos",
+id:"videoCount"
+}
 
 ];
 
 for(const item of folders){
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .storage
 .from("media")
 .list(
 item.folder,
-{limit:1000}
+{
+limit:1000
+}
 );
 
 if(error){
 
 console.log(error);
+
 continue;
 
 }
 
-document.getElementById(item.id).textContent=
-data?data.length:0;
+document.getElementById(
+item.id
+).textContent =
+data ? data.length : 0;
 
 }
 
 }
 
 
-/* TOGGLE MEDIA CATEGORY */
+/* =========================
+   TOGGLE MEDIA CATEGORY
+========================= */
 
 async function toggleMediaCategory(category){
 
 const listIds=[
+
 "photosList",
 "musicList",
 "videosList"
+
 ];
 
 const cardIds=[
+
 "photoCard",
 "musicCard",
 "videoCard"
+
 ];
 
 const map={
@@ -1749,22 +2626,33 @@ card:"videoCard"
 
 };
 
-const target=map[category];
+const target =
+map[category];
 
 if(!target)return;
 
-const targetList=
-document.getElementById(target.list);
+const targetList =
+document.getElementById(
+target.list
+);
 
-const wasOpen=
+const wasOpen =
 targetList.classList.contains("show");
 
 listIds.forEach(id=>{
-document.getElementById(id).classList.remove("show");
+
+document
+.getElementById(id)
+.classList.remove("show");
+
 });
 
 cardIds.forEach(id=>{
-document.getElementById(id).classList.remove("selected");
+
+document
+.getElementById(id)
+.classList.remove("selected");
+
 });
 
 if(wasOpen)return;
@@ -1775,12 +2663,16 @@ document
 .getElementById(target.card)
 .classList.add("selected");
 
-await loadCategoryList(category);
+await loadCategoryList(
+category
+);
 
 }
 
 
-/* LOAD CATEGORY */
+/* =========================
+   LOAD CATEGORY
+========================= */
 
 async function loadCategoryList(category){
 
@@ -1792,15 +2684,17 @@ videos:"videosList"
 
 };
 
-const listElement=
-document.getElementById(listMap[category]);
+const listElement =
+document.getElementById(
+listMap[category]
+);
 
 if(!listElement)return;
 
-listElement.innerHTML=
+listElement.innerHTML =
 "<div class='status'>⏳ Loading...</div>";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .storage
 .from("media")
@@ -1817,7 +2711,7 @@ order:"desc"
 
 if(error){
 
-listElement.innerHTML=
+listElement.innerHTML =
 "<div class='status'>❌ "+
 error.message+
 "</div>";
@@ -1826,9 +2720,9 @@ return;
 
 }
 
-if(!data||data.length===0){
+if(!data || data.length===0){
 
-listElement.innerHTML=
+listElement.innerHTML =
 "<div class='status'>📂 এই category-তে কোনো file নেই</div>";
 
 return;
@@ -1841,17 +2735,21 @@ data.forEach(file=>{
 
 if(!file.name)return;
 
-const row=document.createElement("div");
+const row =
+document.createElement("div");
 
-row.className="mediaItem";
+row.className =
+"mediaItem";
 
 if(category==="photos"){
 
-const img=document.createElement("img");
+const img =
+document.createElement("img");
 
-img.className="mediaThumb";
+img.className =
+"mediaThumb";
 
-const {data:urlData}=
+const {data:urlData} =
 supabaseClient
 .storage
 .from("media")
@@ -1859,37 +2757,53 @@ supabaseClient
 category+"/"+file.name
 );
 
-img.src=urlData.publicUrl;
+img.src =
+urlData.publicUrl;
 
 row.appendChild(img);
 
 }else{
 
-const icon=document.createElement("div");
+const icon =
+document.createElement("div");
 
-icon.className="mediaIcon";
+icon.className =
+"mediaIcon";
 
-icon.textContent=
-category==="music"?"🎵":"🎬";
+icon.textContent =
+category==="music"
+?"🎵"
+:"🎬";
 
 row.appendChild(icon);
 
 }
 
-const name=document.createElement("div");
+const name =
+document.createElement("div");
 
-name.className="mediaName";
-name.textContent=file.name;
+name.className =
+"mediaName";
+
+name.textContent =
+file.name;
 
 row.appendChild(name);
 
-const del=document.createElement("button");
+const del =
+document.createElement("button");
 
-del.className="deleteBtn";
-del.textContent="🗑️ Delete";
+del.className =
+"deleteBtn";
+
+del.textContent =
+"🗑️ Delete";
 
 del.onclick=()=>{
-deleteMedia(category,file.name);
+deleteMedia(
+category,
+file.name
+);
 };
 
 row.appendChild(del);
@@ -1901,17 +2815,24 @@ listElement.appendChild(row);
 }
 
 
-/* DELETE MEDIA */
+/* =========================
+   DELETE MEDIA
+========================= */
 
-async function deleteMedia(folder,fileName){
+async function deleteMedia(
+folder,
+fileName
+){
 
-const ok=confirm(
-"আপনি কি এই file delete করতে চান?\n\n"+fileName
+const ok =
+confirm(
+"আপনি কি এই file delete করতে চান?\n\n"+
+fileName
 );
 
 if(!ok)return;
 
-const {error}=
+const {error} =
 await supabaseClient
 .storage
 .from("media")
@@ -1921,50 +2842,74 @@ folder+"/"+fileName
 
 if(error){
 
-alert("❌ "+error.message);
+alert(
+"❌ "+error.message
+);
 
 return;
 
 }
 
-alert("✅ File deleted");
+alert(
+"✅ File deleted"
+);
 
 await loadMediaCounts();
 
 const listId={
+
 photos:"photosList",
 music:"musicList",
 videos:"videosList"
+
 }[folder];
 
-const list=document.getElementById(listId);
+const list =
+document.getElementById(
+listId
+);
 
-if(list.classList.contains("show")){
+if(
+list.classList.contains("show")
+){
 
-await loadCategoryList(folder);
+await loadCategoryList(
+folder
+);
 
 }
 
 }
 
 
-/* UPLOAD ALL MEDIA */
+/* =========================
+   UPLOAD ALL MEDIA
+========================= */
 
 async function uploadAllMedia(){
 
-const photoFiles=
-document.getElementById("photoFiles").files;
+const photoFiles =
+document.getElementById(
+"photoFiles"
+).files;
 
-const musicFiles=
-document.getElementById("musicFiles").files;
+const musicFiles =
+document.getElementById(
+"musicFiles"
+).files;
 
-const videoFiles=
-document.getElementById("videoFiles").files;
+const videoFiles =
+document.getElementById(
+"videoFiles"
+).files;
 
-const status=
-document.getElementById("uploadStatus");
+const status =
+document.getElementById(
+"uploadStatus"
+);
 
 const filesToUpload=[];
+
 
 for(const file of photoFiles){
 
@@ -1993,32 +2938,47 @@ folder:"videos"
 
 }
 
-if(filesToUpload.length===0){
 
-status.textContent="⚠️ আগে media select করুন";
+if(
+filesToUpload.length===0
+){
+
+status.textContent =
+"⚠️ আগে media select করুন";
 
 return;
 
 }
 
-status.textContent=
-"⏳ Uploading 0/"+filesToUpload.length+"...";
+
+status.textContent =
+"⏳ Uploading 0/"+
+filesToUpload.length+
+"...";
 
 let success=0;
 
-for(const item of filesToUpload){
 
-const safeName=
-sanitizeFileName(item.file.name);
+for(
+const item of filesToUpload
+){
 
-const fileName=
+const safeName =
+sanitizeFileName(
+item.file.name
+);
+
+const fileName =
 Date.now()+"-"+
-Math.random().toString(36).substring(2,8)+
+Math.random()
+.toString(36)
+.substring(2,8)+
 "-"+safeName;
 
-const path=item.folder+"/"+fileName;
+const path =
+item.folder+"/"+fileName;
 
-const {error}=
+const {error} =
 await supabaseClient
 .storage
 .from("media")
@@ -2028,31 +2988,48 @@ item.file,
 {upsert:false}
 );
 
-if(!error)success++;
+if(!error)
+success++;
 
-status.textContent=
+status.textContent =
 "⏳ Uploading "+
-success+"/"+filesToUpload.length+"...";
+success+"/"+
+filesToUpload.length+
+"...";
 
 }
 
-document.getElementById("photoFiles").value="";
-document.getElementById("musicFiles").value="";
-document.getElementById("videoFiles").value="";
+
+document.getElementById(
+"photoFiles"
+).value="";
+
+document.getElementById(
+"musicFiles"
+).value="";
+
+document.getElementById(
+"videoFiles"
+).value="";
+
 
 await loadMediaCounts();
 
-status.textContent=
-"✅ "+success+" file uploaded successfully";
+
+status.textContent =
+"✅ "+success+
+" file uploaded successfully";
 
 }
 
 
-/* LOAD PROFILE */
+/* =========================
+   LOAD PROFILE
+========================= */
 
 async function loadProfile(){
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("website_content")
 .select("content")
@@ -2062,6 +3039,7 @@ await supabaseClient
 if(error){
 
 console.log(error);
+
 return;
 
 }
@@ -2072,7 +3050,9 @@ data.content &&
 data.content.image
 ){
 
-document.getElementById("profilePreview").src=
+document.getElementById(
+"profilePreview"
+).src =
 data.content.image;
 
 }
@@ -2080,7 +3060,16 @@ data.content.image;
 }
 
 
-/* START */
+/* =========================
+   START
+========================= */
+
+/* শুরুতে Login Menu */
+
+setMenuMode(false);
+
+
+/* Profile load */
 
 loadProfile();
 
