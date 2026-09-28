@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.smrayhanofficial.twa",
+      "sha256_cert_fingerprints": [
+        "D9:16:FA:C3:0E:96:06:28:BA:99:8E:D1:91:F2:03:C9:4B:A5:4E:E7:A9:B5:1B:4F:6B:12:9D:91:B0:FA:99:E4"
+      ]
+    }
+  }
+]
