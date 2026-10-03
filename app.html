@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>SM RAYHAN App | Official Android App</title>
+
+<meta name="description"
+content="Download the official SM RAYHAN Android App. Get quick access to the official SM RAYHAN website, gallery, photos, music and videos.">
+
+<meta name="keywords"
+content="SM RAYHAN, SM RAYHAN App, SM RAYHAN Android App, SM RAYHAN APK, SM Rayhan Official App">
+
+<meta name="author"
+content="SM RAYHAN">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://smrayhanofficial.github.io/app.html">
+
+<link rel="icon"
+href="app-icon.png">
+
+<link rel="apple-touch-icon"
+href="app-icon.png">
+
+
+<!-- OPEN GRAPH -->
+
+<meta property="og:type"
+content="website">
+
+<meta property="og:title"
+content="SM RAYHAN App | Official Android App">
+
+<meta property="og:description"
+content="Download the official SM RAYHAN Android App.">
+
+<meta property="og:image"
+content="https://smrayhanofficial.github.io/app-icon.png">
+
+<meta property="og:url"
+content="https://smrayhanofficial.github.io/app.html">
+
+<meta property="og:site_name"
+content="SM RAYHAN">
+
+
+<!-- TWITTER -->
+
+<meta name="twitter:card"
+content="summary">
+
+<meta name="twitter:title"
+content="SM RAYHAN App">
+
+<meta name="twitter:description"
+content="Official SM RAYHAN Android App">
+
+<meta name="twitter:image"
+content="https://smrayhanofficial.github.io/app-icon.png">
+
+
+<!-- STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SM RAYHAN",
+  "applicationCategory": "PersonalApplication",
+  "operatingSystem": "Android",
+  "description": "Official SM RAYHAN Android App.",
+  "image": "https://smrayhanofficial.github.io/app-icon.png",
+  "downloadUrl": "https://github.com/smrayhanofficial/smrayhanofficial.github.io/releases/download/v1.0.1/SM.RAYHAN.apk",
+  "url": "https://smrayhanofficial.github.io/app.html"
+}
+</script>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    overflow-x:hidden;
+
+    background:
+
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(0,180,255,.20),
+        transparent 35%
+    ),
+
+    radial-gradient(
+        circle at 90% 85%,
+        rgba(180,0,255,.20),
+        transparent 35%
+    ),
+
+    linear-gradient(
+        135deg,
+        #03050a,
+        #0c1220,
+        #03050a
+    );
+}
+
+
+/* BACKGROUND BLOBS */
+
+.blob{
+
+    position:fixed;
+
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.35;
+
+    pointer-events:none;
+
+    animation:float 8s infinite alternate;
+}
+
+.blob1{
+
+    top:-80px;
+    left:-80px;
+
+    background:#008cff;
+}
+
+.blob2{
+
+    right:-80px;
+    bottom:-80px;
+
+    background:#9b00ff;
+
+    animation-delay:2s;
+}
+
+@keyframes float{
+
+    from{
+        transform:translate(0,0);
+    }
+
+    to{
+        transform:translate(40px,-30px);
+    }
+
+}
+
+
+/* MAIN CARD */
+
+.container{
+
+    width:100%;
+
+    max-width:520px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    border-radius:32px;
+
+    background:
+    rgba(255,255,255,.075);
+
+    border:
+    1px solid
+    rgba(255,255,255,.15);
+
+    backdrop-filter:
+    blur(25px);
+
+    -webkit-backdrop-filter:
+    blur(25px);
+
+    box-shadow:
+    0 30px 90px
+    rgba(0,0,0,.55);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* ICON */
+
+.app-icon{
+
+    width:145px;
+
+    height:145px;
+
+    object-fit:cover;
+
+    border-radius:34px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+
+    0 20px 50px
+    rgba(0,0,0,.55),
+
+    0 0 0 1px
+    rgba(255,255,255,.12);
+
+}
+
+
+/* TITLE */
+
+h1{
+
+    font-size:36px;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+
+}
+
+.subtitle{
+
+    color:#cbd2df;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+}
+
+
+/* OFFICIAL BADGE */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin:20px 0;
+
+    padding:8px 17px;
+
+    border-radius:50px;
+
+    color:#71ffc0;
+
+    background:
+    rgba(0,255,150,.10);
+
+    border:
+    1px solid
+    rgba(0,255,150,.30);
+
+    font-size:14px;
+
+}
+
+
+/* DOWNLOAD */
+
+.download-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:18px;
+
+    margin-top:22px;
+
+    border-radius:19px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #00d084,
+        #00a66c
+    );
+
+    box-shadow:
+
+    0 15px 40px
+    rgba(0,208,132,.25);
+
+    transition:
+    transform .25s,
+    box-shadow .25s;
+
+}
+
+.download-btn:hover{
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+
+    0 20px 50px
+    rgba(0,208,132,.40);
+
+}
+
+.download-btn:active{
+
+    transform:
+    scale(.97);
+
+}
+
+
+/* VERSION */
+
+.version{
+
+    margin-top:12px;
+
+    color:#8992a4;
+
+    font-size:13px;
+
+}
+
+
+/* INFO */
+
+.info{
+
+    margin-top:28px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,.045);
+
+    border:
+    1px solid
+    rgba(255,255,255,.08);
+
+    text-align:left;
+
+    color:#cdd3df;
+
+    font-size:14px;
+
+    line-height:2;
+
+}
+
+.info-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    border-bottom:
+    1px solid
+    rgba(255,255,255,.06);
+
+}
+
+.info-row:last-child{
+
+    border-bottom:0;
+
+}
+
+.info b{
+
+    color:white;
+
+}
+
+
+/* WEBSITE BUTTON */
+
+.website-btn{
+
+    display:block;
+
+    margin-top:16px;
+
+    padding:14px;
+
+    border-radius:17px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid
+    rgba(255,255,255,.12);
+
+    transition:.25s;
+
+}
+
+.website-btn:hover{
+
+    background:
+    rgba(255,255,255,.13);
+
+}
+
+
+/* FOOTER */
+
+footer{
+
+    margin-top:28px;
+
+    color:#737c8e;
+
+    font-size:12px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .container{
+
+        padding:30px 20px;
+
+        border-radius:28px;
+
+    }
+
+    .app-icon{
+
+        width:125px;
+        height:125px;
+
+        border-radius:30px;
+
+    }
+
+    h1{
+
+        font-size:30px;
+
+    }
+
+    .download-btn{
+
+        font-size:17px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+
+<div class="container">
+
+
+    <img
+        src="app-icon.png"
+        alt="SM RAYHAN Official Android App"
+        class="app-icon"
+    >
+
+
+    <h1>
+        SM RAYHAN
+    </h1>
+
+
+    <div class="subtitle">
+        Official Android App
+    </div>
+
+
+    <div class="badge">
+        ✓ Official App
+    </div>
+
+
+    <p class="subtitle">
+
+        Download the official
+        <b>SM RAYHAN</b>
+        Android application
+        and access the website
+        directly from your phone.
+
+    </p>
+
+
+    <!-- APK DOWNLOAD -->
+
+    <a
+        class="download-btn"
+        href="https://github.com/smrayhanofficial/smrayhanofficial.github.io/releases/download/v1.0.1/SM.RAYHAN.apk"
+    >
+
+        📱
+        Download Android App
+
+    </a>
+
+
+    <div class="version">
+        Latest Version • v1.0.1
+    </div>
+
+
+    <!-- APP INFORMATION -->
+
+    <div class="info">
+
+
+        <div class="info-row">
+
+            <b>App Name</b>
+
+            <span>
+                SM RAYHAN
+            </span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <b>Version</b>
+
+            <span>
+                1.0.1
+            </span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <b>Platform</b>
+
+            <span>
+                Android
+            </span>
+
+        </div>
+
+
+        <div class="info-row">
+
+            <b>Package</b>
+
+            <span>
+                io.github.smrayhanofficial.twa
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- WEBSITE -->
+
+    <a
+        class="website-btn"
+        href="index.html"
+    >
+
+        🌐 Visit Official Website
+
+    </a>
+
+
+    <footer>
+
+        © 2026 SM RAYHAN
+        <br>
+        Official Android App
+
+    </footer>
+
+
+</div>
+
+
+</body>
+
+</html>
