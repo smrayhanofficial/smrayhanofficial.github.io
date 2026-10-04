@@ -9,14 +9,93 @@
 content="width=device-width, initial-scale=1.0">
 
 <meta name="google-site-verification"
-content="jXyrfnmLGpQXmlmbvyAYb5vOQBUsKFqN6z8LqhVy_UM" />
-  
-<title>SM RAYHAN | Personal Website</title>
-  
+content="jXyrfnmLGpQXmlmbvyAYb5vOQBUsKFqN6z8LqhVy_UM">
+
+<!-- SEO -->
+<title>SM RAYHAN Official Website</title>
+
+<meta name="description"
+content="Welcome to the official website of SM RAYHAN. Explore my profile, skills, projects, gallery, social links and official Android app.">
+
+<meta name="keywords"
+content="SM RAYHAN, SM RAYHAN Official Website, SM RAYHAN App, SM Rayhan Android App, Personal Website">
+
+<meta name="author"
+content="SM RAYHAN">
+
+<meta name="robots"
+content="index, follow">
+
+<link rel="canonical"
+href="https://smrayhanofficial.github.io/">
+
+<!-- Open Graph -->
+<meta property="og:type"
+content="website">
+
+<meta property="og:title"
+content="SM RAYHAN Official Website">
+
+<meta property="og:description"
+content="Official website of SM RAYHAN — profile, skills, projects, gallery and Android app.">
+
+<meta property="og:url"
+content="https://smrayhanofficial.github.io/">
+
+<meta property="og:image"
+content="https://smrayhanofficial.github.io/smraihan.jpg">
+
+<meta property="og:site_name"
+content="SM RAYHAN Official Website">
+
+<!-- Twitter -->
+<meta name="twitter:card"
+content="summary_large_image">
+
+<meta name="twitter:title"
+content="SM RAYHAN Official Website">
+
+<meta name="twitter:description"
+content="Official website of SM RAYHAN.">
+
+<meta name="twitter:image"
+content="https://smrayhanofficial.github.io/smraihan.jpg">
+
+<!-- PWA -->
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="smraihan.jpg">
+
+<link rel="apple-touch-icon"
+href="smraihan.jpg">
+
+
+<!-- WEBSITE STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"SM RAYHAN Official Website",
+  "url":"https://smrayhanofficial.github.io/",
+  "description":"Official website of SM RAYHAN"
+}
+</script>
+
+
+<!-- PERSON STRUCTURED DATA -->
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"SM RAYHAN",
+  "url":"https://smrayhanofficial.github.io/",
+  "image":"https://smrayhanofficial.github.io/smraihan.jpg"
+}
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <style>
 
@@ -586,6 +665,50 @@ box-shadow:
 }
 
 
+/* APP BUTTON */
+
+.app-btn{
+
+display:inline-block;
+
+margin-top:17px;
+
+padding:13px 24px;
+
+border-radius:30px;
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:bold;
+
+background:
+linear-gradient(
+135deg,
+#00b894,
+#0984e3,
+#735cff
+);
+
+box-shadow:
+0 8px 25px rgba(9,132,227,.25);
+
+transition:.3s;
+
+}
+
+.app-btn:hover{
+
+transform:translateY(-3px) scale(1.02);
+
+box-shadow:
+0 0 20px rgba(9,132,227,.5),
+0 0 30px rgba(115,92,255,.3);
+
+}
+
+
 /* CLOCK */
 
 .clock{
@@ -1013,6 +1136,7 @@ font-size:24px;
 
 }
 
+
 /* PHONE MENU */
 
 .side-menu{
@@ -1108,6 +1232,16 @@ id="sideMenu">
 </a>
 
 
+<!-- GET APP -->
+
+<a
+href="https://smrayhanofficial.github.io/app.html">
+
+📱 Get App
+
+</a>
+
+
 <a
 id="menuFacebook"
 href="#"
@@ -1162,7 +1296,7 @@ target="_blank">
 
 <img
 src="smraihan.jpg"
-alt="SM RAYHAN">
+alt="SM RAYHAN Official Website">
 
 <div class="online"></div>
 
@@ -1236,6 +1370,17 @@ href="about.html"
 class="main-btn">
 
 👤 Know More
+
+</a>
+
+
+<!-- GET APP BUTTON -->
+
+<a
+href="https://smrayhanofficial.github.io/app.html"
+class="app-btn">
+
+📱 GET APP
 
 </a>
 
@@ -1495,15 +1640,18 @@ design and development.
 
 
 <img
-src="smraihan.jpg">
+src="smraihan.jpg"
+alt="SM RAYHAN Gallery">
 
 
 <img
-src="https://picsum.photos/500/500?random=11">
+src="https://picsum.photos/500/500?random=11"
+alt="Gallery Photo">
 
 
 <img
-src="https://picsum.photos/500/500?random=12">
+src="https://picsum.photos/500/500?random=12"
+alt="Gallery Photo">
 
 
 </div>
@@ -1514,6 +1662,34 @@ href="gallery.html"
 class="main-btn">
 
 📸 Open Full Gallery
+
+</a>
+
+
+</section>
+
+
+<!-- OFFICIAL APP -->
+
+<section class="card"
+style="text-align:center;">
+
+<h2>
+📱 SM RAYHAN Official App
+</h2>
+
+
+<p>
+আমার Official Android App ব্যবহার করতে
+নিচের button-এ চাপ দাও।
+</p>
+
+
+<a
+href="https://smrayhanofficial.github.io/app.html"
+class="app-btn">
+
+📱 GET THE OFFICIAL APP
 
 </a>
 
@@ -1565,8 +1741,6 @@ href="https://wa.me/8801887295009"
 target="_blank">
 
 ☏
-
-</a>
 
 </a>
 
@@ -2574,16 +2748,35 @@ error
 loadWebsiteContent();
 
 </script>
-  
-  <script>
+
+
+<script>
+
 if ("serviceWorker" in navigator) {
+
     window.addEventListener("load", () => {
+
         navigator.serviceWorker.register("sw.js")
-            .then(() => console.log("Service Worker registered"))
-            .catch((error) => console.log("Service Worker error:", error));
+
+            .then(() =>
+                console.log(
+                    "Service Worker registered"
+                )
+            )
+
+            .catch((error) =>
+                console.log(
+                    "Service Worker error:",
+                    error
+                )
+            );
+
     });
+
 }
+
 </script>
+
 
 </body>
 
