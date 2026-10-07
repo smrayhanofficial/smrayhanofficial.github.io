@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SM RAYHAN | Gallery</title>
+
+<meta name="description" content="SM RAYHAN Official Gallery - Photos, Music and Videos.">
+
+<link rel="icon" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -83,18 +84,14 @@ top:40%;
 }
 
 @keyframes float{
-
 to{
-transform:
-translate(45px,40px)
-scale(1.18);
+transform:translate(45px,40px) scale(1.18);
 }
-
 }
 
 
 /* =========================
-   INDEX STYLE MENU BUTTON
+   MENU BUTTON
 ========================= */
 
 .menu-btn{
@@ -126,24 +123,18 @@ transition:.3s;
 }
 
 .menu-btn:hover{
-
 transform:scale(1.06);
 
 box-shadow:
 0 0 15px rgba(115,92,255,.6),
 0 0 30px rgba(255,60,172,.3);
-
 }
 
 .menu-btn span{
-
 width:23px;
 height:2px;
-
 background:#fff;
-
 border-radius:10px;
-
 transition:.3s;
 }
 
@@ -153,9 +144,7 @@ transition:.3s;
 ========================= */
 
 .theme-btn{
-
 position:fixed;
-
 right:15px;
 top:15px;
 
@@ -182,7 +171,6 @@ transition:.3s;
 }
 
 .theme-btn:hover{
-
 transform:scale(1.06);
 
 box-shadow:
@@ -192,11 +180,10 @@ box-shadow:
 
 
 /* =========================
-   INDEX STYLE SIDE MENU
+   SIDE MENU
 ========================= */
 
 .side-menu{
-
 position:fixed;
 
 left:0;
@@ -246,21 +233,14 @@ z-index:10001;
 }
 
 .side-menu.show{
-
 transform:translateX(0);
-
 opacity:1;
-
 visibility:visible;
 }
 
-
 .side-menu a{
-
 display:block;
-
 text-decoration:none;
-
 color:#fff;
 
 padding:15px 14px;
@@ -279,7 +259,6 @@ transition:.3s;
 }
 
 .side-menu a:hover{
-
 background:
 linear-gradient(
 135deg,
@@ -300,13 +279,9 @@ box-shadow:
 ========================= */
 
 .container{
-
 width:92%;
-
 max-width:900px;
-
 margin:auto;
-
 padding:90px 0 40px;
 }
 
@@ -316,16 +291,12 @@ padding:90px 0 40px;
 ========================= */
 
 .header{
-
 text-align:center;
-
 animation:appear .8s ease;
 }
 
 .header h1{
-
 font-size:34px;
-
 margin-top:10px;
 
 background:
@@ -337,25 +308,18 @@ linear-gradient(
 );
 
 -webkit-background-clip:text;
-
 color:transparent;
 }
 
 .header p{
-
 margin-top:8px;
-
 opacity:.65;
 }
 
 .gallery-label{
-
 margin-top:14px;
-
 font-size:15px;
-
 color:#cfc8ff;
-
 opacity:.75;
 }
 
@@ -365,20 +329,14 @@ opacity:.75;
 ========================= */
 
 .tabs{
-
 display:flex;
-
 justify-content:center;
-
 gap:10px;
-
 flex-wrap:wrap;
-
 margin-top:25px;
 }
 
 .tabs button{
-
 border:1px solid rgba(255,255,255,.15);
 
 padding:12px 20px;
@@ -399,7 +357,6 @@ transition:.3s;
 }
 
 .tabs button:hover{
-
 transform:translateY(-3px);
 
 box-shadow:
@@ -407,7 +364,6 @@ box-shadow:
 }
 
 .tabs button.active{
-
 background:
 linear-gradient(
 135deg,
@@ -426,23 +382,17 @@ box-shadow:
 ========================= */
 
 .section{
-
 display:none;
-
 padding:25px 0 20px;
-
 animation:fade .45s ease;
 }
 
 .section.active{
-
 display:block;
 }
 
 .section h2{
-
 text-align:center;
-
 margin-bottom:18px;
 
 background:
@@ -454,23 +404,18 @@ linear-gradient(
 );
 
 -webkit-background-clip:text;
-
 color:transparent;
 }
 
 @keyframes fade{
 
 from{
-
 opacity:0;
-
 transform:translateY(15px);
 }
 
 to{
-
 opacity:1;
-
 transform:translateY(0);
 }
 
@@ -482,7 +427,6 @@ transform:translateY(0);
 ========================= */
 
 .refresh{
-
 border:1px solid rgba(255,255,255,.15);
 
 background:rgba(255,255,255,.08);
@@ -505,7 +449,6 @@ backdrop-filter:blur(10px);
 }
 
 .refresh:hover{
-
 transform:scale(1.05);
 
 box-shadow:
@@ -518,18 +461,13 @@ box-shadow:
 ========================= */
 
 .loading{
-
 padding:30px 10px;
-
 text-align:center;
-
 color:#ccc;
-
 font-size:15px;
 }
 
 .spinner{
-
 width:40px;
 height:40px;
 
@@ -560,7 +498,6 @@ transform:rotate(360deg);
 ========================= */
 
 .empty{
-
 padding:30px 15px;
 
 color:#bbb;
@@ -584,7 +521,6 @@ backdrop-filter:blur(15px);
 ========================= */
 
 .gallery{
-
 display:grid;
 
 grid-template-columns:
@@ -598,7 +534,6 @@ margin:auto;
 }
 
 .photo-item{
-
 position:relative;
 
 overflow:hidden;
@@ -613,10 +548,11 @@ box-shadow:
 0 10px 30px rgba(0,0,0,.25);
 
 transition:.3s;
+
+padding-bottom:58px;
 }
 
 .photo-item:hover{
-
 transform:translateY(-4px);
 
 box-shadow:
@@ -624,7 +560,6 @@ box-shadow:
 }
 
 .photo-item img{
-
 width:100%;
 
 height:190px;
@@ -639,15 +574,13 @@ transition:.4s;
 }
 
 .photo-item:hover img{
-
 transform:scale(1.07);
 }
 
 .photo-name{
-
 position:absolute;
 
-bottom:0;
+bottom:58px;
 
 left:0;
 right:0;
@@ -673,18 +606,188 @@ text-overflow:ellipsis;
 
 
 /* =========================
+   PREMIUM DOWNLOAD
+========================= */
+
+.download-box{
+position:absolute;
+
+left:10px;
+right:10px;
+
+bottom:10px;
+
+z-index:5;
+}
+
+.download-btn{
+position:relative;
+
+width:100%;
+
+height:44px;
+
+border:none;
+
+border-radius:14px;
+
+color:#fff;
+
+font-size:14px;
+
+font-weight:bold;
+
+letter-spacing:.3px;
+
+cursor:pointer;
+
+overflow:hidden;
+
+background:
+linear-gradient(
+135deg,
+#735cff,
+#ff3cac
+);
+
+box-shadow:
+0 5px 18px rgba(115,92,255,.35);
+
+transition:.3s;
+}
+
+.download-btn:hover{
+transform:translateY(-2px);
+
+box-shadow:
+0 0 18px rgba(115,92,255,.65),
+0 0 30px rgba(255,60,172,.3);
+}
+
+.download-btn:active{
+transform:scale(.97);
+}
+
+.download-btn:disabled{
+opacity:1;
+}
+
+.download-content{
+position:relative;
+z-index:3;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+height:100%;
+}
+
+.download-icon{
+font-size:18px;
+}
+
+.download-progress{
+position:absolute;
+
+left:0;
+top:0;
+bottom:0;
+
+width:0%;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,255,200,.38),
+rgba(255,255,255,.22)
+);
+
+transition:width .12s linear;
+
+z-index:1;
+}
+
+.download-shine{
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:70%;
+
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.25),
+transparent
+);
+
+transform:skewX(-20deg);
+
+animation:shine 2.2s infinite;
+
+z-index:2;
+}
+
+@keyframes shine{
+
+0%{
+left:-100%;
+}
+
+45%,100%{
+left:140%;
+}
+
+}
+
+.download-btn.downloading{
+cursor:wait;
+
+box-shadow:
+0 0 20px rgba(115,92,255,.55);
+}
+
+.download-btn.success{
+background:
+linear-gradient(
+135deg,
+#00b894,
+#00cec9
+);
+
+box-shadow:
+0 0 22px rgba(0,206,201,.5);
+}
+
+.download-btn.error{
+background:
+linear-gradient(
+135deg,
+#ff4757,
+#ff6b81
+);
+}
+
+
+/* =========================
    MUSIC
 ========================= */
 
 .music-list{
-
 max-width:650px;
-
 margin:auto;
 }
 
 .music-card{
-
 margin:15px auto;
 
 padding:20px;
@@ -704,7 +807,6 @@ transition:.3s;
 }
 
 .music-card:hover{
-
 transform:translateY(-4px);
 
 box-shadow:
@@ -712,9 +814,7 @@ box-shadow:
 }
 
 .music-icon{
-
 font-size:45px;
-
 text-align:center;
 
 animation:musicGlow 2s ease-in-out infinite alternate;
@@ -723,30 +823,33 @@ animation:musicGlow 2s ease-in-out infinite alternate;
 @keyframes musicGlow{
 
 to{
-
 filter:
 drop-shadow(
 0 0 12px #ff3cac
 );
-
 }
 
 }
 
 .music-card h3{
-
 margin:10px 0;
-
 text-align:center;
-
 word-break:break-word;
 }
 
 .music-card audio{
-
 width:100%;
-
 margin-top:10px;
+}
+
+.music-card .download-box{
+position:relative;
+
+left:auto;
+right:auto;
+bottom:auto;
+
+margin-top:15px;
 }
 
 
@@ -755,14 +858,11 @@ margin-top:10px;
 ========================= */
 
 .video-list{
-
 max-width:750px;
-
 margin:auto;
 }
 
 .video-card{
-
 margin:15px auto;
 
 padding:15px;
@@ -780,7 +880,6 @@ transition:.3s;
 }
 
 .video-card:hover{
-
 transform:translateY(-4px);
 
 box-shadow:
@@ -788,14 +887,11 @@ box-shadow:
 }
 
 .video-card h3{
-
 margin:5px 0 12px;
-
 word-break:break-word;
 }
 
 .video-card video{
-
 width:100%;
 
 max-height:500px;
@@ -807,13 +903,22 @@ display:block;
 background:#000;
 }
 
+.video-card .download-box{
+position:relative;
+
+left:auto;
+right:auto;
+bottom:auto;
+
+margin-top:15px;
+}
+
 
 /* =========================
    BACK BUTTON
 ========================= */
 
 .back{
-
 display:block;
 
 width:max-content;
@@ -842,7 +947,6 @@ transition:.3s;
 }
 
 .back:hover{
-
 transform:translateY(-3px) scale(1.03);
 
 box-shadow:
@@ -855,13 +959,9 @@ box-shadow:
 ========================= */
 
 .footer{
-
 text-align:center;
-
 padding:25px 10px;
-
 opacity:.5;
-
 font-size:13px;
 }
 
@@ -871,7 +971,6 @@ font-size:13px;
 ========================= */
 
 .viewer{
-
 display:none;
 
 position:fixed;
@@ -890,12 +989,10 @@ padding:20px;
 }
 
 .viewer.show{
-
 display:flex;
 }
 
 .viewer img{
-
 max-width:95%;
 
 max-height:85vh;
@@ -909,7 +1006,6 @@ box-shadow:
 }
 
 .close{
-
 position:absolute;
 
 top:15px;
@@ -928,7 +1024,6 @@ transition:.3s;
 }
 
 .close:hover{
-
 color:#ff8bd4;
 
 transform:scale(1.1);
@@ -942,16 +1037,12 @@ transform:scale(1.1);
 @keyframes appear{
 
 from{
-
 opacity:0;
-
 transform:translateY(25px);
 }
 
 to{
-
 opacity:1;
-
 transform:translateY(0);
 }
 
@@ -963,7 +1054,6 @@ transform:translateY(0);
 ========================= */
 
 body.light{
-
 color:#222;
 
 background:
@@ -1008,7 +1098,6 @@ box-shadow:
 }
 
 body.light .side-menu a{
-
 color:#222;
 
 background:rgba(0,0,0,.035);
@@ -1017,18 +1106,15 @@ border-color:rgba(0,0,0,.07);
 }
 
 body.light .theme-btn{
-
 color:#222;
 }
 
 body.light .menu-btn span{
-
 background:#222;
 }
 
 body.light .tabs button,
 body.light .refresh{
-
 color:#222;
 
 background:rgba(255,255,255,.65);
@@ -1065,17 +1151,14 @@ color:transparent;
 }
 
 body.light .gallery-label{
-
 color:#555;
 }
 
 body.light .loading{
-
 color:#555;
 }
 
 body.light .empty{
-
 color:#555;
 }
 
@@ -1087,19 +1170,15 @@ color:#555;
 @media(max-width:600px){
 
 .container{
-
 width:94%;
-
 padding-top:85px;
 }
 
 .header h1{
-
 font-size:28px;
 }
 
 .gallery{
-
 grid-template-columns:
 repeat(2,1fr);
 
@@ -1107,32 +1186,31 @@ gap:9px;
 }
 
 .photo-item img{
-
 height:150px;
 }
 
 .tabs button{
-
 padding:10px 16px;
-
 font-size:14px;
 }
 
-
-/* INDEX MOBILE MENU = 75% */
-
 .side-menu{
-
 width:75%;
-
 padding:85px 18px 25px;
 }
 
 .side-menu a{
-
 padding:15px;
-
 font-size:15px;
+}
+
+.download-btn{
+height:42px;
+font-size:12px;
+}
+
+.download-icon{
+font-size:16px;
 }
 
 }
@@ -1140,43 +1218,26 @@ font-size:15px;
 @media(max-width:350px){
 
 .gallery{
-
 grid-template-columns:1fr;
 }
 
 .photo-item img{
-
 height:220px;
 }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     BACKGROUND
-========================= -->
-
 <div class="bg">
-
 <div class="blob blob1"></div>
-
 <div class="blob blob2"></div>
-
 <div class="blob blob3"></div>
-
 </div>
 
-
-<!-- =========================
-     MENU BUTTON
-========================= -->
 
 <div
 class="menu-btn"
@@ -1190,10 +1251,6 @@ onclick="toggleMenu()">
 </div>
 
 
-<!-- =========================
-     THEME BUTTON
-========================= -->
-
 <button
 class="theme-btn"
 id="themeBtn"
@@ -1203,10 +1260,6 @@ onclick="toggleTheme()">
 
 </button>
 
-
-<!-- =========================
-     SIDE MENU
-========================= -->
 
 <div
 class="side-menu"
@@ -1231,7 +1284,8 @@ id="sideMenu">
 <a
 id="menuFacebook"
 href="#"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 🔵 Facebook
 
@@ -1240,7 +1294,8 @@ target="_blank">
 <a
 id="menuLinkedin"
 href="#"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 💼 LinkedIn
 
@@ -1249,7 +1304,8 @@ target="_blank">
 <a
 id="menuWhatsapp"
 href="#"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 ☎️ WhatsApp
 
@@ -1262,34 +1318,29 @@ target="_blank">
 </div>
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <div class="container">
 
 
 <div class="header">
 
-<h1>
+<h1 id="galleryMainTitle">
 📂 My Gallery
 </h1>
 
-<p>
+<p id="galleryMainDescription">
 SM RAYHAN
 </p>
 
-<div class="gallery-label">
+<div
+class="gallery-label"
+id="galleryMainLabel">
+
 📸 Photos • 🎵 Music • 🎬 Videos
-</div>
 
 </div>
 
+</div>
 
-
-<!-- =========================
-     TABS
-========================= -->
 
 <div class="tabs">
 
@@ -1302,7 +1353,6 @@ onclick="showSection('photo',this)">
 
 </button>
 
-
 <button
 id="musicBtn"
 onclick="showSection('music',this)">
@@ -1310,7 +1360,6 @@ onclick="showSection('music',this)">
 🎵 Music
 
 </button>
-
 
 <button
 id="videoBtn"
@@ -1323,19 +1372,13 @@ onclick="showSection('video',this)">
 </div>
 
 
-
-<!-- =========================
-     PHOTO
-========================= -->
-
 <div
 id="photo"
 class="section active">
 
-<h2>
+<h2 id="galleryTitle1">
 📸 My Photos
 </h2>
-
 
 <button
 class="refresh"
@@ -1344,7 +1387,6 @@ onclick="loadPhotos()">
 🔄 Refresh Photos
 
 </button>
-
 
 <div
 id="photoLoading"
@@ -1356,28 +1398,22 @@ Photos loading...
 
 </div>
 
-
 <div
 id="photoGallery"
 class="gallery">
-</div>
 
 </div>
 
+</div>
 
-
-<!-- =========================
-     MUSIC
-========================= -->
 
 <div
 id="music"
 class="section">
 
-<h2>
+<h2 id="galleryTitle2">
 🎵 My Music
 </h2>
-
 
 <button
 class="refresh"
@@ -1386,7 +1422,6 @@ onclick="loadMusic()">
 🔄 Refresh Music
 
 </button>
-
 
 <div
 id="musicLoading"
@@ -1398,28 +1433,22 @@ Music loading...
 
 </div>
 
-
 <div
 id="musicList"
 class="music-list">
-</div>
 
 </div>
 
+</div>
 
-
-<!-- =========================
-     VIDEO
-========================= -->
 
 <div
 id="video"
 class="section">
 
-<h2>
+<h2 id="galleryTitle3">
 🎬 My Videos
 </h2>
-
 
 <button
 class="refresh"
@@ -1428,7 +1457,6 @@ onclick="loadVideos()">
 🔄 Refresh Videos
 
 </button>
-
 
 <div
 id="videoLoading"
@@ -1440,14 +1468,13 @@ Videos loading...
 
 </div>
 
-
 <div
 id="videoList"
 class="video-list">
-</div>
 
 </div>
 
+</div>
 
 
 <a
@@ -1458,27 +1485,18 @@ class="back">
 
 </a>
 
-
 </div>
 
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<div class="footer">
+<div
+class="footer"
+id="galleryFooter">
 
 © 2026 SM RAYHAN |
 My Gallery ❤️
 
 </div>
 
-
-
-<!-- =========================
-     IMAGE VIEWER
-========================= -->
 
 <div
 id="viewer"
@@ -1491,31 +1509,28 @@ class="close">
 ×
 </span>
 
-
 <img
 id="viewerImage"
 src=""
 alt="Full Image"
-onclick="event.stopPropagation()">
+onclick="event.stopPropagation">
 
 </div>
 
 
-
 <script>
-
 
 /* =========================
    SUPABASE
 ========================= */
 
-const SUPABASE_URL=
+const SUPABASE_URL =
 "https://oppmdnnzgqdnwpqqkwsq.supabase.co";
 
-const SUPABASE_KEY=
+const SUPABASE_KEY =
 "sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
 
-const supabaseClient=
+const supabaseClient =
 window.supabase.createClient(
 SUPABASE_URL,
 SUPABASE_KEY
@@ -1523,33 +1538,163 @@ SUPABASE_KEY
 
 
 /* =========================
-   INDEX STYLE MENU
+   SAFE TEXT
 ========================= */
 
-function toggleMenu(){
+function setText(id,value){
 
-const menu=
-document.getElementById("sideMenu");
+const element =
+document.getElementById(id);
 
-menu.classList.toggle("show");
+if(
+element &&
+value !== undefined &&
+value !== null &&
+String(value).trim() !== ""
+){
+
+element.textContent =
+String(value);
+
+}
 
 }
 
 
 /* =========================
-   OUTSIDE CLICK = CLOSE
+   WHATSAPP LINK
+========================= */
+
+function makeWhatsAppLink(value){
+
+if(!value){
+
+return "";
+
+}
+
+const text =
+String(value).trim();
+
+
+if(
+text.startsWith("http://") ||
+text.startsWith("https://")
+){
+
+return text;
+
+}
+
+
+const number =
+text
+.replace(/^\+/,"")
+.replace(/[^\d]/g,"");
+
+
+if(!number){
+
+return "";
+
+}
+
+
+return "https://wa.me/" + number;
+
+}
+
+
+/* =========================
+   SOCIAL LINK
+========================= */
+
+function normalizeSocial(
+value,
+type
+){
+
+if(!value){
+
+return "";
+
+}
+
+const text =
+String(value).trim();
+
+
+if(
+text.startsWith("http://") ||
+text.startsWith("https://")
+){
+
+return text;
+
+}
+
+
+if(type === "facebook"){
+
+return "https://www.facebook.com/" + text;
+
+}
+
+
+if(type === "linkedin"){
+
+return "https://www.linkedin.com/in/" + text;
+
+}
+
+
+if(type === "whatsapp"){
+
+return makeWhatsAppLink(text);
+
+}
+
+
+return text;
+
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+const menu =
+document.getElementById(
+"sideMenu"
+);
+
+menu.classList.toggle(
+"show"
+);
+
+}
+
+
+/* =========================
+   OUTSIDE CLICK
 ========================= */
 
 document.addEventListener(
 "click",
 function(event){
 
-const menu=
-document.getElementById("sideMenu");
+const menu =
+document.getElementById(
+"sideMenu"
+);
 
-const button=
-document.getElementById("menuBtn");
-
+const button =
+document.getElementById(
+"menuBtn"
+);
 
 if(
 menu.classList.contains("show") &&
@@ -1557,7 +1702,9 @@ menu.classList.contains("show") &&
 !button.contains(event.target)
 ){
 
-menu.classList.remove("show");
+menu.classList.remove(
+"show"
+);
 
 }
 
@@ -1565,20 +1712,27 @@ menu.classList.remove("show");
 
 
 /* =========================
-   CLOSE MENU AFTER LINK CLICK
+   CLOSE MENU AFTER LINK
 ========================= */
 
 document
-.querySelectorAll("#sideMenu a")
-.forEach(function(link){
+.querySelectorAll(
+"#sideMenu a"
+)
+.forEach(
+function(link){
 
 link.addEventListener(
 "click",
 function(){
 
 document
-.getElementById("sideMenu")
-.classList.remove("show");
+.getElementById(
+"sideMenu"
+)
+.classList.remove(
+"show"
+);
 
 });
 
@@ -1592,22 +1746,30 @@ document
 function applyTheme(){
 
 if(
-localStorage.getItem("theme")==="light"
+localStorage.getItem("theme")
+===
+"light"
 ){
 
-document.body.classList.add("light");
+document.body.classList.add(
+"light"
+);
 
 document.getElementById(
 "themeBtn"
-).innerText="☀️";
+).innerText =
+"☀️";
 
 }else{
 
-document.body.classList.remove("light");
+document.body.classList.remove(
+"light"
+);
 
 document.getElementById(
 "themeBtn"
-).innerText="🌙";
+).innerText =
+"🌙";
 
 }
 
@@ -1616,16 +1778,23 @@ document.getElementById(
 
 function toggleTheme(){
 
-document.body.classList.toggle("light");
+document.body.classList.toggle(
+"light"
+);
 
-const btn=
-document.getElementById("themeBtn");
+const btn =
+document.getElementById(
+"themeBtn"
+);
 
 if(
-document.body.classList.contains("light")
+document.body.classList.contains(
+"light"
+)
 ){
 
-btn.innerText="☀️";
+btn.innerText =
+"☀️";
 
 localStorage.setItem(
 "theme",
@@ -1634,7 +1803,8 @@ localStorage.setItem(
 
 }else{
 
-btn.innerText="🌙";
+btn.innerText =
+"🌙";
 
 localStorage.setItem(
 "theme",
@@ -1644,7 +1814,6 @@ localStorage.setItem(
 }
 
 }
-
 
 applyTheme();
 
@@ -1660,45 +1829,50 @@ button
 
 document
 .querySelectorAll(".section")
-.forEach(function(section){
+.forEach(
+function(section){
 
-section.classList.remove("active");
+section.classList.remove(
+"active"
+);
 
 });
-
 
 document
 .querySelectorAll(".tabs button")
-.forEach(function(btn){
+.forEach(
+function(btn){
 
-btn.classList.remove("active");
+btn.classList.remove(
+"active"
+);
 
 });
 
-
 document
 .getElementById(sectionName)
-.classList.add("active");
+.classList.add(
+"active"
+);
+
+button.classList.add(
+"active"
+);
 
 
-button.classList.add("active");
-
-
-if(sectionName==="photo"){
+if(sectionName === "photo"){
 
 loadPhotos();
 
 }
 
-
-if(sectionName==="music"){
+if(sectionName === "music"){
 
 loadMusic();
 
 }
 
-
-if(sectionName==="video"){
+if(sectionName === "video"){
 
 loadVideos();
 
@@ -1720,12 +1894,380 @@ return "";
 }
 
 return name
-
 .replace(/\.[^/.]+$/,"")
-
 .replace(/[_-]+/g," ")
-
 .trim();
+
+}
+
+
+/* =========================
+   ANDROID DOWNLOAD
+========================= */
+
+function downloadFile(
+url,
+fileName,
+button
+){
+
+if(
+button.dataset.downloading ===
+"true"
+){
+
+return;
+
+}
+
+button.dataset.downloading =
+"true";
+
+button.disabled =
+true;
+
+button.classList.remove(
+"success",
+"error"
+);
+
+button.classList.add(
+"downloading"
+);
+
+const progress =
+button.querySelector(
+".download-progress"
+);
+
+const content =
+button.querySelector(
+".download-content"
+);
+
+const shine =
+button.querySelector(
+".download-shine"
+);
+
+progress.style.width =
+"0%";
+
+content.innerHTML = `
+<span class="download-icon">
+⏬
+</span>
+
+<span>
+Starting download...
+</span>
+`;
+
+let downloadUrl =
+url;
+
+try{
+
+const separator =
+url.includes("?")
+? "&"
+: "?";
+
+downloadUrl =
+url +
+separator +
+"download=" +
+encodeURIComponent(
+fileName
+);
+
+}catch(error){
+
+downloadUrl =
+url;
+
+}
+
+const link =
+document.createElement(
+"a"
+);
+
+link.href =
+downloadUrl;
+
+link.download =
+fileName;
+
+link.target =
+"_blank";
+
+link.rel =
+"noopener";
+
+link.style.display =
+"none";
+
+document.body.appendChild(
+link
+);
+
+try{
+
+link.click();
+
+}catch(error){
+
+console.error(
+"Download trigger error:",
+error
+);
+
+button.classList.remove(
+"downloading"
+);
+
+button.classList.add(
+"error"
+);
+
+content.innerHTML = `
+<span class="download-icon">
+❌
+</span>
+
+<span>
+Download Failed
+</span>
+`;
+
+setTimeout(
+function(){
+
+resetDownloadButton(
+button
+);
+
+},
+2500
+);
+
+return;
+
+}
+
+setTimeout(
+function(){
+
+link.remove();
+
+},
+1000
+);
+
+setTimeout(
+function(){
+
+progress.style.width =
+"100%";
+
+content.innerHTML = `
+<span class="download-icon">
+⬇️
+</span>
+
+<span>
+Download Started
+</span>
+`;
+
+button.classList.remove(
+"downloading"
+);
+
+button.classList.add(
+"success"
+);
+
+if(shine){
+
+shine.style.display =
+"none";
+
+}
+
+setTimeout(
+function(){
+
+button.disabled =
+false;
+
+button.dataset.downloading =
+"false";
+
+button.classList.remove(
+"success"
+);
+
+progress.style.width =
+"0%";
+
+if(shine){
+
+shine.style.display =
+"block";
+
+}
+
+content.innerHTML = `
+<span class="download-icon">
+⬇️
+</span>
+
+<span>
+Download
+</span>
+`;
+
+},
+3000
+);
+
+},
+800
+);
+
+}
+
+
+/* =========================
+   RESET BUTTON
+========================= */
+
+function resetDownloadButton(
+button
+){
+
+const content =
+button.querySelector(
+".download-content"
+);
+
+const progress =
+button.querySelector(
+".download-progress"
+);
+
+const shine =
+button.querySelector(
+".download-shine"
+);
+
+button.disabled =
+false;
+
+button.dataset.downloading =
+"false";
+
+button.classList.remove(
+"downloading",
+"success",
+"error"
+);
+
+progress.style.width =
+"0%";
+
+if(shine){
+
+shine.style.display =
+"block";
+
+}
+
+content.innerHTML = `
+<span class="download-icon">
+⬇️
+</span>
+
+<span>
+Download
+</span>
+`;
+
+}
+
+
+/* =========================
+   DOWNLOAD BUTTON
+========================= */
+
+function createDownloadButton(
+url,
+fileName
+){
+
+const box =
+document.createElement(
+"div"
+);
+
+box.className =
+"download-box";
+
+const button =
+document.createElement(
+"button"
+);
+
+button.className =
+"download-btn";
+
+button.type =
+"button";
+
+button.dataset.downloading =
+"false";
+
+button.innerHTML = `
+<div class="download-progress"></div>
+
+<div class="download-shine"></div>
+
+<div class="download-content">
+
+<span class="download-icon">
+⬇️
+</span>
+
+<span>
+Download
+</span>
+
+</div>
+`;
+
+button.addEventListener(
+"click",
+function(event){
+
+event.preventDefault();
+
+event.stopPropagation();
+
+downloadFile(
+url,
+fileName,
+button
+);
+
+});
+
+box.appendChild(
+button
+);
+
+return box;
 
 }
 
@@ -1736,28 +2278,26 @@ return name
 
 async function loadPhotos(){
 
-const loading=
+const loading =
 document.getElementById(
 "photoLoading"
 );
 
-const gallery=
+const gallery =
 document.getElementById(
 "photoGallery"
 );
 
-loading.style.display="block";
+loading.style.display =
+"block";
 
-gallery.innerHTML="";
+gallery.innerHTML =
+"";
 
-
-const {data,error}=
+const {data,error} =
 await supabaseClient
-
 .storage
-
 .from("media")
-
 .list(
 "photos",
 {
@@ -1771,13 +2311,12 @@ order:"desc"
 }
 );
 
-
-loading.style.display="none";
-
+loading.style.display =
+"none";
 
 if(error){
 
-gallery.innerHTML=`
+gallery.innerHTML = `
 
 <div class="empty">
 
@@ -1795,21 +2334,22 @@ return;
 
 }
 
-
-const files=
-(data||[]).filter(
+const files =
+(data || [])
+.filter(
 function(file){
 
-return file.name &&
-file.id!==null;
+return (
+file.name &&
+file.id !== null
+);
 
 }
 );
 
+if(files.length === 0){
 
-if(files.length===0){
-
-gallery.innerHTML=`
+gallery.innerHTML = `
 
 <div
 class="empty"
@@ -1825,60 +2365,89 @@ return;
 
 }
 
-
 files.forEach(
 function(file){
 
-const path=
-"photos/"+file.name;
+const path =
+"photos/" +
+file.name;
 
-
-const result=
+const result =
 supabaseClient
-
 .storage
-
 .from("media")
+.getPublicUrl(
+path
+);
 
-.getPublicUrl(path);
-
-
-const imageUrl=
+const imageUrl =
 result.data.publicUrl;
 
+const item =
+document.createElement(
+"div"
+);
 
-const item=
-document.createElement("div");
-
-item.className=
+item.className =
 "photo-item";
 
+const image =
+document.createElement(
+"img"
+);
 
-item.innerHTML=`
+image.src =
+imageUrl;
 
-<img
+image.alt =
+file.name;
 
-src="${imageUrl}"
+image.loading =
+"lazy";
 
-alt="${file.name}"
+image.onclick =
+function(){
 
-loading="lazy"
+openViewer(
+imageUrl
+);
 
-onclick="openViewer('${imageUrl}')"
+};
 
->
+item.appendChild(
+image
+);
 
+const name =
+document.createElement(
+"div"
+);
 
-<div class="photo-name">
+name.className =
+"photo-name";
 
-${cleanFileName(file.name)}
+name.textContent =
+cleanFileName(
+file.name
+);
 
-</div>
+item.appendChild(
+name
+);
 
-`;
+const downloadButton =
+createDownloadButton(
+imageUrl,
+file.name
+);
 
+item.appendChild(
+downloadButton
+);
 
-gallery.appendChild(item);
+gallery.appendChild(
+item
+);
 
 });
 
@@ -1891,28 +2460,26 @@ gallery.appendChild(item);
 
 async function loadMusic(){
 
-const loading=
+const loading =
 document.getElementById(
 "musicLoading"
 );
 
-const list=
+const list =
 document.getElementById(
 "musicList"
 );
 
-loading.style.display="block";
+loading.style.display =
+"block";
 
-list.innerHTML="";
+list.innerHTML =
+"";
 
-
-const {data,error}=
+const {data,error} =
 await supabaseClient
-
 .storage
-
 .from("media")
-
 .list(
 "music",
 {
@@ -1926,13 +2493,12 @@ order:"desc"
 }
 );
 
-
-loading.style.display="none";
-
+loading.style.display =
+"none";
 
 if(error){
 
-list.innerHTML=`
+list.innerHTML = `
 
 <div class="empty">
 
@@ -1950,21 +2516,22 @@ return;
 
 }
 
-
-const files=
-(data||[]).filter(
+const files =
+(data || [])
+.filter(
 function(file){
 
-return file.name &&
-file.id!==null;
+return (
+file.name &&
+file.id !== null
+);
 
 }
 );
 
+if(files.length === 0){
 
-if(files.length===0){
-
-list.innerHTML=`
+list.innerHTML = `
 
 <div class="empty">
 
@@ -1978,72 +2545,105 @@ return;
 
 }
 
-
 files.forEach(
 function(file){
 
-const path=
-"music/"+file.name;
+const path =
+"music/" +
+file.name;
 
-
-const result=
+const result =
 supabaseClient
-
 .storage
-
 .from("media")
+.getPublicUrl(
+path
+);
 
-.getPublicUrl(path);
-
-
-const musicUrl=
+const musicUrl =
 result.data.publicUrl;
 
+const card =
+document.createElement(
+"div"
+);
 
-const card=
-document.createElement("div");
-
-card.className=
+card.className =
 "music-card";
 
+const icon =
+document.createElement(
+"div"
+);
 
-card.innerHTML=`
+icon.className =
+"music-icon";
 
-<div class="music-icon">
+icon.textContent =
+"🎧";
 
-🎧
+card.appendChild(
+icon
+);
 
-</div>
+const title =
+document.createElement(
+"h3"
+);
 
+title.textContent =
+cleanFileName(
+file.name
+);
 
-<h3>
+card.appendChild(
+title
+);
 
-${cleanFileName(file.name)}
+const audio =
+document.createElement(
+"audio"
+);
 
-</h3>
+audio.controls =
+true;
 
+audio.preload =
+"none";
 
-<audio
-controls
-preload="none">
+const source =
+document.createElement(
+"source"
+);
 
-<source
+source.src =
+musicUrl;
 
-src="${musicUrl}"
-
-type="${
+source.type =
 file.metadata?.mimetype ||
-"audio/mpeg"
-}">
+"audio/mpeg";
 
-তোমার browser audio support করে না।
+audio.appendChild(
+source
+);
 
-</audio>
+card.appendChild(
+audio
+);
 
-`;
+const downloadButton =
+createDownloadButton(
+musicUrl,
+file.name
+);
 
+card.appendChild(
+downloadButton
+);
 
-list.appendChild(card);
+list.appendChild(
+card
+);
 
 });
 
@@ -2056,28 +2656,26 @@ list.appendChild(card);
 
 async function loadVideos(){
 
-const loading=
+const loading =
 document.getElementById(
 "videoLoading"
 );
 
-const list=
+const list =
 document.getElementById(
 "videoList"
 );
 
-loading.style.display="block";
+loading.style.display =
+"block";
 
-list.innerHTML="";
+list.innerHTML =
+"";
 
-
-const {data,error}=
+const {data,error} =
 await supabaseClient
-
 .storage
-
 .from("media")
-
 .list(
 "videos",
 {
@@ -2091,13 +2689,12 @@ order:"desc"
 }
 );
 
-
-loading.style.display="none";
-
+loading.style.display =
+"none";
 
 if(error){
 
-list.innerHTML=`
+list.innerHTML = `
 
 <div class="empty">
 
@@ -2115,21 +2712,22 @@ return;
 
 }
 
-
-const files=
-(data||[]).filter(
+const files =
+(data || [])
+.filter(
 function(file){
 
-return file.name &&
-file.id!==null;
+return (
+file.name &&
+file.id !== null
+);
 
 }
 );
 
+if(files.length === 0){
 
-if(files.length===0){
-
-list.innerHTML=`
+list.innerHTML = `
 
 <div class="empty">
 
@@ -2143,65 +2741,91 @@ return;
 
 }
 
-
 files.forEach(
 function(file){
 
-const path=
-"videos/"+file.name;
+const path =
+"videos/" +
+file.name;
 
-
-const result=
+const result =
 supabaseClient
-
 .storage
-
 .from("media")
+.getPublicUrl(
+path
+);
 
-.getPublicUrl(path);
-
-
-const videoUrl=
+const videoUrl =
 result.data.publicUrl;
 
+const card =
+document.createElement(
+"div"
+);
 
-const card=
-document.createElement("div");
-
-card.className=
+card.className =
 "video-card";
 
+const title =
+document.createElement(
+"h3"
+);
 
-card.innerHTML=`
+title.textContent =
+"🎬 " +
+cleanFileName(
+file.name
+);
 
-<h3>
+card.appendChild(
+title
+);
 
-🎬 ${cleanFileName(file.name)}
+const video =
+document.createElement(
+"video"
+);
 
-</h3>
+video.controls =
+true;
 
+video.preload =
+"metadata";
 
-<video
-controls
-preload="metadata">
+const source =
+document.createElement(
+"source"
+);
 
-<source
+source.src =
+videoUrl;
 
-src="${videoUrl}"
-
-type="${
+source.type =
 file.metadata?.mimetype ||
-"video/mp4"
-}">
+"video/mp4";
 
-তোমার browser video support করে না।
+video.appendChild(
+source
+);
 
-</video>
+card.appendChild(
+video
+);
 
-`;
+const downloadButton =
+createDownloadButton(
+videoUrl,
+file.name
+);
 
+card.appendChild(
+downloadButton
+);
 
-list.appendChild(card);
+list.appendChild(
+card
+);
 
 });
 
@@ -2214,38 +2838,44 @@ list.appendChild(card);
 
 function openViewer(url){
 
-const viewer=
+const viewer =
 document.getElementById(
 "viewer"
 );
 
-const image=
+const image =
 document.getElementById(
 "viewerImage"
 );
 
-image.src=url;
+image.src =
+url;
 
-viewer.classList.add("show");
+viewer.classList.add(
+"show"
+);
 
 }
 
 
 function closeViewer(){
 
-const viewer=
+const viewer =
 document.getElementById(
 "viewer"
 );
 
-const image=
+const image =
 document.getElementById(
 "viewerImage"
 );
 
-viewer.classList.remove("show");
+viewer.classList.remove(
+"show"
+);
 
-image.src="";
+image.src =
+"";
 
 }
 
@@ -2258,115 +2888,244 @@ document.addEventListener(
 "keydown",
 function(event){
 
-if(event.key==="Escape"){
+if(
+event.key === "Escape"
+){
 
 closeViewer();
 
 }
 
-}
-);
+});
 
 
 /* =========================
-   SOCIAL MENU
+   LOAD WEBSITE CONTENT
 ========================= */
 
-async function loadSocial(){
+async function loadWebsiteContent(){
 
 try{
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
-
 .from("website_content")
-
 .select("section,content");
 
 
 if(error){
 
-console.error(error);
+console.error(
+"Website content loading failed:",
+error
+);
 
 return;
 
 }
 
 
-const content={};
+const content = {};
 
 
-(data||[]).forEach(
+(data || [])
+.forEach(
 function(row){
 
-content[row.section]=
-row.content||{};
+content[row.section] =
+row.content || {};
 
 });
 
 
-const social=
-content.social||{};
+const website =
+content.website || {};
 
 
-if(social.facebook){
+/*
+  Admin > Website Content
+  Gallery fields
+*/
+
+if(website.gallery_title){
+
+const title =
+String(
+website.gallery_title
+).trim();
+
+setText(
+"galleryMainTitle",
+title
+);
+
+setText(
+"galleryTitle1",
+"📸 " + title
+);
+
+}
+
+
+if(website.gallery_description){
+
+setText(
+"galleryMainDescription",
+website.gallery_description
+);
+
+}
+
+
+if(website.gallery_label1){
+
+const label1 =
+String(
+website.gallery_label1
+).trim();
+
+if(website.gallery_label2){
+
+const label2 =
+String(
+website.gallery_label2
+).trim();
+
+if(website.gallery_label3){
+
+const label3 =
+String(
+website.gallery_label3
+).trim();
+
+setText(
+"galleryMainLabel",
+"📸 " +
+label1 +
+" • 🎵 " +
+label2 +
+" • 🎬 " +
+label3
+);
+
+}
+
+}
+
+}
+
+
+/*
+  যদি Admin-এ Gallery label দেওয়া থাকে,
+  আলাদা section title-ও update হবে।
+*/
+
+if(website.gallery_label1){
+
+setText(
+"galleryTitle1",
+"📸 " +
+website.gallery_label1
+);
+
+}
+
+if(website.gallery_label2){
+
+setText(
+"galleryTitle2",
+"🎵 " +
+website.gallery_label2
+);
+
+}
+
+if(website.gallery_label3){
+
+setText(
+"galleryTitle3",
+"🎬 " +
+website.gallery_label3
+);
+
+}
+
+
+/*
+  Footer
+*/
+
+if(website.footer_copyright){
+
+setText(
+"galleryFooter",
+website.footer_copyright
+);
+
+}
+
+
+/*
+  Social
+*/
+
+const social =
+content.social || {};
+
+
+const facebook =
+normalizeSocial(
+social.facebook,
+"facebook"
+);
+
+const linkedin =
+normalizeSocial(
+social.linkedin,
+"linkedin"
+);
+
+const whatsapp =
+normalizeSocial(
+social.whatsapp,
+"whatsapp"
+);
+
+
+if(facebook){
 
 document.getElementById(
 "menuFacebook"
-).href=
-social.facebook;
+).href =
+facebook;
 
 }
 
 
-if(social.linkedin){
+if(linkedin){
 
 document.getElementById(
 "menuLinkedin"
-).href=
-social.linkedin;
+).href =
+linkedin;
 
 }
 
 
-if(social.whatsapp){
-
-let value=
-String(
-social.whatsapp
-).trim();
-
-
-if(!value.startsWith("http")){
-
-let number=
-value.replace(/\D/g,"");
-
-
-if(number.startsWith("0")){
-
-number="88"+number;
-
-}
-
-
-value=
-"https://wa.me/"+number;
-
-}
-
+if(whatsapp){
 
 document.getElementById(
 "menuWhatsapp"
-).href=
-value;
+).href =
+whatsapp;
 
 }
+
 
 }catch(error){
 
 console.error(
-"Social loading failed:",
+"Website content failed:",
 error
 );
 
@@ -2375,17 +3134,15 @@ error
 }
 
 
-loadSocial();
-
-
 /* =========================
    FIRST LOAD
 ========================= */
+
+loadWebsiteContent();
 
 loadPhotos();
 
 </script>
 
 </body>
-
 </html>
