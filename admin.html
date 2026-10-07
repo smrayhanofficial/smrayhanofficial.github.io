@@ -163,7 +163,6 @@ display:flex;justify-content:center;gap:12px;margin-top:17px;flex-wrap:wrap
 border:0;background:none;color:var(--accent);cursor:pointer;font-size:13px
 }
 
-/* শুধু Back to Website একটু বড় */
 .loginLinks .smallBtn:last-child{
 font-size:15px;
 font-weight:600;
@@ -388,7 +387,6 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 
 <div class="sideMenu" id="sideMenu">
 
-<!-- LOGIN এর আগে ছোট MENU -->
 <div id="loginMenu">
 
 <div class="menuTitle">☰ Menu</div>
@@ -406,7 +404,6 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 </div>
 
 
-<!-- LOGIN এর পরে ADMIN MENU -->
 <div id="adminMenu">
 
 <div class="menuTitle">⚙️ Admin Menu</div>
@@ -437,6 +434,10 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 
 <button class="menuItem" onclick="showPanel('social')">
 🌐 Social
+</button>
+
+<button class="menuItem" onclick="showPanel('website')">
+🌐 Website Content
 </button>
 
 <button class="menuItem" onclick="showPanel('profile')">
@@ -589,67 +590,28 @@ _SM RAYHAN_
 </div>
 
 <label class="fieldLabel">Name</label>
-
-<input
-class="textInput"
-id="home_name"
-placeholder="SM RAYHAN"
->
+<input class="textInput" id="home_name" placeholder="SM RAYHAN">
 
 <label class="fieldLabel">Subtitle</label>
-
-<input
-class="textInput"
-id="home_subtitle"
-placeholder="Your subtitle"
->
+<input class="textInput" id="home_subtitle" placeholder="Your subtitle">
 
 <label class="fieldLabel">Home Title</label>
-
-<input
-class="textInput"
-id="home_title"
-placeholder="Home title"
->
+<input class="textInput" id="home_title" placeholder="Home title">
 
 <label class="fieldLabel">Welcome Text</label>
-
-<textarea
-id="home_welcome"
-placeholder="Welcome text"
-></textarea>
+<textarea id="home_welcome" placeholder="Welcome text"></textarea>
 
 <label class="fieldLabel">Typing Text 1</label>
-
-<input
-class="textInput"
-id="home_type1"
-placeholder="Typing text 1"
->
+<input class="textInput" id="home_type1" placeholder="Typing text 1">
 
 <label class="fieldLabel">Typing Text 2</label>
-
-<input
-class="textInput"
-id="home_type2"
-placeholder="Typing text 2"
->
+<input class="textInput" id="home_type2" placeholder="Typing text 2">
 
 <label class="fieldLabel">Typing Text 3</label>
-
-<input
-class="textInput"
-id="home_type3"
-placeholder="Typing text 3"
->
+<input class="textInput" id="home_type3" placeholder="Typing text 3">
 
 <label class="fieldLabel">Typing Text 4</label>
-
-<input
-class="textInput"
-id="home_type4"
-placeholder="Typing text 4"
->
+<input class="textInput" id="home_type4" placeholder="Typing text 4">
 
 <button class="saveBtn" onclick="saveHome()">
 💾 Save Home
@@ -672,47 +634,22 @@ placeholder="Typing text 4"
 </div>
 
 <label class="fieldLabel">About Title</label>
-
-<input
-class="textInput"
-id="about_title"
-placeholder="About title"
->
+<input class="textInput" id="about_title" placeholder="About title">
 
 <label class="fieldLabel">About Description</label>
-
-<textarea
-id="about_text"
-placeholder="About description"
-></textarea>
+<textarea id="about_text" placeholder="About description"></textarea>
 
 <label class="fieldLabel">What I'm Learning</label>
-
-<textarea
-id="about_learning"
-placeholder="What I'm Learning"
-></textarea>
+<textarea id="about_learning" placeholder="What I'm Learning"></textarea>
 
 <label class="fieldLabel">Other Skill</label>
-
-<textarea
-id="about_skill"
-placeholder="Other Skill"
-></textarea>
+<textarea id="about_skill" placeholder="Other Skill"></textarea>
 
 <label class="fieldLabel">Goal</label>
-
-<textarea
-id="about_goal"
-placeholder="Goal"
-></textarea>
+<textarea id="about_goal" placeholder="Goal"></textarea>
 
 <label class="fieldLabel">Vision</label>
-
-<textarea
-id="about_vision"
-placeholder="Vision"
-></textarea>
+<textarea id="about_vision" placeholder="Vision"></textarea>
 
 <button class="saveBtn" onclick="saveAbout()">
 💾 Save About
@@ -735,36 +672,16 @@ placeholder="Vision"
 </div>
 
 <label class="fieldLabel">Phone</label>
-
-<input
-class="textInput"
-id="contact_phone"
-placeholder="Phone number"
->
+<input class="textInput" id="contact_phone" placeholder="Phone number">
 
 <label class="fieldLabel">Email</label>
-
-<input
-class="textInput"
-id="contact_email"
-placeholder="Email address"
->
+<input class="textInput" id="contact_email" placeholder="Email address">
 
 <label class="fieldLabel">WhatsApp</label>
-
-<input
-class="textInput"
-id="contact_whatsapp"
-placeholder="WhatsApp"
->
+<input class="textInput" id="contact_whatsapp" placeholder="WhatsApp">
 
 <label class="fieldLabel">Location</label>
-
-<input
-class="textInput"
-id="contact_location"
-placeholder="Location"
->
+<input class="textInput" id="contact_location" placeholder="Location">
 
 <button class="saveBtn" onclick="saveContact()">
 💾 Save Contact
@@ -787,36 +704,16 @@ placeholder="Location"
 </div>
 
 <label class="fieldLabel">HTML</label>
-
-<input
-class="textInput"
-id="skill_html"
-placeholder="HTML skill"
->
+<input class="textInput" id="skill_html" placeholder="HTML skill">
 
 <label class="fieldLabel">CSS</label>
-
-<input
-class="textInput"
-id="skill_css"
-placeholder="CSS skill"
->
+<input class="textInput" id="skill_css" placeholder="CSS skill">
 
 <label class="fieldLabel">JavaScript</label>
-
-<input
-class="textInput"
-id="skill_javascript"
-placeholder="JavaScript skill"
->
+<input class="textInput" id="skill_javascript" placeholder="JavaScript skill">
 
 <label class="fieldLabel">Excel</label>
-
-<input
-class="textInput"
-id="skill_excel"
-placeholder="Excel skill"
->
+<input class="textInput" id="skill_excel" placeholder="Excel skill">
 
 <button class="saveBtn" onclick="saveSkills()">
 💾 Save Skills
@@ -839,49 +736,22 @@ placeholder="Excel skill"
 </div>
 
 <label class="fieldLabel">Project 1 Name</label>
-
-<input
-class="textInput"
-id="project1_name"
-placeholder="Project 1 name"
->
+<input class="textInput" id="project1_name" placeholder="Project 1 name">
 
 <label class="fieldLabel">Project 1 Description</label>
-
-<textarea
-id="project1_desc"
-placeholder="Project 1 description"
-></textarea>
+<textarea id="project1_desc" placeholder="Project 1 description"></textarea>
 
 <label class="fieldLabel">Project 2 Name</label>
-
-<input
-class="textInput"
-id="project2_name"
-placeholder="Project 2 name"
->
+<input class="textInput" id="project2_name" placeholder="Project 2 name">
 
 <label class="fieldLabel">Project 2 Description</label>
-
-<textarea
-id="project2_desc"
-placeholder="Project 2 description"
-></textarea>
+<textarea id="project2_desc" placeholder="Project 2 description"></textarea>
 
 <label class="fieldLabel">Project 3 Name</label>
-
-<input
-class="textInput"
-id="project3_name"
-placeholder="Project 3 name"
->
+<input class="textInput" id="project3_name" placeholder="Project 3 name">
 
 <label class="fieldLabel">Project 3 Description</label>
-
-<textarea
-id="project3_desc"
-placeholder="Project 3 description"
-></textarea>
+<textarea id="project3_desc" placeholder="Project 3 description"></textarea>
 
 <button class="saveBtn" onclick="saveProjects()">
 💾 Save Projects
@@ -903,23 +773,11 @@ placeholder="Project 3 description"
 🌐 Social Media
 </div>
 
-<input
-class="textInput"
-id="facebook"
-placeholder="Facebook link"
->
+<input class="textInput" id="facebook" placeholder="Facebook link">
 
-<input
-class="textInput"
-id="linkedin"
-placeholder="LinkedIn link"
->
+<input class="textInput" id="linkedin" placeholder="LinkedIn link">
 
-<input
-class="textInput"
-id="whatsapp"
-placeholder="WhatsApp username/link"
->
+<input class="textInput" id="whatsapp" placeholder="WhatsApp username/link">
 
 <button class="saveBtn" onclick="saveSocial()">
 💾 Save Social
@@ -928,6 +786,386 @@ placeholder="WhatsApp username/link"
 <div class="status" id="socialStatus"></div>
 
 </div>
+</div>
+
+
+<!-- WEBSITE CONTENT -->
+
+<div class="adminPanel" id="website">
+
+<!-- HERO -->
+
+<div class="section">
+
+<div class="sectionTitle">
+🏠 Hero Section
+</div>
+
+<label class="fieldLabel">Hero Description</label>
+
+<textarea
+id="website_hero_description"
+placeholder="Hero description"
+></textarea>
+
+</div>
+
+
+<!-- ABOUT PREVIEW -->
+
+<div class="section">
+
+<div class="sectionTitle">
+👤 About Preview
+</div>
+
+<label class="fieldLabel">About Title</label>
+
+<input
+class="textInput"
+id="website_about_title"
+placeholder="Know More About Me"
+>
+
+<label class="fieldLabel">About Description</label>
+
+<textarea
+id="website_about_description"
+placeholder="About preview description"
+></textarea>
+
+<label class="fieldLabel">About Name</label>
+
+<input
+class="textInput"
+id="website_about_name"
+placeholder="SM RAYHAN"
+>
+
+<label class="fieldLabel">About Text</label>
+
+<textarea
+id="website_about_text"
+placeholder="About text"
+></textarea>
+
+<label class="fieldLabel">Website Info</label>
+
+<input
+class="textInput"
+id="website_info_website"
+placeholder="Website"
+>
+
+<label class="fieldLabel">Platform Info</label>
+
+<input
+class="textInput"
+id="website_info_platform"
+placeholder="Web & Android"
+>
+
+<label class="fieldLabel">Focus Info</label>
+
+<input
+class="textInput"
+id="website_info_focus"
+placeholder="Digital Projects"
+>
+
+<label class="fieldLabel">Status Info</label>
+
+<input
+class="textInput"
+id="website_info_status"
+placeholder="Active"
+>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="section">
+
+<div class="sectionTitle">
+📊 Website Stats
+</div>
+
+<label class="fieldLabel">Projects Count</label>
+
+<input
+class="textInput"
+id="website_stat_projects"
+placeholder="3"
+>
+
+<label class="fieldLabel">Core Skills Count</label>
+
+<input
+class="textInput"
+id="website_stat_skills"
+placeholder="4"
+>
+
+<label class="fieldLabel">Gallery Count</label>
+
+<input
+class="textInput"
+id="website_stat_gallery"
+placeholder="∞"
+>
+
+</div>
+
+
+<!-- APP -->
+
+<div class="section">
+
+<div class="sectionTitle">
+📱 App Section
+</div>
+
+<label class="fieldLabel">App Title</label>
+
+<input
+class="textInput"
+id="website_app_title"
+placeholder="Take SM RAYHAN With You"
+>
+
+<label class="fieldLabel">App Description</label>
+
+<textarea
+id="website_app_description"
+placeholder="App section description"
+></textarea>
+
+<label class="fieldLabel">App Name</label>
+
+<input
+class="textInput"
+id="website_app_name"
+placeholder="SM RAYHAN Official App"
+>
+
+<label class="fieldLabel">App Text</label>
+
+<textarea
+id="website_app_text"
+placeholder="App description text"
+></textarea>
+
+<label class="fieldLabel">Feature 1</label>
+
+<input
+class="textInput"
+id="website_app_feature1"
+placeholder="Android"
+>
+
+<label class="fieldLabel">Feature 2</label>
+
+<input
+class="textInput"
+id="website_app_feature2"
+placeholder="Fast"
+>
+
+<label class="fieldLabel">Feature 3</label>
+
+<input
+class="textInput"
+id="website_app_feature3"
+placeholder="Official Website"
+>
+
+<label class="fieldLabel">Feature 4</label>
+
+<input
+class="textInput"
+id="website_app_feature4"
+placeholder="Live Updates"
+>
+
+<label class="fieldLabel">App Button</label>
+
+<input
+class="textInput"
+id="website_app_button"
+placeholder="Get App"
+>
+
+</div>
+
+
+<!-- GALLERY -->
+
+<div class="section">
+
+<div class="sectionTitle">
+🖼️ Gallery Preview
+</div>
+
+<label class="fieldLabel">Gallery Title</label>
+
+<input
+class="textInput"
+id="website_gallery_title"
+placeholder="Gallery"
+>
+
+<label class="fieldLabel">Gallery Description</label>
+
+<textarea
+id="website_gallery_description"
+placeholder="Gallery description"
+></textarea>
+
+<label class="fieldLabel">Gallery Label 1</label>
+
+<input
+class="textInput"
+id="website_gallery_label1"
+placeholder="SM RAYHAN"
+>
+
+<label class="fieldLabel">Gallery Label 2</label>
+
+<input
+class="textInput"
+id="website_gallery_label2"
+placeholder="Featured"
+>
+
+<label class="fieldLabel">Gallery Label 3</label>
+
+<input
+class="textInput"
+id="website_gallery_label3"
+placeholder="Memories"
+>
+
+</div>
+
+
+<!-- SOCIAL CARD TEXT -->
+
+<div class="section">
+
+<div class="sectionTitle">
+🌐 Social Card Text
+</div>
+
+<label class="fieldLabel">Facebook Title</label>
+
+<input
+class="textInput"
+id="website_facebook_title"
+placeholder="Facebook"
+>
+
+<label class="fieldLabel">Facebook Description</label>
+
+<textarea
+id="website_facebook_desc"
+placeholder="Facebook description"
+></textarea>
+
+<label class="fieldLabel">LinkedIn Title</label>
+
+<input
+class="textInput"
+id="website_linkedin_title"
+placeholder="LinkedIn"
+>
+
+<label class="fieldLabel">LinkedIn Description</label>
+
+<textarea
+id="website_linkedin_desc"
+placeholder="LinkedIn description"
+></textarea>
+
+<label class="fieldLabel">WhatsApp Title</label>
+
+<input
+class="textInput"
+id="website_whatsapp_title"
+placeholder="WhatsApp"
+>
+
+<label class="fieldLabel">WhatsApp Description</label>
+
+<textarea
+id="website_whatsapp_desc"
+placeholder="WhatsApp description"
+></textarea>
+
+</div>
+
+
+<!-- CONTACT CTA -->
+
+<div class="section">
+
+<div class="sectionTitle">
+🤝 Contact CTA
+</div>
+
+<label class="fieldLabel">CTA Title</label>
+
+<input
+class="textInput"
+id="website_cta_title"
+placeholder="Let's Connect 🤝"
+>
+
+<label class="fieldLabel">CTA Text</label>
+
+<textarea
+id="website_cta_text"
+placeholder="Contact CTA text"
+></textarea>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="section">
+
+<div class="sectionTitle">
+📌 Footer
+</div>
+
+<label class="fieldLabel">Footer Brand</label>
+
+<input
+class="textInput"
+id="website_footer_brand"
+placeholder="SM RAYHAN"
+>
+
+<label class="fieldLabel">Footer Copyright</label>
+
+<input
+class="textInput"
+id="website_footer_copyright"
+placeholder="© 2026 SM RAYHAN | My Personal Website ❤️"
+>
+
+<br>
+
+<button class="saveBtn" onclick="saveWebsiteSettings()">
+💾 Save Website Content
+</button>
+
+<div class="status" id="websiteStatus"></div>
+
+</div>
+
 </div>
 
 
@@ -1275,7 +1513,7 @@ menu.classList.toggle("open");
 
 
 /* =========================
-   OUTSIDE CLICK = CLOSE MENU
+   OUTSIDE CLICK
 ========================= */
 
 document.addEventListener(
@@ -1384,6 +1622,9 @@ await loadSection(panelId);
 if(panelId==="social")
 await loadSocial();
 
+if(panelId==="website")
+await loadWebsiteSettings();
+
 if(panelId==="profile")
 await loadProfile();
 
@@ -1462,13 +1703,7 @@ document.getElementById("loginPage")
 document.getElementById("adminPage")
 .style.display="block";
 
-
-/* LOGIN হওয়ার পর ADMIN MENU */
-
 setMenuMode(true);
-
-
-/* Dashboard দেখাবে */
 
 document.querySelectorAll(".adminPanel")
 .forEach(panel=>{
@@ -1477,7 +1712,6 @@ panel.classList.remove("active");
 
 document.getElementById("dashboard")
 .classList.add("active");
-
 
 await loadAllContent();
 
@@ -1503,11 +1737,7 @@ document.getElementById("loginPage")
 document.getElementById("adminPage")
 .style.display="block";
 
-
-/* আগে থেকেই login থাকলে ADMIN MENU */
-
 setMenuMode(true);
-
 
 document.querySelectorAll(".adminPanel")
 .forEach(panel=>{
@@ -1517,14 +1747,11 @@ panel.classList.remove("active");
 document.getElementById("dashboard")
 .classList.add("active");
 
-
 await loadAllContent();
 
 await loadMediaCounts();
 
 }else{
-
-/* Login না থাকলে ছোট MENU */
 
 setMenuMode(false);
 
@@ -1720,6 +1947,7 @@ await loadSection("contact");
 await loadSection("skills");
 await loadSection("projects");
 await loadSocial();
+await loadWebsiteSettings();
 await loadProfile();
 
 }
@@ -1788,10 +2016,7 @@ data ? data.content : null
 
 if(section==="home"){
 
-setValue(
-"home_name",
-content.name || ""
-);
+setValue("home_name",content.name || "");
 
 setValue(
 "home_subtitle",
@@ -2413,6 +2638,451 @@ document.getElementById("whatsapp")
 
 await saveContent(
 "social",
+content,
+status
+);
+
+}
+
+
+/* =========================
+   WEBSITE CONTENT
+========================= */
+
+async function loadWebsiteSettings(){
+
+const {data,error} =
+await supabaseClient
+.from("website_content")
+.select("content")
+.eq("section","website")
+.maybeSingle();
+
+if(error){
+
+console.log(error);
+
+return;
+
+}
+
+const c =
+normalizeContent(
+data ? data.content : null
+);
+
+
+/* HERO */
+
+setValue(
+"website_hero_description",
+c.hero_description || ""
+);
+
+
+/* ABOUT PREVIEW */
+
+setValue(
+"website_about_title",
+c.about_title || ""
+);
+
+setValue(
+"website_about_description",
+c.about_description || ""
+);
+
+setValue(
+"website_about_name",
+c.about_name || ""
+);
+
+setValue(
+"website_about_text",
+c.about_text || ""
+);
+
+setValue(
+"website_info_website",
+c.info_website || ""
+);
+
+setValue(
+"website_info_platform",
+c.info_platform || ""
+);
+
+setValue(
+"website_info_focus",
+c.info_focus || ""
+);
+
+setValue(
+"website_info_status",
+c.info_status || ""
+);
+
+
+/* STATS */
+
+setValue(
+"website_stat_projects",
+c.stat_projects || ""
+);
+
+setValue(
+"website_stat_skills",
+c.stat_skills || ""
+);
+
+setValue(
+"website_stat_gallery",
+c.stat_gallery || ""
+);
+
+
+/* APP */
+
+setValue(
+"website_app_title",
+c.app_title || ""
+);
+
+setValue(
+"website_app_description",
+c.app_description || ""
+);
+
+setValue(
+"website_app_name",
+c.app_name || ""
+);
+
+setValue(
+"website_app_text",
+c.app_text || ""
+);
+
+setValue(
+"website_app_feature1",
+c.app_feature1 || ""
+);
+
+setValue(
+"website_app_feature2",
+c.app_feature2 || ""
+);
+
+setValue(
+"website_app_feature3",
+c.app_feature3 || ""
+);
+
+setValue(
+"website_app_feature4",
+c.app_feature4 || ""
+);
+
+setValue(
+"website_app_button",
+c.app_button || ""
+);
+
+
+/* GALLERY */
+
+setValue(
+"website_gallery_title",
+c.gallery_title || ""
+);
+
+setValue(
+"website_gallery_description",
+c.gallery_description || ""
+);
+
+setValue(
+"website_gallery_label1",
+c.gallery_label1 || ""
+);
+
+setValue(
+"website_gallery_label2",
+c.gallery_label2 || ""
+);
+
+setValue(
+"website_gallery_label3",
+c.gallery_label3 || ""
+);
+
+
+/* SOCIAL CARD */
+
+setValue(
+"website_facebook_title",
+c.facebook_title || ""
+);
+
+setValue(
+"website_facebook_desc",
+c.facebook_desc || ""
+);
+
+setValue(
+"website_linkedin_title",
+c.linkedin_title || ""
+);
+
+setValue(
+"website_linkedin_desc",
+c.linkedin_desc || ""
+);
+
+setValue(
+"website_whatsapp_title",
+c.whatsapp_title || ""
+);
+
+setValue(
+"website_whatsapp_desc",
+c.whatsapp_desc || ""
+);
+
+
+/* CTA */
+
+setValue(
+"website_cta_title",
+c.cta_title || ""
+);
+
+setValue(
+"website_cta_text",
+c.cta_text || ""
+);
+
+
+/* FOOTER */
+
+setValue(
+"website_footer_brand",
+c.footer_brand || ""
+);
+
+setValue(
+"website_footer_copyright",
+c.footer_copyright || ""
+);
+
+}
+
+
+/* =========================
+   SAVE WEBSITE CONTENT
+========================= */
+
+async function saveWebsiteSettings(){
+
+const status =
+document.getElementById("websiteStatus");
+
+status.textContent =
+"⏳ Saving...";
+
+const content = {
+
+hero_description:
+document.getElementById(
+"website_hero_description"
+).value.trim(),
+
+
+about_title:
+document.getElementById(
+"website_about_title"
+).value.trim(),
+
+about_description:
+document.getElementById(
+"website_about_description"
+).value.trim(),
+
+about_name:
+document.getElementById(
+"website_about_name"
+).value.trim(),
+
+about_text:
+document.getElementById(
+"website_about_text"
+).value.trim(),
+
+info_website:
+document.getElementById(
+"website_info_website"
+).value.trim(),
+
+info_platform:
+document.getElementById(
+"website_info_platform"
+).value.trim(),
+
+info_focus:
+document.getElementById(
+"website_info_focus"
+).value.trim(),
+
+info_status:
+document.getElementById(
+"website_info_status"
+).value.trim(),
+
+
+stat_projects:
+document.getElementById(
+"website_stat_projects"
+).value.trim(),
+
+stat_skills:
+document.getElementById(
+"website_stat_skills"
+).value.trim(),
+
+stat_gallery:
+document.getElementById(
+"website_stat_gallery"
+).value.trim(),
+
+
+app_title:
+document.getElementById(
+"website_app_title"
+).value.trim(),
+
+app_description:
+document.getElementById(
+"website_app_description"
+).value.trim(),
+
+app_name:
+document.getElementById(
+"website_app_name"
+).value.trim(),
+
+app_text:
+document.getElementById(
+"website_app_text"
+).value.trim(),
+
+app_feature1:
+document.getElementById(
+"website_app_feature1"
+).value.trim(),
+
+app_feature2:
+document.getElementById(
+"website_app_feature2"
+).value.trim(),
+
+app_feature3:
+document.getElementById(
+"website_app_feature3"
+).value.trim(),
+
+app_feature4:
+document.getElementById(
+"website_app_feature4"
+).value.trim(),
+
+app_button:
+document.getElementById(
+"website_app_button"
+).value.trim(),
+
+
+gallery_title:
+document.getElementById(
+"website_gallery_title"
+).value.trim(),
+
+gallery_description:
+document.getElementById(
+"website_gallery_description"
+).value.trim(),
+
+gallery_label1:
+document.getElementById(
+"website_gallery_label1"
+).value.trim(),
+
+gallery_label2:
+document.getElementById(
+"website_gallery_label2"
+).value.trim(),
+
+gallery_label3:
+document.getElementById(
+"website_gallery_label3"
+).value.trim(),
+
+
+facebook_title:
+document.getElementById(
+"website_facebook_title"
+).value.trim(),
+
+facebook_desc:
+document.getElementById(
+"website_facebook_desc"
+).value.trim(),
+
+linkedin_title:
+document.getElementById(
+"website_linkedin_title"
+).value.trim(),
+
+linkedin_desc:
+document.getElementById(
+"website_linkedin_desc"
+).value.trim(),
+
+whatsapp_title:
+document.getElementById(
+"website_whatsapp_title"
+).value.trim(),
+
+whatsapp_desc:
+document.getElementById(
+"website_whatsapp_desc"
+).value.trim(),
+
+
+cta_title:
+document.getElementById(
+"website_cta_title"
+).value.trim(),
+
+cta_text:
+document.getElementById(
+"website_cta_text"
+).value.trim(),
+
+
+footer_brand:
+document.getElementById(
+"website_footer_brand"
+).value.trim(),
+
+footer_copyright:
+document.getElementById(
+"website_footer_copyright"
+).value.trim()
+
+};
+
+await saveContent(
+"website",
 content,
 status
 );
@@ -3064,12 +3734,7 @@ data.content.image;
    START
 ========================= */
 
-/* শুরুতে Login Menu */
-
 setMenuMode(false);
-
-
-/* Profile load */
 
 loadProfile();
 
