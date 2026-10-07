@@ -354,6 +354,140 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 
 .status{margin-top:12px;text-align:center;color:var(--accent);font-size:14px}
 
+
+/* =========================
+   MESSAGE CARD
+========================= */
+
+.messageCard{
+background:var(--bg);
+border:1px solid var(--border);
+border-radius:16px;
+padding:17px;
+margin-bottom:12px;
+box-shadow:0 5px 18px rgba(0,0,0,.05);
+transition:.25s;
+}
+
+.messageCard:hover{
+transform:translateY(-2px);
+border-color:var(--accent);
+box-shadow:0 8px 25px rgba(108,92,231,.12);
+}
+
+.messageHeader{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:10px;
+margin-bottom:12px;
+}
+
+.messageSender{
+min-width:0;
+}
+
+.messageName{
+font-size:17px;
+font-weight:bold;
+margin-bottom:5px;
+word-break:break-word;
+}
+
+.messageInfo{
+display:grid;
+gap:8px;
+margin-bottom:13px;
+}
+
+.messageInfoRow{
+padding:10px 12px;
+border-radius:10px;
+background:var(--card);
+border:1px solid var(--border);
+font-size:14px;
+word-break:break-word;
+}
+
+.messageLabel{
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:7px;
+    color:var(--text);
+}
+
+.messageBody {
+   padding: 14px;
+   margin: 0;
+   border-radius: 12px;
+   background: var(--card);
+   border: 1px solid var(--border);
+   line-height: 1.7;
+   font-size: 14px;
+   white-space: pre-wrap;
+   word-break: break-word;
+   text-align: left;
+   min-height: 60px;
+   height: auto;
+   display: block;
+   box-sizing: border-box;
+}
+
+.messageDateTime{
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+font-size:12px;
+color:var(--muted);
+padding:4px 2px 13px;
+}
+
+.messageEmpty{
+text-align:center;
+padding:35px 15px;
+border:1px dashed var(--border);
+border-radius:15px;
+color:var(--muted);
+}
+
+.messageEmptyIcon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.messageEmptyTitle{
+font-weight:bold;
+font-size:17px;
+}
+
+.messageEmptyText{
+font-size:13px;
+margin-top:6px;
+}
+
+.messageCount{
+text-align:center;
+padding:12px;
+margin-bottom:15px;
+border-radius:12px;
+background:var(--bg);
+border:1px solid var(--border);
+color:var(--muted);
+}
+
+.refreshBtn{
+width:auto;
+padding:10px 16px;
+font-size:14px;
+}
+
+.messageDeleteBtn{
+width:100%;
+padding:11px;
+font-size:14px;
+margin-top:0;
+}
+
 @media(max-width:600px){
 .adminIdentity{left:68px;gap:7px;font-size:13px}
 .adminIdentity img{width:36px;height:36px}
@@ -367,6 +501,15 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 .uploadGrid{grid-template-columns:1fr}
 .formGrid{grid-template-columns:1fr}
 .formFull{grid-column:auto}
+
+.messageDateTime{
+flex-direction:column;
+gap:6px;
+}
+
+.refreshBtn{
+width:auto !important;
+}
 }
 </style>
 </head>
@@ -422,6 +565,10 @@ padding:15px;border:1px dashed var(--border);border-radius:14px;background:var(-
 
 <button class="menuItem" onclick="showPanel('contact')">
 📞 Contact
+</button>
+
+<button class="menuItem" onclick="showPanel('messages')">
+📩 Messages
 </button>
 
 <button class="menuItem" onclick="showPanel('skills')">
@@ -693,6 +840,61 @@ _SM RAYHAN_
 </div>
 
 
+<!-- =========================
+     CONTACT MESSAGES
+========================= -->
+
+<div class="adminPanel" id="messages">
+
+<div class="section">
+
+<div style="
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:17px;
+">
+
+<div class="sectionTitle" style="margin-bottom:0;">
+📩 Contact Messages
+</div>
+
+<button
+class="saveBtn refreshBtn"
+onclick="loadMessages()"
+>
+🔄 Refresh
+</button>
+
+</div>
+
+<div
+class="messageCount"
+id="messageCount"
+>
+⏳ Loading messages...
+</div>
+
+<div id="messagesList">
+
+<div class="status">
+⏳ Loading messages...
+</div>
+
+</div>
+
+<div
+class="status"
+id="messagesStatus"
+></div>
+
+</div>
+
+</div>
+
+
 <!-- SKILLS -->
 
 <div class="adminPanel" id="skills">
@@ -793,8 +995,6 @@ _SM RAYHAN_
 
 <div class="adminPanel" id="website">
 
-<!-- HERO -->
-
 <div class="section">
 
 <div class="sectionTitle">
@@ -809,9 +1009,6 @@ placeholder="Hero description"
 ></textarea>
 
 </div>
-
-
-<!-- ABOUT PREVIEW -->
 
 <div class="section">
 
@@ -883,9 +1080,6 @@ placeholder="Active"
 
 </div>
 
-
-<!-- STATS -->
-
 <div class="section">
 
 <div class="sectionTitle">
@@ -917,9 +1111,6 @@ placeholder="∞"
 >
 
 </div>
-
-
-<!-- APP -->
 
 <div class="section">
 
@@ -999,9 +1190,6 @@ placeholder="Get App"
 
 </div>
 
-
-<!-- GALLERY -->
-
 <div class="section">
 
 <div class="sectionTitle">
@@ -1048,9 +1236,6 @@ placeholder="Memories"
 >
 
 </div>
-
-
-<!-- SOCIAL CARD TEXT -->
 
 <div class="section">
 
@@ -1105,9 +1290,6 @@ placeholder="WhatsApp description"
 
 </div>
 
-
-<!-- CONTACT CTA -->
-
 <div class="section">
 
 <div class="sectionTitle">
@@ -1130,9 +1312,6 @@ placeholder="Contact CTA text"
 ></textarea>
 
 </div>
-
-
-<!-- FOOTER -->
 
 <div class="section">
 
@@ -1231,7 +1410,6 @@ Photos
 
 </div>
 
-
 <div
 class="mediaCountCard"
 id="musicCard"
@@ -1254,7 +1432,6 @@ Music
 </div>
 
 </div>
-
 
 <div
 class="mediaCountCard"
@@ -1281,7 +1458,6 @@ Videos
 
 </div>
 
-
 <div
 class="mediaCategoryList"
 id="photosList"
@@ -1298,7 +1474,6 @@ id="videosList"
 ></div>
 
 </div>
-
 
 <div class="section">
 
@@ -1323,7 +1498,6 @@ multiple
 
 </div>
 
-
 <div class="mediaBox">
 
 <strong>
@@ -1338,7 +1512,6 @@ multiple
 >
 
 </div>
-
 
 <div class="mediaBox">
 
@@ -1618,6 +1791,9 @@ panelId==="skills"||
 panelId==="projects"
 )
 await loadSection(panelId);
+
+if(panelId==="messages")
+await loadMessages();
 
 if(panelId==="social")
 await loadSocial();
@@ -2671,16 +2847,10 @@ normalizeContent(
 data ? data.content : null
 );
 
-
-/* HERO */
-
 setValue(
 "website_hero_description",
 c.hero_description || ""
 );
-
-
-/* ABOUT PREVIEW */
 
 setValue(
 "website_about_title",
@@ -2722,9 +2892,6 @@ setValue(
 c.info_status || ""
 );
 
-
-/* STATS */
-
 setValue(
 "website_stat_projects",
 c.stat_projects || ""
@@ -2739,9 +2906,6 @@ setValue(
 "website_stat_gallery",
 c.stat_gallery || ""
 );
-
-
-/* APP */
 
 setValue(
 "website_app_title",
@@ -2788,9 +2952,6 @@ setValue(
 c.app_button || ""
 );
 
-
-/* GALLERY */
-
 setValue(
 "website_gallery_title",
 c.gallery_title || ""
@@ -2815,9 +2976,6 @@ setValue(
 "website_gallery_label3",
 c.gallery_label3 || ""
 );
-
-
-/* SOCIAL CARD */
 
 setValue(
 "website_facebook_title",
@@ -2849,9 +3007,6 @@ setValue(
 c.whatsapp_desc || ""
 );
 
-
-/* CTA */
-
 setValue(
 "website_cta_title",
 c.cta_title || ""
@@ -2861,9 +3016,6 @@ setValue(
 "website_cta_text",
 c.cta_text || ""
 );
-
-
-/* FOOTER */
 
 setValue(
 "website_footer_brand",
@@ -2893,191 +3045,112 @@ status.textContent =
 const content = {
 
 hero_description:
-document.getElementById(
-"website_hero_description"
-).value.trim(),
-
+document.getElementById("website_hero_description").value.trim(),
 
 about_title:
-document.getElementById(
-"website_about_title"
-).value.trim(),
+document.getElementById("website_about_title").value.trim(),
 
 about_description:
-document.getElementById(
-"website_about_description"
-).value.trim(),
+document.getElementById("website_about_description").value.trim(),
 
 about_name:
-document.getElementById(
-"website_about_name"
-).value.trim(),
+document.getElementById("website_about_name").value.trim(),
 
 about_text:
-document.getElementById(
-"website_about_text"
-).value.trim(),
+document.getElementById("website_about_text").value.trim(),
 
 info_website:
-document.getElementById(
-"website_info_website"
-).value.trim(),
+document.getElementById("website_info_website").value.trim(),
 
 info_platform:
-document.getElementById(
-"website_info_platform"
-).value.trim(),
+document.getElementById("website_info_platform").value.trim(),
 
 info_focus:
-document.getElementById(
-"website_info_focus"
-).value.trim(),
+document.getElementById("website_info_focus").value.trim(),
 
 info_status:
-document.getElementById(
-"website_info_status"
-).value.trim(),
-
+document.getElementById("website_info_status").value.trim(),
 
 stat_projects:
-document.getElementById(
-"website_stat_projects"
-).value.trim(),
+document.getElementById("website_stat_projects").value.trim(),
 
 stat_skills:
-document.getElementById(
-"website_stat_skills"
-).value.trim(),
+document.getElementById("website_stat_skills").value.trim(),
 
 stat_gallery:
-document.getElementById(
-"website_stat_gallery"
-).value.trim(),
-
+document.getElementById("website_stat_gallery").value.trim(),
 
 app_title:
-document.getElementById(
-"website_app_title"
-).value.trim(),
+document.getElementById("website_app_title").value.trim(),
 
 app_description:
-document.getElementById(
-"website_app_description"
-).value.trim(),
+document.getElementById("website_app_description").value.trim(),
 
 app_name:
-document.getElementById(
-"website_app_name"
-).value.trim(),
+document.getElementById("website_app_name").value.trim(),
 
 app_text:
-document.getElementById(
-"website_app_text"
-).value.trim(),
+document.getElementById("website_app_text").value.trim(),
 
 app_feature1:
-document.getElementById(
-"website_app_feature1"
-).value.trim(),
+document.getElementById("website_app_feature1").value.trim(),
 
 app_feature2:
-document.getElementById(
-"website_app_feature2"
-).value.trim(),
+document.getElementById("website_app_feature2").value.trim(),
 
 app_feature3:
-document.getElementById(
-"website_app_feature3"
-).value.trim(),
+document.getElementById("website_app_feature3").value.trim(),
 
 app_feature4:
-document.getElementById(
-"website_app_feature4"
-).value.trim(),
+document.getElementById("website_app_feature4").value.trim(),
 
 app_button:
-document.getElementById(
-"website_app_button"
-).value.trim(),
-
+document.getElementById("website_app_button").value.trim(),
 
 gallery_title:
-document.getElementById(
-"website_gallery_title"
-).value.trim(),
+document.getElementById("website_gallery_title").value.trim(),
 
 gallery_description:
-document.getElementById(
-"website_gallery_description"
-).value.trim(),
+document.getElementById("website_gallery_description").value.trim(),
 
 gallery_label1:
-document.getElementById(
-"website_gallery_label1"
-).value.trim(),
+document.getElementById("website_gallery_label1").value.trim(),
 
 gallery_label2:
-document.getElementById(
-"website_gallery_label2"
-).value.trim(),
+document.getElementById("website_gallery_label2").value.trim(),
 
 gallery_label3:
-document.getElementById(
-"website_gallery_label3"
-).value.trim(),
-
+document.getElementById("website_gallery_label3").value.trim(),
 
 facebook_title:
-document.getElementById(
-"website_facebook_title"
-).value.trim(),
+document.getElementById("website_facebook_title").value.trim(),
 
 facebook_desc:
-document.getElementById(
-"website_facebook_desc"
-).value.trim(),
+document.getElementById("website_facebook_desc").value.trim(),
 
 linkedin_title:
-document.getElementById(
-"website_linkedin_title"
-).value.trim(),
+document.getElementById("website_linkedin_title").value.trim(),
 
 linkedin_desc:
-document.getElementById(
-"website_linkedin_desc"
-).value.trim(),
+document.getElementById("website_linkedin_desc").value.trim(),
 
 whatsapp_title:
-document.getElementById(
-"website_whatsapp_title"
-).value.trim(),
+document.getElementById("website_whatsapp_title").value.trim(),
 
 whatsapp_desc:
-document.getElementById(
-"website_whatsapp_desc"
-).value.trim(),
-
+document.getElementById("website_whatsapp_desc").value.trim(),
 
 cta_title:
-document.getElementById(
-"website_cta_title"
-).value.trim(),
+document.getElementById("website_cta_title").value.trim(),
 
 cta_text:
-document.getElementById(
-"website_cta_text"
-).value.trim(),
-
+document.getElementById("website_cta_text").value.trim(),
 
 footer_brand:
-document.getElementById(
-"website_footer_brand"
-).value.trim(),
+document.getElementById("website_footer_brand").value.trim(),
 
 footer_copyright:
-document.getElementById(
-"website_footer_copyright"
-).value.trim()
+document.getElementById("website_footer_copyright").value.trim()
 
 };
 
@@ -3580,7 +3653,6 @@ document.getElementById(
 
 const filesToUpload=[];
 
-
 for(const file of photoFiles){
 
 filesToUpload.push({
@@ -3608,7 +3680,6 @@ folder:"videos"
 
 }
 
-
 if(
 filesToUpload.length===0
 ){
@@ -3620,14 +3691,12 @@ return;
 
 }
 
-
 status.textContent =
 "⏳ Uploading 0/"+
 filesToUpload.length+
 "...";
 
 let success=0;
-
 
 for(
 const item of filesToUpload
@@ -3669,7 +3738,6 @@ filesToUpload.length+
 
 }
 
-
 document.getElementById(
 "photoFiles"
 ).value="";
@@ -3682,9 +3750,7 @@ document.getElementById(
 "videoFiles"
 ).value="";
 
-
 await loadMediaCounts();
-
 
 status.textContent =
 "✅ "+success+
@@ -3726,6 +3792,391 @@ document.getElementById(
 data.content.image;
 
 }
+
+}
+
+
+/* =====================================================
+   CONTACT MESSAGES
+===================================================== */
+
+async function loadMessages(){
+
+const list =
+document.getElementById("messagesList");
+
+const count =
+document.getElementById("messageCount");
+
+const status =
+document.getElementById("messagesStatus");
+
+if(!list || !count)return;
+
+list.innerHTML =
+"<div class='status'>⏳ Loading messages...</div>";
+
+count.textContent =
+"⏳ Loading...";
+
+if(status){
+status.textContent="";
+}
+
+
+/* GET MESSAGES */
+
+const {data,error} =
+await supabaseClient
+.from("contact_messages")
+.select("*")
+.order(
+"created_at",
+{
+ascending:false
+}
+);
+
+
+/* ERROR */
+
+if(error){
+
+console.log(
+"Messages Error:",
+error
+);
+
+list.innerHTML =
+"<div class='status'>❌ "+
+escapeHtml(error.message)+
+"</div>";
+
+count.textContent =
+"❌ Messages load করা যায়নি";
+
+return;
+
+}
+
+
+const messages =
+data || [];
+
+
+/* COUNT */
+
+count.textContent =
+"📩 Total Messages: "+
+messages.length;
+
+
+/* EMPTY */
+
+if(messages.length===0){
+
+list.innerHTML=`
+
+<div class="messageEmpty">
+
+<div class="messageEmptyIcon">
+📭
+</div>
+
+<div class="messageEmptyTitle">
+No messages yet
+</div>
+
+<div class="messageEmptyText">
+Contact form থেকে কোনো message এখনো আসেনি।
+</div>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+/* CLEAR */
+
+list.innerHTML="";
+
+
+/* DISPLAY */
+
+messages.forEach(message=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"messageCard";
+
+
+/* NAME */
+
+const name =
+message.name ||
+message.full_name ||
+message.username ||
+"Unknown";
+
+
+/* PHONE */
+
+const phone =
+message.phone ||
+message.mobile ||
+message.phone_number ||
+"Not provided";
+
+
+/* SUBJECT */
+
+const subject =
+message.subject ||
+message.title ||
+"No Subject";
+
+
+/* MESSAGE TEXT */
+
+const text =
+message.message ||
+message.text ||
+message.content ||
+"";
+
+
+/* DATE + TIME */
+
+let dateText="—";
+let timeText="—";
+
+if(message.created_at){
+
+try{
+
+const messageDate =
+new Date(
+message.created_at
+);
+
+dateText =
+messageDate.toLocaleDateString(
+"en-GB",
+{
+day:"2-digit",
+month:"short",
+year:"numeric"
+}
+);
+
+timeText =
+messageDate.toLocaleTimeString(
+"en-US",
+{
+hour:"2-digit",
+minute:"2-digit",
+hour12:true
+}
+);
+
+}catch(e){
+
+dateText =
+message.created_at;
+
+}
+
+}
+
+
+/* CARD */
+
+card.innerHTML=`
+
+<div class="messageHeader">
+
+<div class="messageSender">
+
+<div class="messageName">
+👤 ${escapeHtml(name)}
+</div>
+
+</div>
+
+</div>
+
+
+<div class="messageInfo">
+
+<div class="messageInfoRow">
+📱 <b>Phone:</b>
+${escapeHtml(phone)}
+</div>
+
+<div class="messageInfoRow">
+📌 <b>Subject:</b>
+${escapeHtml(subject)}
+</div>
+
+</div>
+
+
+<div class="messageLabel">
+   📝 Message
+</div>
+
+<div class="messageBody">${escapeHtml(text)}
+</div>
+
+
+<div class="messageDateTime">
+
+<div>
+📅 <b>Date:</b>
+${escapeHtml(dateText)}
+</div>
+
+<div>
+🕐 <b>Time:</b>
+${escapeHtml(timeText)}
+</div>
+
+</div>
+
+
+<button
+class="deleteBtn messageDeleteBtn"
+>
+🗑️ Delete
+</button>
+
+`;
+
+
+/* DELETE BUTTON */
+
+const deleteButton =
+card.querySelector(
+".messageDeleteBtn"
+);
+
+if(deleteButton){
+
+deleteButton.onclick =
+function(){
+
+deleteMessage(
+message.id
+);
+
+};
+
+}
+
+
+list.appendChild(card);
+
+});
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHtml(value){
+
+return String(
+value ?? ""
+)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* =========================
+   DELETE MESSAGE
+========================= */
+
+async function deleteMessage(id){
+
+if(!id){
+
+alert(
+"❌ এই message-এর ID পাওয়া যায়নি।"
+);
+
+return;
+
+}
+
+const ok =
+confirm(
+"আপনি কি এই message delete করতে চান?"
+);
+
+if(!ok)return;
+
+const {error} =
+await supabaseClient
+.from("contact_messages")
+.delete()
+.eq(
+"id",
+id
+);
+
+if(error){
+
+alert(
+"❌ "+error.message
+);
+
+console.log(
+"Delete Message Error:",
+error
+);
+
+return;
+
+}
+
+alert(
+"✅ Message deleted successfully"
+);
+
+await loadMessages();
 
 }
 
