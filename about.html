@@ -1,1574 +1,3497 @@
 <!DOCTYPE html>
-<html lang="bn">
-
+<html lang="en">
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SM RAYHAN | About</title>
+
+<meta name="description" content="Learn more about SM RAYHAN, personal journey, skills, projects, goals and vision.">
+<meta name="author" content="SM RAYHAN">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://smrayhanofficial.github.io/about.html">
+
+<link rel="icon" href="app-icon.png">
+<link rel="apple-touch-icon" href="app-icon.png">
+
+<meta name="theme-color" content="#080914">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,sans-serif;
-color:#fff;
-min-height:100vh;
-overflow-x:hidden;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
 
-background:
-radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
-radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
-linear-gradient(135deg,#080914,#12152a,#080914);
+    background:
+        radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+        radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+        linear-gradient(135deg,#080914,#12152a,#080914);
 
-transition:.4s;
+    transition:.4s;
 }
 
-
-/* =========================
-   ANIMATED BACKGROUND
-========================= */
+/* BACKGROUND */
 
 .bg{
-position:fixed;
-inset:0;
-overflow:hidden;
-pointer-events:none;
-z-index:-1;
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-2;
 }
 
 .blob{
-position:absolute;
-border-radius:50%;
-filter:blur(70px);
-opacity:.22;
-animation:float 8s ease-in-out infinite alternate;
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.22;
+    animation:float 12s ease-in-out infinite alternate;
 }
 
 .blob1{
-width:280px;
-height:280px;
-background:#735cff;
-left:-100px;
-top:10%;
+    width:280px;
+    height:280px;
+    background:#735cff;
+    left:-100px;
+    top:10%;
 }
 
 .blob2{
-width:300px;
-height:300px;
-background:#ff3cac;
-right:-120px;
-bottom:5%;
-animation-delay:1s;
+    width:300px;
+    height:300px;
+    background:#ff3cac;
+    right:-120px;
+    bottom:5%;
+    animation-delay:2s;
 }
 
 .blob3{
-width:180px;
-height:180px;
-background:#00d4ff;
-left:45%;
-top:40%;
-animation-delay:2s;
+    width:180px;
+    height:180px;
+    background:#00d4ff;
+    left:45%;
+    top:40%;
+    animation-delay:4s;
 }
 
 @keyframes float{
-
-to{
-transform:translate(45px,40px) scale(1.18);
+    to{
+        transform:translate(45px,40px) scale(1.18);
+    }
 }
 
+/* MENU */
+
+.menuBtn,
+.themeBtn{
+    position:fixed;
+    top:18px;
+    width:48px;
+    height:48px;
+
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border-radius:15px;
+
+    z-index:10002;
+    cursor:pointer;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    color:#fff;
 }
 
-
-/* =========================
-   MENU BUTTON
-========================= */
-
-.menu-btn{
-position:fixed;
-left:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:5px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-
-backdrop-filter:blur(15px);
--webkit-backdrop-filter:blur(15px);
-
-cursor:pointer;
-z-index:10002;
-
-transition:.3s;
+.menuBtn{
+    left:18px;
 }
 
-.menu-btn:hover{
-
-transform:scale(1.06);
-
-box-shadow:
-0 0 15px rgba(115,92,255,.6),
-0 0 30px rgba(255,60,172,.3);
-
+.themeBtn{
+    right:18px;
+    font-size:20px;
 }
 
-.menu-btn span{
-width:23px;
-height:2px;
-
-background:#fff;
-
-border-radius:10px;
-
-transition:.3s;
+.menuBtn:hover,
+.themeBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 0 25px rgba(115,92,255,.35),
+        0 0 35px rgba(255,60,172,.18);
 }
 
-
-/* =========================
-   THEME BUTTON
-========================= */
-
-.theme-btn{
-position:fixed;
-right:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-
-color:#fff;
-
-font-size:20px;
-
-cursor:pointer;
-z-index:10002;
-
-backdrop-filter:blur(15px);
-
-transition:.3s;
+.menuLines{
+    width:23px;
+    margin:auto;
 }
 
-.theme-btn:hover{
-
-box-shadow:
-0 0 15px rgba(115,92,255,.7),
-0 0 30px rgba(255,60,172,.3);
-
-transform:scale(1.05);
+.menuLines span{
+    display:block;
+    width:23px;
+    height:2px;
+    background:#fff;
+    margin:5px 0;
+    border-radius:5px;
 }
 
+/* SIDE MENU */
 
-/* =========================
-   SIDE MENU
-========================= */
+.sideMenu{
+    position:fixed;
+    top:0;
+    left:0;
 
-.side-menu{
+    width:50%;
+    height:100vh;
 
-position:fixed;
+    padding:90px 20px 30px;
 
-left:0;
-top:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(115,92,255,.25),transparent 35%),
+        radial-gradient(circle at 80% 80%,rgba(255,60,172,.20),transparent 35%),
+        rgba(8,9,20,.97);
 
-width:50%;
-height:100vh;
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
 
-padding:90px 20px 30px;
+    border-right:1px solid rgba(255,255,255,.10);
 
-background:
-radial-gradient(
-circle at 20% 20%,
-rgba(99,91,255,.35),
-transparent 35%
-),
-radial-gradient(
-circle at 80% 80%,
-rgba(255,60,172,.25),
-transparent 35%
-),
-rgba(8,9,20,.97);
+    box-shadow:20px 0 70px rgba(0,0,0,.35);
 
-border-right:1px solid rgba(255,255,255,.18);
+    transform:translateX(-110%);
+    opacity:0;
+    visibility:hidden;
 
-backdrop-filter:blur(25px);
--webkit-backdrop-filter:blur(25px);
+    transition:.4s;
 
-box-shadow:
-10px 0 40px rgba(0,0,0,.35),
-0 0 30px rgba(115,92,255,.25);
-
-transform:translateX(-100%);
-
-opacity:0;
-
-visibility:hidden;
-
-transition:
-transform .4s ease,
-opacity .3s ease,
-visibility .4s ease;
-
-overflow-y:auto;
-
-z-index:10001;
+    z-index:10001;
 }
 
-.side-menu.show{
-
-transform:translateX(0);
-
-opacity:1;
-
-visibility:visible;
+.sideMenu.show{
+    transform:translateX(0);
+    opacity:1;
+    visibility:visible;
 }
 
+.sideMenu h3{
+    font-size:28px;
+    margin-bottom:4px;
 
-.side-menu a{
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #b9afff,
+        #ff8bd4
+    );
 
-display:block;
-
-text-decoration:none;
-
-color:#fff;
-
-padding:15px 14px;
-
-border-radius:14px;
-
-margin-bottom:8px;
-
-font-size:15px;
-
-background:rgba(255,255,255,.06);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.3s;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
-.side-menu a:hover{
-
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-transform:translateX(5px);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.4),
-0 0 25px rgba(255,60,172,.25);
+.menuSub{
+    color:#94a3b8;
+    margin-bottom:30px;
 }
 
+.sideMenu a{
+    display:block;
+    text-decoration:none;
+    color:#dbe3f0;
 
-/* =========================
-   CONTAINER
-========================= */
+    padding:14px 5px;
+
+    font-size:16px;
+    font-weight:600;
+
+    border-bottom:1px solid rgba(255,255,255,.05);
+
+    transition:.3s;
+}
+
+.sideMenu a:hover{
+    color:#fff;
+    transform:translateX(5px);
+
+    background:linear-gradient(
+        90deg,
+        #735cff,
+        #ff3cac
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    z-index:10000;
+
+    display:none;
+}
+
+.overlay.show{
+    display:block;
+}
+
+/* CONTAINER */
 
 .container{
-
-width:92%;
-max-width:900px;
-
-margin:auto;
-
-padding:90px 0 50px;
+    width:min(1180px,92%);
+    margin:auto;
 }
 
-
-/* =========================
-   PROFILE
-========================= */
-
-.profile-section{
-
-text-align:center;
-
-animation:appear .8s ease;
+section{
+    padding:85px 0;
 }
 
-.profile{
+/* SECTION HEAD */
 
-width:125px;
-height:125px;
-
-margin:auto;
-
-position:relative;
+.sectionHead{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-.profile img{
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-border-radius:50%;
-
-border:4px solid rgba(255,255,255,.8);
-
-box-shadow:
-0 0 25px rgba(124,92,255,.7),
-0 0 50px rgba(255,60,172,.25);
-
-animation:profileGlow 3s ease-in-out infinite alternate;
+.sectionHead .mini{
+    color:#bdb5ff;
+    letter-spacing:3px;
+    font-size:13px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:10px;
 }
 
-@keyframes profileGlow{
+.sectionHead h2{
+    font-size:clamp(30px,5vw,46px);
 
-to{
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #b9afff,
+        #ff8bd4
+    );
 
-box-shadow:
-0 0 40px rgba(124,92,255,.9),
-0 0 70px rgba(255,60,172,.4);
-
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
+.sectionHead p{
+    max-width:650px;
+    margin:15px auto 0;
+
+    color:#94a3b8;
+    line-height:1.7;
 }
 
+/* GLASS */
 
-.profile-section h1{
+.glass{
+    background:rgba(255,255,255,.055);
 
-margin-top:20px;
+    border:1px solid rgba(255,255,255,.10);
 
-font-size:34px;
+    box-shadow:0 20px 60px rgba(0,0,0,.18);
 
-background:
-linear-gradient(
-90deg,
-#fff,
-#b9afff,
-#ff8bd4
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-text-shadow:
-0 0 20px rgba(115,92,255,.15);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
-
-
-.profile-section p{
-
-margin-top:8px;
-
-opacity:.65;
-}
-
-
-.page-label{
-
-margin-top:15px;
-
-font-size:15px;
-
-opacity:.75;
-
-color:#cfc8ff;
-
-}
-
-
-/* =========================
-   CARDS
-========================= */
 
 .card{
-
-margin-top:25px;
-
-padding:25px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.07);
-
-border:1px solid rgba(255,255,255,.13);
-
-backdrop-filter:blur(20px);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.2),
-0 0 25px rgba(115,92,255,.08);
-
-animation:appear .8s ease;
-
-transition:.35s;
+    border-radius:24px;
+    padding:30px;
+    transition:.35s;
 }
 
 .card:hover{
+    transform:translateY(-6px);
 
-transform:translateY(-3px);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.25),
-0 0 30px rgba(115,92,255,.18),
-0 0 50px rgba(255,60,172,.05);
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.25),
+        0 0 35px rgba(115,92,255,.10);
 }
 
+/* PROFILE HERO */
 
-.card h2{
+.aboutHero{
+    min-height:85vh;
 
-margin-bottom:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-background:
-linear-gradient(
-90deg,
-#fff,
-#c5bcff,
-#ff9ddd
-);
+    text-align:center;
 
--webkit-background-clip:text;
-
-color:transparent;
+    padding-top:90px;
 }
 
-
-.card > p{
-
-line-height:1.8;
-
-opacity:.72;
-
-white-space:pre-line;
+.profileWrap{
+    position:relative;
+    display:inline-block;
 }
-
-
-/* =========================
-   INFO BOX
-========================= */
-
-.info{
-
-margin-top:15px;
-
-padding:18px;
-
-border-radius:18px;
-
-background:rgba(255,255,255,.06);
-
-border:1px solid rgba(255,255,255,.1);
-
-transition:.35s;
-
-text-align:left;
-}
-
-.info:hover{
-
-background:rgba(255,255,255,.1);
-
-box-shadow:
-0 0 20px rgba(115,92,255,.15),
-0 0 35px rgba(255,60,172,.05);
-
-transform:translateX(4px);
-}
-
-
-.info b{
-
-display:block;
-
-margin-bottom:8px;
-
-font-size:15px;
-
-color:#dcd6ff;
-}
-
-
-.info p{
-
-line-height:1.7;
-
-opacity:.72;
-
-white-space:pre-line;
-}
-
-
-/* =========================
-   VISION BOX
-========================= */
-
-.vision-box{
-
-text-align:center;
-
-margin-top:18px;
-
-padding:20px;
-
-border-radius:20px;
-
-background:rgba(115,92,255,.08);
-
-border:1px solid rgba(115,92,255,.2);
-
-box-shadow:
-0 0 20px rgba(115,92,255,.12);
-
-animation:visionGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes visionGlow{
-
-to{
-
-box-shadow:
-0 0 30px rgba(115,92,255,.28),
-0 0 50px rgba(255,60,172,.1);
-
-}
-
-}
-
-.vision-box p{
-
-line-height:1.8;
-
-opacity:.8;
-}
-
-
-/* =========================
-   SOCIAL
-   SAME AS INDEX
-========================= */
-
-.social{
-
-text-align:center;
-
-}
-
-.social-buttons{
-
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
-margin-top:18px;
-
-}
-
-.social-buttons a{
-
-width:48px;
-height:48px;
-
-display:flex;
-
-align-items:center;
-justify-content:center;
-
-border-radius:50%;
-
-text-decoration:none;
-
-color:#fff;
-
-font-weight:bold;
-
-font-size:18px;
-
-background:
-rgba(255,255,255,.1);
-
-border:
-1px solid rgba(255,255,255,.15);
-
-transition:.3s;
-
-}
-
-.social-buttons a:hover{
-
-transform:
-translateY(-4px)
-scale(1.08);
-
-box-shadow:
-0 0 15px rgba(115,92,255,.6),
-0 0 25px rgba(255,60,172,.4);
-
-}
-
-
-/* =========================
-   APPEAR ANIMATION
-========================= */
-
-@keyframes appear{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-/* =========================
-   LIGHT MODE
-========================= */
-
-body.light{
-
-color:#222;
-
-background:
-radial-gradient(circle at 10% 10%,#b9b1ff 0,transparent 28%),
-radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
-linear-gradient(135deg,#eef1ff,#fff,#f9edff);
-}
-
-
-body.light .side-menu{
-
-background:
-radial-gradient(
-circle at 15% 15%,
-rgba(115,92,255,.15),
-transparent 32%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(255,60,172,.15),
-transparent 32%
-),
-rgba(255,255,255,.97);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-10px 0 40px rgba(0,0,0,.12),
-0 0 30px rgba(115,92,255,.12);
-}
-
-
-body.light .side-menu a{
-
-color:#222;
-
-background:rgba(0,0,0,.035);
-
-border-color:rgba(0,0,0,.07);
-}
-
-
-body.light .theme-btn{
-
-color:#222;
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.1);
-}
-
-
-body.light .menu-btn{
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.1);
-}
-
-
-body.light .menu-btn span{
-
-background:#222;
-}
-
-
-body.light .profile-section h1{
-
-background:
-linear-gradient(
-90deg,
-#222,
-#635bff,
-#ff3cac
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-}
-
-
-body.light .card{
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.1);
-}
-
-
-body.light .card h2{
-
-background:
-linear-gradient(
-90deg,
-#222,
-#635bff,
-#ff3cac
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-}
-
-
-body.light .info{
-
-background:rgba(0,0,0,.035);
-
-border-color:rgba(0,0,0,.08);
-}
-
-
-body.light .info b{
-
-color:#333;
-}
-
-
-body.light .page-label{
-
-color:#555;
-}
-
-
-body.light .profile-section p{
-
-color:#444;
-}
-
-
-body.light .card > p,
-body.light .info p{
-
-color:#333;
-}
-
-
-body.light .vision-box{
-
-background:rgba(115,92,255,.08);
-
-border-color:rgba(115,92,255,.2);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-.container{
-
-width:94%;
-
-padding-top:85px;
-}
-
 
 .profile{
+    width:170px;
+    height:170px;
 
-width:110px;
+    border-radius:50%;
 
-height:110px;
+    object-fit:cover;
+
+    border:4px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 0 35px rgba(115,92,255,.45),
+        0 0 70px rgba(255,60,172,.18);
+
+    animation:profileGlow 4s ease-in-out infinite alternate;
 }
 
-
-.profile-section h1{
-
-font-size:28px;
+@keyframes profileGlow{
+    to{
+        box-shadow:
+            0 0 45px rgba(255,60,172,.50),
+            0 0 80px rgba(115,92,255,.20);
+    }
 }
 
+.online{
+    position:absolute;
 
-.card{
+    width:21px;
+    height:21px;
 
-padding:20px 15px;
+    background:#22c55e;
+
+    border:4px solid #101222;
+
+    border-radius:50%;
+
+    right:8px;
+    bottom:12px;
+
+    box-shadow:0 0 15px rgba(34,197,94,.8);
 }
 
+.heroTitle{
+    margin-top:25px;
 
-.info{
+    font-size:clamp(40px,8vw,76px);
 
-padding:15px;
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #b9afff,
+        #ff8bd4
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
+.heroSubtitle{
+    margin-top:8px;
 
-.side-menu{
+    color:#bdb5ff;
 
-width:75%;
-
-padding:85px 18px 25px;
+    font-size:18px;
 }
 
+/* WELCOME BOX */
 
-.side-menu a{
+.welcomeBox{
+    position:relative;
 
-padding:15px;
+    display:inline-block;
 
-font-size:15px;
+    margin:25px auto 15px;
+
+    padding:10px 20px;
+
+    border-radius:14px;
+
+    font-size:16px;
+    font-weight:600;
+    letter-spacing:.5px;
+
+    color:#fff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+
+    overflow:hidden;
 }
 
+.welcomeBox::before{
+    content:"";
+
+    position:absolute;
+    inset:-2px;
+
+    border-radius:16px;
+
+    padding:2px;
+
+    background:conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 250deg,
+        #735cff 285deg,
+        #ff3cac 320deg,
+        transparent 360deg
+    );
+
+    animation:welcomeGlow 3s linear infinite;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+    mask-composite:exclude;
 }
 
-
-@media(max-width:380px){
-
-.side-menu a{
-
-font-size:15px;
-
-padding:15px;
+@keyframes welcomeGlow{
+    to{
+        transform:rotate(360deg);
+    }
 }
 
+/* HERO TEXT */
+
+.heroText{
+    max-width:700px;
+
+    margin:15px auto 0;
+
+    color:#9eabc0;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+/* BUTTONS */
+
+.heroBtns{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:13px 22px;
+
+    border-radius:14px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.btnPrimary{
+    color:#fff;
+
+    background:linear-gradient(
+        135deg,
+        #735cff,
+        #ff3cac
+    );
+
+    box-shadow:0 10px 30px rgba(115,92,255,.25);
+}
+
+.btnPrimary:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(115,92,255,.35),
+        0 0 40px rgba(255,60,172,.20);
+}
+
+.btnSecondary{
+    color:#fff;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+}
+
+.btnSecondary:hover{
+    transform:translateY(-3px);
+
+    border-color:rgba(115,92,255,.45);
+}
+
+/* ABOUT */
+
+.aboutGrid{
+    display:grid;
+
+    grid-template-columns:1.25fr .75fr;
+
+    gap:25px;
+}
+
+.aboutText{
+    color:#aab5c8;
+
+    line-height:1.85;
+
+    font-size:16px;
+}
+
+.aboutText p{
+    margin-bottom:15px;
+}
+
+.cardTitle{
+    font-size:24px;
+
+    margin-bottom:18px;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #c7c0ff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* INFO */
+
+.infoList{
+    display:grid;
+    gap:14px;
+}
+
+.infoItem{
+    padding:15px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.035);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+}
+
+.infoItem:hover{
+    transform:translateX(5px);
+
+    border-color:rgba(115,92,255,.25);
+}
+
+.infoLabel{
+    color:#94a3b8;
+    font-size:13px;
+    margin-bottom:5px;
+}
+
+.infoValue{
+    color:#fff;
+    font-weight:700;
+}
+
+/* WHAT I DO */
+
+.featureGrid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.feature{
+    text-align:center;
+
+    padding:30px 22px;
+}
+
+.featureIcon{
+    width:65px;
+    height:65px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin:0 auto 18px;
+
+    border-radius:20px;
+
+    font-size:30px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.feature h3{
+    font-size:19px;
+    margin-bottom:10px;
+}
+
+.feature p{
+    color:#94a3b8;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* SKILLS */
+
+.skillGrid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.skillBox{
+    padding:22px;
+}
+
+.skillTop{
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+}
+
+.skillPercent{
+    color:#bdb5ff;
+}
+
+.skillTrack{
+    width:100%;
+    height:9px;
+
+    background:rgba(255,255,255,.07);
+
+    border-radius:20px;
+
+    overflow:hidden;
+}
+
+.skillBar{
+    height:100%;
+
+    width:0;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        90deg,
+        #735cff,
+        #ff3cac
+    );
+
+    transition:1.2s ease;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+    bottom:0;
+
+    width:2px;
+
+    background:linear-gradient(
+        #735cff,
+        #ff3cac
+    );
+
+    transform:translateX(-50%);
+
+    opacity:.5;
+}
+
+.timelineItem{
+    position:relative;
+
+    width:50%;
+
+    padding:15px 35px;
+}
+
+.timelineItem:nth-child(odd){
+    left:0;
+    text-align:right;
+}
+
+.timelineItem:nth-child(even){
+    left:50%;
+}
+
+.timelineDot{
+    position:absolute;
+
+    top:28px;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #735cff,
+        #ff3cac
+    );
+
+    box-shadow:
+        0 0 15px rgba(115,92,255,.7),
+        0 0 20px rgba(255,60,172,.3);
+}
+
+.timelineItem:nth-child(odd) .timelineDot{
+    right:-7px;
+}
+
+.timelineItem:nth-child(even) .timelineDot{
+    left:-7px;
+}
+
+.timelineYear{
+    color:#bdb5ff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    margin-bottom:7px;
+}
+
+.timelineItem h3{
+    margin-bottom:7px;
+}
+
+.timelineItem p{
+    color:#94a3b8;
+
+    line-height:1.65;
+
+    font-size:14px;
+}
+
+/* GOALS */
+
+.goalGrid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+}
+
+.goalCard{
+    position:relative;
+
+    overflow:hidden;
+}
+
+.goalCard::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#735cff;
+
+    filter:blur(60px);
+
+    opacity:.12;
+
+    right:-40px;
+    top:-40px;
+}
+
+.goalIcon{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.goalCard h3{
+    margin-bottom:10px;
+}
+
+.goalCard p{
+    color:#94a3b8;
+
+    line-height:1.7;
+}
+
+/* VISION */
+
+.visionCard{
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    padding:45px 30px;
+}
+
+.visionQuote{
+    font-size:clamp(20px,4vw,30px);
+
+    line-height:1.6;
+
+    font-weight:700;
+
+    background:linear-gradient(
+        90deg,
+        #fff,
+        #b9afff,
+        #ff8bd4
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.visionSmall{
+    margin-top:18px;
+
+    color:#94a3b8;
+
+    line-height:1.7;
+}
+
+/* PROJECTS */
+
+.projectGrid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.projectCard{
+    padding:25px;
+}
+
+.projectIcon{
+    font-size:35px;
+
+    margin-bottom:15px;
+}
+
+.projectCard h3{
+    margin-bottom:10px;
+}
+
+.projectCard p{
+    color:#94a3b8;
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+/* GET APP */
+
+.appCard{
+    max-width:900px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:130px 1fr;
+
+    gap:25px;
+
+    align-items:center;
+
+    padding:30px;
+}
+
+.appIcon{
+    width:110px;
+    height:110px;
+
+    border-radius:25px;
+
+    object-fit:cover;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25),
+        0 0 30px rgba(115,92,255,.20);
+}
+
+.appCard h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.appCard p{
+    color:#94a3b8;
+    line-height:1.7;
+}
+
+.appFeatures{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin:15px 0;
+}
+
+.appFeature{
+    padding:7px 12px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:#cbd5e1;
+
+    font-size:12px;
+}
+
+/* SOCIAL */
+
+.socialGrid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.socialCard{
+    text-align:center;
+
+    padding:30px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:.35s;
+}
+
+.socialIcon{
+    font-size:35px;
+
+    margin-bottom:12px;
+}
+
+.socialCard h3{
+    margin-bottom:7px;
+}
+
+.socialCard p{
+    color:#94a3b8;
+
+    font-size:13px;
+}
+
+.socialCard:hover{
+    transform:translateY(-6px);
+}
+
+/* FOOTER */
+
+footer{
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+/* BACK TOP */
+
+#topBtn{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        135deg,
+        #735cff,
+        #ff3cac
+    );
+
+    color:#fff;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:.3s;
+
+    z-index:9999;
+}
+
+#topBtn.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.8s;
+}
+
+.reveal.active{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+/* LIGHT MODE */
+
+body.light{
+    color:#111827;
+
+    background:
+        radial-gradient(circle at 10% 10%,#c4c0ff 0,transparent 28%),
+        radial-gradient(circle at 90% 85%,#ffc1e4 0,transparent 28%),
+        linear-gradient(135deg,#f8f9ff,#eef0ff,#fff);
+}
+
+body.light .glass{
+    background:rgba(255,255,255,.55);
+
+    border-color:rgba(0,0,0,.08);
+
+    box-shadow:0 20px 60px rgba(40,40,80,.10);
+}
+
+body.light .aboutText,
+body.light .heroText,
+body.light .sectionHead p,
+body.light .feature p,
+body.light .timelineItem p,
+body.light .goalCard p,
+body.light .visionSmall,
+body.light .projectCard p,
+body.light .appCard p,
+body.light .socialCard p{
+    color:#64748b;
+}
+
+body.light .infoItem,
+body.light .appFeature{
+    background:rgba(0,0,0,.035);
+
+    border-color:rgba(0,0,0,.07);
+}
+
+body.light .sideMenu{
+    background:
+        radial-gradient(circle at 20% 20%,rgba(115,92,255,.15),transparent 35%),
+        radial-gradient(circle at 80% 80%,rgba(255,60,172,.12),transparent 35%),
+        rgba(248,249,255,.96);
+
+    border-color:rgba(0,0,0,.08);
+}
+
+body.light .sideMenu a{
+    color:#334155;
+}
+
+body.light .menuBtn,
+body.light .themeBtn{
+    color:#111827;
+
+    background:rgba(255,255,255,.55);
+
+    border-color:rgba(0,0,0,.08);
+}
+
+body.light .menuLines span{
+    background:#111827;
+}
+
+body.light .welcomeBox{
+    color:#111827;
+
+    background:rgba(255,255,255,.5);
+
+    border-color:rgba(0,0,0,.08);
+}
+
+body.light .heroSubtitle{
+    color:#6d5ce7;
+}
+
+body.light footer{
+    border-color:rgba(0,0,0,.08);
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .sideMenu{
+        width:75%;
+    }
+
+    .aboutGrid{
+        grid-template-columns:1fr;
+    }
+
+    .featureGrid{
+        grid-template-columns:1fr;
+    }
+
+    .skillGrid{
+        grid-template-columns:1fr;
+    }
+
+    .projectGrid{
+        grid-template-columns:1fr;
+    }
+
+    .socialGrid{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
+
+    .socialCard{
+        padding:20px 5px;
+    }
+
+    .socialIcon{
+        font-size:28px;
+        margin-bottom:8px;
+    }
+
+    .socialCard h3{
+        font-size:13px;
+        margin-bottom:4px;
+    }
+
+    .socialCard p{
+        font-size:9px;
+    }
+
+    .goalGrid{
+        grid-template-columns:1fr;
+    }
+
+    .appCard{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .appIcon{
+        margin:auto;
+    }
+
+    .appFeatures{
+        justify-content:center;
+    }
+
+    .timeline::before{
+        left:8px;
+    }
+
+    .timelineItem,
+    .timelineItem:nth-child(even),
+    .timelineItem:nth-child(odd){
+        width:100%;
+        left:0;
+
+        text-align:left;
+
+        padding-left:35px;
+        padding-right:0;
+    }
+
+    .timelineItem:nth-child(odd) .timelineDot,
+    .timelineItem:nth-child(even) .timelineDot{
+        left:1px;
+        right:auto;
+    }
+
+    section{
+        padding:65px 0;
+    }
+
+    .aboutHero{
+        min-height:90vh;
+    }
+
+    .profile{
+        width:150px;
+        height:150px;
+    }
+}
+
+/* VERY SMALL MOBILE */
+
+@media(max-width:360px){
+
+    .socialGrid{
+        gap:6px;
+    }
+
+    .socialCard{
+        padding:16px 2px;
+    }
+
+    .socialIcon{
+        font-size:24px;
+    }
+
+    .socialCard h3{
+        font-size:11px;
+    }
+
+    .socialCard p{
+        font-size:8px;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     BACKGROUND
-========================= -->
-
 <div class="bg">
-
-<div class="blob blob1"></div>
-
-<div class="blob blob2"></div>
-
-<div class="blob blob3"></div>
-
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
 </div>
 
-
-<!-- =========================
-     MENU BUTTON
-========================= -->
-
-<div
-class="menu-btn"
-id="menuBtn"
-onclick="toggleMenu()">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-
-<!-- =========================
-     THEME BUTTON
-========================= -->
-
-<button
-class="theme-btn"
-id="themeBtn"
-onclick="toggleTheme()">
-
-🌙
-
+<button class="menuBtn" id="menuBtn" aria-label="Open Menu">
+    <div class="menuLines">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </button>
 
+<button class="themeBtn" id="themeBtn" aria-label="Change Theme">
+    🌙
+</button>
 
-<!-- =========================
-     SIDE MENU
-========================= -->
+<div class="sideMenu" id="sideMenu">
 
-<div
-class="side-menu"
-id="sideMenu">
+    <h3>SM RAYHAN</h3>
 
+    <div class="menuSub">
+        Official Website
+    </div>
 
-<a href="index.html">
-🏠 Home
-</a>
+    <a href="index.html">🏠 Home</a>
 
+    <a href="about.html">👤 About</a>
 
-<a href="about.html">
-👤 About
-</a>
+    <a href="contact.html">📩 Contact</a>
 
+    <a href="gallery.html">🖼️ Gallery</a>
 
-<a href="contact.html">
-📞 Contact
-</a>
+    <a
+        id="menuFacebook"
+        href="https://www.facebook.com/share/14oS818zPSu/"
+        target="_blank">
+        📘 Facebook
+    </a>
 
+    <a
+        id="menuLinkedin"
+        href="https://www.linkedin.com/in/smraihan009"
+        target="_blank">
+        💼 LinkedIn
+    </a>
 
-<a href="gallery.html">
-📸 Gallery
-</a>
+    <a
+        id="menuWhatsapp"
+        href="https://wa.me/8801887295009"
+        target="_blank">
+        💬 WhatsApp
+    </a>
 
+    <a href="app.html">
+        📱 Get App
+    </a>
 
-<a
-id="menuFacebook"
-href="#"
-target="_blank">
-🔵 Facebook
-</a>
-
-
-<a
-id="menuLinkedin"
-href="#"
-target="_blank">
-💼 LinkedIn
-</a>
-
-
-<a
-id="menuWhatsapp"
-href="#"
-target="_blank">
-☎️ WhatsApp
-</a>
-
-
-<a href="admin.html">
-🔐 Admin Login
-</a>
-
+    <a href="admin.html">
+        🔐 Admin Login
+    </a>
 
 </div>
 
+<div class="overlay" id="overlay"></div>
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- HERO -->
 
-<div class="container">
+<section class="aboutHero">
 
+    <div class="container">
 
-<section class="profile-section">
+        <div class="profileWrap reveal">
 
+            <img
+                src="smraihan.jpg"
+                class="profile"
+                id="profileImage"
+                alt="SM RAYHAN">
 
-<div class="profile">
+            <span class="online"></span>
 
-<img
-src="smraihan.jpg"
-alt="SM RAYHAN">
+        </div>
 
-</div>
+        <h1
+            class="heroTitle reveal"
+            id="profileName">
+            SM RAYHAN
+        </h1>
 
+        <div
+            class="heroSubtitle reveal"
+            id="profileSubtitle">
+            Welcome To My Personal Website ❤️
+        </div>
 
-<h1 id="profileName">
-SM RAYHAN
-</h1>
+        <div class="welcomeBox reveal">
+            👤 About Me
+        </div>
 
+        <p
+            class="heroText reveal"
+            id="heroDescription">
 
-<p id="profileSubtitle">
-Welcome to My Website ❤️
-</p>
+            Welcome to the official About section of SM RAYHAN.
+            Here you can learn more about my interests, skills,
+            digital work, projects, goals and future vision.
 
+        </p>
 
-<div class="page-label">
-👤 About Me
-</div>
+        <div class="heroBtns reveal">
 
+            <a href="index.html" class="btn btnPrimary">
+                🏠 Back To Home
+            </a>
+
+            <a href="contact.html" class="btn btnSecondary">
+                📩 Contact Me
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 
+<!-- ABOUT ME -->
 
-<!-- =========================
-     ABOUT
-========================= -->
+<section>
 
-<div class="card">
+    <div class="container">
 
-<h2 id="aboutTitle">
-👤 About Me
-</h2>
+        <div class="sectionHead reveal">
 
+            <div class="mini">
+                WHO I AM
+            </div>
 
-<p id="aboutText">
+            <h2 id="aboutSectionTitle">
+                About Me
+            </h2>
 
-Hello! I am SM RAYHAN.
+            <p id="aboutDescription">
+                A little more about SM RAYHAN and the work behind the website.
+            </p>
 
-</p>
+        </div>
 
-</div>
+        <div class="aboutGrid">
 
+            <div class="glass card reveal">
 
-<!-- =========================
-     PERSONAL INFORMATION
-========================= -->
+                <h3
+                    class="cardTitle"
+                    id="aboutTitle">
+                    👤 About Me
+                </h3>
 
-<div class="card">
+                <div class="aboutText">
 
-<h2>
-📋 Personal Information
-</h2>
+                    <p id="aboutText">
+                        I am SM RAYHAN, and this is my personal digital space
+                        where I share my work, skills, projects and interests.
+                    </p>
 
+                    <p id="aboutTextExtra">
+                        I enjoy learning new digital technologies and creating
+                        useful web-based solutions. My focus is on improving
+                        my skills step by step and turning ideas into practical
+                        digital projects.
+                    </p>
 
-<div class="info">
+                    <p id="aboutNameText">
+                        This website represents my journey, creativity and
+                        continuous learning in the digital world.
+                    </p>
 
-<b>
-👤 Name
-</b>
+                </div>
 
+            </div>
 
-<p id="infoName">
-SM RAYHAN
-</p>
+            <div class="glass card reveal">
 
-</div>
+                <h3 class="cardTitle">
+                    ⚡ Quick Information
+                </h3>
 
+                <div class="infoList">
 
-<div class="info">
+                    <div class="infoItem">
 
-<b>
-💻 Learning
-</b>
+                        <div class="infoLabel">
+                            NAME
+                        </div>
 
+                        <div
+                            class="infoValue"
+                            id="infoName">
+                            SM RAYHAN
+                        </div>
 
-<p id="learning">
-HTML • CSS • JavaScript
-</p>
+                    </div>
 
-</div>
+                    <div class="infoItem">
 
+                        <div class="infoLabel">
+                            WEBSITE
+                        </div>
 
-<div class="info">
+                        <div
+                            class="infoValue"
+                            id="infoWebsite">
+                            Official Personal Website
+                        </div>
 
-<b>
-📊 Other Skill
-</b>
+                    </div>
 
+                    <div class="infoItem">
 
-<p id="otherSkill">
-Microsoft Excel
-</p>
+                        <div class="infoLabel">
+                            PLATFORM
+                        </div>
 
-</div>
+                        <div
+                            class="infoValue"
+                            id="infoPlatform">
+                            Web & Android
+                        </div>
 
+                    </div>
 
-<div class="info">
+                    <div class="infoItem">
 
-<b>
-🎯 Goal
-</b>
+                        <div class="infoLabel">
+                            FOCUS
+                        </div>
 
+                        <div
+                            class="infoValue"
+                            id="infoFocus">
+                            Digital Projects
+                        </div>
 
-<p id="goal">
-নিজের সুন্দর Professional Website তৈরি করা।
-</p>
+                    </div>
 
-</div>
+                    <div class="infoItem">
 
-</div>
+                        <div class="infoLabel">
+                            STATUS
+                        </div>
 
+                        <div
+                            class="infoValue"
+                            id="infoStatus">
+                            🟢 Active
+                        </div>
 
-<!-- =========================
-     VISION
-========================= -->
+                    </div>
 
-<div class="card">
+                </div>
 
-<h2>
-🚀 My Vision
-</h2>
+            </div>
 
+        </div>
 
-<div class="vision-box">
+    </div>
 
-<p id="vision">
-শিখতে থাকা, নতুন কিছু তৈরি করা
-এবং প্রতিদিন আগের চেয়ে ভালো হওয়া।
-</p>
+</section>
 
-</div>
+<!-- PERSONAL INFORMATION -->
 
+<section>
 
-<div class="vision-box">
+    <div class="container">
 
-<p>
-💪 Never Stop Learning ❤️
-</p>
+        <div class="sectionHead reveal">
 
-</div>
+            <div class="mini">
+                PERSONAL PROFILE
+            </div>
 
-</div>
+            <h2>
+                My Information
+            </h2>
 
+            <p>
+                The areas I am learning, improving and working on.
+            </p>
 
-<!-- =========================
-     SOCIAL
-========================= -->
+        </div>
 
-<div class="card social">
+        <div class="aboutGrid">
 
-<h2>
-🔗 Social Media
-</h2>
+            <div class="glass card reveal">
 
+                <h3 class="cardTitle">
+                    📚 Learning
+                </h3>
 
-<p>
-Connect with me
-</p>
+                <div class="aboutText">
 
+                    <p id="learning">
+                        Continuously learning web technologies,
+                        digital tools and modern online platforms.
+                    </p>
 
-<div class="social-buttons">
+                </div>
 
+            </div>
 
-<a
-href="https://www.facebook.com/share/14oS818zPSu/"
-target="_blank">
+            <div class="glass card reveal">
 
-f
+                <h3 class="cardTitle">
+                    🛠️ Other Skills
+                </h3>
 
-</a>
+                <div class="aboutText">
 
+                    <p id="otherSkill">
+                        Computer operation, Microsoft Excel,
+                        digital workflow and practical problem solving.
+                    </p>
 
-<a
-href="https://www.linkedin.com/in/smraihan009"
-target="_blank">
+                </div>
 
-in
+            </div>
 
-</a>
+            <div class="glass card reveal">
 
+                <h3 class="cardTitle">
+                    🎯 Current Goal
+                </h3>
 
-<a
-href="https://wa.me/8801887295009"
-target="_blank">
+                <div class="aboutText">
 
-☏
+                    <p id="goal">
+                        Build better digital projects and continue
+                        developing modern web skills.
+                    </p>
 
-</a>
+                </div>
 
+            </div>
 
-</div>
+            <div class="glass card reveal">
 
-</div>
+                <h3 class="cardTitle">
+                    💡 Working Style
+                </h3>
 
+                <div class="aboutText">
 
-</div>
+                    <p>
+                        Learn → Build → Test → Improve.
+                        I believe practical experience is one of the
+                        best ways to grow.
+                    </p>
 
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHAT I DO -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MY WORK
+            </div>
+
+            <h2>
+                What I Do
+            </h2>
+
+            <p>
+                Areas where I enjoy creating, experimenting and improving.
+            </p>
+
+        </div>
+
+        <div class="featureGrid">
+
+            <div class="glass card feature reveal">
+
+                <div class="featureIcon">
+                    💻
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Building responsive and modern websites
+                    with HTML, CSS and JavaScript.
+                </p>
+
+            </div>
+
+            <div class="glass card feature reveal">
+
+                <div class="featureIcon">
+                    📊
+                </div>
+
+                <h3>
+                    Excel & Automation
+                </h3>
+
+                <p>
+                    Creating useful Excel solutions,
+                    formulas and VBA-based workflows.
+                </p>
+
+            </div>
+
+            <div class="glass card feature reveal">
+
+                <div class="featureIcon">
+                    📱
+                </div>
+
+                <h3>
+                    Mobile Web Experience
+                </h3>
+
+                <p>
+                    Developing mobile-friendly web experiences
+                    and app-style interfaces.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MY ABILITIES
+            </div>
+
+            <h2>
+                Skills & Technologies
+            </h2>
+
+            <p>
+                Current skill levels shown from the website's existing skill data.
+            </p>
+
+        </div>
+
+        <div class="skillGrid">
+
+            <div class="glass card skillBox reveal">
+
+                <div class="skillTop">
+                    <span>HTML</span>
+
+                    <span
+                        class="skillPercent"
+                        id="htmlPercent">
+                        80%
+                    </span>
+                </div>
+
+                <div class="skillTrack">
+
+                    <div
+                        class="skillBar"
+                        id="htmlBar"
+                        data-value="80">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="glass card skillBox reveal">
+
+                <div class="skillTop">
+
+                    <span>CSS</span>
+
+                    <span
+                        class="skillPercent"
+                        id="cssPercent">
+                        70%
+                    </span>
+
+                </div>
+
+                <div class="skillTrack">
+
+                    <div
+                        class="skillBar"
+                        id="cssBar"
+                        data-value="70">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="glass card skillBox reveal">
+
+                <div class="skillTop">
+
+                    <span>JavaScript</span>
+
+                    <span
+                        class="skillPercent"
+                        id="jsPercent">
+                        55%
+                    </span>
+
+                </div>
+
+                <div class="skillTrack">
+
+                    <div
+                        class="skillBar"
+                        id="jsBar"
+                        data-value="55">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="glass card skillBox reveal">
+
+                <div class="skillTop">
+
+                    <span>Excel</span>
+
+                    <span
+                        class="skillPercent"
+                        id="excelPercent">
+                        75%
+                    </span>
+
+                </div>
+
+                <div class="skillTrack">
+
+                    <div
+                        class="skillBar"
+                        id="excelBar"
+                        data-value="75">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- JOURNEY -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MY JOURNEY
+            </div>
+
+            <h2>
+                Learning Journey
+            </h2>
+
+            <p>
+                Growth is a continuous process. Every project adds something new.
+            </p>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timelineItem reveal">
+
+                <span class="timelineDot"></span>
+
+                <div class="timelineYear">
+                    START
+                </div>
+
+                <h3>
+                    Digital Learning
+                </h3>
+
+                <p>
+                    Started building practical experience with
+                    computers, digital tools and everyday technology.
+                </p>
+
+            </div>
+
+            <div class="timelineItem reveal">
+
+                <span class="timelineDot"></span>
+
+                <div class="timelineYear">
+                    GROWTH
+                </div>
+
+                <h3>
+                    Excel & Productivity
+                </h3>
+
+                <p>
+                    Developed practical skills in Excel,
+                    data handling and workflow automation.
+                </p>
+
+            </div>
+
+            <div class="timelineItem reveal">
+
+                <span class="timelineDot"></span>
+
+                <div class="timelineYear">
+                    DEVELOPMENT
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Started creating websites using HTML,
+                    CSS and JavaScript.
+                </p>
+
+            </div>
+
+            <div class="timelineItem reveal">
+
+                <span class="timelineDot"></span>
+
+                <div class="timelineYear">
+                    NOW
+                </div>
+
+                <h3>
+                    SM RAYHAN Official Website
+                </h3>
+
+                <p>
+                    Building a complete personal digital platform
+                    with web, mobile, PWA and modern cloud features.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GOALS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                FUTURE PLAN
+            </div>
+
+            <h2>
+                My Goals
+            </h2>
+
+            <p>
+                The direction I want to take with my skills and projects.
+            </p>
+
+        </div>
+
+        <div class="goalGrid">
+
+            <div class="glass card goalCard reveal">
+
+                <div class="goalIcon">
+                    🚀
+                </div>
+
+                <h3>
+                    Build Better Projects
+                </h3>
+
+                <p>
+                    Continue creating useful and professional
+                    digital projects that solve real problems.
+                </p>
+
+            </div>
+
+            <div class="glass card goalCard reveal">
+
+                <div class="goalIcon">
+                    🌐
+                </div>
+
+                <h3>
+                    Improve Web Skills
+                </h3>
+
+                <p>
+                    Learn modern web technologies and improve
+                    design, performance and user experience.
+                </p>
+
+            </div>
+
+            <div class="glass card goalCard reveal">
+
+                <div class="goalIcon">
+                    📱
+                </div>
+
+                <h3>
+                    Expand Mobile Experience
+                </h3>
+
+                <p>
+                    Continue improving the Android and mobile
+                    experience of the SM RAYHAN platform.
+                </p>
+
+            </div>
+
+            <div class="glass card goalCard reveal">
+
+                <div class="goalIcon">
+                    💡
+                </div>
+
+                <h3>
+                    Never Stop Learning
+                </h3>
+
+                <p>
+                    Keep learning new technologies and turn
+                    new ideas into practical projects.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VISION -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MY VISION
+            </div>
+
+            <h2>
+                Vision
+            </h2>
+
+        </div>
+
+        <div class="glass visionCard reveal">
+
+            <div
+                class="visionQuote"
+                id="vision">
+                “Keep learning, keep building and keep improving.”
+            </div>
+
+            <div
+                class="visionSmall"
+                id="visionDescription">
+
+                My vision is to continuously develop my digital skills,
+                create meaningful projects and build a stronger
+                digital presence step by step.
+
+                <br><br>
+
+                💪 Never Stop Learning ❤️
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT HIGHLIGHT -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MY PROJECTS
+            </div>
+
+            <h2>
+                Project Highlights
+            </h2>
+
+            <p>
+                Some of the project areas connected with the SM RAYHAN journey.
+            </p>
+
+        </div>
+
+        <div class="projectGrid">
+
+            <div class="glass card projectCard reveal">
+
+                <div class="projectIcon">
+                    🌐
+                </div>
+
+                <h3 id="project1Name">
+                    Personal Website
+                </h3>
+
+                <p id="project1Desc">
+                    A modern personal website with responsive
+                    design, cloud content and multiple sections.
+                </p>
+
+            </div>
+
+            <div class="glass card projectCard reveal">
+
+                <div class="projectIcon">
+                    📊
+                </div>
+
+                <h3 id="project2Name">
+                    Excel Project
+                </h3>
+
+                <p id="project2Desc">
+                    Practical Excel and automation based work
+                    designed to improve productivity.
+                </p>
+
+            </div>
+
+            <div class="glass card projectCard reveal">
+
+                <div class="projectIcon">
+                    📱
+                </div>
+
+                <h3 id="project3Name">
+                    Mobile Web Design
+                </h3>
+
+                <p id="project3Desc">
+                    Mobile-friendly interfaces and app-style
+                    web experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GET APP -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                MOBILE EXPERIENCE
+            </div>
+
+            <h2 id="appSectionTitle">
+                Official App
+            </h2>
+
+            <p id="appDescription">
+                Take the SM RAYHAN experience with you on Android.
+            </p>
+
+        </div>
+
+        <div class="glass appCard reveal">
+
+            <img
+                src="app-icon.png"
+                class="appIcon"
+                id="appIcon"
+                alt="SM RAYHAN App">
+
+            <div>
+
+                <h3 id="appTitle">
+                    SM RAYHAN Android App
+                </h3>
+
+                <p id="appText">
+                    The official mobile experience of the
+                    SM RAYHAN website, designed for a fast,
+                    app-like browsing experience.
+                </p>
+
+                <div class="appFeatures">
+
+                    <span
+                        class="appFeature"
+                        id="appFeature1">
+                        📱 Android
+                    </span>
+
+                    <span
+                        class="appFeature"
+                        id="appFeature2">
+                        ⚡ Fast
+                    </span>
+
+                    <span
+                        class="appFeature"
+                        id="appFeature3">
+                        🌐 Official Website
+                    </span>
+
+                    <span
+                        class="appFeature"
+                        id="appFeature4">
+                        🔄 Live Updates
+                    </span>
+
+                </div>
+
+                <a
+                    href="https://smrayhanofficial.github.io/app.html"
+                    id="appButton"
+                    class="btn btnPrimary">
+
+                    📲 Get Official App
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOCIAL -->
+
+<section>
+
+    <div class="container">
+
+        <div class="sectionHead reveal">
+
+            <div class="mini">
+                CONNECT
+            </div>
+
+            <h2>
+                Find Me Online
+            </h2>
+
+            <p>
+                Connect with SM RAYHAN through the official social platforms.
+            </p>
+
+        </div>
+
+        <div class="socialGrid">
+
+            <a
+                id="facebookLink"
+                href="https://www.facebook.com/share/14oS818zPSu/"
+                target="_blank"
+                class="glass socialCard reveal">
+
+                <div class="socialIcon">
+                    📘
+                </div>
+
+                <h3 id="facebookTitle">
+                    Facebook
+                </h3>
+
+                <p id="facebookDesc">
+                    Official Facebook
+                </p>
+
+            </a>
+
+            <a
+                id="linkedinLink"
+                href="https://www.linkedin.com/in/smraihan009"
+                target="_blank"
+                class="glass socialCard reveal">
+
+                <div class="socialIcon">
+                    💼
+                </div>
+
+                <h3 id="linkedinTitle">
+                    LinkedIn
+                </h3>
+
+                <p id="linkedinDesc">
+                    Professional Profile
+                </p>
+
+            </a>
+
+            <a
+                id="whatsappLink"
+                href="https://wa.me/8801887295009"
+                target="_blank"
+                class="glass socialCard reveal">
+
+                <div class="socialIcon">
+                    💬
+                </div>
+
+                <h3 id="whatsappTitle">
+                    WhatsApp
+                </h3>
+
+                <p id="whatsappDesc">
+                    Direct Contact
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL CTA -->
+
+<section>
+
+    <div class="container">
+
+        <div class="glass visionCard reveal">
+
+            <div
+                class="visionQuote"
+                id="ctaTitle">
+                Ready to explore more?
+            </div>
+
+            <div
+                class="visionSmall"
+                id="ctaText">
+
+                Explore the website, check out the gallery,
+                view projects or get in touch.
+
+            </div>
+
+            <div class="heroBtns">
+
+                <a
+                    href="gallery.html"
+                    class="btn btnPrimary">
+                    🖼️ Explore Gallery
+                </a>
+
+                <a
+                    href="contact.html"
+                    class="btn btnSecondary">
+                    📩 Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="footerText">
+    © 2026 SM RAYHAN | My Personal Website ❤️
+</footer>
+
+<button id="topBtn">
+    ↑
+</button>
 
 <script>
-
 
 /* =========================
    SUPABASE
 ========================= */
 
-const SUPABASE_URL=
+const SUPABASE_URL =
 "https://oppmdnnzgqdnwpqqkwsq.supabase.co";
 
-const SUPABASE_KEY=
+const SUPABASE_KEY =
 "sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
 
-const supabaseClient=
+const supabaseClient =
 window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
 
 
 /* =========================
-   MENU
+   HELPER
 ========================= */
 
-function toggleMenu(){
+function setText(id,value){
 
-const menu=
-document.getElementById("sideMenu");
+    const el =
+    document.getElementById(id);
 
-menu.classList.toggle("show");
+    if(
+        el &&
+        value !== undefined &&
+        value !== null &&
+        value !== ""
+    ){
+
+        el.textContent = value;
+
+    }
 
 }
 
 
 /* =========================
-   OUTSIDE CLICK
+   WHATSAPP
 ========================= */
 
-document.addEventListener(
-"click",
-function(event){
+function makeWhatsAppLink(value){
 
-const menu=
-document.getElementById("sideMenu");
+    if(!value){
+        return "";
+    }
 
-const button=
-document.getElementById("menuBtn");
+    const text =
+    String(value).trim();
 
+    if(
+        text.startsWith("http://") ||
+        text.startsWith("https://")
+    ){
 
-if(
-menu.classList.contains("show") &&
-!menu.contains(event.target) &&
-!button.contains(event.target)
-){
+        return text;
 
-menu.classList.remove("show");
+    }
+
+    const number =
+    text
+    .replace(/^\+/,"")
+    .replace(/[^\d]/g,"");
+
+    if(!number){
+        return "";
+    }
+
+    return "https://wa.me/"+number;
 
 }
 
-});
+
+/* =========================
+   SOCIAL NORMALIZER
+========================= */
+
+function normalizeSocial(value,type){
+
+    if(!value){
+        return "";
+    }
+
+    const text =
+    String(value).trim();
+
+    if(
+        text.startsWith("http://") ||
+        text.startsWith("https://")
+    ){
+
+        return text;
+
+    }
+
+    if(type==="whatsapp"){
+
+        return makeWhatsAppLink(text);
+
+    }
+
+    if(type==="facebook"){
+
+        if(text.startsWith("facebook.com/")){
+
+            return "https://www."+text;
+
+        }
+
+        return "https://www.facebook.com/"+
+        text.replace(/^\/+/,"");
+
+    }
+
+    if(type==="linkedin"){
+
+        if(text.startsWith("linkedin.com/")){
+
+            return "https://www."+text;
+
+        }
+
+        return "https://www.linkedin.com/in/"+
+        text.replace(/^\/+/,"");
+
+    }
+
+    return text;
+
+}
 
 
 /* =========================
-   CLOSE MENU
+   PROFILE IMAGE
 ========================= */
 
-document
-.querySelectorAll("#sideMenu a")
-.forEach(function(link){
+function setImage(id,value){
 
-link.addEventListener(
-"click",
-function(){
+    const img =
+    document.getElementById(id);
 
-document
-.getElementById("sideMenu")
-.classList.remove("show");
+    if(
+        img &&
+        value !== undefined &&
+        value !== null &&
+        String(value).trim() !== ""
+    ){
 
-});
+        img.src = String(value).trim();
 
-});
+    }
+
+}
+
+
+/* =========================
+   LOAD WEBSITE CONTENT
+========================= */
+
+async function loadContent(){
+
+    try{
+
+        const {data,error} =
+        await supabaseClient
+        .from("website_content")
+        .select("*");
+
+        if(error){
+
+            console.log(
+                "Supabase error:",
+                error
+            );
+
+            return;
+
+        }
+
+
+        const content={};
+
+
+        (data || []).forEach(row=>{
+
+            if(!row.section){
+                return;
+            }
+
+            if(!content[row.section]){
+
+                content[row.section]={};
+
+            }
+
+            content[row.section][row.key] =
+            row.content;
+
+        });
+
+
+        /* =====================
+           HOME
+        ===================== */
+
+        const home =
+        content.home || {};
+
+
+        setText(
+            "profileName",
+            home.name || "SM RAYHAN"
+        );
+
+
+        setText(
+            "profileSubtitle",
+            home.subtitle ||
+            "Welcome To My Personal Website ❤️"
+        );
+
+
+        setText(
+            "infoName",
+            home.name || "SM RAYHAN"
+        );
+
+
+        /* =====================
+           WEBSITE
+        ===================== */
+
+        const website =
+        content.website || {};
+
+
+        setText(
+            "heroDescription",
+            website.hero_description
+        );
+
+
+        setText(
+            "aboutSectionTitle",
+            website.about_title ||
+            "About Me"
+        );
+
+
+        setText(
+            "aboutDescription",
+            website.about_description
+        );
+
+
+        setText(
+            "aboutTitle",
+            website.about_title ||
+            "👤 About Me"
+        );
+
+
+        setText(
+            "aboutText",
+            website.about_text
+        );
+
+
+        setText(
+            "aboutNameText",
+            website.about_name
+        );
+
+
+        setText(
+            "infoWebsite",
+            website.info_website
+        );
+
+
+        setText(
+            "infoPlatform",
+            website.info_platform
+        );
+
+
+        setText(
+            "infoFocus",
+            website.info_focus
+        );
+
+
+        setText(
+            "infoStatus",
+            website.info_status
+        );
+
+
+        /* =====================
+           APP
+        ===================== */
+
+        setText(
+            "appSectionTitle",
+            website.app_title ||
+            "Official App"
+        );
+
+
+        setText(
+            "appDescription",
+            website.app_description
+        );
+
+
+        setText(
+            "appTitle",
+            website.app_name
+        );
+
+
+        setText(
+            "appText",
+            website.app_text
+        );
+
+
+        setText(
+            "appFeature1",
+            website.app_feature1
+        );
+
+
+        setText(
+            "appFeature2",
+            website.app_feature2
+        );
+
+
+        setText(
+            "appFeature3",
+            website.app_feature3
+        );
+
+
+        setText(
+            "appFeature4",
+            website.app_feature4
+        );
+
+
+        const appButton =
+        document.getElementById("appButton");
+
+
+        if(
+            appButton &&
+            website.app_button
+        ){
+
+            appButton.textContent =
+            website.app_button;
+
+        }
+
+
+        /* =====================
+           SOCIAL TEXT
+        ===================== */
+
+        setText(
+            "facebookTitle",
+            website.facebook_title
+        );
+
+
+        setText(
+            "facebookDesc",
+            website.facebook_desc
+        );
+
+
+        setText(
+            "linkedinTitle",
+            website.linkedin_title
+        );
+
+
+        setText(
+            "linkedinDesc",
+            website.linkedin_desc
+        );
+
+
+        setText(
+            "whatsappTitle",
+            website.whatsapp_title
+        );
+
+
+        setText(
+            "whatsappDesc",
+            website.whatsapp_desc
+        );
+
+
+        /* =====================
+           CTA
+        ===================== */
+
+        setText(
+            "ctaTitle",
+            website.cta_title
+        );
+
+
+        setText(
+            "ctaText",
+            website.cta_text
+        );
+
+
+        /* =====================
+           FOOTER
+        ===================== */
+
+        const footer =
+        document.getElementById("footerText");
+
+
+        if(
+            footer &&
+            website.footer_copyright
+        ){
+
+            footer.textContent =
+            website.footer_copyright;
+
+        }else if(
+            footer &&
+            website.footer_brand
+        ){
+
+            footer.textContent =
+            website.footer_brand;
+
+        }
+
+
+        /* =====================
+           ABOUT SECTION
+           OLD ADMIN DATA
+        ===================== */
+
+        const about =
+        content.about || {};
+
+
+        setText(
+            "learning",
+            about.about_learning
+        );
+
+
+        setText(
+            "otherSkill",
+            about.about_skill
+        );
+
+
+        setText(
+            "goal",
+            about.about_goal
+        );
+
+
+        setText(
+            "vision",
+            about.about_vision
+        );
+
+
+        /* =====================
+           SKILLS
+        ===================== */
+
+        const skills =
+        content.skills || {};
+
+
+        function setSkill(
+            percentId,
+            barId,
+            value
+        ){
+
+            if(
+                value === undefined ||
+                value === null ||
+                value === ""
+            ){
+
+                return;
+
+            }
+
+
+            let number =
+            parseInt(value);
+
+
+            if(isNaN(number)){
+                return;
+            }
+
+
+            number =
+            Math.max(
+                0,
+                Math.min(
+                    100,
+                    number
+                )
+            );
+
+
+            setText(
+                percentId,
+                number+"%"
+            );
+
+
+            const bar =
+            document.getElementById(barId);
+
+
+            if(bar){
+
+                bar.style.width =
+                number+"%";
+
+            }
+
+        }
+
+
+        setSkill(
+            "htmlPercent",
+            "htmlBar",
+            skills.html
+        );
+
+
+        setSkill(
+            "cssPercent",
+            "cssBar",
+            skills.css
+        );
+
+
+        setSkill(
+            "jsPercent",
+            "jsBar",
+            skills.javascript ||
+            skills.js
+        );
+
+
+        setSkill(
+            "excelPercent",
+            "excelBar",
+            skills.excel
+        );
+
+
+        /* =====================
+           PROJECTS
+        ===================== */
+
+        const projects =
+        content.projects || {};
+
+
+        setText(
+            "project1Name",
+            projects.project1_name
+        );
+
+
+        setText(
+            "project1Desc",
+            projects.project1_desc
+        );
+
+
+        setText(
+            "project2Name",
+            projects.project2_name
+        );
+
+
+        setText(
+            "project2Desc",
+            projects.project2_desc
+        );
+
+
+        setText(
+            "project3Name",
+            projects.project3_name
+        );
+
+
+        setText(
+            "project3Desc",
+            projects.project3_desc
+        );
+
+
+        /* =====================
+           SOCIAL LINKS
+        ===================== */
+
+        const social =
+        content.social || {};
+
+
+        const facebook =
+        normalizeSocial(
+            social.facebook,
+            "facebook"
+        );
+
+
+        const linkedin =
+        normalizeSocial(
+            social.linkedin,
+            "linkedin"
+        );
+
+
+        const whatsapp =
+        normalizeSocial(
+            social.whatsapp,
+            "whatsapp"
+        );
+
+
+        if(facebook){
+
+            document.getElementById(
+                "facebookLink"
+            ).href = facebook;
+
+            document.getElementById(
+                "menuFacebook"
+            ).href = facebook;
+
+        }
+
+
+        if(linkedin){
+
+            document.getElementById(
+                "linkedinLink"
+            ).href = linkedin;
+
+            document.getElementById(
+                "menuLinkedin"
+            ).href = linkedin;
+
+        }
+
+
+        if(whatsapp){
+
+            document.getElementById(
+                "whatsappLink"
+            ).href = whatsapp;
+
+            document.getElementById(
+                "menuWhatsapp"
+            ).href = whatsapp;
+
+        }
+
+
+        /* =====================
+           PROFILE
+        ===================== */
+
+        const profile =
+        content.profile || {};
+
+
+        if(profile.image_url){
+
+            setImage(
+                "profileImage",
+                profile.image_url
+            );
+
+        }
+
+
+        if(profile.app_icon){
+
+            setImage(
+                "appIcon",
+                profile.app_icon
+            );
+
+        }
+
+
+    }catch(err){
+
+        console.log(
+            "Content load error:",
+            err
+        );
+
+    }
+
+}
 
 
 /* =========================
    THEME
 ========================= */
 
-function applyTheme(){
-
-if(
-localStorage.getItem("theme")==="light"
-){
-
-document.body.classList.add("light");
-
-document.getElementById(
-"themeBtn"
-).innerText="☀️";
-
-}else{
-
-document.body.classList.remove("light");
-
-document.getElementById(
-"themeBtn"
-).innerText="🌙";
-
-}
-
-}
-
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-const btn=
+const themeBtn =
 document.getElementById("themeBtn");
 
 
-if(
-document.body.classList.contains("light")
-){
+function applyTheme(){
 
-btn.innerText="☀️";
+    const theme =
+    localStorage.getItem(
+        "smRayhanTheme"
+    ) || "dark";
 
-localStorage.setItem(
-"theme",
-"light"
-);
 
-}else{
+    if(theme==="light"){
 
-btn.innerText="🌙";
+        document.body.classList.add(
+            "light"
+        );
 
-localStorage.setItem(
-"theme",
-"dark"
-);
+        themeBtn.textContent="☀️";
+
+    }else{
+
+        document.body.classList.remove(
+            "light"
+        );
+
+        themeBtn.textContent="🌙";
+
+    }
 
 }
 
-}
+
+themeBtn.addEventListener(
+    "click",
+    ()=>{
+
+        const isLight =
+        document.body.classList.contains(
+            "light"
+        );
+
+
+        if(isLight){
+
+            document.body.classList.remove(
+                "light"
+            );
+
+            localStorage.setItem(
+                "smRayhanTheme",
+                "dark"
+            );
+
+            themeBtn.textContent="🌙";
+
+        }else{
+
+            document.body.classList.add(
+                "light"
+            );
+
+            localStorage.setItem(
+                "smRayhanTheme",
+                "light"
+            );
+
+            themeBtn.textContent="☀️";
+
+        }
+
+    }
+);
 
 
 applyTheme();
 
 
 /* =========================
-   TEXT HELPER
+   MENU
 ========================= */
 
-function setText(id,value){
+const menuBtn =
+document.getElementById("menuBtn");
 
-const el=
-document.getElementById(id);
+const sideMenu =
+document.getElementById("sideMenu");
 
-
-if(
-el &&
-value!==undefined &&
-value!==null &&
-value!==""
-){
-
-el.innerText=value;
-
-}
-
-}
+const overlay =
+document.getElementById("overlay");
 
 
-/* =========================
-   LOAD ABOUT DATA
-========================= */
+function openMenu(){
 
-async function loadAbout(){
+    sideMenu.classList.add(
+        "show"
+    );
 
-try{
-
-const {data,error}=
-await supabaseClient
-.from("website_content")
-.select("section,content");
-
-
-if(error){
-
-console.error(error);
-
-return;
+    overlay.classList.add(
+        "show"
+    );
 
 }
 
 
-const content={};
+function closeMenu(){
+
+    sideMenu.classList.remove(
+        "show"
+    );
+
+    overlay.classList.remove(
+        "show"
+    );
+
+}
 
 
-(data||[]).forEach(row=>{
+menuBtn.addEventListener(
+    "click",
+    openMenu
+);
 
-content[row.section]=
-row.content||{};
+
+overlay.addEventListener(
+    "click",
+    closeMenu
+);
+
+
+document
+.querySelectorAll(".sideMenu a")
+.forEach(link=>{
+
+    link.addEventListener(
+        "click",
+        closeMenu
+    );
 
 });
 
 
-const home=
-content.home||{};
+/* =========================
+   REVEAL
+========================= */
 
-const about=
-content.about||{};
+const observer =
+new IntersectionObserver(
+    entries=>{
 
+        entries.forEach(entry=>{
 
-/* HOME DATA */
+            if(entry.isIntersecting){
 
-setText(
-"profileName",
-home.name ||
-"SM RAYHAN"
+                entry.target.classList.add(
+                    "active"
+                );
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.12
+    }
 );
 
 
-setText(
-"profileSubtitle",
-home.subtitle ||
-"Welcome to My Website ❤️"
+document
+.querySelectorAll(".reveal")
+.forEach(el=>{
+
+    observer.observe(el);
+
+});
+
+
+/* =========================
+   BACK TOP
+========================= */
+
+const topBtn =
+document.getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        if(window.scrollY>500){
+
+            topBtn.classList.add(
+                "show"
+            );
+
+        }else{
+
+            topBtn.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
 );
 
 
-setText(
-"infoName",
-home.name ||
-"SM RAYHAN"
-);
+topBtn.addEventListener(
+    "click",
+    ()=>{
 
+        window.scrollTo({
 
-/* ABOUT DATA */
+            top:0,
 
-setText(
-"aboutTitle",
-about.about_title ||
-"👤 About Me"
-);
+            behavior:"smooth"
 
+        });
 
-setText(
-"aboutText",
-about.about_text
-);
-
-
-setText(
-"learning",
-about.about_learning
-);
-
-
-setText(
-"otherSkill",
-about.about_skill
-);
-
-
-setText(
-"goal",
-about.about_goal
-);
-
-
-setText(
-"vision",
-about.about_vision
+    }
 );
 
 
 /* =========================
-   SOCIAL MENU
+   DEFAULT SKILL BARS
 ========================= */
 
-if(content.social){
+document
+.querySelectorAll(".skillBar")
+.forEach(bar=>{
 
-const social=
-content.social;
-
-
-if(social.facebook){
-
-document.getElementById(
-"menuFacebook"
-).href=
-social.facebook;
-
-}
+    const value =
+    bar.dataset.value || 0;
 
 
-if(social.linkedin){
+    setTimeout(()=>{
 
-document.getElementById(
-"menuLinkedin"
-).href=
-social.linkedin;
+        bar.style.width =
+        value+"%";
 
-}
+    },400);
 
-
-if(social.whatsapp){
-
-let value=
-social.whatsapp.trim();
+});
 
 
-if(
-!value.startsWith("http")
-){
+/* =========================
+   START
+========================= */
 
-let number=
-value.replace(/\D/g,"");
-
-
-if(
-number.startsWith("0")
-){
-
-number="88"+number;
-
-}
-
-
-value=
-"https://wa.me/"+number;
-
-}
-
-
-document.getElementById(
-"menuWhatsapp"
-).href=
-value;
-
-}
-
-}
-
-
-}catch(error){
-
-console.error(
-"About loading failed:",
-error
-);
-
-}
-
-}
-
-
-loadAbout();
+loadContent();
 
 </script>
 
 </body>
-
 </html>
