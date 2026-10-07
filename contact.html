@@ -1,1363 +1,1900 @@
 <!DOCTYPE html>
-<html lang="bn">
-
+<html lang="en">
 <head>
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>SM RAYHAN | Contact</title>
+
+<meta
+    name="theme-color"
+    content="#080914"
+>
+
+<meta
+    name="description"
+    content="Contact SM RAYHAN"
+>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-font-family:Arial,sans-serif;
-color:#fff;
-min-height:100vh;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#fff;
+    min-height:100vh;
+    overflow-x:hidden;
 
-background:
-radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
-radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
-linear-gradient(135deg,#080914,#12152a,#080914);
+    background:
+        radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
+        radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
+        linear-gradient(135deg,#080914,#12152a,#080914);
 
-transition:.4s;
+    transition:.4s ease;
 }
-
 
 /* =========================
    BACKGROUND
 ========================= */
 
 .bg{
-position:fixed;
-inset:0;
-overflow:hidden;
-pointer-events:none;
-z-index:-1;
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-2;
 }
 
 .blob{
-position:absolute;
-border-radius:50%;
-filter:blur(70px);
-opacity:.22;
-animation:float 8s ease-in-out infinite alternate;
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.22;
+    animation:blobMove 12s ease-in-out infinite alternate;
 }
 
 .blob1{
-width:280px;
-height:280px;
-background:#735cff;
-left:-100px;
-top:10%;
+    width:280px;
+    height:280px;
+    background:#735cff;
+    left:-100px;
+    top:10%;
 }
 
 .blob2{
-width:300px;
-height:300px;
-background:#ff3cac;
-right:-120px;
-bottom:5%;
+    width:300px;
+    height:300px;
+    background:#ff3cac;
+    right:-120px;
+    bottom:5%;
+    animation-delay:2s;
 }
 
 .blob3{
-width:180px;
-height:180px;
-background:#00d4ff;
-left:45%;
-top:40%;
+    width:180px;
+    height:180px;
+    background:#00d4ff;
+    left:45%;
+    top:40%;
+    animation-delay:4s;
 }
 
-@keyframes float{
-
-to{
-transform:translate(45px,40px) scale(1.18);
+@keyframes blobMove{
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(60px,-40px) scale(1.15);
+    }
 }
-
-}
-
 
 /* =========================
-   INDEX STYLE MENU BUTTON
+   TOP BUTTONS
 ========================= */
+
+.menu-btn,
+.theme-btn{
+    position:fixed;
+    top:18px;
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:15px;
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    color:#fff;
+    font-size:23px;
+    cursor:pointer;
+    z-index:10002;
+    transition:.3s ease;
+}
 
 .menu-btn{
-position:fixed;
-left:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:5px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-
-backdrop-filter:blur(15px);
--webkit-backdrop-filter:blur(15px);
-
-cursor:pointer;
-z-index:10002;
-
-transition:.3s;
+    left:18px;
 }
-
-.menu-btn:hover{
-
-transform:scale(1.06);
-
-box-shadow:
-0 0 15px rgba(115,92,255,.6),
-0 0 30px rgba(255,60,172,.3);
-
-}
-
-.menu-btn span{
-width:23px;
-height:2px;
-
-background:#fff;
-
-border-radius:10px;
-
-transition:.3s;
-}
-
-
-/* =========================
-   THEME
-========================= */
 
 .theme-btn{
-position:fixed;
-right:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-
-color:#fff;
-
-font-size:20px;
-
-cursor:pointer;
-z-index:10002;
-
-backdrop-filter:blur(15px);
-
-transition:.3s;
+    right:18px;
 }
 
+.menu-btn:hover,
 .theme-btn:hover{
+    transform:translateY(-3px);
 
-box-shadow:
-0 0 15px rgba(115,92,255,.7),
-0 0 30px rgba(255,60,172,.3);
-
-transform:scale(1.05);
+    box-shadow:
+        0 0 20px rgba(115,92,255,.45),
+        0 0 30px rgba(255,60,172,.20);
 }
-
 
 /* =========================
-   INDEX STYLE SIDE MENU
+   SIDE MENU
 ========================= */
 
 .side-menu{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
 
-position:fixed;
+    width:50%;
 
-left:0;
-top:0;
+    padding:90px 20px 30px;
 
-width:50%;
-height:100vh;
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(115,92,255,.28),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,60,172,.22),
+            transparent 35%
+        ),
+        rgba(8,9,20,.97);
 
-padding:90px 20px 30px;
+    backdrop-filter:blur(25px);
+    -webkit-backdrop-filter:blur(25px);
 
-background:
-radial-gradient(
-circle at 20% 20%,
-rgba(99,91,255,.35),
-transparent 35%
-),
-radial-gradient(
-circle at 80% 80%,
-rgba(255,60,172,.25),
-transparent 35%
-),
-rgba(8,9,20,.97);
+    border-right:1px solid rgba(255,255,255,.10);
 
-border-right:1px solid rgba(255,255,255,.18);
+    box-shadow:
+        20px 0 60px rgba(0,0,0,.35);
 
-backdrop-filter:blur(25px);
--webkit-backdrop-filter:blur(25px);
+    transform:translateX(-105%);
 
-box-shadow:
-10px 0 40px rgba(0,0,0,.35),
-0 0 30px rgba(115,92,255,.25);
+    opacity:0;
+    visibility:hidden;
 
-transform:translateX(-100%);
+    transition:.4s ease;
 
-opacity:0;
-
-visibility:hidden;
-
-transition:
-transform .4s ease,
-opacity .3s ease,
-visibility .4s ease;
-
-overflow-y:auto;
-
-z-index:10001;
+    z-index:10001;
 }
 
 .side-menu.show{
-
-transform:translateX(0);
-
-opacity:1;
-
-visibility:visible;
+    transform:translateX(0);
+    opacity:1;
+    visibility:visible;
 }
 
-
 .side-menu a{
+    display:block;
 
-display:block;
+    color:#fff;
+    text-decoration:none;
 
-text-decoration:none;
+    padding:14px 5px;
 
-color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.08);
 
-padding:15px 14px;
-
-border-radius:14px;
-
-margin-bottom:8px;
-
-font-size:15px;
-
-background:rgba(255,255,255,.06);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.3s;
+    font-size:15px;
+    transition:.3s ease;
 }
 
 .side-menu a:hover{
-
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-transform:translateX(5px);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.4),
-0 0 25px rgba(255,60,172,.25);
+    color:#ff75c7;
+    padding-left:12px;
 }
-
 
 /* =========================
    CONTAINER
 ========================= */
 
 .container{
-
-width:92%;
-max-width:800px;
-
-margin:auto;
-
-padding:90px 0 40px;
+    width:min(1180px,92%);
+    margin:auto;
 }
 
-
 /* =========================
-   PROFILE
+   HERO
 ========================= */
 
-.profile-section{
+.hero{
+    min-height:auto;
 
-text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-animation:appear .8s ease;
+    text-align:center;
+
+    padding:105px 0 45px;
+}
+
+.heroContent{
+    width:100%;
 }
 
 .profile{
+    width:155px;
+    height:155px;
 
-width:125px;
-height:125px;
+    object-fit:cover;
+    border-radius:50%;
 
-margin:auto;
+    border:4px solid rgba(255,255,255,.9);
 
-position:relative;
-}
+    box-shadow:
+        0 0 25px rgba(115,92,255,.55),
+        0 0 55px rgba(255,60,172,.30);
 
-.profile img{
+    animation:
+        profileGlow
+        4s ease-in-out
+        infinite alternate;
 
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-border-radius:50%;
-
-border:4px solid rgba(255,255,255,.8);
-
-box-shadow:
-0 0 25px rgba(124,92,255,.7),
-0 0 50px rgba(255,60,172,.25);
-
-animation:profileGlow 3s ease-in-out infinite alternate;
+    margin-bottom:18px;
 }
 
 @keyframes profileGlow{
 
-to{
+    from{
+        box-shadow:
+            0 0 20px rgba(115,92,255,.45),
+            0 0 40px rgba(255,60,172,.20);
+    }
 
-box-shadow:
-0 0 40px rgba(124,92,255,.9),
-0 0 70px rgba(255,60,172,.4);
-
+    to{
+        box-shadow:
+            0 0 35px rgba(115,92,255,.75),
+            0 0 70px rgba(255,60,172,.40);
+    }
 }
 
+.hero h1{
+    font-size:clamp(38px,7vw,70px);
+
+    font-weight:900;
+    letter-spacing:-2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #bcaeff,
+            #ff79c8,
+            #ffffff
+        );
+
+    background-size:250% auto;
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    animation:
+        gradientText
+        6s linear infinite;
 }
 
-.profile-section h1{
-
-margin-top:20px;
-
-font-size:34px;
-
-background:linear-gradient(
-90deg,
-#fff,
-#b9afff,
-#ff8bd4
-);
-
--webkit-background-clip:text;
-
-color:transparent;
+@keyframes gradientText{
+    to{
+        background-position:250% center;
+    }
 }
 
-.profile-section p{
-
-margin-top:8px;
-
-opacity:.65;
+.hero p{
+    color:#cfcfff;
+    margin-top:7px;
+    font-size:17px;
 }
 
-.page-label{
-
-margin-top:15px;
-
-color:#cfc8ff;
-
-font-size:15px;
-
-opacity:.75;
+.pageLabel{
+    margin-top:13px;
+    color:#ff8bd3;
+    font-size:14px;
+    font-weight:bold;
 }
-
 
 /* =========================
-   CARD
+   SECTIONS
 ========================= */
 
+section{
+    padding:65px 0;
+}
+
+.sectionHead{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.sectionHead span{
+    display:block;
+
+    color:#aaa1ff;
+    font-size:12px;
+    font-weight:bold;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    margin-bottom:9px;
+}
+
+.sectionHead h2{
+    font-size:clamp(30px,5vw,48px);
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #b7aaff,
+            #ff65bd
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+
+    margin-bottom:10px;
+}
+
+.sectionHead p{
+    max-width:650px;
+    margin:auto;
+
+    color:#aaaec4;
+    line-height:1.7;
+}
+
+/* =========================
+   GLASS
+========================= */
+
+.glass{
+    background:rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
 .card{
-
-margin-top:25px;
-
-padding:25px;
-
-border-radius:25px;
-
-background:rgba(255,255,255,.07);
-
-border:1px solid rgba(255,255,255,.13);
-
-backdrop-filter:blur(20px);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.2),
-0 0 25px rgba(115,92,255,.08);
-
-animation:appear .8s ease;
-
-transition:.3s;
+    border-radius:24px;
+    padding:30px;
+    transition:.35s ease;
 }
 
 .card:hover{
+    transform:translateY(-6px);
 
-transform:translateY(-3px);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.25),
-0 0 30px rgba(115,92,255,.18);
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.25),
+        0 0 30px rgba(115,92,255,.10);
 }
-
-.card h2{
-
-margin-bottom:18px;
-
-background:linear-gradient(
-90deg,
-#fff,
-#c5bcff,
-#ff9ddd
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-}
-
 
 /* =========================
-   CONTACT INFO
+   INTRO
 ========================= */
 
-.contact-info{
+.intro{
+    position:relative;
+    overflow:hidden;
 
-text-align:left;
+    padding:32px;
+    border-radius:24px;
 
-padding:17px;
+    text-align:center;
+    margin-bottom:60px;
 
-border-radius:18px;
+    background:rgba(255,255,255,.035);
 
-margin:12px 0;
+    border:1px solid rgba(255,255,255,.10);
 
-background:rgba(255,255,255,.06);
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
 
-border:1px solid rgba(255,255,255,.1);
-
-transition:.3s;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
 }
 
-.contact-info:hover{
+.intro:before{
+    content:"";
 
-background:rgba(255,255,255,.1);
+    position:absolute;
+    inset:-2px;
 
-box-shadow:
-0 0 20px rgba(115,92,255,.15);
+    border-radius:26px;
 
-transform:translateX(3px);
+    background:
+        conic-gradient(
+            from 0deg,
+            #735cff,
+            #ff3cac,
+            #00d4ff,
+            #735cff
+        );
+
+    animation:
+        spinBorder
+        7s linear infinite;
+
+    z-index:-2;
+
+    filter:
+        drop-shadow(
+            0 0 5px rgba(115,92,255,.55)
+        )
+        drop-shadow(
+            0 0 9px rgba(255,60,172,.35)
+        );
 }
 
-.contact-info b{
+.intro:after{
+    content:"";
 
-display:block;
+    position:absolute;
+    inset:2px;
 
-margin-bottom:7px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,9,20,.94),
+            rgba(18,21,42,.90),
+            rgba(8,9,20,.94)
+        );
 
-color:#dcd6ff;
+    border-radius:22px;
+    z-index:-1;
 }
 
-.contact-info p{
-
-line-height:1.6;
-
-opacity:.72;
-
-white-space:pre-line;
-
-word-break:break-word;
+@keyframes spinBorder{
+    to{
+        transform:rotate(360deg);
+    }
 }
 
+.intro h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.intro p{
+    color:#bfc3da;
+    line-height:1.8;
+}
 
 /* =========================
-   INPUTS
+   CONTACT GRID
 ========================= */
 
-.input-group{
-
-margin-top:10px;
+.contactGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
 }
 
-input,
-textarea{
+.contactCard{
+    border-radius:20px;
 
-width:100%;
+    padding:18px 20px;
 
-padding:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-margin:8px 0;
+    gap:18px;
 
-border-radius:14px;
+    min-height:92px;
 
-border:1px solid rgba(255,255,255,.15);
-
-outline:none;
-
-background:rgba(255,255,255,.07);
-
-color:#fff;
-
-font-size:15px;
-
-font-family:Arial,sans-serif;
-
-backdrop-filter:blur(10px);
-
-transition:.3s;
+    transition:.35s ease;
 }
 
-input::placeholder,
-textarea::placeholder{
+.contactCard:hover{
+    transform:translateY(-4px);
 
-color:rgba(255,255,255,.5);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 25px rgba(115,92,255,.12);
 }
 
-input:focus,
-textarea:focus{
-
-border-color:#735cff;
-
-box-shadow:
-0 0 15px rgba(115,92,255,.3);
-
+.contactTop{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
 }
 
-textarea{
+.contactIcon{
+    width:42px;
+    height:42px;
 
-height:130px;
+    flex-shrink:0;
 
-resize:vertical;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:rgba(255,255,255,.07);
+
+    font-size:20px;
 }
 
+.contactTop h3{
+    font-size:16px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+.contactBottom{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:10px;
+    min-width:0;
+}
+
+.contactValue{
+    color:#d3d6e5;
+
+    font-size:14px;
+    line-height:1.4;
+
+    word-break:break-word;
+    text-align:right;
+}
+
+.actionBtn{
+    flex-shrink:0;
+
+    border:0;
+    border-radius:10px;
+
+    padding:8px 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #735cff,
+            #ff3cac
+        );
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:12px;
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.actionBtn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(115,92,255,.35);
+}
 
 /* =========================
-   SEND BUTTON
+   FORM
 ========================= */
 
-.send-button{
-
-margin-top:10px;
-
-padding:13px 28px;
-
-border:0;
-
-border-radius:30px;
-
-background:linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-color:#fff;
-
-font-size:16px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-box-shadow:
-0 0 15px rgba(115,92,255,.3);
-
-transition:.3s;
+.formCard{
+    margin-top:20px;
 }
 
-.send-button:hover{
-
-transform:translateY(-3px) scale(1.03);
-
-box-shadow:
-0 0 25px rgba(115,92,255,.7),
-0 0 40px rgba(255,60,172,.3);
+.formGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
+.formGroup{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.formGroup.full{
+    grid-column:1/-1;
+}
+
+.formGroup label{
+    color:#c9cbe0;
+    font-size:13px;
+}
+
+.formGroup input,
+.formGroup textarea{
+    width:100%;
+
+    border:1px solid rgba(255,255,255,.10);
+
+    outline:none;
+    border-radius:14px;
+
+    padding:14px 15px;
+
+    background:rgba(255,255,255,.055);
+
+    color:#fff;
+
+    font-family:inherit;
+
+    transition:.3s ease;
+}
+
+.formGroup textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus{
+    border-color:#9b8cff;
+
+    box-shadow:
+        0 0 0 3px rgba(115,92,255,.10);
+}
+
+.sendBtn{
+    margin-top:20px;
+    width:100%;
+
+    border:0;
+    border-radius:15px;
+
+    padding:15px;
+
+    color:#fff;
+
+    font-size:15px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #735cff,
+            #ff3cac
+        );
+
+    transition:.3s ease;
+}
+
+.sendBtn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(115,92,255,.30);
+}
+
+.sendBtn:disabled{
+    opacity:.65;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.success{
+    display:none;
+
+    margin-top:15px;
+    padding:13px;
+
+    border-radius:13px;
+
+    text-align:center;
+
+    background:rgba(0,255,150,.08);
+
+    border:1px solid rgba(0,255,150,.20);
+
+    color:#8dffca;
+
+    font-size:14px;
+}
 
 /* =========================
    SOCIAL
 ========================= */
 
-.social{
-
-margin-top:28px;
-
-padding-top:22px;
-
-border-top:1px solid rgba(255,255,255,.1);
-
-text-align:center;
+.socialGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
 }
 
-.social h2{
+.socialCard{
+    text-decoration:none;
+    color:#fff;
 
-margin-bottom:16px;
+    text-align:center;
+
+    padding:28px 15px;
+
+    border-radius:24px;
+
+    transition:.35s ease;
 }
 
-.social-buttons{
+.socialCard:hover{
+    transform:translateY(-7px);
 
-display:flex;
-
-justify-content:center;
-
-gap:15px;
-
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.25),
+        0 0 25px rgba(255,60,172,.12);
 }
 
-.social-buttons a{
-
-width:52px;
-height:52px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-border-radius:50%;
-
-text-decoration:none;
-
-color:#fff;
-
-font-size:18px;
-
-font-weight:bold;
-
-background:rgba(255,255,255,.1);
-
-border:1px solid rgba(255,255,255,.15);
-
-transition:.3s;
+.socialIcon{
+    font-size:32px;
+    margin-bottom:10px;
 }
 
-.social-buttons a:hover{
-
-transform:translateY(-5px) scale(1.08);
-
-box-shadow:
-0 0 20px rgba(115,92,255,.5);
+.socialCard h3{
+    font-size:17px;
+    margin-bottom:5px;
 }
 
+.socialCard p{
+    color:#9fa4bd;
+    font-size:12px;
+}
 
 /* =========================
-   APPEAR
+   AVAILABILITY
 ========================= */
 
-@keyframes appear{
-
-from{
-
-opacity:0;
-
-transform:translateY(25px);
-
+.availability{
+    text-align:center;
 }
 
-to{
+.online{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
 
-opacity:1;
+    color:#8dffca;
+    font-size:14px;
 
-transform:translateY(0);
-
+    margin-bottom:15px;
 }
 
+.onlineDot{
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#35ff9b;
+
+    box-shadow:0 0 12px #35ff9b;
+
+    animation:pulse 1.7s infinite;
 }
 
+@keyframes pulse{
+    50%{
+        transform:scale(1.4);
+        opacity:.5;
+    }
+}
+
+.availability h2{
+    margin-bottom:12px;
+}
+
+.availability p{
+    color:#aeb2c9;
+
+    line-height:1.7;
+
+    max-width:650px;
+    margin:auto;
+}
 
 /* =========================
-   LIGHT
+   FINAL CTA
+========================= */
+
+.finalCTA{
+    text-align:center;
+
+    padding:50px 25px;
+
+    border-radius:28px;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(115,92,255,.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,60,172,.18),
+            transparent 35%
+        ),
+        rgba(255,255,255,.055);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.20);
+}
+
+.finalCTA h2{
+    font-size:clamp(28px,5vw,45px);
+    margin-bottom:12px;
+}
+
+.finalCTA p{
+    color:#afb3c9;
+
+    max-width:600px;
+
+    margin:0 auto 25px;
+
+    line-height:1.7;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:13px 22px;
+
+    border-radius:14px;
+
+    color:#fff;
+
+    text-decoration:none;
+    font-weight:bold;
+
+    transition:.3s ease;
+}
+
+.btnPrimary{
+    background:
+        linear-gradient(
+            135deg,
+            #735cff,
+            #ff3cac
+        );
+}
+
+.btnPrimary:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(115,92,255,.35);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+
+    padding:40px 20px;
+
+    color:#858ba8;
+    font-size:13px;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topBtn{
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    width:45px;
+    height:45px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    backdrop-filter:blur(15px);
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:9999;
+
+    font-size:20px;
+}
+
+/* =========================
+   LIGHT MODE
 ========================= */
 
 body.light{
+    color:#17182a;
 
-color:#222;
-
-background:
-radial-gradient(circle at 10% 10%,#b9b1ff 0,transparent 28%),
-radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
-linear-gradient(135deg,#eef1ff,#fff,#f9edff);
+    background:
+        radial-gradient(circle at 10% 10%,#c8c1ff 0,transparent 28%),
+        radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
+        linear-gradient(135deg,#f5f3ff,#fff5fb,#f4f6ff);
 }
-
-
-body.light .card{
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.1);
-}
-
 
 body.light .side-menu{
-
-background:
-radial-gradient(
-circle at 15% 15%,
-rgba(115,92,255,.15),
-transparent 32%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(255,60,172,.15),
-transparent 32%
-),
-rgba(255,255,255,.97);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-10px 0 40px rgba(0,0,0,.12),
-0 0 30px rgba(115,92,255,.12);
+    background:
+        radial-gradient(
+            circle at 20% 15%,
+            rgba(115,92,255,.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255,60,172,.18),
+            transparent 35%
+        ),
+        rgba(255,255,255,.94);
 }
-
 
 body.light .side-menu a{
-
-color:#222;
-
-background:rgba(0,0,0,.035);
-
-border-color:rgba(0,0,0,.07);
+    color:#202136;
+    border-bottom-color:rgba(0,0,0,.08);
 }
 
+body.light .menu-btn,
+body.light .theme-btn,
+body.light #topBtn{
+    color:#202136;
 
-body.light .theme-btn{
+    background:rgba(255,255,255,.60);
 
-color:#222;
+    border-color:rgba(0,0,0,.08);
 }
 
-body.light .menu-btn span{
-
-background:#222;
+body.light .hero p,
+body.light .contactValue,
+body.light .availability p,
+body.light .sectionHead p,
+body.light .socialCard p,
+body.light .finalCTA p{
+    color:#62677f;
 }
 
-body.light input,
-body.light textarea{
+body.light .glass{
+    background:rgba(255,255,255,.55);
 
-background:rgba(255,255,255,.7);
+    border-color:rgba(0,0,0,.08);
 
-color:#222;
-
-border-color:rgba(0,0,0,.12);
+    box-shadow:
+        0 20px 60px rgba(75,65,130,.12);
 }
 
-body.light input::placeholder,
-body.light textarea::placeholder{
-
-color:rgba(0,0,0,.45);
+body.light .intro{
+    background:rgba(255,255,255,.18);
+    border-color:rgba(0,0,0,.08);
 }
 
-body.light .contact-info{
-
-background:rgba(0,0,0,.035);
-
-border-color:rgba(0,0,0,.08);
+body.light .intro:after{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(245,243,255,.94),
+            rgba(255,247,252,.92),
+            rgba(242,247,255,.94)
+        );
 }
 
-body.light .contact-info b{
-
-color:#333;
+body.light .contactTop h3,
+body.light .socialCard h3,
+body.light .finalCTA h2,
+body.light .intro h3,
+body.light .availability h2{
+    color:#202136;
 }
 
-body.light .social-buttons a{
-
-color:#222;
-
-background:rgba(0,0,0,.05);
-
-border-color:rgba(0,0,0,.08);
+body.light .formGroup label{
+    color:#44485e;
 }
 
-body.light .profile-section h1,
-body.light .card h2{
+body.light .formGroup input,
+body.light .formGroup textarea{
+    color:#202136;
 
-background:linear-gradient(
-90deg,
-#222,
-#635bff,
-#ff3cac
-);
+    background:rgba(255,255,255,.65);
 
--webkit-background-clip:text;
-
-color:transparent;
+    border-color:rgba(0,0,0,.10);
 }
 
+body.light footer{
+    color:#73778d;
+}
 
 /* =========================
-   MOBILE — INDEX STYLE
+   MOBILE
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:800px){
 
-.container{
+    .side-menu{
+        width:75%;
+    }
 
-width:94%;
+    .hero{
+        padding:100px 0 35px;
+    }
 
-padding-top:85px;
+    .profile{
+        width:145px;
+        height:145px;
+    }
+
+    .contactGrid{
+        grid-template-columns:1fr;
+    }
+
+    .formGrid{
+        grid-template-columns:1fr;
+    }
+
+    .formGroup.full{
+        grid-column:auto;
+    }
+
+    .socialGrid{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
+
+    .socialCard{
+        padding:20px 5px;
+    }
+
+    .socialIcon{
+        font-size:28px;
+        margin-bottom:8px;
+    }
+
+    .socialCard h3{
+        font-size:13px;
+        margin-bottom:4px;
+    }
+
+    .socialCard p{
+        font-size:9px;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .contactCard{
+        padding:16px 15px;
+        min-height:78px;
+        gap:10px;
+    }
+
+    .contactIcon{
+        width:38px;
+        height:38px;
+        border-radius:11px;
+        font-size:18px;
+    }
+
+    .contactTop{
+        gap:9px;
+    }
+
+    .contactTop h3{
+        font-size:15px;
+    }
+
+    .contactBottom{
+        gap:7px;
+    }
+
+    .contactValue{
+        font-size:14px;
+    }
+
+    .actionBtn{
+        padding:7px 10px;
+        font-size:11px;
+    }
 }
 
-.profile{
+/* =========================
+   SMALL MOBILE
+========================= */
 
-width:110px;
-height:110px;
-}
+@media(max-width:450px){
 
-.profile-section h1{
+    .container{
+        width:94%;
+    }
 
-font-size:28px;
-}
+    .menu-btn,
+    .theme-btn{
+        width:44px;
+        height:44px;
+        top:15px;
+    }
 
-.card{
+    .menu-btn{
+        left:12px;
+    }
 
-padding:20px 15px;
-}
+    .theme-btn{
+        right:12px;
+    }
 
-.social-buttons a{
+    .hero{
+        padding:92px 0 30px;
+    }
 
-width:48px;
-height:48px;
-}
+    .profile{
+        width:125px;
+        height:125px;
+        margin-bottom:15px;
+    }
 
+    .hero p{
+        font-size:15px;
+    }
 
-/* INDEX MOBILE MENU = 75% */
+    .pageLabel{
+        margin-top:10px;
+    }
 
-.side-menu{
+    .card{
+        padding:22px 16px;
+    }
 
-width:75%;
+    .intro{
+        padding:28px 18px;
+        margin-bottom:45px;
+    }
 
-padding:85px 18px 25px;
-}
+    .contactCard{
+        padding:14px 12px;
+        min-height:72px;
+        gap:7px;
+    }
 
-.side-menu a{
+    .contactIcon{
+        width:36px;
+        height:36px;
+        font-size:17px;
+    }
 
-padding:15px;
+    .contactTop{
+        gap:8px;
+    }
 
-font-size:15px;
-}
+    .contactTop h3{
+        font-size:14px;
+    }
 
+    .contactBottom{
+        gap:6px;
+    }
+
+    .contactValue{
+        font-size:13px;
+    }
+
+    .actionBtn{
+        padding:7px 9px;
+        font-size:10px;
+        border-radius:9px;
+    }
+
+    .socialGrid{
+        gap:6px;
+    }
+
+    .socialCard{
+        padding:16px 2px;
+    }
+
+    .socialIcon{
+        font-size:24px;
+    }
+
+    .socialCard h3{
+        font-size:11px;
+    }
+
+    .socialCard p{
+        font-size:8px;
+    }
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     BACKGROUND
-========================= -->
+<!-- BACKGROUND -->
 
 <div class="bg">
 
-<div class="blob blob1"></div>
-
-<div class="blob blob2"></div>
-
-<div class="blob blob3"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
 
 </div>
 
 
-<!-- =========================
-     MENU BUTTON
-========================= -->
-
-<div
-class="menu-btn"
-id="menuBtn"
-onclick="toggleMenu()">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-
-<!-- =========================
-     THEME BUTTON
-========================= -->
+<!-- TOP BUTTONS -->
 
 <button
-class="theme-btn"
-id="themeBtn"
-onclick="toggleTheme()">
+    class="menu-btn"
+    id="menuBtn"
+    onclick="toggleMenu()"
+>
+    ☰
+</button>
 
-🌙
-
+<button
+    class="theme-btn"
+    id="themeBtn"
+    onclick="toggleTheme()"
+>
+    🌙
 </button>
 
 
-<!-- =========================
-     SIDE MENU
-========================= -->
+<!-- SIDE MENU -->
 
-<div
-class="side-menu"
-id="sideMenu">
+<nav
+    class="side-menu"
+    id="sideMenu"
+>
 
-<a href="index.html">
+    <a href="index.html">
+        🏠 Home
+    </a>
 
-🏠 Home
+    <a href="about.html">
+        👤 About
+    </a>
 
-</a>
+    <a href="contact.html">
+        📞 Contact
+    </a>
 
-<a href="about.html">
+    <a href="gallery.html">
+        🖼️ Gallery
+    </a>
 
-👤 About
+    <a
+        href="#"
+        id="menuFacebook"
+        target="_blank"
+        rel="noopener"
+    >
+        📘 Facebook
+    </a>
 
-</a>
+    <a
+        href="#"
+        id="menuLinkedin"
+        target="_blank"
+        rel="noopener"
+    >
+        💼 LinkedIn
+    </a>
 
-<a href="contact.html">
+    <a
+        href="#"
+        id="menuWhatsapp"
+        target="_blank"
+        rel="noopener"
+    >
+        💬 WhatsApp
+    </a>
 
-📞 Contact
+    <a href="app.html">
+        📱 Get App
+    </a>
 
-</a>
+    <a href="admin.html">
+        🔐 Admin Login
+    </a>
 
-<a href="gallery.html">
-
-📸 Gallery
-
-</a>
-
-<a
-id="menuFacebook"
-href="#"
-target="_blank">
-
-🔵 Facebook
-
-</a>
-
-<a
-id="menuLinkedin"
-href="#"
-target="_blank">
-
-💼 LinkedIn
-
-</a>
-
-<a
-id="menuWhatsapp"
-href="#"
-target="_blank">
-
-☎️ WhatsApp
-
-</a>
-
-<a href="admin.html">
-
-🔐 Admin Login
-
-</a>
-
-</div>
+</nav>
 
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container heroContent">
+
+        <img
+            src="smraihan.jpg"
+            class="profile"
+            id="profileImage"
+            alt="SM RAYHAN"
+        >
+
+        <h1 id="profileName">
+            SM RAYHAN
+        </h1>
+
+        <p id="profileSubtitle">
+            Welcome to My Website ❤️
+        </p>
+
+        <div class="pageLabel">
+            📞 Contact Me
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+
+<!-- CONTACT INTRO -->
+
+<section>
 
 <div class="container">
 
+    <div class="sectionHead">
 
-<section class="profile-section">
+        <span id="contactEyebrow">
+            Get In Touch
+        </span>
+
+        <h2 id="contactMainTitle">
+            Let's Connect
+        </h2>
+
+        <p id="contactMainDescription">
+            Have a question, project idea, or something
+            you'd like to discuss? Feel free to contact me.
+        </p>
+
+    </div>
 
 
-<div class="profile">
+    <div class="intro">
 
-<img
-src="smraihan.jpg"
-alt="SM RAYHAN">
+        <h3 id="contactIntroTitle">
+            Let's Connect 🤝
+        </h3>
+
+        <p id="contactIntroText">
+            I am always open to new ideas, projects,
+            opportunities, and meaningful connections.
+        </p>
+
+    </div>
+
+
+    <div class="sectionHead">
+
+        <span>
+            Contact Information
+        </span>
+
+        <h2>
+            💌 Let's Stay Connected
+        </h2>
+
+        <p>
+            You can reach me directly by email or phone.
+        </p>
+
+    </div>
+
+
+    <div class="contactGrid">
+
+
+        <!-- EMAIL -->
+
+        <div class="contactCard glass">
+
+            <div class="contactTop">
+
+                <div class="contactIcon">
+                    ✉️
+                </div>
+
+                <h3>
+                    Email
+                </h3>
+
+            </div>
+
+            <div class="contactBottom">
+
+                <div
+                    class="contactValue"
+                    id="email"
+                >
+                    Loading...
+                </div>
+
+                <a
+                    class="actionBtn"
+                    id="emailLink"
+                    href="#"
+                    onclick="handleEmail(event)"
+                >
+                    ✉️ Mail
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="contactCard glass">
+
+            <div class="contactTop">
+
+                <div class="contactIcon">
+                    📞
+                </div>
+
+                <h3>
+                    Phone
+                </h3>
+
+            </div>
+
+            <div class="contactBottom">
+
+                <div
+                    class="contactValue"
+                    id="phone"
+                >
+                    Loading...
+                </div>
+
+                <a
+                    class="actionBtn"
+                    id="phoneCall"
+                    href="#"
+                    onclick="handleCall(event)"
+                >
+                    📞 Call
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
-
-
-<h1 id="profileName">
-SM RAYHAN
-</h1>
-
-
-<p id="profileSubtitle">
-Welcome to My Website ❤️
-</p>
-
-
-<div class="page-label">
-📞 Contact Me
-</div>
-
 
 </section>
 
 
+<!-- SEND MESSAGE -->
 
-<!-- =========================
-     CONTACT INFORMATION
-========================= -->
+<section>
 
-<div class="card">
+<div class="container">
 
-<h2>
-📞 Contact Information
-</h2>
+    <div class="sectionHead">
+
+        <span>
+            Send Message
+        </span>
+
+        <h2>
+            Write To Me
+        </h2>
+
+        <p>
+            Fill out the form below and send your message.
+        </p>
+
+    </div>
 
 
-<div class="contact-info">
+    <div class="card glass formCard">
 
-<b>
-📱 Phone
-</b>
+        <div class="formGrid">
 
-<p id="phone">
-Not added
-</p>
+            <div class="formGroup">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    autocomplete="name"
+                >
+
+            </div>
+
+
+            <div class="formGroup">
+
+                <label>
+                    Mobile Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="mobile"
+                    placeholder="Enter your mobile number"
+                    autocomplete="tel"
+                >
+
+            </div>
+
+
+            <div class="formGroup">
+
+                <label>
+                    Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    placeholder="Enter message subject"
+                >
+
+            </div>
+
+
+            <div class="formGroup full">
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    placeholder="Write your message..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="sendBtn"
+            id="sendBtn"
+            type="button"
+            onclick="sendMessage()"
+        >
+            🚀 Send Message
+        </button>
+
+
+        <div
+            class="success"
+            id="successMessage"
+        >
+            ✅ Your message has been sent successfully!
+        </div>
+
+    </div>
 
 </div>
 
+</section>
 
-<div class="contact-info">
 
-<b>
-📧 Email
-</b>
+<!-- SOCIAL -->
 
-<p id="email">
-Not added
-</p>
+<section>
+
+<div class="container">
+
+    <div class="sectionHead">
+
+        <span>
+            Social Media
+        </span>
+
+        <h2>
+            Find Me Online
+        </h2>
+
+        <p>
+            Connect with me through my social media profiles.
+        </p>
+
+    </div>
+
+
+    <div class="socialGrid">
+
+
+        <a
+            href="#"
+            id="facebookLink"
+            class="socialCard glass"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="socialIcon">
+                📘
+            </div>
+
+            <h3 id="facebookTitle">
+                Facebook
+            </h3>
+
+            <p id="facebookDesc">
+                Connect with me
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            id="linkedinLink"
+            class="socialCard glass"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="socialIcon">
+                💼
+            </div>
+
+            <h3 id="linkedinTitle">
+                LinkedIn
+            </h3>
+
+            <p id="linkedinDesc">
+                Professional profile
+            </p>
+
+        </a>
+
+
+        <a
+            href="#"
+            id="whatsappLink"
+            class="socialCard glass"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="socialIcon">
+                💬
+            </div>
+
+            <h3 id="whatsappTitle">
+                WhatsApp
+            </h3>
+
+            <p id="whatsappDesc">
+                Chat with me
+            </p>
+
+        </a>
+
+
+    </div>
 
 </div>
 
+</section>
 
-<div class="contact-info">
 
-<b>
-💬 WhatsApp
-</b>
+<!-- AVAILABILITY -->
 
-<p id="whatsapp">
-Not added
-</p>
+<section>
+
+<div class="container">
+
+    <div class="card glass availability">
+
+        <div class="online">
+
+            <span class="onlineDot"></span>
+
+            Currently Available
+
+        </div>
+
+        <h2 id="availabilityTitle">
+            Open For New Opportunities
+        </h2>
+
+        <p id="availabilityText">
+            Available for new projects, website development,
+            Excel work, and other professional opportunities.
+        </p>
+
+    </div>
 
 </div>
 
+</section>
 
-<div class="contact-info">
 
-<b>
-📍 Location
-</b>
+<!-- FINAL CTA -->
 
-<p id="location">
-Not added
-</p>
+<section>
+
+<div class="container">
+
+    <div class="finalCTA">
+
+        <h2 id="ctaTitle">
+            Have Something In Mind? 🚀
+        </h2>
+
+        <p id="ctaText">
+            Send me a message directly on WhatsApp
+            and let's discuss your idea.
+        </p>
+
+        <a
+            href="#"
+            id="finalWhatsapp"
+            class="btn btnPrimary"
+            target="_blank"
+            rel="noopener"
+        >
+            💬 Chat On WhatsApp
+        </a>
+
+    </div>
 
 </div>
 
-</div>
+</section>
 
 
-
-<!-- =========================
-     MESSAGE
-========================= -->
-
-<div class="card">
-
-<h2>
-📩 Send Me a Message
-</h2>
+</main>
 
 
-<input
-id="name"
-type="text"
-placeholder="Your Name">
+<!-- FOOTER -->
+
+<footer>
+
+    <span id="footerCopyright">
+        © 2026 SM RAYHAN | My Personal Website ❤️
+    </span>
+
+</footer>
 
 
-<input
-id="mobile"
-type="tel"
-placeholder="Mobile Number">
-
-
-<textarea
-id="message"
-placeholder="Write your message..."></textarea>
-
+<!-- BACK TO TOP -->
 
 <button
-class="send-button"
-onclick="sendMessage()">
-
-Send ❤️
-
+    id="topBtn"
+    type="button"
+>
+    ↑
 </button>
 
 
-
-<!-- =========================
-     SOCIAL
-========================= -->
-
-<div class="social">
-
-<h2>
-🌐 Follow Me
-</h2>
-
-
-<div class="social-buttons">
-
-
-<a
-id="facebookLink"
-href="#"
-target="_blank"
-title="Facebook">
-
-f
-
-</a>
-
-
-<a
-id="linkedinLink"
-href="#"
-target="_blank"
-title="LinkedIn">
-
-in
-
-</a>
-
-
-<a
-id="whatsappLink"
-href="#"
-target="_blank"
-title="WhatsApp">
-
-☎
-
-</a>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-
 <script>
-
 
 /* =========================
    SUPABASE
 ========================= */
 
-const SUPABASE_URL=
+const SUPABASE_URL =
 "https://oppmdnnzgqdnwpqqkwsq.supabase.co";
 
-const SUPABASE_KEY=
+const SUPABASE_KEY =
 "sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
 
-const supabaseClient=
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-
-let whatsappNumber="";
+const supabaseClient =
+    supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
 /* =========================
-   INDEX STYLE MENU
+   VARIABLES
 ========================= */
 
-function toggleMenu(){
-
-const menu=
-document.getElementById("sideMenu");
-
-menu.classList.toggle("show");
-
-}
+let phoneNumber = "";
+let emailAddress = "";
+let whatsappNumber = "";
+let locationText = "";
 
 
 /* =========================
-   OUTSIDE CLICK = CLOSE
-========================= */
-
-document.addEventListener(
-"click",
-function(event){
-
-const menu=
-document.getElementById("sideMenu");
-
-const button=
-document.getElementById("menuBtn");
-
-
-if(
-menu.classList.contains("show") &&
-!menu.contains(event.target) &&
-!button.contains(event.target)
-){
-
-menu.classList.remove("show");
-
-}
-
-});
-
-
-/* =========================
-   CLOSE MENU AFTER LINK CLICK
-========================= */
-
-document
-.querySelectorAll("#sideMenu a")
-.forEach(function(link){
-
-link.addEventListener(
-"click",
-function(){
-
-document
-.getElementById("sideMenu")
-.classList.remove("show");
-
-});
-
-});
-
-
-/* =========================
-   THEME
-========================= */
-
-function applyTheme(){
-
-if(
-localStorage.getItem("theme")==="light"
-){
-
-document.body.classList.add("light");
-
-document.getElementById(
-"themeBtn"
-).innerText="☀️";
-
-}else{
-
-document.body.classList.remove("light");
-
-document.getElementById(
-"themeBtn"
-).innerText="🌙";
-
-}
-
-}
-
-
-function toggleTheme(){
-
-document.body.classList.toggle("light");
-
-const button=
-document.getElementById("themeBtn");
-
-if(
-document.body.classList.contains("light")
-){
-
-button.innerText="☀️";
-
-localStorage.setItem(
-"theme",
-"light"
-);
-
-}else{
-
-button.innerText="🌙";
-
-localStorage.setItem(
-"theme",
-"dark"
-);
-
-}
-
-}
-
-
-applyTheme();
-
-
-/* =========================
-   TEXT
+   HELPER
 ========================= */
 
 function setText(id,value){
 
-const el=
-document.getElementById(id);
+    const element =
+        document.getElementById(id);
 
-if(
-el &&
-value!==undefined &&
-value!==null &&
-value!==""
-){
+    if(
+        element &&
+        value !== undefined &&
+        value !== null &&
+        String(value).trim() !== ""
+    ){
 
-el.innerText=value;
-
-}
+        element.textContent =
+            value;
+    }
 
 }
 
@@ -1368,30 +1905,200 @@ el.innerText=value;
 
 function makeWhatsAppLink(value){
 
-if(!value){
+    if(!value){
+        return "";
+    }
 
-return "";
+    const text =
+        String(value).trim();
+
+    if(!text){
+        return "";
+    }
+
+    if(
+        text.startsWith("http://") ||
+        text.startsWith("https://")
+    ){
+
+        return text;
+    }
+
+    const number =
+        text
+        .replace(/^\+/,"")
+        .replace(/[^\d]/g,"");
+
+    if(!number){
+        return "";
+    }
+
+    return "https://wa.me/" + number;
 }
 
-value=value.trim();
 
-if(value.startsWith("http")){
+/* =========================
+   PHONE LINK
+========================= */
 
-return value;
+function makePhoneLink(value){
+
+    if(!value){
+        return "";
+    }
+
+    let number =
+        String(value).trim();
+
+    number =
+        number.replace(/[^\d+]/g,"");
+
+    if(number.startsWith("00")){
+
+        number =
+            "+" +
+            number.substring(2);
+    }
+
+    if(
+        !number.startsWith("+") &&
+        number.startsWith("0")
+    ){
+
+        number =
+            "+880" +
+            number.substring(1);
+    }
+
+    if(!number){
+        return "";
+    }
+
+    return "tel:" + number;
+}
+
+
+/* =========================
+   EMAIL LINK
+========================= */
+
+function makeEmailLink(value){
+
+    if(!value){
+        return "";
+    }
+
+    const email =
+        String(value).trim();
+
+    if(!email){
+        return "";
+    }
+
+    return "mailto:" + email;
+}
+
+
+/* =========================
+   SET LINK
+========================= */
+
+function setLink(id,url){
+
+    const element =
+        document.getElementById(id);
+
+    if(!element){
+        return;
+    }
+
+    if(url){
+
+        element.href =
+            url;
+
+        element.style.pointerEvents =
+            "auto";
+
+        element.style.opacity =
+            "1";
+
+    }
 
 }
 
-let number=
-value.replace(/\D/g,"");
 
-if(number.startsWith("0")){
+/* =========================
+   CALL
+========================= */
 
-number="88"+number;
+function handleCall(event){
 
+    event.preventDefault();
+    event.stopPropagation();
+
+    if(!phoneNumber){
+
+        alert(
+            "Phone number is not available."
+        );
+
+        return;
+    }
+
+    const phoneLink =
+        makePhoneLink(
+            phoneNumber
+        );
+
+    if(!phoneLink){
+
+        alert(
+            "Invalid phone number."
+        );
+
+        return;
+    }
+
+    window.location.href =
+        phoneLink;
 }
 
-return "https://wa.me/"+number;
 
+/* =========================
+   EMAIL
+========================= */
+
+function handleEmail(event){
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    if(!emailAddress){
+
+        alert(
+            "Email address is not available."
+        );
+
+        return;
+    }
+
+    const emailLink =
+        makeEmailLink(
+            emailAddress
+        );
+
+    if(!emailLink){
+
+        alert(
+            "Invalid email address."
+        );
+
+        return;
+    }
+
+    window.location.href =
+        emailLink;
 }
 
 
@@ -1401,267 +2108,784 @@ return "https://wa.me/"+number;
 
 async function loadContact(){
 
-try{
+    try{
 
-const {data,error}=
-await supabaseClient
-.from("website_content")
-.select("section,content");
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+            .from("website_content")
+            .select("section,content");
 
 
-if(error){
+        if(error){
 
-console.error(error);
+            console.error(
+                "Website content error:",
+                error
+            );
 
-return;
+            setText(
+                "phone",
+                "Not available"
+            );
+
+            setText(
+                "email",
+                "Not available"
+            );
+
+            return;
+        }
+
+
+        const content = {};
+
+
+        (data || []).forEach(row=>{
+
+            if(!content[row.section]){
+
+                content[row.section] =
+                    {};
+            }
+
+            if(
+                row.content &&
+                typeof row.content === "object"
+            ){
+
+                Object.assign(
+                    content[row.section],
+                    row.content
+                );
+            }
+
+        });
+
+
+        const home =
+            content.home || {};
+
+        const contact =
+            content.contact || {};
+
+        const social =
+            content.social || {};
+
+        const website =
+            content.website || {};
+
+        const profile =
+            content.profile || {};
+
+
+        /* =========================
+           PROFILE
+        ========================= */
+
+        setText(
+            "profileName",
+            home.name ||
+            "SM RAYHAN"
+        );
+
+
+        setText(
+            "profileSubtitle",
+            home.subtitle ||
+            "Welcome to My Website ❤️"
+        );
+
+
+        if(profile.image_url){
+
+            const image =
+                document.getElementById(
+                    "profileImage"
+                );
+
+            if(image){
+
+                image.src =
+                    profile.image_url;
+
+            }
+
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        phoneNumber =
+            contact.contact_phone ||
+            contact.phone ||
+            "";
+
+        emailAddress =
+            contact.contact_email ||
+            contact.email ||
+            "";
+
+        whatsappNumber =
+            contact.contact_whatsapp ||
+            contact.whatsapp ||
+            social.whatsapp ||
+            "";
+
+        locationText =
+            contact.contact_location ||
+            contact.location ||
+            "";
+
+
+        setText(
+            "phone",
+            phoneNumber ||
+            "Not available"
+        );
+
+        setText(
+            "email",
+            emailAddress ||
+            "Not available"
+        );
+
+
+        /* =========================
+           PHONE
+        ========================= */
+
+        if(phoneNumber){
+
+            setLink(
+                "phoneCall",
+                makePhoneLink(
+                    phoneNumber
+                )
+            );
+
+        }
+
+
+        /* =========================
+           EMAIL
+        ========================= */
+
+        if(emailAddress){
+
+            setLink(
+                "emailLink",
+                makeEmailLink(
+                    emailAddress
+                )
+            );
+
+        }
+
+
+        /* =========================
+           WHATSAPP
+        ========================= */
+
+        const whatsappURL =
+            makeWhatsAppLink(
+                whatsappNumber
+            );
+
+
+        if(whatsappURL){
+
+            setLink(
+                "whatsappLink",
+                whatsappURL
+            );
+
+            setLink(
+                "finalWhatsapp",
+                whatsappURL
+            );
+
+            setLink(
+                "menuWhatsapp",
+                whatsappURL
+            );
+
+        }
+
+
+        /* =========================
+           FACEBOOK
+        ========================= */
+
+        if(social.facebook){
+
+            setLink(
+                "facebookLink",
+                social.facebook
+            );
+
+            setLink(
+                "menuFacebook",
+                social.facebook
+            );
+
+        }
+
+
+        /* =========================
+           LINKEDIN
+        ========================= */
+
+        if(social.linkedin){
+
+            setLink(
+                "linkedinLink",
+                social.linkedin
+            );
+
+            setLink(
+                "menuLinkedin",
+                social.linkedin
+            );
+
+        }
+
+
+        /* =========================
+           WEBSITE CONTENT
+        ========================= */
+
+        setText(
+            "contactMainTitle",
+            website.about_title ||
+            "Let's Connect"
+        );
+
+        setText(
+            "contactMainDescription",
+            website.cta_text ||
+            "Have a question, project idea, or something you'd like to discuss? Feel free to contact me."
+        );
+
+        setText(
+            "contactIntroTitle",
+            website.cta_title ||
+            "Let's Connect 🤝"
+        );
+
+        setText(
+            "contactIntroText",
+            website.cta_text ||
+            "I am always open to new ideas, projects, opportunities, and meaningful connections."
+        );
+
+
+        /* =========================
+           SOCIAL TEXT
+        ========================= */
+
+        setText(
+            "facebookTitle",
+            website.facebook_title ||
+            "Facebook"
+        );
+
+        setText(
+            "facebookDesc",
+            website.facebook_desc ||
+            "Connect with me"
+        );
+
+
+        setText(
+            "linkedinTitle",
+            website.linkedin_title ||
+            "LinkedIn"
+        );
+
+        setText(
+            "linkedinDesc",
+            website.linkedin_desc ||
+            "Professional profile"
+        );
+
+
+        setText(
+            "whatsappTitle",
+            website.whatsapp_title ||
+            "WhatsApp"
+        );
+
+        setText(
+            "whatsappDesc",
+            website.whatsapp_desc ||
+            "Chat with me"
+        );
+
+
+        /* =========================
+           AVAILABILITY
+        ========================= */
+
+        setText(
+            "availabilityTitle",
+            website.info_status ||
+            "Open For New Opportunities"
+        );
+
+        setText(
+            "availabilityText",
+            website.cta_text ||
+            "Available for new projects, website development, Excel work, and other professional opportunities."
+        );
+
+
+        /* =========================
+           FINAL CTA
+        ========================= */
+
+        setText(
+            "ctaTitle",
+            website.cta_title ||
+            "Have Something In Mind? 🚀"
+        );
+
+        setText(
+            "ctaText",
+            website.cta_text ||
+            "Send me a message directly on WhatsApp and let's discuss your idea."
+        );
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        setText(
+            "footerCopyright",
+            website.footer_copyright ||
+            "© 2026 SM RAYHAN | My Personal Website ❤️"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Contact loading failed:",
+            error
+        );
+
+    }
 
 }
-
-
-const content={};
-
-
-(data||[]).forEach(row=>{
-
-content[row.section]=
-row.content||{};
-
-});
-
-
-const home=
-content.home||{};
-
-const contact=
-content.contact||{};
-
-const social=
-content.social||{};
-
-
-/* HOME */
-
-setText(
-"profileName",
-home.name ||
-"SM RAYHAN"
-);
-
-setText(
-"profileSubtitle",
-home.subtitle ||
-"Welcome to My Website ❤️"
-);
-
-
-/* CONTACT */
-
-setText(
-"phone",
-contact.contact_phone
-);
-
-setText(
-"email",
-contact.contact_email
-);
-
-setText(
-"location",
-contact.contact_location
-);
-
-
-/* WHATSAPP */
-
-whatsappNumber=
-contact.contact_whatsapp ||
-social.whatsapp ||
-"";
-
-
-setText(
-"whatsapp",
-whatsappNumber
-);
-
-
-let whatsappLink=
-makeWhatsAppLink(
-whatsappNumber
-);
-
-
-if(whatsappLink){
-
-document.getElementById(
-"whatsappLink"
-).href=
-whatsappLink;
-
-}
-
-
-/* FACEBOOK */
-
-if(social.facebook){
-
-document.getElementById(
-"facebookLink"
-).href=
-social.facebook;
-
-document.getElementById(
-"menuFacebook"
-).href=
-social.facebook;
-
-}
-
-
-/* LINKEDIN */
-
-if(social.linkedin){
-
-document.getElementById(
-"linkedinLink"
-).href=
-social.linkedin;
-
-document.getElementById(
-"menuLinkedin"
-).href=
-social.linkedin;
-
-}
-
-
-/* WHATSAPP MENU */
-
-if(whatsappLink){
-
-document.getElementById(
-"menuWhatsapp"
-).href=
-whatsappLink;
-
-}
-
-}catch(error){
-
-console.error(
-"Contact loading failed:",
-error
-);
-
-}
-
-}
-
-
-loadContact();
 
 
 /* =========================
    SEND MESSAGE
 ========================= */
 
-function sendMessage(){
+async function sendMessage(){
 
-let name=
-document.getElementById(
-"name"
-).value.trim();
+    const name =
+        document
+        .getElementById("name")
+        .value
+        .trim();
 
-let mobile=
-document.getElementById(
-"mobile"
-).value.trim();
+    const mobile =
+        document
+        .getElementById("mobile")
+        .value
+        .trim();
 
-let message=
-document.getElementById(
-"message"
-).value.trim();
+    const subject =
+        document
+        .getElementById("subject")
+        .value
+        .trim();
+
+    const message =
+        document
+        .getElementById("message")
+        .value
+        .trim();
 
 
-if(name===""){
+    if(!name){
 
-alert(
-"⚠️ Please enter your name!"
-);
+        alert(
+            "Please enter your name."
+        );
 
-return;
+        document
+        .getElementById("name")
+        .focus();
+
+        return;
+    }
+
+
+    if(!mobile){
+
+        alert(
+            "Please enter your mobile number."
+        );
+
+        document
+        .getElementById("mobile")
+        .focus();
+
+        return;
+    }
+
+
+    if(!message){
+
+        alert(
+            "Please write your message."
+        );
+
+        document
+        .getElementById("message")
+        .focus();
+
+        return;
+    }
+
+
+    const sendBtn =
+        document
+        .getElementById("sendBtn");
+
+    const success =
+        document
+        .getElementById("successMessage");
+
+
+    sendBtn.disabled =
+        true;
+
+    sendBtn.innerText =
+        "⏳ Sending...";
+
+
+    try{
+
+        const {
+            error
+        } =
+            await supabaseClient
+            .from("contact_messages")
+            .insert([
+                {
+                    name:name,
+                    mobile:mobile,
+                    subject:subject,
+                    message:message
+                }
+            ]);
+
+
+        if(error){
+
+            console.error(
+                "Message save error:",
+                error
+            );
+
+            alert(
+                "Message could not be saved. Please try again."
+            );
+
+            sendBtn.disabled =
+                false;
+
+            sendBtn.innerText =
+                "🚀 Send Message";
+
+            return;
+        }
+
+
+        success.style.display =
+            "block";
+
+        success.innerText =
+            "✅ Your message has been sent successfully!";
+
+
+        document
+        .getElementById("name")
+        .value = "";
+
+        document
+        .getElementById("mobile")
+        .value = "";
+
+        document
+        .getElementById("subject")
+        .value = "";
+
+        document
+        .getElementById("message")
+        .value = "";
+
+
+        sendBtn.disabled =
+            false;
+
+        sendBtn.innerText =
+            "🚀 Send Message";
+
+
+        setTimeout(()=>{
+
+            success.style.display =
+                "none";
+
+        },5000);
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Send message failed:",
+            error
+        );
+
+        alert(
+            "Something went wrong. Please try again."
+        );
+
+        sendBtn.disabled =
+            false;
+
+        sendBtn.innerText =
+            "🚀 Send Message";
+    }
 
 }
 
 
-if(mobile===""){
+/* =========================
+   MENU
+========================= */
 
-alert(
-"⚠️ Please enter your mobile number!"
-);
+function toggleMenu(){
 
-return;
+    const menu =
+        document
+        .getElementById("sideMenu");
 
-}
-
-
-if(message===""){
-
-alert(
-"⚠️ Please write a message!"
-);
-
-return;
+    menu.classList.toggle(
+        "show"
+    );
 
 }
 
 
-let link=
-makeWhatsAppLink(
-whatsappNumber
+document.addEventListener(
+    "click",
+    function(event){
+
+        const menu =
+            document
+            .getElementById("sideMenu");
+
+        const button =
+            document
+            .getElementById("menuBtn");
+
+
+        if(
+            menu.classList.contains("show") &&
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ){
+
+            menu.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
 );
 
 
-if(!link){
+document
+.querySelectorAll(
+    "#sideMenu a"
+)
+.forEach(function(link){
 
-alert(
-"⚠️ Admin WhatsApp number দেওয়া নেই!"
-);
+    link.addEventListener(
+        "click",
+        function(){
 
-return;
+            document
+            .getElementById("sideMenu")
+            .classList
+            .remove("show");
+
+        }
+    );
+
+});
+
+
+/* =========================
+   THEME
+========================= */
+
+function applyTheme(){
+
+    if(
+        localStorage.getItem("theme")
+        ===
+        "light"
+    ){
+
+        document.body
+        .classList
+        .add("light");
+
+        document
+        .getElementById("themeBtn")
+        .innerText =
+            "☀️";
+
+    }
+
+    else{
+
+        document.body
+        .classList
+        .remove("light");
+
+        document
+        .getElementById("themeBtn")
+        .innerText =
+            "🌙";
+
+    }
 
 }
 
 
-let text=
-`📩 New Message from Website
+function toggleTheme(){
 
-👤 Name: ${name}
-📱 Mobile: ${mobile}
-💬 Message: ${message}`;
-
-
-let separator=
-link.includes("?")
-?
-"&"
-:
-"?";
+    document.body
+    .classList
+    .toggle("light");
 
 
-window.open(
-link+
-separator+
-"text="+
-encodeURIComponent(text),
-"_blank"
-);
+    const button =
+        document
+        .getElementById("themeBtn");
+
+
+    if(
+        document.body
+        .classList
+        .contains("light")
+    ){
+
+        button.innerText =
+            "☀️";
+
+        localStorage.setItem(
+            "theme",
+            "light"
+        );
+
+    }
+
+    else{
+
+        button.innerText =
+            "🌙";
+
+        localStorage.setItem(
+            "theme",
+            "dark"
+        );
+
+    }
 
 }
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topBtn =
+    document
+    .getElementById("topBtn");
+
+
+window.addEventListener(
+    "scroll",
+    function(){
+
+        if(
+            window.scrollY > 400
+        ){
+
+            topBtn.style.display =
+                "flex";
+
+            topBtn.style.alignItems =
+                "center";
+
+            topBtn.style.justifyContent =
+                "center";
+
+        }
+
+        else{
+
+            topBtn.style.display =
+                "none";
+
+        }
+
+    }
+);
+
+
+topBtn.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
+
+
+/* =========================
+   START
+========================= */
+
+applyTheme();
+
+loadContact();
 
 </script>
 
 </body>
-
 </html>
