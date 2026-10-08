@@ -672,6 +672,226 @@ padding:20px;
 background:linear-gradient(transparent,rgba(0,0,0,.8));
 }
 
+/* ================= PREMIUM NOTIFICATION ================= */
+
+.notificationSection{
+padding-top:45px;
+padding-bottom:75px;
+}
+
+.notificationCard{
+position:relative;
+max-width:760px;
+margin:auto;
+padding:34px 28px;
+border-radius:30px;
+text-align:center;
+overflow:hidden;
+isolation:isolate;
+}
+
+.notificationCard::before{
+content:"";
+position:absolute;
+inset:-2px;
+border-radius:32px;
+padding:2px;
+background:conic-gradient(
+from 0deg,
+#735cff,
+#00d4ff,
+#ff3cac,
+#735cff
+);
+animation:notificationBorder 5s linear infinite;
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+z-index:-1;
+}
+
+.notificationCard::after{
+content:"";
+position:absolute;
+width:180px;
+height:180px;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:
+radial-gradient(circle,#735cff 0,transparent 70%);
+filter:blur(45px);
+opacity:.18;
+z-index:-2;
+pointer-events:none;
+}
+
+@keyframes notificationBorder{
+to{transform:rotate(360deg);}
+}
+
+.notificationIconWrap{
+width:70px;
+height:70px;
+margin:0 auto 16px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:22px;
+background:linear-gradient(
+135deg,
+rgba(115,92,255,.25),
+rgba(255,60,172,.22)
+);
+border:1px solid rgba(255,255,255,.16);
+box-shadow:
+0 0 25px rgba(115,92,255,.25),
+0 0 45px rgba(255,60,172,.12);
+}
+
+.notificationBell{
+font-size:34px;
+display:block;
+animation:bellRing 2.8s ease-in-out infinite;
+transform-origin:50% 10%;
+}
+
+@keyframes bellRing{
+0%,45%,100%{transform:rotate(0);}
+48%{transform:rotate(12deg);}
+51%{transform:rotate(-12deg);}
+54%{transform:rotate(8deg);}
+57%{transform:rotate(-8deg);}
+60%{transform:rotate(0);}
+}
+
+.notificationTitle{
+font-size:clamp(25px,5vw,34px);
+font-weight:900;
+background:linear-gradient(
+90deg,
+#fff,
+#b9afff,
+#ff8bd4
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.notificationText{
+max-width:550px;
+margin:10px auto 22px;
+color:#94a3b8;
+line-height:1.7;
+font-size:14px;
+}
+
+.notificationBtn{
+position:relative;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+min-width:260px;
+padding:16px 27px;
+border:0;
+border-radius:17px;
+cursor:pointer;
+color:#fff;
+font-size:15px;
+font-weight:800;
+letter-spacing:.2px;
+background:linear-gradient(
+135deg,
+#735cff,
+#9b4dff 45%,
+#ff3cac
+);
+box-shadow:
+0 12px 35px rgba(115,92,255,.35),
+0 0 25px rgba(255,60,172,.12);
+transition:
+transform .3s ease,
+box-shadow .3s ease,
+filter .3s ease;
+overflow:hidden;
+}
+
+.notificationBtn::before{
+content:"";
+position:absolute;
+top:0;
+left:-120%;
+width:80%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+transform:skewX(-20deg);
+animation:notificationShine 3.5s ease-in-out infinite;
+}
+
+@keyframes notificationShine{
+0%,35%{left:-120%;}
+65%,100%{left:140%;}
+}
+
+.notificationBtn:hover{
+transform:translateY(-4px) scale(1.02);
+filter:brightness(1.08);
+box-shadow:
+0 18px 45px rgba(115,92,255,.48),
+0 0 35px rgba(255,60,172,.25);
+}
+
+.notificationBtn:active{
+transform:scale(.97);
+}
+
+.notificationBtn.enabled{
+background:linear-gradient(
+135deg,
+#0f9d68,
+#20c77a
+);
+box-shadow:
+0 12px 35px rgba(32,230,118,.25);
+cursor:default;
+}
+
+.notificationBtn.enabled:hover{
+transform:none;
+filter:none;
+}
+
+.notificationStatus{
+margin-top:13px;
+font-size:12px;
+color:#718096;
+}
+
+.notificationStatus.success{
+color:#20e676;
+}
+
+.notificationStatus.error{
+color:#ff7b9f;
+}
+
+.notificationPrivacy{
+margin-top:17px;
+font-size:10px;
+color:#64748b;
+opacity:.75;
+}
+
+/* ================= SOCIAL ================= */
+
 .socialGrid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -889,6 +1109,29 @@ body.light .love-btn.loved{
 color:#fff;
 }
 
+body.light .notificationCard{
+background:rgba(255,255,255,.58);
+}
+
+body.light .notificationTitle{
+background:linear-gradient(
+90deg,
+#312e81,
+#635bff,
+#d63384
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+body.light .notificationText{
+color:#64748b;
+}
+
+body.light .notificationPrivacy{
+color:#64748b;
+}
+
 @media(max-width:800px){
 
 section{padding:65px 0;}
@@ -972,6 +1215,15 @@ width:75%;
 padding:85px 18px 25px;
 }
 
+.notificationCard{
+padding:30px 20px;
+}
+
+.notificationBtn{
+width:100%;
+min-width:0;
+}
+
 }
 
 @media(max-width:480px){
@@ -1052,6 +1304,32 @@ padding:22px;
 
 .appCard{
 padding:25px 18px;
+}
+
+.notificationSection{
+padding-top:35px;
+padding-bottom:60px;
+}
+
+.notificationCard{
+padding:27px 17px;
+border-radius:26px;
+}
+
+.notificationIconWrap{
+width:62px;
+height:62px;
+border-radius:19px;
+}
+
+.notificationBell{
+font-size:30px;
+}
+
+.notificationBtn{
+padding:15px 18px;
+font-size:14px;
+border-radius:16px;
 }
 
 }
@@ -1730,6 +2008,62 @@ href="gallery.html"
 >
 🖼️ Open Full Gallery
 </a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PREMIUM NOTIFICATIONS ================= -->
+
+<section class="notificationSection">
+
+<div class="container">
+
+<div class="notificationCard glass reveal">
+
+<div class="notificationIconWrap">
+
+<span class="notificationBell">
+🔔
+</span>
+
+</div>
+
+<h2 class="notificationTitle">
+Stay Updated With SM RAYHAN
+</h2>
+
+<p class="notificationText">
+Get notified when new photos, music, videos or important updates are added to the official website.
+</p>
+
+<button
+class="notificationBtn"
+id="enableNotificationBtn"
+onclick="enablePushNotifications()"
+>
+
+<span id="notificationButtonIcon">🔔</span>
+
+<span id="notificationButtonText">
+GET WEBSITE NOTIFICATIONS
+</span>
+
+</button>
+
+<div
+class="notificationStatus"
+id="notificationStatus"
+>
+Tap the button above to stay connected.
+</div>
+
+<div class="notificationPrivacy">
+🔒 Notifications are only used for official SM RAYHAN website updates.
+</div>
 
 </div>
 
@@ -3043,15 +3377,19 @@ error
 
 }
 
- /* ================= PUSH NOTIFICATION ================= */
+
+/* ================= PUSH NOTIFICATION ================= */
 
 const VAPID_PUBLIC_KEY =
 "BLrsCUEV1_IQGOdFtXgcts8P1hxPKiEOLEfQ_GISeXBN8lExv2iXzPvYY8TMxkL2N8V0eI_eTihuD2wFiug1kMM";
 
+
 function urlBase64ToUint8Array(base64String){
 
 const padding =
-"=".repeat((4 - base64String.length % 4) % 4);
+"=".repeat(
+(4 - base64String.length % 4) % 4
+);
 
 const base64 =
 (base64String + padding)
@@ -3062,73 +3400,291 @@ const rawData =
 window.atob(base64);
 
 return Uint8Array.from(
-[...rawData].map(char => char.charCodeAt(0))
+[...rawData].map(
+char => char.charCodeAt(0)
+)
 );
 
 }
 
 
-async function enablePushNotifications(){
+function setNotificationUI(
+state,
+message
+){
+
+const button=
+document.getElementById(
+"enableNotificationBtn"
+);
+
+const icon=
+document.getElementById(
+"notificationButtonIcon"
+);
+
+const text=
+document.getElementById(
+"notificationButtonText"
+);
+
+const status=
+document.getElementById(
+"notificationStatus"
+);
+
+if(!button||!icon||!text||!status){
+
+return;
+
+}
+
+
+if(state==="loading"){
+
+button.disabled=true;
+
+button.style.opacity="0.75";
+
+icon.innerText="⏳";
+
+text.innerText=
+"ENABLING NOTIFICATIONS...";
+
+status.innerText=
+message||
+"Please wait...";
+
+status.className=
+"notificationStatus";
+
+return;
+
+}
+
+
+if(state==="success"){
+
+button.disabled=true;
+
+button.classList.add("enabled");
+
+button.style.opacity="1";
+
+icon.innerText="✅";
+
+text.innerText=
+"NOTIFICATIONS ENABLED";
+
+status.innerText=
+message||
+"You will receive official website updates.";
+
+status.className=
+"notificationStatus success";
+
+return;
+
+}
+
+
+if(state==="error"){
+
+button.disabled=false;
+
+button.classList.remove("enabled");
+
+button.style.opacity="1";
+
+icon.innerText="🔔";
+
+text.innerText=
+"TRY AGAIN";
+
+status.innerText=
+message||
+"Notification setup could not be completed.";
+
+status.className=
+"notificationStatus error";
+
+return;
+
+}
+
+
+button.disabled=false;
+
+button.style.opacity="1";
+
+icon.innerText="🔔";
+
+text.innerText=
+"GET WEBSITE NOTIFICATIONS";
+
+status.innerText=
+message||
+"Tap the button above to stay connected.";
+
+status.className=
+"notificationStatus";
+
+}
+
+
+/* ================= CHECK EXISTING PUSH ================= */
+
+async function checkExistingPushSubscription(){
 
 try{
 
 if(!("serviceWorker" in navigator)){
 
-console.log(
-"Service Worker not supported"
-);
+return;
+
+}
+
+if(!("PushManager" in window)){
 
 return;
+
+}
+
+if(!("Notification" in window)){
+
+return;
+
+}
+
+
+const registration=
+await navigator.serviceWorker.ready;
+
+const subscription=
+await registration
+.pushManager
+.getSubscription();
+
+
+if(
+subscription &&
+Notification.permission==="granted"
+){
+
+setNotificationUI(
+"success",
+"You are already subscribed to official website notifications."
+);
+
+}
+
+}catch(error){
+
+console.log(
+"Existing push check error:",
+error
+);
+
+}
+
+}
+
+
+/* ================= ENABLE PUSH ================= */
+
+async function enablePushNotifications(){
+
+const button=
+document.getElementById(
+"enableNotificationBtn"
+);
+
+if(button && button.disabled){
+
+return;
+
+}
+
+setNotificationUI(
+"loading",
+"Connecting your device to SM RAYHAN notifications..."
+);
+
+
+try{
+
+if(!("serviceWorker" in navigator)){
+
+throw new Error(
+"Service Worker is not supported on this device."
+);
 
 }
 
 
 if(!("PushManager" in window)){
 
-console.log(
-"Push Notification not supported"
+throw new Error(
+"Push notifications are not supported by this browser."
 );
-
-return;
 
 }
 
 
-const registration =
+if(!("Notification" in window)){
+
+throw new Error(
+"Notification permission is not available."
+);
+
+}
+
+
+const registration=
 await navigator.serviceWorker.ready;
 
 
-let permission =
+let permission=
 Notification.permission;
 
 
-if(permission === "default"){
+if(permission==="default"){
 
-permission =
+permission=
 await Notification.requestPermission();
 
 }
 
 
-if(permission !== "granted"){
+if(permission!=="granted"){
 
-console.log(
-"Notification permission denied"
+if(permission==="denied"){
+
+throw new Error(
+"Notification permission is blocked. Please allow notifications from your browser settings."
 );
 
-return;
+}
+
+throw new Error(
+"Notification permission was not granted."
+);
 
 }
 
 
-let subscription =
-await registration.pushManager.getSubscription();
+let subscription=
+await registration
+.pushManager
+.getSubscription();
 
 
 if(!subscription){
 
-subscription =
-await registration.pushManager.subscribe({
+subscription=
+await registration
+.pushManager
+.subscribe({
 
 userVisibleOnly:true,
 
@@ -3142,11 +3698,59 @@ VAPID_PUBLIC_KEY
 }
 
 
-const subscriptionData =
+const subscriptionData=
 subscription.toJSON();
 
 
-const { error } =
+if(
+!subscriptionData||
+!subscriptionData.endpoint
+){
+
+throw new Error(
+"Could not create notification subscription."
+);
+
+}
+
+
+/* ================= CHECK DUPLICATE ================= */
+
+const {
+data:existing,
+error:existingError
+}=
+await supabaseClient
+.from("push_subscriptions")
+.select("id,subscription")
+.eq(
+"subscription->>endpoint",
+subscriptionData.endpoint
+)
+.maybeSingle();
+
+
+if(existingError){
+
+console.log(
+"Existing subscription check:",
+existingError
+);
+
+
+/*
+If the table does not allow the JSON endpoint
+query, continue to insert the subscription.
+*/
+
+}
+
+
+if(!existing){
+
+const {
+error:insertError
+}=
 await supabaseClient
 .from("push_subscriptions")
 .insert({
@@ -3157,35 +3761,49 @@ subscriptionData
 });
 
 
-if(error){
+if(insertError){
 
-console.log(
-"Push subscription database error:",
-error
-);
-
-}else{
-
-console.log(
-"Push notification enabled"
+throw new Error(
+"Could not save notification subscription: "+
+insertError.message
 );
 
 }
 
+}
+
+
+setNotificationUI(
+"success",
+"You're all set! You'll receive new official website updates."
+);
+
+
 }catch(error){
 
-console.log(
+console.error(
 "Push notification error:",
 error
 );
 
-}
+setNotificationUI(
+"error",
+error.message||
+"Notification setup failed. Please try again."
+);
 
 }
 
+}
 
-/* ================= END PUSH NOTIFICATION ================= */
- 
+
+/* ================= INITIAL PUSH STATUS ================= */
+
+checkExistingPushSubscription();
+
+
+/* ================= LOAD WEBSITE ================= */
+
 loadWebsiteContent();
 
 
@@ -3204,6 +3822,8 @@ navigator.serviceWorker
 console.log(
 "Service Worker registered"
 );
+
+checkExistingPushSubscription();
 
 })
 .catch(error=>{
