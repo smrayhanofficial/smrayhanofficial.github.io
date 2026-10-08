@@ -410,27 +410,27 @@ word-break:break-word;
 }
 
 .messageLabel{
-    font-size:14px;
-    font-weight:bold;
-    margin-bottom:7px;
-    color:var(--text);
+font-size:14px;
+font-weight:bold;
+margin-bottom:7px;
+color:var(--text);
 }
 
-.messageBody {
-   padding: 14px;
-   margin: 0;
-   border-radius: 12px;
-   background: var(--card);
-   border: 1px solid var(--border);
-   line-height: 1.7;
-   font-size: 14px;
-   white-space: pre-wrap;
-   word-break: break-word;
-   text-align: left;
-   min-height: 60px;
-   height: auto;
-   display: block;
-   box-sizing: border-box;
+.messageBody{
+padding:14px;
+margin:0;
+border-radius:12px;
+background:var(--card);
+border:1px solid var(--border);
+line-height:1.7;
+font-size:14px;
+white-space:pre-wrap;
+word-break:break-word;
+text-align:left;
+min-height:60px;
+height:auto;
+display:block;
+box-sizing:border-box;
 }
 
 .messageDateTime{
@@ -1610,6 +1610,67 @@ SUPABASE_KEY
 );
 
 
+/* =====================================================
+   PREMIUM PUSH NOTIFICATION
+===================================================== */
+
+async function sendUpdateNotification(
+type,
+message,
+url
+){
+
+try{
+
+const {data,error} =
+await supabaseClient.functions.invoke(
+"send-push",
+{
+body:{
+type:String(type || "update"),
+message:String(
+message ||
+"Something new has just been added to SM RAYHAN Official Website."
+),
+url:
+url ||
+"https://smrayhanofficial.github.io/"
+}
+}
+);
+
+if(error){
+
+console.log(
+"Push Notification Error:",
+error
+);
+
+return false;
+
+}
+
+console.log(
+"Push Notification Sent:",
+data
+);
+
+return true;
+
+}catch(error){
+
+console.log(
+"Push Notification Error:",
+error
+);
+
+return false;
+
+}
+
+}
+
+
 /* =========================
    THEME
 ========================= */
@@ -2430,7 +2491,7 @@ value ?? "";
 
 
 /* =========================
-   SAVE HOME
+   SAVE HOME + NOTIFICATION
 ========================= */
 
 async function saveHome(){
@@ -2501,17 +2562,28 @@ type4:type4
 
 };
 
+const saved =
 await saveContent(
 "home",
 content,
 status
 );
 
+if(saved){
+
+await sendUpdateNotification(
+"home",
+"The SM RAYHAN website has just received a new update.",
+"https://smrayhanofficial.github.io/"
+);
+
+}
+
 }
 
 
 /* =========================
-   SAVE ABOUT
+   SAVE ABOUT + NOTIFICATION
 ========================= */
 
 async function saveAbout(){
@@ -2550,17 +2622,28 @@ document.getElementById("about_vision")
 
 };
 
+const saved =
 await saveContent(
 "about",
 content,
 status
 );
 
+if(saved){
+
+await sendUpdateNotification(
+"about",
+"New profile information is now available on SM RAYHAN Official Website.",
+"https://smrayhanofficial.github.io/about.html"
+);
+
+}
+
 }
 
 
 /* =========================
-   SAVE CONTACT
+   SAVE CONTACT + NOTIFICATION
 ========================= */
 
 async function saveContact(){
@@ -2591,17 +2674,28 @@ document.getElementById("contact_location")
 
 };
 
+const saved =
 await saveContent(
 "contact",
 content,
 status
 );
 
+if(saved){
+
+await sendUpdateNotification(
+"contact",
+"Contact information has just been updated on SM RAYHAN Official Website.",
+"https://smrayhanofficial.github.io/contact.html"
+);
+
+}
+
 }
 
 
 /* =========================
-   SAVE SKILLS
+   SAVE SKILLS + NOTIFICATION
 ========================= */
 
 async function saveSkills(){
@@ -2636,17 +2730,28 @@ document.getElementById("skill_excel")
 
 };
 
+const saved =
 await saveContent(
 "skills",
 content,
 status
 );
 
+if(saved){
+
+await sendUpdateNotification(
+"skills",
+"SM RAYHAN skills and expertise have just been updated.",
+"https://smrayhanofficial.github.io/"
+);
+
+}
+
 }
 
 
 /* =========================
-   SAVE PROJECTS
+   SAVE PROJECTS + NOTIFICATION
 ========================= */
 
 async function saveProjects(){
@@ -2685,11 +2790,22 @@ document.getElementById("project3_desc")
 
 };
 
+const saved =
 await saveContent(
 "projects",
 content,
 status
 );
+
+if(saved){
+
+await sendUpdateNotification(
+"project",
+"A new project or project update is now available on SM RAYHAN Official Website.",
+"https://smrayhanofficial.github.io/"
+);
+
+}
 
 }
 
@@ -2785,7 +2901,7 @@ c.whatsapp || "";
 
 
 /* =========================
-   SAVE SOCIAL
+   SAVE SOCIAL + NOTIFICATION
 ========================= */
 
 async function saveSocial(){
@@ -2812,11 +2928,22 @@ document.getElementById("whatsapp")
 
 };
 
+const saved =
 await saveContent(
 "social",
 content,
 status
 );
+
+if(saved){
+
+await sendUpdateNotification(
+"social",
+"SM RAYHAN social information has just been updated.",
+"https://smrayhanofficial.github.io/"
+);
+
+}
 
 }
 
@@ -3032,6 +3159,7 @@ c.footer_copyright || ""
 
 /* =========================
    SAVE WEBSITE CONTENT
+   + PREMIUM NOTIFICATION
 ========================= */
 
 async function saveWebsiteSettings(){
@@ -3154,17 +3282,29 @@ document.getElementById("website_footer_copyright").value.trim()
 
 };
 
+const saved =
 await saveContent(
 "website",
 content,
 status
 );
 
+if(saved){
+
+await sendUpdateNotification(
+"website",
+"Something new has just been added to SM RAYHAN Official Website.",
+"https://smrayhanofficial.github.io/"
+);
+
+}
+
 }
 
 
 /* =========================
    PROFILE UPLOAD
+   + NOTIFICATION
 ========================= */
 
 async function uploadProfile(){
@@ -3255,6 +3395,15 @@ publicUrl;
 
 status.textContent =
 "✅ Profile picture uploaded";
+
+
+/* SEND NOTIFICATION */
+
+await sendUpdateNotification(
+"profile",
+"SM RAYHAN profile picture has just been updated.",
+"https://smrayhanofficial.github.io/"
+);
 
 }
 
@@ -3625,9 +3774,10 @@ folder
 }
 
 
-/* =========================
+/* =====================================================
    UPLOAD ALL MEDIA
-========================= */
+   + CATEGORY BASED NOTIFICATIONS
+===================================================== */
 
 async function uploadAllMedia(){
 
@@ -3653,6 +3803,9 @@ document.getElementById(
 
 const filesToUpload=[];
 
+
+/* PHOTO FILES */
+
 for(const file of photoFiles){
 
 filesToUpload.push({
@@ -3661,6 +3814,9 @@ folder:"photos"
 });
 
 }
+
+
+/* MUSIC FILES */
 
 for(const file of musicFiles){
 
@@ -3671,6 +3827,9 @@ folder:"music"
 
 }
 
+
+/* VIDEO FILES */
+
 for(const file of videoFiles){
 
 filesToUpload.push({
@@ -3679,6 +3838,7 @@ folder:"videos"
 });
 
 }
+
 
 if(
 filesToUpload.length===0
@@ -3691,12 +3851,21 @@ return;
 
 }
 
+
 status.textContent =
 "⏳ Uploading 0/"+
 filesToUpload.length+
 "...";
 
+
 let success=0;
+
+let photoSuccess=0;
+
+let musicSuccess=0;
+
+let videoSuccess=0;
+
 
 for(
 const item of filesToUpload
@@ -3727,8 +3896,40 @@ item.file,
 {upsert:false}
 );
 
-if(!error)
+
+if(!error){
+
 success++;
+
+
+/* COUNT SUCCESS BY CATEGORY */
+
+if(
+item.folder==="photos"
+){
+
+photoSuccess++;
+
+}
+
+if(
+item.folder==="music"
+){
+
+musicSuccess++;
+
+}
+
+if(
+item.folder==="videos"
+){
+
+videoSuccess++;
+
+}
+
+}
+
 
 status.textContent =
 "⏳ Uploading "+
@@ -3737,6 +3938,9 @@ filesToUpload.length+
 "...";
 
 }
+
+
+/* CLEAR FILE INPUTS */
 
 document.getElementById(
 "photoFiles"
@@ -3750,11 +3954,94 @@ document.getElementById(
 "videoFiles"
 ).value="";
 
+
 await loadMediaCounts();
+
+
+/* IF NOTHING UPLOADED */
+
+if(success===0){
+
+status.textContent =
+"❌ No files were uploaded.";
+
+return;
+
+}
+
 
 status.textContent =
 "✅ "+success+
 " file uploaded successfully";
+
+
+/* =====================================================
+   PHOTO NOTIFICATION
+===================================================== */
+
+if(photoSuccess>0){
+
+await sendUpdateNotification(
+"photo",
+
+photoSuccess===1
+?
+"A new photo has just been added to the SM RAYHAN Gallery."
+:
+photoSuccess+
+" new photos have just been added to the SM RAYHAN Gallery.",
+
+"https://smrayhanofficial.github.io/gallery.html"
+
+);
+
+}
+
+
+/* =====================================================
+   MUSIC NOTIFICATION
+===================================================== */
+
+if(musicSuccess>0){
+
+await sendUpdateNotification(
+"music",
+
+musicSuccess===1
+?
+"A new music track has just been added to the SM RAYHAN Gallery."
+:
+musicSuccess+
+" new music tracks have just been added to the SM RAYHAN Gallery.",
+
+"https://smrayhanofficial.github.io/gallery.html"
+
+);
+
+}
+
+
+/* =====================================================
+   VIDEO NOTIFICATION
+===================================================== */
+
+if(videoSuccess>0){
+
+await sendUpdateNotification(
+"video",
+
+videoSuccess===1
+?
+"A new video has just been added to the SM RAYHAN Gallery."
+:
+videoSuccess+
+" new videos have just been added to the SM RAYHAN Gallery.",
+
+"https://smrayhanofficial.github.io/gallery.html"
+
+);
+
+}
 
 }
 
@@ -4028,7 +4315,7 @@ ${escapeHtml(subject)}
 
 
 <div class="messageLabel">
-   📝 Message
+📝 Message
 </div>
 
 <div class="messageBody">${escapeHtml(text)}
