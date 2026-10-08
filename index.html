@@ -3378,35 +3378,91 @@ error
 }
 
 
-/* ================= PUSH NOTIFICATION ================= */
+/* =========================================================
+   PUSH NOTIFICATION SYSTEM — UPDATED
+========================================================= */
 
 const VAPID_PUBLIC_KEY =
 "BLrsCUEV1_IQGOdFtXgcts8P1hxPKiEOLEfQ_GISeXBN8lExv2iXzPvYY8TMxkL2N8V0eI_eTihuD2wFiug1kMM";
 
 
-function urlBase64ToUint8Array(base64String){
+/* ================= SERVICE WORKER REGISTRATION ================= */
 
-const padding =
-"=".repeat(
-(4 - base64String.length % 4) % 4
-);
+async function getServiceWorkerRegistration(){
 
-const base64 =
-(base64String + padding)
-.replace(/-/g, "+")
-.replace(/_/g, "/");
+if(!("serviceWorker" in navigator)){
 
-const rawData =
-window.atob(base64);
-
-return Uint8Array.from(
-[...rawData].map(
-char => char.charCodeAt(0)
-)
+throw new Error(
+"Service Worker is not supported on this device."
 );
 
 }
 
+
+let registration=
+await navigator.serviceWorker.getRegistration();
+
+
+if(!registration){
+
+registration=
+await navigator.serviceWorker.register(
+"/sw.js",
+{
+scope:"/"
+}
+);
+
+}
+
+
+return await navigator.serviceWorker.ready;
+
+}
+
+
+/* ================= BASE64 HELPER ================= */
+
+function urlBase64ToUint8Array(base64String){
+
+const padding=
+"=".repeat(
+(4-base64String.length%4)%4
+);
+
+const base64=
+(
+base64String+
+padding
+)
+.replace(/-/g,"+")
+.replace(/_/g,"/");
+
+const rawData=
+window.atob(base64);
+
+const outputArray=
+new Uint8Array(
+rawData.length
+);
+
+for(
+let i=0;
+i<rawData.length;
+i++
+){
+
+outputArray[i]=
+rawData.charCodeAt(i);
+
+}
+
+return outputArray;
+
+}
+
+
+/* ================= NOTIFICATION UI ================= */
 
 function setNotificationUI(
 state,
@@ -3433,7 +3489,13 @@ document.getElementById(
 "notificationStatus"
 );
 
-if(!button||!icon||!text||!status){
+
+if(
+!button||
+!icon||
+!text||
+!status
+){
 
 return;
 
@@ -3444,7 +3506,8 @@ if(state==="loading"){
 
 button.disabled=true;
 
-button.style.opacity="0.75";
+button.style.opacity=
+"0.75";
 
 icon.innerText="⏳";
 
@@ -3467,9 +3530,12 @@ if(state==="success"){
 
 button.disabled=true;
 
-button.classList.add("enabled");
+button.classList.add(
+"enabled"
+);
 
-button.style.opacity="1";
+button.style.opacity=
+"1";
 
 icon.innerText="✅";
 
@@ -3492,9 +3558,12 @@ if(state==="error"){
 
 button.disabled=false;
 
-button.classList.remove("enabled");
+button.classList.remove(
+"enabled"
+);
 
-button.style.opacity="1";
+button.style.opacity=
+"1";
 
 icon.innerText="🔔";
 
@@ -3515,7 +3584,8 @@ return;
 
 button.disabled=false;
 
-button.style.opacity="1";
+button.style.opacity=
+"1";
 
 icon.innerText="🔔";
 
@@ -3528,6 +3598,121 @@ message||
 
 status.className=
 "notificationStatus";
+
+}
+
+
+/* ================= SAVE SUBSCRIPTION ================= */
+
+async function savePushSubscription(
+subscription
+){
+
+if(!subscription){
+
+throw new Error(
+"Push subscription was not created."
+);
+
+}
+
+
+const subscriptionData=
+subscription.toJSON();
+
+
+if(
+!subscriptionData||
+!subscriptionData.endpoint
+){
+
+throw new Error(
+"Push subscription endpoint is missing."
+);
+
+}
+
+
+/* Check existing subscription */
+
+const {
+data:existing,
+error:checkError
+}=
+await supabaseClient
+.from("push_subscriptions")
+.select("id")
+.filter(
+"subscription->>endpoint",
+"eq",
+subscriptionData.endpoint
+)
+.maybeSingle();
+
+
+/*
+If duplicate check fails, continue.
+The important part is that the new subscription
+must still be inserted into Supabase.
+*/
+
+if(checkError){
+
+console.log(
+"Subscription check error:",
+checkError
+);
+
+}
+
+
+/* Insert new subscription */
+
+if(!existing){
+
+const {
+data,
+error
+}=
+await supabaseClient
+.from("push_subscriptions")
+.insert({
+
+subscription:
+subscriptionData
+
+})
+.select();
+
+
+if(error){
+
+console.error(
+"Subscription save error:",
+error
+);
+
+throw new Error(
+"Could not save notification subscription: "+
+error.message
+);
+
+}
+
+
+console.log(
+"Push subscription saved successfully:",
+data
+);
+
+}else{
+
+console.log(
+"Push subscription already exists:",
+existing
+);
+
+}
 
 }
 
@@ -3558,7 +3743,8 @@ return;
 
 
 const registration=
-await navigator.serviceWorker.ready;
+await getServiceWorkerRegistration();
+
 
 const subscription=
 await registration
@@ -3599,11 +3785,16 @@ document.getElementById(
 "enableNotificationBtn"
 );
 
-if(button && button.disabled){
+
+if(
+button &&
+button.disabled
+){
 
 return;
 
 }
+
 
 setNotificationUI(
 "loading",
@@ -3612,6 +3803,8 @@ setNotificationUI(
 
 
 try{
+
+/* Browser support */
 
 if(!("serviceWorker" in navigator)){
 
@@ -3640,15 +3833,21 @@ throw new Error(
 }
 
 
-const registration=
-await navigator.serviceWorker.ready;
+/* Service Worker */
 
+const registration=
+await getServiceWorkerRegistration();
+
+
+/* Notification Permission */
 
 let permission=
 Notification.permission;
 
 
-if(permission==="default"){
+if(
+permission==="default"
+){
 
 permission=
 await Notification.requestPermission();
@@ -3656,9 +3855,13 @@ await Notification.requestPermission();
 }
 
 
-if(permission!=="granted"){
+if(
+permission!=="granted"
+){
 
-if(permission==="denied"){
+if(
+permission==="denied"
+){
 
 throw new Error(
 "Notification permission is blocked. Please allow notifications from your browser settings."
@@ -3673,11 +3876,15 @@ throw new Error(
 }
 
 
+/* Existing subscription */
+
 let subscription=
 await registration
 .pushManager
 .getSubscription();
 
+
+/* Create new subscription */
 
 if(!subscription){
 
@@ -3698,80 +3905,20 @@ VAPID_PUBLIC_KEY
 }
 
 
-const subscriptionData=
-subscription.toJSON();
-
-
-if(
-!subscriptionData||
-!subscriptionData.endpoint
-){
-
-throw new Error(
-"Could not create notification subscription."
-);
-
-}
-
-
-/* ================= CHECK DUPLICATE ================= */
-
-const {
-data:existing,
-error:existingError
-}=
-await supabaseClient
-.from("push_subscriptions")
-.select("id,subscription")
-.eq(
-"subscription->>endpoint",
-subscriptionData.endpoint
-)
-.maybeSingle();
-
-
-if(existingError){
-
 console.log(
-"Existing subscription check:",
-existingError
+"Push subscription:",
+subscription
 );
 
 
-/*
-If the table does not allow the JSON endpoint
-query, continue to insert the subscription.
-*/
+/* Save to Supabase */
 
-}
-
-
-if(!existing){
-
-const {
-error:insertError
-}=
-await supabaseClient
-.from("push_subscriptions")
-.insert({
-
-subscription:
-subscriptionData
-
-});
-
-
-if(insertError){
-
-throw new Error(
-"Could not save notification subscription: "+
-insertError.message
+await savePushSubscription(
+subscription
 );
 
-}
 
-}
-
+/* Success */
 
 setNotificationUI(
 "success",
@@ -3786,6 +3933,7 @@ console.error(
 error
 );
 
+
 setNotificationUI(
 "error",
 error.message||
@@ -3797,7 +3945,7 @@ error.message||
 }
 
 
-/* ================= INITIAL PUSH STATUS ================= */
+/* ================= INITIAL PUSH CHECK ================= */
 
 checkExistingPushSubscription();
 
@@ -3807,38 +3955,50 @@ checkExistingPushSubscription();
 loadWebsiteContent();
 
 
-/* ================= SERVICE WORKER ================= */
+/* ================= REGISTER SERVICE WORKER ================= */
 
 if("serviceWorker" in navigator){
 
 window.addEventListener(
 "load",
-()=>{
+async ()=>{
 
-navigator.serviceWorker
-.register("sw.js")
-.then(()=>{
+try{
+
+await getServiceWorkerRegistration();
 
 console.log(
-"Service Worker registered"
+"Service Worker registered successfully."
 );
 
-checkExistingPushSubscription();
 
-})
-.catch(error=>{
+await checkExistingPushSubscription();
+
+}catch(error){
 
 console.log(
 "Service Worker error:",
 error
 );
 
-});
+}
 
 }
 );
 
 }
+
+
+/* ================= EXTRA PUSH CHECK ================= */
+
+setTimeout(
+()=>{
+
+checkExistingPushSubscription();
+
+},
+1000
+);
 
 </script>
 
