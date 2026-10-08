@@ -336,8 +336,6 @@ opacity:.6;
 font-size:13px;
 }
 
-/* ================= WELCOME BOX ================= */
-
 .welcomeBox{
 position:relative;
 display:inline-block;
@@ -672,8 +670,6 @@ padding:20px;
 background:linear-gradient(transparent,rgba(0,0,0,.8));
 }
 
-/* ================= PREMIUM NOTIFICATION ================= */
-
 .notificationSection{
 padding-top:45px;
 padding-bottom:75px;
@@ -889,8 +885,6 @@ font-size:10px;
 color:#64748b;
 opacity:.75;
 }
-
-/* ================= SOCIAL ================= */
 
 .socialGrid{
 display:grid;
@@ -1401,8 +1395,6 @@ border-radius:16px;
 
 <main>
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
 <div class="heroContent reveal">
@@ -1465,8 +1457,6 @@ Everything is organized here in one premium personal space.
 
 </section>
 
-
-<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
@@ -1544,8 +1534,6 @@ Read Full About →
 
 </section>
 
-
-<!-- ================= STATISTICS ================= -->
 
 <section>
 
@@ -1630,8 +1618,6 @@ Love
 
 </section>
 
-
-<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
@@ -1757,8 +1743,6 @@ style="width:75%">
 </section>
 
 
-<!-- ================= PROJECTS ================= -->
-
 <section id="projects">
 
 <div class="container">
@@ -1840,8 +1824,6 @@ UI / UX
 </section>
 
 
-<!-- ================= APP ================= -->
-
 <section id="app">
 
 <div class="container">
@@ -1922,8 +1904,6 @@ href="https://smrayhanofficial.github.io/app.html"
 
 </section>
 
-
-<!-- ================= GALLERY ================= -->
 
 <section id="gallery">
 
@@ -2016,8 +1996,6 @@ href="gallery.html"
 </section>
 
 
-<!-- ================= PREMIUM NOTIFICATIONS ================= -->
-
 <section class="notificationSection">
 
 <div class="container">
@@ -2071,8 +2049,6 @@ Tap the button above to stay connected.
 
 </section>
 
-
-<!-- ================= SOCIAL ================= -->
 
 <section id="social">
 
@@ -2161,8 +2137,6 @@ Send me a message
 </section>
 
 
-<!-- ================= CONTACT CTA ================= -->
-
 <section id="contact">
 
 <div class="container">
@@ -2193,8 +2167,6 @@ href="contact.html"
 
 </main>
 
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -2939,8 +2911,6 @@ row.content||{};
 });
 
 
-/* ================= HOME ================= */
-
 const home=
 content.home||{};
 
@@ -2997,21 +2967,15 @@ home.type4||
 }
 
 
-/* ================= WEBSITE ================= */
-
 const website=
 content.website||{};
 
-
-/* Hero */
 
 setText(
 "heroDescription",
 website.hero_description
 );
 
-
-/* About */
 
 setText(
 "aboutTitle",
@@ -3034,8 +2998,6 @@ website.about_text
 );
 
 
-/* Quick Information */
-
 setText(
 "infoWebsite",
 website.info_website
@@ -3057,8 +3019,6 @@ website.info_status
 );
 
 
-/* Statistics */
-
 setText(
 "projectStat",
 website.stat_projects
@@ -3074,8 +3034,6 @@ setText(
 website.stat_gallery
 );
 
-
-/* App */
 
 setText(
 "appTitle",
@@ -3123,8 +3081,6 @@ website.app_button
 );
 
 
-/* Gallery */
-
 setText(
 "galleryTitle",
 website.gallery_title
@@ -3150,8 +3106,6 @@ setText(
 website.gallery_label3
 );
 
-
-/* Social Text */
 
 setText(
 "facebookTitle",
@@ -3184,8 +3138,6 @@ website.whatsapp_desc
 );
 
 
-/* CTA */
-
 setText(
 "ctaTitle",
 website.cta_title
@@ -3197,8 +3149,6 @@ website.cta_text
 );
 
 
-/* Footer */
-
 setText(
 "footerBrand",
 website.footer_brand
@@ -3209,8 +3159,6 @@ setText(
 website.footer_copyright
 );
 
-
-/* ================= SKILLS ================= */
 
 const skills=
 content.skills||{};
@@ -3240,8 +3188,6 @@ setSkill(
 skills.excel
 );
 
-
-/* ================= PROJECTS ================= */
 
 const projects=
 content.projects||{};
@@ -3276,8 +3222,6 @@ setText(
 projects.project3_desc
 );
 
-
-/* ================= SOCIAL LINKS ================= */
 
 const social=
 content.social||{};
@@ -3334,8 +3278,6 @@ whatsapp;
 }
 
 
-/* ================= PROFILE ================= */
-
 const profile=
 content.profile||{};
 
@@ -3353,8 +3295,6 @@ profile.image_url;
 
 }
 
-
-/* ================= APP ICON ================= */
 
 if(profile.app_icon){
 
@@ -3379,14 +3319,14 @@ error
 
 
 /* =========================================================
-   PUSH NOTIFICATION SYSTEM — UPDATED
+   PUSH NOTIFICATION SYSTEM — FIXED
 ========================================================= */
 
 const VAPID_PUBLIC_KEY =
 "BLrsCUEV1_IQGOdFtXgcts8P1hxPKiEOLEfQ_GISeXBN8lExv2iXzPvYY8TMxkL2N8V0eI_eTihuD2wFiug1kMM";
 
 
-/* ================= SERVICE WORKER REGISTRATION ================= */
+/* ================= SERVICE WORKER ================= */
 
 async function getServiceWorkerRegistration(){
 
@@ -3398,14 +3338,12 @@ throw new Error(
 
 }
 
-
-let registration=
-await navigator.serviceWorker.getRegistration();
-
+let registration =
+await navigator.serviceWorker.getRegistration("/");
 
 if(!registration){
 
-registration=
+registration =
 await navigator.serviceWorker.register(
 "/sw.js",
 {
@@ -3414,7 +3352,6 @@ scope:"/"
 );
 
 }
-
 
 return await navigator.serviceWorker.ready;
 
@@ -3425,23 +3362,20 @@ return await navigator.serviceWorker.ready;
 
 function urlBase64ToUint8Array(base64String){
 
-const padding=
+const padding =
 "=".repeat(
-(4-base64String.length%4)%4
+(4 - base64String.length % 4) % 4
 );
 
-const base64=
-(
-base64String+
-padding
-)
+const base64 =
+(base64String + padding)
 .replace(/-/g,"+")
 .replace(/_/g,"/");
 
-const rawData=
+const rawData =
 window.atob(base64);
 
-const outputArray=
+const outputArray =
 new Uint8Array(
 rawData.length
 );
@@ -3452,7 +3386,7 @@ i<rawData.length;
 i++
 ){
 
-outputArray[i]=
+outputArray[i] =
 rawData.charCodeAt(i);
 
 }
@@ -3469,26 +3403,25 @@ state,
 message
 ){
 
-const button=
+const button =
 document.getElementById(
 "enableNotificationBtn"
 );
 
-const icon=
+const icon =
 document.getElementById(
 "notificationButtonIcon"
 );
 
-const text=
+const text =
 document.getElementById(
 "notificationButtonText"
 );
 
-const status=
+const status =
 document.getElementById(
 "notificationStatus"
 );
-
 
 if(
 !button||
@@ -3602,7 +3535,7 @@ status.className=
 }
 
 
-/* ================= SAVE SUBSCRIPTION ================= */
+/* ================= SAVE PUSH SUBSCRIPTION ================= */
 
 async function savePushSubscription(
 subscription
@@ -3617,7 +3550,7 @@ throw new Error(
 }
 
 
-const subscriptionData=
+const subscriptionData =
 subscription.toJSON();
 
 
@@ -3633,86 +3566,90 @@ throw new Error(
 }
 
 
-/* Check existing subscription */
-
-const {
-data:existing,
-error:checkError
-}=
-await supabaseClient
-.from("push_subscriptions")
-.select("id")
-.filter(
-"subscription->>endpoint",
-"eq",
-subscriptionData.endpoint
-)
-.maybeSingle();
-
-
 /*
-If duplicate check fails, continue.
-The important part is that the new subscription
-must still be inserted into Supabase.
+   IMPORTANT:
+   Direct REST POST is used.
+   No SELECT permission is required.
 */
 
-if(checkError){
+const response =
+await fetch(
+SUPABASE_URL +
+"/rest/v1/push_subscriptions",
+{
 
-console.log(
-"Subscription check error:",
-checkError
-);
+method:"POST",
 
-}
+headers:{
 
+"apikey":
+SUPABASE_KEY,
 
-/* Insert new subscription */
+"Authorization":
+"Bearer " +
+SUPABASE_KEY,
 
-if(!existing){
+"Content-Type":
+"application/json",
 
-const {
-data,
-error
-}=
-await supabaseClient
-.from("push_subscriptions")
-.insert({
+"Prefer":
+"return=minimal"
+
+},
+
+body:
+JSON.stringify({
 
 subscription:
 subscriptionData
 
 })
-.select();
+
+}
+);
 
 
-if(error){
+if(!response.ok){
+
+let errorText="";
+
+try{
+
+errorText =
+await response.text();
+
+}catch(error){
+
+errorText =
+"Unknown Supabase error.";
+
+}
+
 
 console.error(
-"Subscription save error:",
-error
+"Push subscription save failed:",
+response.status,
+errorText
 );
+
 
 throw new Error(
-"Could not save notification subscription: "+
-error.message
+
+"Supabase could not save your notification subscription. " +
+
+"Status: " +
+response.status +
+" | " +
+errorText
+
 );
 
 }
 
 
 console.log(
-"Push subscription saved successfully:",
-data
+"Push subscription saved successfully."
 );
-
-}else{
-
-console.log(
-"Push subscription already exists:",
-existing
-);
-
-}
 
 }
 
@@ -3742,11 +3679,11 @@ return;
 }
 
 
-const registration=
+const registration =
 await getServiceWorkerRegistration();
 
 
-const subscription=
+const subscription =
 await registration
 .pushManager
 .getSubscription();
@@ -3780,7 +3717,7 @@ error
 
 async function enablePushNotifications(){
 
-const button=
+const button =
 document.getElementById(
 "enableNotificationBtn"
 );
@@ -3797,16 +3734,19 @@ return;
 
 
 setNotificationUI(
+
 "loading",
+
 "Connecting your device to SM RAYHAN notifications..."
+
 );
 
 
 try{
 
-/* Browser support */
-
-if(!("serviceWorker" in navigator)){
+if(
+!("serviceWorker" in navigator)
+){
 
 throw new Error(
 "Service Worker is not supported on this device."
@@ -3815,7 +3755,9 @@ throw new Error(
 }
 
 
-if(!("PushManager" in window)){
+if(
+!("PushManager" in window)
+){
 
 throw new Error(
 "Push notifications are not supported by this browser."
@@ -3824,7 +3766,9 @@ throw new Error(
 }
 
 
-if(!("Notification" in window)){
+if(
+!("Notification" in window)
+){
 
 throw new Error(
 "Notification permission is not available."
@@ -3833,15 +3777,17 @@ throw new Error(
 }
 
 
-/* Service Worker */
-
-const registration=
+const registration =
 await getServiceWorkerRegistration();
 
 
-/* Notification Permission */
+console.log(
+"Service Worker ready:",
+registration.scope
+);
 
-let permission=
+
+let permission =
 Notification.permission;
 
 
@@ -3849,10 +3795,16 @@ if(
 permission==="default"
 ){
 
-permission=
+permission =
 await Notification.requestPermission();
 
 }
+
+
+console.log(
+"Notification permission:",
+permission
+);
 
 
 if(
@@ -3864,10 +3816,13 @@ permission==="denied"
 ){
 
 throw new Error(
+
 "Notification permission is blocked. Please allow notifications from your browser settings."
+
 );
 
 }
+
 
 throw new Error(
 "Notification permission was not granted."
@@ -3876,19 +3831,20 @@ throw new Error(
 }
 
 
-/* Existing subscription */
-
-let subscription=
+let subscription =
 await registration
 .pushManager
 .getSubscription();
 
 
-/* Create new subscription */
-
 if(!subscription){
 
-subscription=
+console.log(
+"Creating new push subscription..."
+);
+
+
+subscription =
 await registration
 .pushManager
 .subscribe({
@@ -3906,23 +3862,26 @@ VAPID_PUBLIC_KEY
 
 
 console.log(
-"Push subscription:",
+"Push subscription created:",
 subscription
 );
 
 
-/* Save to Supabase */
+/*
+   SAVE DIRECTLY TO SUPABASE
+*/
 
 await savePushSubscription(
 subscription
 );
 
 
-/* Success */
-
 setNotificationUI(
+
 "success",
+
 "You're all set! You'll receive new official website updates."
+
 );
 
 
@@ -3935,9 +3894,12 @@ error
 
 
 setNotificationUI(
+
 "error",
-error.message||
+
+error.message ||
 "Notification setup failed. Please try again."
+
 );
 
 }
@@ -3957,7 +3919,9 @@ loadWebsiteContent();
 
 /* ================= REGISTER SERVICE WORKER ================= */
 
-if("serviceWorker" in navigator){
+if(
+"serviceWorker" in navigator
+){
 
 window.addEventListener(
 "load",
@@ -3965,26 +3929,29 @@ async ()=>{
 
 try{
 
+const registration =
 await getServiceWorkerRegistration();
 
+
 console.log(
-"Service Worker registered successfully."
+"Service Worker registered:",
+registration.scope
 );
 
 
 await checkExistingPushSubscription();
 
+
 }catch(error){
 
-console.log(
-"Service Worker error:",
+console.error(
+"Service Worker registration error:",
 error
 );
 
 }
 
-}
-);
+});
 
 }
 
@@ -3997,7 +3964,7 @@ setTimeout(
 checkExistingPushSubscription();
 
 },
-1000
+1500
 );
 
 </script>
