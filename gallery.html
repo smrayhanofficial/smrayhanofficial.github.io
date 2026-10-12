@@ -27,7 +27,7 @@ a{color:inherit;text-decoration:none}
 button{color:inherit;cursor:pointer}
 button:focus-visible,a:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
 
-/* ABOUT PAGE STYLE GLOW BACKGROUND */
+/* BACKGROUND GLOW */
 .bg-glow{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;
   background:radial-gradient(ellipse at 15% 0%,#7041db25,transparent 38%),
   radial-gradient(ellipse at 100% 35%,#e3439b13,transparent 35%)}
@@ -42,7 +42,7 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--purple);outline-off
   100%{transform:translate3d(-25px,60px,0) scale(.94)}
 }
 
-/* THREE-LINE MENU BUTTON */
+/* MENU BUTTON */
 .menu-btn,.theme-float{
   position:fixed;top:14px;z-index:120;width:45px;height:45px;
   display:grid;place-items:center;border:1px solid #ffffff24;
@@ -70,7 +70,6 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--purple);outline-off
   transition:transform .35s cubic-bezier(.22,.8,.25,1),visibility .35s}
 .side-menu.show{transform:translateX(0);visibility:visible}
 
-/* MENU BRAND */
 .menu-brand{display:flex;align-items:center;gap:12px;padding:0 8px 20px;
   border-bottom:1px solid #ffffff17;margin-bottom:15px}
 .menu-brand img{width:48px;height:48px;object-fit:cover;border-radius:50%;
@@ -78,36 +77,20 @@ button:focus-visible,a:focus-visible{outline:2px solid var(--purple);outline-off
 .menu-brand strong{display:block;font-size:13px;letter-spacing:1px}
 .menu-brand small{display:block;color:#aaa8c0;font-size:10px;margin-top:5px}
 
-/* SIDE MENU OPTIONS — MATCH ABOUT PAGE */
 .menu-link{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px 5px;
-  border-radius:0;
-  margin:0;
-  font-size:16px;
-  font-weight:600;
-  color:#dbe3f0;
-  text-decoration:none;
+  display:flex;align-items:center;gap:12px;padding:14px 5px;
+  border-radius:0;margin:0;font-size:16px;font-weight:600;
+  color:#dbe3f0;text-decoration:none;
   border-bottom:1px solid rgba(255,255,255,.05);
-  background:transparent;
-  transition:color .3s,transform .3s;
+  background:transparent;transition:color .3s,transform .3s
 }
 .menu-link:hover{
-  color:#fff;
-  transform:translateX(5px);
+  color:#fff;transform:translateX(5px);
   background:linear-gradient(90deg,#735cff,#ff3cac);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent
 }
-.menu-link .menu-icon{
-  width:22px;
-  flex-shrink:0;
-  text-align:center;
-  font-size:17px;
-}
+.menu-link .menu-icon{width:22px;flex-shrink:0;text-align:center;font-size:17px}
 .menu-separator{height:1px;background:#ffffff16;margin:13px 4px}
 
 @media(max-width:600px){
@@ -306,11 +289,8 @@ body.light .bg-glow{opacity:.62}
 body.light .side-menu{background:#f8f7fffa;border-right-color:#25204418}
 body.light .menu-link{color:#334155}
 body.light .menu-link:hover{
-  color:#fff;
-  background:linear-gradient(90deg,#735cff,#ff3cac);
-  -webkit-background-clip:text;
-  background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#fff;background:linear-gradient(90deg,#735cff,#ff3cac);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
 }
 body.light .menu-brand{border-bottom-color:#25204417}
 body.light .menu-brand small{color:#77758c}
@@ -337,7 +317,6 @@ body.light .header-actions .small-btn{color:#19182b}
   <div class="glow-blob glow-blue"></div>
 </div>
 
-<!-- THREE-LINE MENU -->
 <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
   <span></span><span></span><span></span>
 </button>
@@ -354,16 +333,12 @@ body.light .header-actions .small-btn{color:#19182b}
   <a class="menu-link" href="about.html"><span class="menu-icon">ⓘ</span>About</a>
   <a class="menu-link" href="contact.html"><span class="menu-icon">✉</span>Contact</a>
   <a class="menu-link" href="gallery.html"><span class="menu-icon">▧</span>Gallery</a>
-
   <div class="menu-separator"></div>
-
   <a class="menu-link" id="facebookLink" href="https://www.facebook.com/share/14oS818zPSu/" target="_blank" rel="noopener"><span class="menu-icon">f</span>Facebook</a>
   <a class="menu-link" id="linkedinLink" href="https://www.linkedin.com/in/smraihan009" target="_blank" rel="noopener"><span class="menu-icon">in</span>LinkedIn</a>
   <a class="menu-link" id="whatsappLink" href="https://wa.me/8801887295009" target="_blank" rel="noopener"><span class="menu-icon">☏</span>WhatsApp</a>
   <a class="menu-link" href="app.html"><span class="menu-icon">▣</span>Get App</a>
-
   <div class="menu-separator"></div>
-
   <a class="menu-link" href="admin.html"><span class="menu-icon">⚙</span>Admin Login</a>
 </nav>
 
@@ -448,7 +423,33 @@ const $=id=>document.getElementById(id);
 const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const titleOf=s=>(s||"Media").replace(/\.[^.]+$/,"").replace(/[_-]+/g," ").trim()||"Untitled";
 
-/* Theme: About page-এর একই smRayhanTheme key */
+/* MEDIA CONTROL: STOP ALL PLAYBACK AND RESET TO ZERO */
+function stopAllMedia(except=null){
+  document.querySelectorAll("audio, video").forEach(media=>{
+    if(media===except)return;
+    try{
+      media.pause();
+      media.currentTime=0;
+    }catch(e){}
+  });
+}
+
+/* Play only one audio/video at a time */
+document.addEventListener("play",event=>{
+  const activeMedia=event.target;
+  if(!(activeMedia instanceof HTMLMediaElement))return;
+  stopAllMedia(activeMedia);
+},true);
+
+/* Reset media when leaving the page or switching apps/tabs */
+window.addEventListener("pagehide",()=>{
+  stopAllMedia();
+});
+window.addEventListener("beforeunload",()=>{
+  stopAllMedia();
+});
+
+/* Theme */
 function applyTheme(theme){
   const selected=theme==="light"?"light":"dark";
   document.body.classList.toggle("light",selected==="light");
@@ -482,6 +483,16 @@ $("menuBtn").addEventListener("click",()=>{
   $("sideMenu").classList.contains("show")?closeMenu():openMenu();
 });
 $("menuOverlay").addEventListener("click",closeMenu);
+
+/* Stop and reset playback before navigating to another page */
+document.querySelectorAll("a[href]").forEach(link=>{
+  link.addEventListener("click",()=>{
+    const href=link.getAttribute("href")||"";
+    if(href && href!=="#" && !href.startsWith("#")){
+      stopAllMedia();
+    }
+  });
+});
 $("sideMenu").querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
 
 function toast(message){
@@ -491,8 +502,13 @@ function toast(message){
   toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2600);
 }
 
+/* Switch tabs: stop everything and reset to 0:00 */
 function showSection(name){
   if(!["photos","videos","music"].includes(name))return;
+
+  stopAllMedia();
+  closeViewer();
+
   document.querySelectorAll(".panel").forEach(el=>el.classList.remove("active"));
   document.querySelectorAll(".tab").forEach(el=>el.classList.toggle("active",el.dataset.tab===name));
   $(name+"Panel").classList.add("active");
@@ -588,6 +604,7 @@ $("refreshBtn").addEventListener("click",async()=>{
 /* Viewer */
 function openViewer(items,index,type){
   if(!items.length)return;
+  stopAllMedia();
   viewerItems=items;viewerIndex=index;viewerType=type;
   renderViewer();
   $("viewer").classList.add("open");
@@ -600,9 +617,13 @@ function renderViewer(){
   holder.innerHTML="";
   let el;
   if(viewerType==="video"){
-    el=document.createElement("video");el.controls=true;el.autoplay=true;el.playsInline=true;
+    el=document.createElement("video");
+    el.controls=true;
+    el.autoplay=true;
+    el.playsInline=true;
   }else{
-    el=document.createElement("img");el.alt=item.title;
+    el=document.createElement("img");
+    el.alt=item.title;
   }
   el.src=item.url;
   holder.appendChild(el);
@@ -614,12 +635,18 @@ function renderViewer(){
 }
 function moveViewer(step){
   if(!viewerItems.length)return;
+  stopAllMedia();
   viewerIndex=(viewerIndex+step+viewerItems.length)%viewerItems.length;
   renderViewer();
 }
 function closeViewer(){
   const video=$("viewerMedia").querySelector("video");
-  if(video){video.pause();video.removeAttribute("src");video.load();}
+  if(video){
+    video.pause();
+    try{video.currentTime=0}catch(e){}
+    video.removeAttribute("src");
+    video.load();
+  }
   $("viewer").classList.remove("open");
   document.body.style.overflow="";
 }
