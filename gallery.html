@@ -1,3148 +1,728 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SM RAYHAN | Gallery</title>
-
-<meta name="description" content="SM RAYHAN Official Gallery - Photos, Music and Videos.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080812">
+<title>SM RAYHAN | Premium Gallery</title>
 <link rel="icon" href="app-icon.png">
-<link rel="apple-touch-icon" href="app-icon.png">
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&display=swap">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root{
+  --bg:#080812;--card:#151525;--text:#fff;--muted:#a7a7bd;
+  --purple:#9565ff;--pink:#ff4eb8;--border:#ffffff13;
 }
-
-html{
-scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
-font-family:Arial,sans-serif;
-color:#fff;
-min-height:100vh;
-
-background:
-radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
-radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
-linear-gradient(135deg,#080914,#12152a,#080914);
-
-transition:.4s;
-}
-
-
-/* =========================
-   ANIMATED BACKGROUND
-========================= */
-
-.bg{
-position:fixed;
-inset:0;
-overflow:hidden;
-pointer-events:none;
-z-index:-1;
-}
-
-.blob{
-position:absolute;
-border-radius:50%;
-filter:blur(70px);
-opacity:.22;
-animation:float 8s ease-in-out infinite alternate;
-}
-
-.blob1{
-width:280px;
-height:280px;
-background:#735cff;
-left:-100px;
-top:10%;
-}
-
-.blob2{
-width:300px;
-height:300px;
-background:#ff3cac;
-right:-120px;
-bottom:5%;
-}
-
-.blob3{
-width:180px;
-height:180px;
-background:#00d4ff;
-left:45%;
-top:40%;
-}
-
-@keyframes float{
-to{
-transform:translate(45px,40px) scale(1.18);
-}
-}
-
-
-/* =========================
-   MENU BUTTON
-========================= */
-
-.menu-btn{
-position:fixed;
-left:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-gap:5px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.2);
-
-backdrop-filter:blur(15px);
--webkit-backdrop-filter:blur(15px);
-
-cursor:pointer;
-z-index:10002;
-
-transition:.3s;
-}
-
-.menu-btn:hover{
-transform:scale(1.06);
-
-box-shadow:
-0 0 15px rgba(115,92,255,.6),
-0 0 30px rgba(255,60,172,.3);
-}
-
-.menu-btn span{
-width:23px;
-height:2px;
-background:#fff;
-border-radius:10px;
-transition:.3s;
-}
-
-
-/* =========================
-   THEME BUTTON
-========================= */
-
-.theme-btn{
-position:fixed;
-right:15px;
-top:15px;
-
-width:48px;
-height:48px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.1);
-
-border:1px solid rgba(255,255,255,.2);
-
-color:#fff;
-
-font-size:20px;
-
-cursor:pointer;
-
-z-index:10002;
-
-backdrop-filter:blur(15px);
-
-transition:.3s;
-}
-
-.theme-btn:hover{
-transform:scale(1.06);
-
-box-shadow:
-0 0 15px rgba(115,92,255,.6),
-0 0 30px rgba(255,60,172,.3);
-}
-
-
-/* =========================
-   SIDE MENU
-========================= */
-
-.side-menu{
-position:fixed;
-
-left:0;
-top:0;
-
-width:50%;
-height:100vh;
-
-padding:90px 20px 30px;
-
-background:
-radial-gradient(
-circle at 20% 20%,
-rgba(99,91,255,.35),
-transparent 35%
-),
-radial-gradient(
-circle at 80% 80%,
-rgba(255,60,172,.25),
-transparent 35%
-),
-rgba(8,9,20,.97);
-
-border-right:1px solid rgba(255,255,255,.18);
-
-backdrop-filter:blur(25px);
--webkit-backdrop-filter:blur(25px);
-
-box-shadow:
-10px 0 40px rgba(0,0,0,.35),
-0 0 30px rgba(115,92,255,.25);
-
-transform:translateX(-100%);
-
-opacity:0;
-
-visibility:hidden;
-
-transition:
-transform .4s ease,
-opacity .3s ease,
-visibility .4s ease;
-
-overflow-y:auto;
-
-z-index:10001;
-}
-
-.side-menu.show{
-transform:translateX(0);
-opacity:1;
-visibility:visible;
-}
-
-.side-menu a{
-display:block;
-text-decoration:none;
-color:#fff;
-
-padding:15px 14px;
-
-border-radius:14px;
-
-margin-bottom:8px;
-
-font-size:15px;
-
-background:rgba(255,255,255,.06);
-
-border:1px solid rgba(255,255,255,.08);
-
-transition:.3s;
-}
-
-.side-menu a:hover{
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-transform:translateX(5px);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.4),
-0 0 25px rgba(255,60,172,.25);
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-width:92%;
-max-width:900px;
-margin:auto;
-padding:90px 0 40px;
-}
-
-
-/* =========================
-   HEADER
-========================= */
-
-.header{
-text-align:center;
-animation:appear .8s ease;
-}
-
-.header h1{
-font-size:34px;
-margin-top:10px;
-
-background:
-linear-gradient(
-90deg,
-#fff,
-#b9afff,
-#ff8bd4
-);
-
--webkit-background-clip:text;
-color:transparent;
-}
-
-.header p{
-margin-top:8px;
-opacity:.65;
-}
-
-.gallery-label{
-margin-top:14px;
-font-size:15px;
-color:#cfc8ff;
-opacity:.75;
-}
-
-
-/* =========================
-   TABS
-========================= */
-
-.tabs{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-top:25px;
-}
-
-.tabs button{
-border:1px solid rgba(255,255,255,.15);
-
-padding:12px 20px;
-
-border-radius:25px;
-
-font-size:15px;
-
-color:#fff;
-
-background:rgba(255,255,255,.08);
-
-backdrop-filter:blur(15px);
-
-cursor:pointer;
-
-transition:.3s;
-}
-
-.tabs button:hover{
-transform:translateY(-3px);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.3);
-}
-
-.tabs button.active{
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-box-shadow:
-0 0 20px rgba(115,92,255,.45),
-0 0 30px rgba(255,60,172,.15);
-}
-
-
-/* =========================
-   SECTION
-========================= */
-
-.section{
-display:none;
-padding:25px 0 20px;
-animation:fade .45s ease;
-}
-
-.section.active{
-display:block;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:18px;
-
-background:
-linear-gradient(
-90deg,
-#fff,
-#c5bcff,
-#ff9ddd
-);
-
--webkit-background-clip:text;
-color:transparent;
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:translateY(15px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-
-/* =========================
-   REFRESH
-========================= */
-
-.refresh{
-border:1px solid rgba(255,255,255,.15);
-
-background:rgba(255,255,255,.08);
-
-color:#fff;
-
-padding:10px 18px;
-
-border-radius:25px;
-
-cursor:pointer;
-
-margin:0 auto 18px;
-
-display:block;
-
-transition:.3s;
-
-backdrop-filter:blur(10px);
-}
-
-.refresh:hover{
-transform:scale(1.05);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.35);
-}
-
-
-/* =========================
-   LOADING
-========================= */
-
-.loading{
-padding:30px 10px;
-text-align:center;
-color:#ccc;
-font-size:15px;
-}
-
-.spinner{
-width:40px;
-height:40px;
-
-border:4px solid rgba(255,255,255,.15);
-
-border-top:4px solid #735cff;
-
-border-right:4px solid #ff3cac;
-
-border-radius:50%;
-
-margin:0 auto 15px;
-
-animation:spin .8s linear infinite;
-}
-
-@keyframes spin{
-
-to{
-transform:rotate(360deg);
-}
-
-}
-
-
-/* =========================
-   EMPTY
-========================= */
-
-.empty{
-padding:30px 15px;
-
-color:#bbb;
-
-background:rgba(255,255,255,.06);
-
-border:1px solid rgba(255,255,255,.1);
-
-border-radius:20px;
-
-max-width:550px;
-
-margin:auto;
-
-backdrop-filter:blur(15px);
-}
-
-
-/* =========================
-   PHOTO
-========================= */
-
-.gallery{
-display:grid;
-
-grid-template-columns:
-repeat(2,1fr);
-
-gap:12px;
-
-max-width:750px;
-
-margin:auto;
-}
-
-.photo-item{
-position:relative;
-
-overflow:hidden;
-
-border-radius:18px;
-
-background:rgba(255,255,255,.05);
-
-border:1px solid rgba(255,255,255,.12);
-
-box-shadow:
-0 10px 30px rgba(0,0,0,.25);
-
-transition:.3s;
-
-padding-bottom:58px;
-}
-
-.photo-item:hover{
-transform:translateY(-4px);
-
-box-shadow:
-0 0 25px rgba(115,92,255,.25);
-}
-
-.photo-item img{
-width:100%;
-
-height:190px;
-
-object-fit:cover;
-
-display:block;
-
-cursor:pointer;
-
-transition:.4s;
-}
-
-.photo-item:hover img{
-transform:scale(1.07);
-}
-
-.photo-name{
-position:absolute;
-
-bottom:58px;
-
-left:0;
-right:0;
-
-padding:10px;
-
-background:
-linear-gradient(
-transparent,
-rgba(0,0,0,.85)
-);
-
-font-size:12px;
-
-text-align:left;
-
-overflow:hidden;
-
-white-space:nowrap;
-
-text-overflow:ellipsis;
-}
-
-
-/* =========================
-   PREMIUM DOWNLOAD
-========================= */
-
-.download-box{
-position:absolute;
-
-left:10px;
-right:10px;
-
-bottom:10px;
-
-z-index:5;
-}
-
-.download-btn{
-position:relative;
-
-width:100%;
-
-height:44px;
-
-border:none;
-
-border-radius:14px;
-
-color:#fff;
-
-font-size:14px;
-
-font-weight:bold;
-
-letter-spacing:.3px;
-
-cursor:pointer;
-
-overflow:hidden;
-
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-box-shadow:
-0 5px 18px rgba(115,92,255,.35);
-
-transition:.3s;
-}
-
-.download-btn:hover{
-transform:translateY(-2px);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.65),
-0 0 30px rgba(255,60,172,.3);
-}
-
-.download-btn:active{
-transform:scale(.97);
-}
-
-.download-btn:disabled{
-opacity:1;
-}
-
-.download-content{
-position:relative;
-z-index:3;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:8px;
-
-height:100%;
-}
-
-.download-icon{
-font-size:18px;
-}
-
-.download-progress{
-position:absolute;
-
-left:0;
-top:0;
-bottom:0;
-
-width:0%;
-
-background:
-linear-gradient(
-90deg,
-rgba(0,255,200,.38),
-rgba(255,255,255,.22)
-);
-
-transition:width .12s linear;
-
-z-index:1;
-}
-
-.download-shine{
-position:absolute;
-
-top:0;
-left:-100%;
-
-width:70%;
-
-height:100%;
-
-background:
-linear-gradient(
-90deg,
-transparent,
-rgba(255,255,255,.25),
-transparent
-);
-
-transform:skewX(-20deg);
-
-animation:shine 2.2s infinite;
-
-z-index:2;
-}
-
-@keyframes shine{
-
-0%{
-left:-100%;
-}
-
-45%,100%{
-left:140%;
-}
-
-}
-
-.download-btn.downloading{
-cursor:wait;
-
-box-shadow:
-0 0 20px rgba(115,92,255,.55);
-}
-
-.download-btn.success{
-background:
-linear-gradient(
-135deg,
-#00b894,
-#00cec9
-);
-
-box-shadow:
-0 0 22px rgba(0,206,201,.5);
-}
-
-.download-btn.error{
-background:
-linear-gradient(
-135deg,
-#ff4757,
-#ff6b81
-);
-}
-
-
-/* =========================
-   MUSIC
-========================= */
-
-.music-list{
-max-width:650px;
-margin:auto;
-}
-
-.music-card{
-margin:15px auto;
-
-padding:20px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,.07);
-
-border:1px solid rgba(255,255,255,.12);
-
-backdrop-filter:blur(20px);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.2);
-
-transition:.3s;
-}
-
-.music-card:hover{
-transform:translateY(-4px);
-
-box-shadow:
-0 0 25px rgba(115,92,255,.25);
-}
-
-.music-icon{
-font-size:45px;
-text-align:center;
-
-animation:musicGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes musicGlow{
-
-to{
-filter:
-drop-shadow(
-0 0 12px #ff3cac
-);
-}
-
-}
-
-.music-card h3{
-margin:10px 0;
-text-align:center;
-word-break:break-word;
-}
-
-.music-card audio{
-width:100%;
-margin-top:10px;
-}
-
-.music-card .download-box{
-position:relative;
-
-left:auto;
-right:auto;
-bottom:auto;
-
-margin-top:15px;
-}
-
-
-/* =========================
-   VIDEO
-========================= */
-
-.video-list{
-max-width:750px;
-margin:auto;
-}
-
-.video-card{
-margin:15px auto;
-
-padding:15px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,.07);
-
-border:1px solid rgba(255,255,255,.12);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.2);
-
-transition:.3s;
-}
-
-.video-card:hover{
-transform:translateY(-4px);
-
-box-shadow:
-0 0 25px rgba(255,60,172,.2);
-}
-
-.video-card h3{
-margin:5px 0 12px;
-word-break:break-word;
-}
-
-.video-card video{
-width:100%;
-
-max-height:500px;
-
-border-radius:15px;
-
-display:block;
-
-background:#000;
-}
-
-.video-card .download-box{
-position:relative;
-
-left:auto;
-right:auto;
-bottom:auto;
-
-margin-top:15px;
-}
-
-
-/* =========================
-   BACK BUTTON
-========================= */
-
-.back{
-display:block;
-
-width:max-content;
-
-margin:25px auto;
-
-padding:12px 25px;
-
-border-radius:30px;
-
-text-decoration:none;
-
-color:#fff;
-
-background:
-linear-gradient(
-135deg,
-#735cff,
-#ff3cac
-);
-
-box-shadow:
-0 0 18px rgba(115,92,255,.3);
-
-transition:.3s;
-}
-
-.back:hover{
-transform:translateY(-3px) scale(1.03);
-
-box-shadow:
-0 0 25px rgba(115,92,255,.7);
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.footer{
-text-align:center;
-padding:25px 10px;
-opacity:.5;
-font-size:13px;
-}
-
-
-/* =========================
-   IMAGE VIEWER
-========================= */
-
-.viewer{
-display:none;
-
-position:fixed;
-
-z-index:9999;
-
-inset:0;
-
-background:rgba(0,0,0,.94);
-
-align-items:center;
-
-justify-content:center;
-
-padding:20px;
-}
-
-.viewer.show{
-display:flex;
-}
-
-.viewer img{
-max-width:95%;
-
-max-height:85vh;
-
-object-fit:contain;
-
-border-radius:15px;
-
-box-shadow:
-0 0 35px rgba(115,92,255,.5);
-}
-
-.close{
-position:absolute;
-
-top:15px;
-
-right:20px;
-
-font-size:40px;
-
-cursor:pointer;
-
-color:#fff;
-
-z-index:10000;
-
-transition:.3s;
-}
-
-.close:hover{
-color:#ff8bd4;
-
-transform:scale(1.1);
-}
-
-
-/* =========================
-   APPEAR
-========================= */
-
-@keyframes appear{
-
-from{
-opacity:0;
-transform:translateY(25px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-
-/* =========================
-   LIGHT MODE
-========================= */
-
-body.light{
-color:#222;
-
-background:
-radial-gradient(
-circle at 10% 10%,
-#b9b1ff 0,
-transparent 28%
-),
-radial-gradient(
-circle at 90% 85%,
-#ffc4e7 0,
-transparent 28%
-),
-linear-gradient(
-135deg,
-#eef1ff,
-#fff,
-#f9edff
-);
-}
-
-body.light .side-menu{
-
-background:
-radial-gradient(
-circle at 15% 15%,
-rgba(115,92,255,.15),
-transparent 32%
-),
-radial-gradient(
-circle at 85% 85%,
-rgba(255,60,172,.15),
-transparent 32%
-),
-rgba(255,255,255,.97);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-10px 0 40px rgba(0,0,0,.12),
-0 0 30px rgba(115,92,255,.12);
-}
-
-body.light .side-menu a{
-color:#222;
-
-background:rgba(0,0,0,.035);
-
-border-color:rgba(0,0,0,.07);
-}
-
-body.light .theme-btn{
-color:#222;
-}
-
-body.light .menu-btn span{
-background:#222;
-}
-
-body.light .tabs button,
-body.light .refresh{
-color:#222;
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.08);
-}
-
-body.light .music-card,
-body.light .video-card,
-body.light .empty{
-
-background:rgba(255,255,255,.65);
-
-border-color:rgba(0,0,0,.08);
-
-box-shadow:
-0 15px 40px rgba(0,0,0,.08);
-}
-
-body.light .header h1,
-body.light .section h2{
-
-background:
-linear-gradient(
-90deg,
-#222,
-#635bff,
-#ff3cac
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-}
-
-body.light .gallery-label{
-color:#555;
-}
-
-body.light .loading{
-color:#555;
-}
-
-body.light .empty{
-color:#555;
-}
-
-
-/* =========================
-   MOBILE
-========================= */
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Inter,"Hind Siliguri",sans-serif;min-height:100vh;
+  transition:background .35s,color .35s;overflow-x:hidden
+}
+button,a{font:inherit;-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
+
+/* ABOUT PAGE STYLE GLOW BACKGROUND */
+.bg-glow{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;
+  background:radial-gradient(ellipse at 15% 0%,#7041db25,transparent 38%),
+  radial-gradient(ellipse at 100% 35%,#e3439b13,transparent 35%)}
+.glow-blob{position:absolute;width:340px;height:340px;border-radius:50%;
+  filter:blur(85px);opacity:.22;animation:glowFloat 13s ease-in-out infinite alternate}
+.glow-purple{background:#735cff;top:-110px;left:-100px}
+.glow-pink{background:#ff3cac;right:-130px;top:30%;animation-delay:-4s}
+.glow-blue{background:#00d4ff;left:28%;bottom:-210px;animation-delay:-8s}
+@keyframes glowFloat{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(45px,35px,0) scale(1.12)}
+  100%{transform:translate3d(-25px,60px,0) scale(.94)}
+}
+
+/* THREE-LINE MENU BUTTON */
+.menu-btn,.theme-float{
+  position:fixed;top:14px;z-index:120;width:45px;height:45px;
+  display:grid;place-items:center;border:1px solid #ffffff24;
+  border-radius:14px;background:#171526c9;color:#fff;
+  backdrop-filter:blur(18px);box-shadow:0 8px 28px #0002;
+  transition:transform .25s,background .3s
+}
+.menu-btn{left:14px;gap:5px;align-content:center}
+.menu-btn:hover,.theme-float:hover{transform:translateY(-2px)}
+.menu-btn span{display:block;width:20px;height:2px;background:currentColor;
+  border-radius:4px;transition:transform .25s,opacity .25s}
+.menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.theme-float{right:14px;font-size:19px}
+
+.menu-overlay{position:fixed;inset:0;z-index:125;background:#0009;
+  backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.3s}
+.menu-overlay.show{opacity:1;visibility:visible}
+.side-menu{position:fixed;z-index:130;top:0;bottom:0;left:0;width:50%;
+  max-width:380px;min-width:270px;padding:85px 18px 25px;
+  background:#10101df5;border-right:1px solid #ffffff18;
+  backdrop-filter:blur(25px);overflow-y:auto;
+  transform:translateX(-105%);visibility:hidden;
+  transition:transform .35s cubic-bezier(.22,.8,.25,1),visibility .35s}
+.side-menu.show{transform:translateX(0);visibility:visible}
+
+/* MENU BRAND */
+.menu-brand{display:flex;align-items:center;gap:12px;padding:0 8px 20px;
+  border-bottom:1px solid #ffffff17;margin-bottom:15px}
+.menu-brand img{width:48px;height:48px;object-fit:cover;border-radius:50%;
+  border:2px solid #a78bfa}
+.menu-brand strong{display:block;font-size:13px;letter-spacing:1px}
+.menu-brand small{display:block;color:#aaa8c0;font-size:10px;margin-top:5px}
+
+/* SIDE MENU OPTIONS — MATCH ABOUT PAGE */
+.menu-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px 5px;
+  border-radius:0;
+  margin:0;
+  font-size:16px;
+  font-weight:600;
+  color:#dbe3f0;
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,.05);
+  background:transparent;
+  transition:color .3s,transform .3s;
+}
+.menu-link:hover{
+  color:#fff;
+  transform:translateX(5px);
+  background:linear-gradient(90deg,#735cff,#ff3cac);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.menu-link .menu-icon{
+  width:22px;
+  flex-shrink:0;
+  text-align:center;
+  font-size:17px;
+}
+.menu-separator{height:1px;background:#ffffff16;margin:13px 4px}
 
 @media(max-width:600px){
-
-.container{
-width:94%;
-padding-top:85px;
+  .side-menu{width:78%;min-width:0;max-width:340px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;
+    animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 
-.header h1{
-font-size:28px;
+/* HEADER */
+header{height:70px;position:sticky;top:0;z-index:50;
+  background:#090912eF;backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);display:flex;align-items:center;
+  justify-content:space-between;padding:0 clamp(70px,9vw,105px)}
+.brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:900;letter-spacing:1px}
+.logo{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;
+  background:linear-gradient(135deg,#9864ff,#ef4cae);box-shadow:0 5px 22px #9565ff44;font-size:19px}
+.brand span{color:#bb9cff}
+.header-actions{display:flex;align-items:center;gap:9px}
+.small-btn{border:1px solid var(--border);background:#ffffff09;border-radius:12px;
+  padding:10px 13px;font-size:12px;font-weight:700;color:inherit}
+.small-btn:hover{border-color:var(--purple)}
+.wrap{width:min(1400px,100%);margin:auto;padding:0 clamp(13px,4vw,48px) 45px}
+
+/* HERO */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:365px;
+  border:1px solid #ffffff19;border-radius:24px;margin:24px 0 28px;
+  display:flex;align-items:flex-end;box-shadow:0 25px 80px #0005}
+.hero-bg{position:absolute;inset:0;z-index:-2;
+  background:linear-gradient(90deg,#080812f5 0%,#080812c9 46%,#08081228 100%),
+  linear-gradient(0deg,#080812f5,transparent 70%),url("smraihan.jpg") center 35%/cover no-repeat}
+.hero:after{content:"";position:absolute;right:-90px;top:-140px;width:350px;height:350px;
+  background:#9d6aff26;filter:blur(80px);z-index:-1}
+.hero-content{padding:clamp(23px,5vw,52px);max-width:740px;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #a78bfa55;
+  background:#a78bfa19;color:#ded1ff;padding:8px 12px;border-radius:30px;
+  font-size:10px;font-weight:800;letter-spacing:1.5px}
+.dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 10px #4ade80}
+h1{font-size:clamp(37px,7vw,68px);letter-spacing:-2px;line-height:1.04;
+  margin:20px 0 12px;font-weight:900}
+h1 span{background:linear-gradient(100deg,#fff,#c2a8ff,#ff85d0);
+  color:transparent;background-clip:text;-webkit-background-clip:text}
+.hero p{font-size:13px;line-height:1.9;color:#d0cee0;max-width:450px;margin:0}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.primary,.secondary{border-radius:12px;padding:13px 17px;font-size:12px;
+  font-weight:800;border:1px solid transparent;transition:transform .25s}
+.primary{background:linear-gradient(110deg,#8257f5,#df48a9);box-shadow:0 8px 25px #9565ff35}
+.secondary{background:#ffffff0c;border-color:#ffffff2c}
+.primary:hover,.secondary:hover{transform:translateY(-2px)}
+.profile-ring{position:absolute;right:8%;bottom:30px;width:clamp(90px,15vw,160px);
+  aspect-ratio:1;padding:5px;border-radius:50%;
+  background:linear-gradient(135deg,#c4b5fd,#f472b6,#6d5dfc);
+  box-shadow:0 0 0 9px #ffffff0a,0 15px 45px #0009}
+.profile-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid #10101c}
+@media(max-width:650px){
+  .hero{min-height:350px}
+  .hero-bg{background:linear-gradient(0deg,#080812 0%,#080812c9 48%,#08081220 100%),url("smraihan.jpg") center/cover no-repeat}
+  .profile-ring{right:19px;top:20px;bottom:auto;width:82px}
+  .hero-content{padding:23px 19px}
+  .hero h1{font-size:39px;max-width:75%}
+  .hero p{font-size:12px}
+  header{padding-left:70px;padding-right:70px}
+  .brand{font-size:11px;gap:7px}
+  .logo{width:32px;height:32px}
 }
 
-.gallery{
-grid-template-columns:
-repeat(2,1fr);
-
-gap:9px;
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:36px}
+.stat{display:flex;align-items:center;gap:12px;padding:16px;border:1px solid var(--border);
+  border-radius:16px;background:linear-gradient(145deg,#ffffff0a,#ffffff03)}
+.stat-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;
+  background:#9565ff20;font-size:20px;flex-shrink:0}
+.stat strong{display:block;font-size:21px}
+.stat small{display:block;font-size:10px;color:var(--muted);margin-top:5px}
+@media(max-width:480px){
+  .stats{gap:7px}.stat{padding:11px 8px;display:block}
+  .stat-icon{width:33px;height:33px;margin-bottom:8px;font-size:16px}
+  .stat strong{font-size:18px}.stat small{font-size:9px}
 }
 
-.photo-item img{
-height:150px;
+/* COLLECTION */
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:35px 0 18px}
+.kicker{color:#bba1ff;font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.section-head h2{font-size:clamp(23px,4vw,31px);margin:0;font-weight:900;letter-spacing:-.7px}
+.section-head p{color:var(--muted);font-size:12px;line-height:1.7;margin:8px 0 0}
+.tabs{display:flex;gap:7px;padding:7px;border:1px solid var(--border);
+  border-radius:16px;background:#ffffff05;margin-bottom:22px}
+.tab{flex:1;min-width:0;border:1px solid transparent;background:transparent;
+  color:var(--muted);border-radius:11px;padding:13px 8px;font-size:12px;font-weight:800}
+.tab.active{color:white;background:linear-gradient(120deg,#9565ff35,#ff4eb81b);border-color:#b69aff45}
+.count{display:inline-block;border-radius:6px;padding:3px 6px;margin-left:4px;background:#ffffff13;font-size:10px}
+.panel{display:none}.panel.active{display:block;animation:appear .3s ease}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* PHOTOS */
+.photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.photo{position:relative;overflow:hidden;isolation:isolate;aspect-ratio:3/4;
+  background:var(--card);border:1px solid var(--border);border-radius:16px;
+  cursor:pointer;transition:transform .3s,border-color .3s}
+.photo:hover{transform:translateY(-5px);border-color:#a78bfa88}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.photo:hover img{transform:scale(1.07)}
+.photo:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#05050de8);pointer-events:none}
+.poster-tag{position:absolute;top:10px;left:10px;z-index:2;border:1px solid #ffffff25;
+  background:#090912a8;backdrop-filter:blur(10px);border-radius:7px;padding:6px 8px;font-size:9px;font-weight:800}
+.poster-bottom{position:absolute;z-index:2;bottom:12px;left:12px;right:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:7px}
+.poster-name{font-size:11px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.poster-open{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;
+  border:1px solid #ffffff35;background:#ffffff18;flex-shrink:0}
+@media(max-width:900px){.photo-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}}
+@media(max-width:540px){
+  .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .photo{border-radius:12px}.poster-bottom{left:9px;right:9px;bottom:9px}
+  .poster-name{font-size:10px}
 }
 
-.tabs button{
-padding:10px 16px;
-font-size:14px;
+/* MUSIC AND VIDEO */
+.music-grid,.video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.media-card{overflow:hidden;min-width:0;border:1px solid var(--border);border-radius:17px;
+  background:linear-gradient(145deg,#ffffff0a,#ffffff03);transition:transform .25s,border-color .25s}
+.media-card:hover{border-color:#a78bfa60;transform:translateY(-3px)}
+.music-row{display:flex;align-items:center;gap:12px;padding:15px}
+.music-art{width:62px;height:62px;flex-shrink:0;border-radius:14px;display:grid;place-items:center;
+  font-size:27px;background:linear-gradient(135deg,#9565ff50,#ff4eb84a)}
+.media-name{font-size:12px;font-weight:800;overflow-wrap:anywhere}
+.media-meta{font-size:10px;color:var(--muted);margin-top:7px}
+.music-info{flex:1;min-width:0}
+.music-card audio{width:calc(100% - 26px);margin:0 13px 13px;height:38px}
+.download{border:1px solid var(--border);background:#ffffff09;border-radius:10px;padding:9px;flex-shrink:0}
+.video-thumb{position:relative;background:#03030a;aspect-ratio:16/9}
+.video-thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.video-details{padding:13px}
+.video-actions{display:flex;gap:8px;margin-top:12px}
+.video-actions button,.video-actions a{flex:1;text-align:center;background:#ffffff08;
+  border:1px solid var(--border);border-radius:9px;padding:10px;font-size:10px;font-weight:800}
+.video-actions button:hover,.video-actions a:hover{border-color:var(--purple)}
+@media(max-width:600px){.music-grid,.video-grid{grid-template-columns:1fr}.music-row{padding:12px}.music-art{width:54px;height:54px}}
+.empty{grid-column:1/-1;text-align:center;padding:45px 15px;border:1px dashed #ffffff25;border-radius:18px;background:#ffffff03}
+.empty-icon{font-size:38px;margin-bottom:10px}
+.empty strong{font-size:14px}
+.empty p{font-size:11px;color:var(--muted);line-height:1.8}
+.loading{grid-column:1/-1;text-align:center;padding:40px 10px;color:var(--muted);font-size:12px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);margin-top:48px;padding:24px 0;
+  display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+footer strong{font-size:12px;letter-spacing:1px}
+footer strong span{color:#bba1ff}
+footer small{display:block;color:var(--muted);font-size:10px;margin-top:8px}
+.footer-links{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+.footer-links a{font-size:10px;color:var(--muted)}
+
+/* IMAGE / VIDEO VIEWER */
+.viewer{position:fixed;inset:0;z-index:200;background:#030309f5;backdrop-filter:blur(18px);
+  display:none;align-items:center;justify-content:center;padding:65px 55px 25px}
+.viewer.open{display:flex}
+.viewer-content{display:flex;flex-direction:column;align-items:center;gap:13px;max-width:100%;max-height:100%}
+.viewer img,.viewer video{display:block;max-width:100%;max-height:calc(100vh - 150px);
+  object-fit:contain;border-radius:10px;background:#000}
+.viewer video{width:min(1000px,100%)}
+.viewer-caption{font-size:12px;color:#ddd;text-align:center;overflow-wrap:anywhere}
+.viewer-close,.viewer-nav{position:absolute;display:grid;place-items:center;
+  border:1px solid #ffffff2c;background:#ffffff16;backdrop-filter:blur(10px);
+  border-radius:12px;font-size:22px}
+.viewer-close{right:15px;top:15px;width:43px;height:43px}
+.viewer-nav{top:50%;transform:translateY(-50%);width:42px;height:55px}
+.viewer-prev{left:9px}.viewer-next{right:9px}
+.viewer-download{border:1px solid #ffffff2c;background:#ffffff10;padding:10px 15px;
+  border-radius:10px;font-size:11px;font-weight:800}
+@media(max-width:500px){
+  .viewer{padding:65px 12px 20px}
+  .viewer-nav{width:34px;height:44px}
+  .viewer img,.viewer video{max-height:calc(100vh - 155px)}
 }
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);
+  opacity:0;pointer-events:none;z-index:300;background:#1a1930;
+  border:1px solid #ffffff25;border-radius:12px;padding:12px 17px;
+  font-size:12px;transition:.25s;text-align:center;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 
-.side-menu{
-width:75%;
-padding:85px 18px 25px;
+/* OPENING + SCROLL REVEAL */
+body.page-ready .hero{animation:heroEnter .85s cubic-bezier(.2,.75,.25,1) both}
+body.page-ready .hero-content{animation:heroText .8s .12s ease both}
+@keyframes heroEnter{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes heroText{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.photo.reveal,.media-card.reveal{transition-delay:var(--reveal-delay,0ms),var(--reveal-delay,0ms)}
+
+/* LIGHT MODE */
+body.light{--bg:#f3f3fa;--card:#fff;--text:#19182b;--muted:#6c6b82;--border:#25204417;background:var(--bg);color:var(--text)}
+body.light header{background:#f5f5f4ed;color:#19182b;border-bottom-color:#25204416}
+body.light .bg-glow{opacity:.62}
+body.light .side-menu{background:#f8f7fffa;border-right-color:#25204418}
+body.light .menu-link{color:#334155}
+body.light .menu-link:hover{
+  color:#fff;
+  background:linear-gradient(90deg,#735cff,#ff3cac);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
-
-.side-menu a{
-padding:15px;
-font-size:15px;
-}
-
-.download-btn{
-height:42px;
-font-size:12px;
-}
-
-.download-icon{
-font-size:16px;
-}
-
-}
-
-@media(max-width:350px){
-
-.gallery{
-grid-template-columns:1fr;
-}
-
-.photo-item img{
-height:220px;
-}
-
-}
-
+body.light .menu-brand{border-bottom-color:#25204417}
+body.light .menu-brand small{color:#77758c}
+body.light .menu-separator{background:#25204417}
+body.light .menu-btn,body.light .theme-float{background:#ffffffdf;color:#19182b;border-color:#2520441c}
+body.light .stat,body.light .media-card,body.light .tabs,body.light .small-btn{background:#ffffffb8;color:#19182b}
+body.light .tab{color:#68667e}
+body.light .tab.active{color:#5d37bb;background:#9565ff18;border-color:#9565ff40}
+body.light .photo{background:#fff}
+body.light .music-art{color:#fff}
+body.light .hero{box-shadow:0 20px 60px #34245a17}
+body.light footer{border-top-color:#25204418}
+body.light .footer-links a{color:#69677e}
+body.light .empty{border-color:#25204425;background:#ffffff80}
+body.light .download,body.light .video-actions button,body.light .video-actions a{color:#19182b;background:#ffffffb8}
+body.light .header-actions .small-btn{color:#19182b}
 </style>
 </head>
 
 <body>
-
-<div class="bg">
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
+<div class="bg-glow" aria-hidden="true">
+  <div class="glow-blob glow-purple"></div>
+  <div class="glow-blob glow-pink"></div>
+  <div class="glow-blob glow-blue"></div>
 </div>
 
-
-<div
-class="menu-btn"
-id="menuBtn"
-onclick="toggleMenu()">
-
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-
-<button
-class="theme-btn"
-id="themeBtn"
-onclick="toggleTheme()">
-
-🌙
-
+<!-- THREE-LINE MENU -->
+<button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
 </button>
+<button class="theme-float" id="themeBtn" aria-label="Toggle theme" title="Light/Dark Mode">☀️</button>
+<div class="menu-overlay" id="menuOverlay"></div>
 
+<nav class="side-menu" id="sideMenu" aria-label="Main navigation">
+  <div class="menu-brand">
+    <img src="smraihan.jpg" alt="SM RAYHAN" onerror="this.style.display='none'">
+    <div><strong>SM RAYHAN</strong><small>My Personal Website ❤️</small></div>
+  </div>
 
-<div
-class="side-menu"
-id="sideMenu">
+  <a class="menu-link" href="index.html"><span class="menu-icon">⌂</span>Home</a>
+  <a class="menu-link" href="about.html"><span class="menu-icon">ⓘ</span>About</a>
+  <a class="menu-link" href="contact.html"><span class="menu-icon">✉</span>Contact</a>
+  <a class="menu-link" href="gallery.html"><span class="menu-icon">▧</span>Gallery</a>
 
-<a href="index.html">
-🏠 Home
-</a>
+  <div class="menu-separator"></div>
 
-<a href="about.html">
-👤 About
-</a>
+  <a class="menu-link" id="facebookLink" href="https://www.facebook.com/share/14oS818zPSu/" target="_blank" rel="noopener"><span class="menu-icon">f</span>Facebook</a>
+  <a class="menu-link" id="linkedinLink" href="https://www.linkedin.com/in/smraihan009" target="_blank" rel="noopener"><span class="menu-icon">in</span>LinkedIn</a>
+  <a class="menu-link" id="whatsappLink" href="https://wa.me/8801887295009" target="_blank" rel="noopener"><span class="menu-icon">☏</span>WhatsApp</a>
+  <a class="menu-link" href="app.html"><span class="menu-icon">▣</span>Get App</a>
 
-<a href="contact.html">
-📞 Contact
-</a>
+  <div class="menu-separator"></div>
 
-<a href="gallery.html">
-📸 Gallery
-</a>
+  <a class="menu-link" href="admin.html"><span class="menu-icon">⚙</span>Admin Login</a>
+</nav>
 
-<a
-id="menuFacebook"
-href="#"
-target="_blank"
-rel="noopener">
+<header>
+  <div class="brand">
+    <div class="logo">R</div>
+    <div>SM <span>RAYHAN</span></div>
+  </div>
+  <div class="header-actions">
+    <span style="font-size:10px;color:var(--muted)">PREMIUM GALLERY</span>
+  </div>
+</header>
 
-🔵 Facebook
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="eyebrow"><span class="dot"></span> OFFICIAL MEDIA COLLECTION</div>
+      <h1 id="galleryTitle">The <span>Gallery</span></h1>
+      <p id="galleryDescription">Discover special moments, videos and music from SM RAYHAN's personal collection.</p>
+      <div class="hero-actions">
+        <button class="primary" onclick="showSection('photos')">▧ Explore Gallery ↗</button>
+        <button class="secondary" onclick="showSection('videos')">▶ Watch Videos</button>
+      </div>
+    </div>
+    <div class="profile-ring"><img src="smraihan.jpg" alt="SM RAYHAN" onerror="this.parentElement.style.display='none'"></div>
+  </section>
 
-</a>
+  <section class="stats">
+    <div class="stat"><div class="stat-icon">▧</div><div><strong id="photoCount">0</strong><small>PHOTOS</small></div></div>
+    <div class="stat"><div class="stat-icon">▶</div><div><strong id="videoCount">0</strong><small>VIDEOS</small></div></div>
+    <div class="stat"><div class="stat-icon">♫</div><div><strong id="musicCount">0</strong><small>MUSIC TRACKS</small></div></div>
+  </section>
 
-<a
-id="menuLinkedin"
-href="#"
-target="_blank"
-rel="noopener">
+  <section id="collection">
+    <div class="section-head">
+      <div><div class="kicker">DISCOVER SOMETHING SPECIAL</div><h2>Explore Media</h2><p>One collection. Every moment.</p></div>
+      <button class="small-btn" id="refreshBtn">↻ Refresh</button>
+    </div>
 
-💼 LinkedIn
+    <div class="tabs">
+      <button class="tab active" data-tab="photos">▧ Photos <span class="count" id="photoTabCount">0</span></button>
+      <button class="tab" data-tab="videos">▶ Videos <span class="count" id="videoTabCount">0</span></button>
+      <button class="tab" data-tab="music">♫ Music <span class="count" id="musicTabCount">0</span></button>
+    </div>
 
-</a>
+    <div class="panel active" id="photosPanel"><div class="photo-grid" id="photoGrid"><div class="loading">Loading photos...</div></div></div>
+    <div class="panel" id="videosPanel"><div class="video-grid" id="videoGrid"><div class="loading">Loading videos...</div></div></div>
+    <div class="panel" id="musicPanel"><div class="music-grid" id="musicGrid"><div class="loading">Loading music...</div></div></div>
+  </section>
 
-<a
-id="menuWhatsapp"
-href="#"
-target="_blank"
-rel="noopener">
+  <footer>
+    <div><strong>SM <span>RAYHAN</span></strong><small id="footerCopyright">© 2026 SM RAYHAN | My Personal Website ❤️</small></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+</main>
 
-☎️ WhatsApp
-
-</a>
-
-<a href="admin.html">
-🔐 Admin Login
-</a>
-
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="viewer-close" id="viewerClose" aria-label="Close">×</button>
+  <button class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Previous">‹</button>
+  <div class="viewer-content" id="viewerContent">
+    <div id="viewerMedia"></div>
+    <div class="viewer-caption" id="viewerCaption"></div>
+    <a class="viewer-download" id="viewerDownload" href="#" download>↓ Download</a>
+  </div>
+  <button class="viewer-nav viewer-next" id="viewerNext" aria-label="Next">›</button>
 </div>
-
-
-<div class="container">
-
-
-<div class="header">
-
-<h1 id="galleryMainTitle">
-📂 My Gallery
-</h1>
-
-<p id="galleryMainDescription">
-SM RAYHAN
-</p>
-
-<div
-class="gallery-label"
-id="galleryMainLabel">
-
-📸 Photos • 🎵 Music • 🎬 Videos
-
-</div>
-
-</div>
-
-
-<div class="tabs">
-
-<button
-id="photoBtn"
-class="active"
-onclick="showSection('photo',this)">
-
-📸 Photo
-
-</button>
-
-<button
-id="musicBtn"
-onclick="showSection('music',this)">
-
-🎵 Music
-
-</button>
-
-<button
-id="videoBtn"
-onclick="showSection('video',this)">
-
-🎬 Video
-
-</button>
-
-</div>
-
-
-<div
-id="photo"
-class="section active">
-
-<h2 id="galleryTitle1">
-📸 My Photos
-</h2>
-
-<button
-class="refresh"
-onclick="loadPhotos()">
-
-🔄 Refresh Photos
-
-</button>
-
-<div
-id="photoLoading"
-class="loading">
-
-<div class="spinner"></div>
-
-Photos loading...
-
-</div>
-
-<div
-id="photoGallery"
-class="gallery">
-
-</div>
-
-</div>
-
-
-<div
-id="music"
-class="section">
-
-<h2 id="galleryTitle2">
-🎵 My Music
-</h2>
-
-<button
-class="refresh"
-onclick="loadMusic()">
-
-🔄 Refresh Music
-
-</button>
-
-<div
-id="musicLoading"
-class="loading">
-
-<div class="spinner"></div>
-
-Music loading...
-
-</div>
-
-<div
-id="musicList"
-class="music-list">
-
-</div>
-
-</div>
-
-
-<div
-id="video"
-class="section">
-
-<h2 id="galleryTitle3">
-🎬 My Videos
-</h2>
-
-<button
-class="refresh"
-onclick="loadVideos()">
-
-🔄 Refresh Videos
-
-</button>
-
-<div
-id="videoLoading"
-class="loading">
-
-<div class="spinner"></div>
-
-Videos loading...
-
-</div>
-
-<div
-id="videoList"
-class="video-list">
-
-</div>
-
-</div>
-
-
-<a
-href="index.html"
-class="back">
-
-🏠 Back Home
-
-</a>
-
-</div>
-
-
-<div
-class="footer"
-id="galleryFooter">
-
-© 2026 SM RAYHAN |
-My Gallery ❤️
-
-</div>
-
-
-<div
-id="viewer"
-class="viewer"
-onclick="closeViewer()">
-
-<span
-class="close">
-
-×
-</span>
-
-<img
-id="viewerImage"
-src=""
-alt="Full Image"
-onclick="event.stopPropagation">
-
-</div>
-
+<div class="toast" id="toast"></div>
 
 <script>
+const SUPABASE_URL="https://oppmdnnzgqdnwpqqkwsq.supabase.co";
+const SUPABASE_KEY="sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
+const BUCKET="media";
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
-/* =========================
-   SUPABASE
-========================= */
+let photos=[],videos=[],music=[],viewerItems=[],viewerIndex=0,viewerType="image",loadVersion=0,toastTimer;
+const $=id=>document.getElementById(id);
+const escapeHTML=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const titleOf=s=>(s||"Media").replace(/\.[^.]+$/,"").replace(/[_-]+/g," ").trim()||"Untitled";
 
-const SUPABASE_URL =
-"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
-
-const supabaseClient =
-window.supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
-
-
-/* =========================
-   SAFE TEXT
-========================= */
-
-function setText(id,value){
-
-const element =
-document.getElementById(id);
-
-if(
-element &&
-value !== undefined &&
-value !== null &&
-String(value).trim() !== ""
-){
-
-element.textContent =
-String(value);
-
+/* Theme: About page-এর একই smRayhanTheme key */
+function applyTheme(theme){
+  const selected=theme==="light"?"light":"dark";
+  document.body.classList.toggle("light",selected==="light");
+  $("themeBtn").textContent=selected==="light"?"🌙":"☀️";
+  $("themeBtn").setAttribute("aria-label",selected==="light"?"Switch to dark mode":"Switch to light mode");
+  try{localStorage.setItem("smRayhanTheme",selected)}catch(e){}
 }
-
-}
-
-
-/* =========================
-   WHATSAPP LINK
-========================= */
-
-function makeWhatsAppLink(value){
-
-if(!value){
-
-return "";
-
-}
-
-const text =
-String(value).trim();
-
-
-if(
-text.startsWith("http://") ||
-text.startsWith("https://")
-){
-
-return text;
-
-}
-
-
-const number =
-text
-.replace(/^\+/,"")
-.replace(/[^\d]/g,"");
-
-
-if(!number){
-
-return "";
-
-}
-
-
-return "https://wa.me/" + number;
-
-}
-
-
-/* =========================
-   SOCIAL LINK
-========================= */
-
-function normalizeSocial(
-value,
-type
-){
-
-if(!value){
-
-return "";
-
-}
-
-const text =
-String(value).trim();
-
-
-if(
-text.startsWith("http://") ||
-text.startsWith("https://")
-){
-
-return text;
-
-}
-
-
-if(type === "facebook"){
-
-return "https://www.facebook.com/" + text;
-
-}
-
-
-if(type === "linkedin"){
-
-return "https://www.linkedin.com/in/" + text;
-
-}
-
-
-if(type === "whatsapp"){
-
-return makeWhatsAppLink(text);
-
-}
-
-
-return text;
-
-}
-
-
-/* =========================
-   MENU
-========================= */
-
-function toggleMenu(){
-
-const menu =
-document.getElementById(
-"sideMenu"
-);
-
-menu.classList.toggle(
-"show"
-);
-
-}
-
-
-/* =========================
-   OUTSIDE CLICK
-========================= */
-
-document.addEventListener(
-"click",
-function(event){
-
-const menu =
-document.getElementById(
-"sideMenu"
-);
-
-const button =
-document.getElementById(
-"menuBtn"
-);
-
-if(
-menu.classList.contains("show") &&
-!menu.contains(event.target) &&
-!button.contains(event.target)
-){
-
-menu.classList.remove(
-"show"
-);
-
-}
-
+let savedTheme="dark";
+try{savedTheme=localStorage.getItem("smRayhanTheme")||"dark"}catch(e){}
+applyTheme(savedTheme);
+$("themeBtn").addEventListener("click",()=>{
+  applyTheme(document.body.classList.contains("light")?"dark":"light");
 });
 
+/* Side menu */
+function openMenu(){
+  $("sideMenu").classList.add("show");
+  $("menuOverlay").classList.add("show");
+  $("menuBtn").classList.add("open");
+  $("menuBtn").setAttribute("aria-expanded","true");
+  document.body.style.overflow="hidden";
+}
+function closeMenu(){
+  $("sideMenu").classList.remove("show");
+  $("menuOverlay").classList.remove("show");
+  $("menuBtn").classList.remove("open");
+  $("menuBtn").setAttribute("aria-expanded","false");
+  document.body.style.overflow="";
+}
+$("menuBtn").addEventListener("click",()=>{
+  $("sideMenu").classList.contains("show")?closeMenu():openMenu();
+});
+$("menuOverlay").addEventListener("click",closeMenu);
+$("sideMenu").querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));
 
-/* =========================
-   CLOSE MENU AFTER LINK
-========================= */
+function toast(message){
+  $("toast").textContent=message;
+  $("toast").classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>$("toast").classList.remove("show"),2600);
+}
 
-document
-.querySelectorAll(
-"#sideMenu a"
-)
-.forEach(
-function(link){
+function showSection(name){
+  if(!["photos","videos","music"].includes(name))return;
+  document.querySelectorAll(".panel").forEach(el=>el.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(el=>el.classList.toggle("active",el.dataset.tab===name));
+  $(name+"Panel").classList.add("active");
+  $("collection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>showSection(btn.dataset.tab)));
 
-link.addEventListener(
-"click",
-function(){
+function validFile(name,type){
+  const ext=name.toLowerCase();
+  if(type==="photos")return /\.(jpg|jpeg|png|webp|gif|avif|bmp)$/i.test(ext);
+  if(type==="videos")return /\.(mp4|webm|mov|m4v|ogv)$/i.test(ext);
+  return /\.(mp3|m4a|aac|wav|ogg|oga|flac|opus)$/i.test(ext);
+}
+function getUrl(path){return db.storage.from(BUCKET).getPublicUrl(path).data.publicUrl}
 
-document
-.getElementById(
-"sideMenu"
-)
-.classList.remove(
-"show"
-);
+async function listMedia(folder,type){
+  const {data,error}=await db.storage.from(BUCKET).list(folder,{limit:1000,sortBy:{column:"created_at",order:"desc"}});
+  if(error){console.error(folder,error);return {files:[],error};}
+  const files=(data||[]).filter(f=>f.name&&f.name!==".emptyFolderPlaceholder"&&validFile(f.name,type));
+  return {files:files.map(f=>({...f,path:folder+"/"+f.name,url:getUrl(folder+"/"+f.name),title:titleOf(f.name)})),error:null};
+}
+function empty(icon,title,description){
+  return `<div class="empty"><div class="empty-icon">${icon}</div><strong>${escapeHTML(title)}</strong><p>${escapeHTML(description)}</p></div>`;
+}
 
+function renderPhotos(){
+  if(!photos.length){
+    $("photoGrid").innerHTML=empty("▧","No photos yet","Uploaded photos in Supabase Storage media/photos will appear here.");
+    return;
+  }
+  $("photoGrid").innerHTML=photos.map((f,i)=>`
+    <article class="photo" data-photo="${i}" tabindex="0" role="button" aria-label="View ${escapeHTML(f.title)}">
+      <img src="${escapeHTML(f.url)}" alt="${escapeHTML(f.title)}" loading="lazy">
+      <span class="poster-tag">${String(i+1).padStart(2,"0")} / ${String(photos.length).padStart(2,"0")}</span>
+      <div class="poster-bottom"><span class="poster-name">${escapeHTML(f.title)}</span><span class="poster-open">↗</span></div>
+    </article>`).join("");
+  $("photoGrid").querySelectorAll("[data-photo]").forEach(card=>{
+    const open=()=>openViewer(photos,+card.dataset.photo,"image");
+    card.addEventListener("click",open);
+    card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();open();}});
+    card.querySelector("img").addEventListener("error",()=>card.style.display="none");
+  });
+}
+function renderMusic(){
+  if(!music.length){
+    $("musicGrid").innerHTML=empty("♫","No music yet","Audio files in Supabase Storage media/music will appear here.");
+    return;
+  }
+  $("musicGrid").innerHTML=music.map((f,i)=>`
+    <article class="media-card">
+      <div class="music-row"><div class="music-art">♫</div><div class="music-info"><div class="media-name">${escapeHTML(f.title)}</div><div class="media-meta">AUDIO TRACK · ${i+1}</div></div><a class="download" href="${escapeHTML(f.url)}" download="${escapeHTML(f.name)}" aria-label="Download">↓</a></div>
+      <audio controls preload="none" src="${escapeHTML(f.url)}" style="width:calc(100% - 26px);margin:0 13px 13px;height:38px"></audio>
+    </article>`).join("");
+}
+function renderVideos(){
+  if(!videos.length){
+    $("videoGrid").innerHTML=empty("▶","No videos yet","Video files in Supabase Storage media/videos will appear here.");
+    return;
+  }
+  $("videoGrid").innerHTML=videos.map((f,i)=>`
+    <article class="media-card">
+      <div class="video-thumb"><video controls preload="metadata" playsinline src="${escapeHTML(f.url)}"></video></div>
+      <div class="video-details"><div class="media-name">${escapeHTML(f.title)}</div><div class="media-meta">VIDEO · ${i+1}</div>
+      <div class="video-actions"><button data-view-video="${i}">⛶ Full View</button><a href="${escapeHTML(f.url)}" download="${escapeHTML(f.name)}">↓ Download</a></div></div>
+    </article>`).join("");
+  $("videoGrid").querySelectorAll("[data-view-video]").forEach(btn=>btn.addEventListener("click",()=>openViewer(videos,+btn.dataset.viewVideo,"video")));
+}
+function updateCounts(){
+  [["photo",photos],["video",videos],["music",music]].forEach(([name,arr])=>{
+    $(name+"Count").textContent=arr.length;
+    $(name+"TabCount").textContent=arr.length;
+  });
+}
+async function loadAllMedia(){
+  const version=++loadVersion;
+  $("photoGrid").innerHTML='<div class="loading">Loading photos...</div>';
+  $("videoGrid").innerHTML='<div class="loading">Loading videos...</div>';
+  $("musicGrid").innerHTML='<div class="loading">Loading music...</div>';
+  const results=await Promise.all([listMedia("photos","photos"),listMedia("videos","videos"),listMedia("music","music")]);
+  if(version!==loadVersion)return;
+  photos=results[0].files;videos=results[1].files;music=results[2].files;
+  renderPhotos();renderVideos();renderMusic();updateCounts();
+  if(results.some(r=>r.error))toast("Storage access error. Check Supabase bucket permissions.");
+}
+$("refreshBtn").addEventListener("click",async()=>{
+  $("refreshBtn").disabled=true;
+  $("refreshBtn").textContent="Loading...";
+  try{await loadAllMedia();toast("Gallery refreshed");}
+  catch(e){console.error(e);toast("Gallery refresh failed");}
+  finally{$("refreshBtn").disabled=false;$("refreshBtn").textContent="↻ Refresh";}
 });
 
-});
-
-
-/* =========================
-   THEME
-========================= */
-
-function applyTheme(){
-
-if(
-localStorage.getItem("theme")
-===
-"light"
-){
-
-document.body.classList.add(
-"light"
-);
-
-document.getElementById(
-"themeBtn"
-).innerText =
-"☀️";
-
-}else{
-
-document.body.classList.remove(
-"light"
-);
-
-document.getElementById(
-"themeBtn"
-).innerText =
-"🌙";
-
+/* Viewer */
+function openViewer(items,index,type){
+  if(!items.length)return;
+  viewerItems=items;viewerIndex=index;viewerType=type;
+  renderViewer();
+  $("viewer").classList.add("open");
+  document.body.style.overflow="hidden";
+  $("viewerClose").focus();
 }
-
+function renderViewer(){
+  const item=viewerItems[viewerIndex];
+  const holder=$("viewerMedia");
+  holder.innerHTML="";
+  let el;
+  if(viewerType==="video"){
+    el=document.createElement("video");el.controls=true;el.autoplay=true;el.playsInline=true;
+  }else{
+    el=document.createElement("img");el.alt=item.title;
+  }
+  el.src=item.url;
+  holder.appendChild(el);
+  $("viewerCaption").textContent=item.title+" · "+(viewerIndex+1)+" / "+viewerItems.length;
+  $("viewerDownload").href=item.url;
+  $("viewerDownload").download=item.name||item.title;
+  $("viewerPrev").style.display=viewerItems.length>1?"grid":"none";
+  $("viewerNext").style.display=viewerItems.length>1?"grid":"none";
 }
-
-
-function toggleTheme(){
-
-document.body.classList.toggle(
-"light"
-);
-
-const btn =
-document.getElementById(
-"themeBtn"
-);
-
-if(
-document.body.classList.contains(
-"light"
-)
-){
-
-btn.innerText =
-"☀️";
-
-localStorage.setItem(
-"theme",
-"light"
-);
-
-}else{
-
-btn.innerText =
-"🌙";
-
-localStorage.setItem(
-"theme",
-"dark"
-);
-
+function moveViewer(step){
+  if(!viewerItems.length)return;
+  viewerIndex=(viewerIndex+step+viewerItems.length)%viewerItems.length;
+  renderViewer();
 }
-
-}
-
-applyTheme();
-
-
-/* =========================
-   SHOW SECTION
-========================= */
-
-function showSection(
-sectionName,
-button
-){
-
-document
-.querySelectorAll(".section")
-.forEach(
-function(section){
-
-section.classList.remove(
-"active"
-);
-
-});
-
-document
-.querySelectorAll(".tabs button")
-.forEach(
-function(btn){
-
-btn.classList.remove(
-"active"
-);
-
-});
-
-document
-.getElementById(sectionName)
-.classList.add(
-"active"
-);
-
-button.classList.add(
-"active"
-);
-
-
-if(sectionName === "photo"){
-
-loadPhotos();
-
-}
-
-if(sectionName === "music"){
-
-loadMusic();
-
-}
-
-if(sectionName === "video"){
-
-loadVideos();
-
-}
-
-}
-
-
-/* =========================
-   FILE NAME
-========================= */
-
-function cleanFileName(name){
-
-if(!name){
-
-return "";
-
-}
-
-return name
-.replace(/\.[^/.]+$/,"")
-.replace(/[_-]+/g," ")
-.trim();
-
-}
-
-
-/* =========================
-   ANDROID DOWNLOAD
-========================= */
-
-function downloadFile(
-url,
-fileName,
-button
-){
-
-if(
-button.dataset.downloading ===
-"true"
-){
-
-return;
-
-}
-
-button.dataset.downloading =
-"true";
-
-button.disabled =
-true;
-
-button.classList.remove(
-"success",
-"error"
-);
-
-button.classList.add(
-"downloading"
-);
-
-const progress =
-button.querySelector(
-".download-progress"
-);
-
-const content =
-button.querySelector(
-".download-content"
-);
-
-const shine =
-button.querySelector(
-".download-shine"
-);
-
-progress.style.width =
-"0%";
-
-content.innerHTML = `
-<span class="download-icon">
-⏬
-</span>
-
-<span>
-Starting download...
-</span>
-`;
-
-let downloadUrl =
-url;
-
-try{
-
-const separator =
-url.includes("?")
-? "&"
-: "?";
-
-downloadUrl =
-url +
-separator +
-"download=" +
-encodeURIComponent(
-fileName
-);
-
-}catch(error){
-
-downloadUrl =
-url;
-
-}
-
-const link =
-document.createElement(
-"a"
-);
-
-link.href =
-downloadUrl;
-
-link.download =
-fileName;
-
-link.target =
-"_blank";
-
-link.rel =
-"noopener";
-
-link.style.display =
-"none";
-
-document.body.appendChild(
-link
-);
-
-try{
-
-link.click();
-
-}catch(error){
-
-console.error(
-"Download trigger error:",
-error
-);
-
-button.classList.remove(
-"downloading"
-);
-
-button.classList.add(
-"error"
-);
-
-content.innerHTML = `
-<span class="download-icon">
-❌
-</span>
-
-<span>
-Download Failed
-</span>
-`;
-
-setTimeout(
-function(){
-
-resetDownloadButton(
-button
-);
-
-},
-2500
-);
-
-return;
-
-}
-
-setTimeout(
-function(){
-
-link.remove();
-
-},
-1000
-);
-
-setTimeout(
-function(){
-
-progress.style.width =
-"100%";
-
-content.innerHTML = `
-<span class="download-icon">
-⬇️
-</span>
-
-<span>
-Download Started
-</span>
-`;
-
-button.classList.remove(
-"downloading"
-);
-
-button.classList.add(
-"success"
-);
-
-if(shine){
-
-shine.style.display =
-"none";
-
-}
-
-setTimeout(
-function(){
-
-button.disabled =
-false;
-
-button.dataset.downloading =
-"false";
-
-button.classList.remove(
-"success"
-);
-
-progress.style.width =
-"0%";
-
-if(shine){
-
-shine.style.display =
-"block";
-
-}
-
-content.innerHTML = `
-<span class="download-icon">
-⬇️
-</span>
-
-<span>
-Download
-</span>
-`;
-
-},
-3000
-);
-
-},
-800
-);
-
-}
-
-
-/* =========================
-   RESET BUTTON
-========================= */
-
-function resetDownloadButton(
-button
-){
-
-const content =
-button.querySelector(
-".download-content"
-);
-
-const progress =
-button.querySelector(
-".download-progress"
-);
-
-const shine =
-button.querySelector(
-".download-shine"
-);
-
-button.disabled =
-false;
-
-button.dataset.downloading =
-"false";
-
-button.classList.remove(
-"downloading",
-"success",
-"error"
-);
-
-progress.style.width =
-"0%";
-
-if(shine){
-
-shine.style.display =
-"block";
-
-}
-
-content.innerHTML = `
-<span class="download-icon">
-⬇️
-</span>
-
-<span>
-Download
-</span>
-`;
-
-}
-
-
-/* =========================
-   DOWNLOAD BUTTON
-========================= */
-
-function createDownloadButton(
-url,
-fileName
-){
-
-const box =
-document.createElement(
-"div"
-);
-
-box.className =
-"download-box";
-
-const button =
-document.createElement(
-"button"
-);
-
-button.className =
-"download-btn";
-
-button.type =
-"button";
-
-button.dataset.downloading =
-"false";
-
-button.innerHTML = `
-<div class="download-progress"></div>
-
-<div class="download-shine"></div>
-
-<div class="download-content">
-
-<span class="download-icon">
-⬇️
-</span>
-
-<span>
-Download
-</span>
-
-</div>
-`;
-
-button.addEventListener(
-"click",
-function(event){
-
-event.preventDefault();
-
-event.stopPropagation();
-
-downloadFile(
-url,
-fileName,
-button
-);
-
-});
-
-box.appendChild(
-button
-);
-
-return box;
-
-}
-
-
-/* =========================
-   PHOTOS
-========================= */
-
-async function loadPhotos(){
-
-const loading =
-document.getElementById(
-"photoLoading"
-);
-
-const gallery =
-document.getElementById(
-"photoGallery"
-);
-
-loading.style.display =
-"block";
-
-gallery.innerHTML =
-"";
-
-const {data,error} =
-await supabaseClient
-.storage
-.from("media")
-.list(
-"photos",
-{
-limit:100,
-
-sortBy:{
-column:"name",
-order:"desc"
-}
-
-}
-);
-
-loading.style.display =
-"none";
-
-if(error){
-
-gallery.innerHTML = `
-
-<div class="empty">
-
-❌ Photos load করা যাচ্ছে না।
-
-<br><br>
-
-${error.message}
-
-</div>
-
-`;
-
-return;
-
-}
-
-const files =
-(data || [])
-.filter(
-function(file){
-
-return (
-file.name &&
-file.id !== null
-);
-
-}
-);
-
-if(files.length === 0){
-
-gallery.innerHTML = `
-
-<div
-class="empty"
-style="grid-column:1/-1;">
-
-📭 এখনো কোনো Photo upload করা হয়নি।
-
-</div>
-
-`;
-
-return;
-
-}
-
-files.forEach(
-function(file){
-
-const path =
-"photos/" +
-file.name;
-
-const result =
-supabaseClient
-.storage
-.from("media")
-.getPublicUrl(
-path
-);
-
-const imageUrl =
-result.data.publicUrl;
-
-const item =
-document.createElement(
-"div"
-);
-
-item.className =
-"photo-item";
-
-const image =
-document.createElement(
-"img"
-);
-
-image.src =
-imageUrl;
-
-image.alt =
-file.name;
-
-image.loading =
-"lazy";
-
-image.onclick =
-function(){
-
-openViewer(
-imageUrl
-);
-
-};
-
-item.appendChild(
-image
-);
-
-const name =
-document.createElement(
-"div"
-);
-
-name.className =
-"photo-name";
-
-name.textContent =
-cleanFileName(
-file.name
-);
-
-item.appendChild(
-name
-);
-
-const downloadButton =
-createDownloadButton(
-imageUrl,
-file.name
-);
-
-item.appendChild(
-downloadButton
-);
-
-gallery.appendChild(
-item
-);
-
-});
-
-}
-
-
-/* =========================
-   MUSIC
-========================= */
-
-async function loadMusic(){
-
-const loading =
-document.getElementById(
-"musicLoading"
-);
-
-const list =
-document.getElementById(
-"musicList"
-);
-
-loading.style.display =
-"block";
-
-list.innerHTML =
-"";
-
-const {data,error} =
-await supabaseClient
-.storage
-.from("media")
-.list(
-"music",
-{
-limit:100,
-
-sortBy:{
-column:"name",
-order:"desc"
-}
-
-}
-);
-
-loading.style.display =
-"none";
-
-if(error){
-
-list.innerHTML = `
-
-<div class="empty">
-
-❌ Music load করা যাচ্ছে না।
-
-<br><br>
-
-${error.message}
-
-</div>
-
-`;
-
-return;
-
-}
-
-const files =
-(data || [])
-.filter(
-function(file){
-
-return (
-file.name &&
-file.id !== null
-);
-
-}
-);
-
-if(files.length === 0){
-
-list.innerHTML = `
-
-<div class="empty">
-
-🎵 এখনো কোনো Music upload করা হয়নি।
-
-</div>
-
-`;
-
-return;
-
-}
-
-files.forEach(
-function(file){
-
-const path =
-"music/" +
-file.name;
-
-const result =
-supabaseClient
-.storage
-.from("media")
-.getPublicUrl(
-path
-);
-
-const musicUrl =
-result.data.publicUrl;
-
-const card =
-document.createElement(
-"div"
-);
-
-card.className =
-"music-card";
-
-const icon =
-document.createElement(
-"div"
-);
-
-icon.className =
-"music-icon";
-
-icon.textContent =
-"🎧";
-
-card.appendChild(
-icon
-);
-
-const title =
-document.createElement(
-"h3"
-);
-
-title.textContent =
-cleanFileName(
-file.name
-);
-
-card.appendChild(
-title
-);
-
-const audio =
-document.createElement(
-"audio"
-);
-
-audio.controls =
-true;
-
-audio.preload =
-"none";
-
-const source =
-document.createElement(
-"source"
-);
-
-source.src =
-musicUrl;
-
-source.type =
-file.metadata?.mimetype ||
-"audio/mpeg";
-
-audio.appendChild(
-source
-);
-
-card.appendChild(
-audio
-);
-
-const downloadButton =
-createDownloadButton(
-musicUrl,
-file.name
-);
-
-card.appendChild(
-downloadButton
-);
-
-list.appendChild(
-card
-);
-
-});
-
-}
-
-
-/* =========================
-   VIDEOS
-========================= */
-
-async function loadVideos(){
-
-const loading =
-document.getElementById(
-"videoLoading"
-);
-
-const list =
-document.getElementById(
-"videoList"
-);
-
-loading.style.display =
-"block";
-
-list.innerHTML =
-"";
-
-const {data,error} =
-await supabaseClient
-.storage
-.from("media")
-.list(
-"videos",
-{
-limit:100,
-
-sortBy:{
-column:"name",
-order:"desc"
-}
-
-}
-);
-
-loading.style.display =
-"none";
-
-if(error){
-
-list.innerHTML = `
-
-<div class="empty">
-
-❌ Videos load করা যাচ্ছে না।
-
-<br><br>
-
-${error.message}
-
-</div>
-
-`;
-
-return;
-
-}
-
-const files =
-(data || [])
-.filter(
-function(file){
-
-return (
-file.name &&
-file.id !== null
-);
-
-}
-);
-
-if(files.length === 0){
-
-list.innerHTML = `
-
-<div class="empty">
-
-🎬 এখনো কোনো Video upload করা হয়নি।
-
-</div>
-
-`;
-
-return;
-
-}
-
-files.forEach(
-function(file){
-
-const path =
-"videos/" +
-file.name;
-
-const result =
-supabaseClient
-.storage
-.from("media")
-.getPublicUrl(
-path
-);
-
-const videoUrl =
-result.data.publicUrl;
-
-const card =
-document.createElement(
-"div"
-);
-
-card.className =
-"video-card";
-
-const title =
-document.createElement(
-"h3"
-);
-
-title.textContent =
-"🎬 " +
-cleanFileName(
-file.name
-);
-
-card.appendChild(
-title
-);
-
-const video =
-document.createElement(
-"video"
-);
-
-video.controls =
-true;
-
-video.preload =
-"metadata";
-
-const source =
-document.createElement(
-"source"
-);
-
-source.src =
-videoUrl;
-
-source.type =
-file.metadata?.mimetype ||
-"video/mp4";
-
-video.appendChild(
-source
-);
-
-card.appendChild(
-video
-);
-
-const downloadButton =
-createDownloadButton(
-videoUrl,
-file.name
-);
-
-card.appendChild(
-downloadButton
-);
-
-list.appendChild(
-card
-);
-
-});
-
-}
-
-
-/* =========================
-   IMAGE VIEWER
-========================= */
-
-function openViewer(url){
-
-const viewer =
-document.getElementById(
-"viewer"
-);
-
-const image =
-document.getElementById(
-"viewerImage"
-);
-
-image.src =
-url;
-
-viewer.classList.add(
-"show"
-);
-
-}
-
-
 function closeViewer(){
-
-const viewer =
-document.getElementById(
-"viewer"
-);
-
-const image =
-document.getElementById(
-"viewerImage"
-);
-
-viewer.classList.remove(
-"show"
-);
-
-image.src =
-"";
-
+  const video=$("viewerMedia").querySelector("video");
+  if(video){video.pause();video.removeAttribute("src");video.load();}
+  $("viewer").classList.remove("open");
+  document.body.style.overflow="";
 }
-
-
-/* =========================
-   ESC CLOSE
-========================= */
-
-document.addEventListener(
-"keydown",
-function(event){
-
-if(
-event.key === "Escape"
-){
-
-closeViewer();
-
-}
-
+$("viewerClose").addEventListener("click",closeViewer);
+$("viewerPrev").addEventListener("click",()=>moveViewer(-1));
+$("viewerNext").addEventListener("click",()=>moveViewer(1));
+$("viewer").addEventListener("click",e=>{if(e.target===$("viewer"))closeViewer();});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){
+    closeViewer();
+    closeMenu();
+  }
+  if($("viewer").classList.contains("open")){
+    if(e.key==="ArrowLeft")moveViewer(-1);
+    if(e.key==="ArrowRight")moveViewer(1);
+  }
 });
 
-
-/* =========================
-   LOAD WEBSITE CONTENT
-========================= */
-
+/* Supabase social links and gallery text */
+function normalizeSocial(value,kind){
+  const v=String(value||"").trim();
+  if(!v)return "#";
+  if(/^https?:\/\//i.test(v))return v;
+  if(kind==="whatsapp"){
+    if(/^(wa\.me|api\.whatsapp\.com)\//i.test(v))return "https://"+v;
+    const n=v.replace(/[^\d+]/g,"");
+    if(/^\+?\d{7,15}$/.test(n))return "https://wa.me/"+n.replace(/\D/g,"");
+  }
+  return "https://"+v.replace(/^\/+/,"");
+}
 async function loadWebsiteContent(){
-
-try{
-
-const {data,error} =
-await supabaseClient
-.from("website_content")
-.select("section,content");
-
-
-if(error){
-
-console.error(
-"Website content loading failed:",
-error
-);
-
-return;
-
+  try{
+    const {data,error}=await db.from("website_content").select("section,content");
+    if(error)throw error;
+    const rows=data||[];
+    let website=(rows.find(r=>r.section==="website")||{}).content||{};
+    let social=(rows.find(r=>r.section==="social")||{}).content||{};
+    if(typeof website==="string"){try{website=JSON.parse(website)}catch(e){website={}}}
+    if(typeof social==="string"){try{social=JSON.parse(social)}catch(e){social={}}}
+    if(website&&typeof website==="object"){
+      $("galleryTitle").textContent=website.gallery_title||"The Gallery";
+      $("galleryDescription").textContent=website.gallery_description||"Discover special moments, videos and music from SM RAYHAN's personal collection.";
+      $("footerCopyright").textContent=website.footer_copyright||"© 2026 SM RAYHAN | My Personal Website ❤️";
+    }
+    if(social&&typeof social==="object"){
+      const links=[
+        ["facebookLink",normalizeSocial(social.facebook,"facebook")],
+        ["linkedinLink",normalizeSocial(social.linkedin,"linkedin")],
+        ["whatsappLink",normalizeSocial(social.whatsapp,"whatsapp")]
+      ];
+      links.forEach(([id,url])=>{
+        const el=$(id);
+        if(el&&url!=="#"){el.href=url;el.target="_blank";el.rel="noopener";}
+      });
+    }
+  }catch(e){console.warn("Using default gallery content",e);}
 }
 
+/* Smooth scroll reveal animation */
+function setupReveal(){
+  const targets=document.querySelectorAll(
+    ".stats,.section-head,.tabs,#photosPanel,#videosPanel,#musicPanel,footer"
+  );
+  targets.forEach(el=>el.classList.add("reveal"));
 
-const content = {};
+  if(!("IntersectionObserver" in window)){
+    document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));
+    return;
+  }
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12,rootMargin:"0px 0px -35px 0px"});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+}
+function revealNewMedia(){
+  document.querySelectorAll("#photoGrid .photo,#videoGrid .media-card,#musicGrid .media-card").forEach((el,i)=>{
+    el.classList.add("reveal");
+    el.style.setProperty("--reveal-delay",Math.min(i%8,7)*55+"ms");
+    if(!("IntersectionObserver" in window)){el.classList.add("visible");return;}
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}
+      });
+    },{threshold:.08});
+    observer.observe(el);
+  });
+}
 
-
-(data || [])
-.forEach(
-function(row){
-
-content[row.section] =
-row.content || {};
-
+/* Start */
+document.addEventListener("DOMContentLoaded",()=>{
+  setupReveal();
+  document.body.classList.add("page-ready");
 });
-
-
-const website =
-content.website || {};
-
-
-/*
-  Admin > Website Content
-  Gallery fields
-*/
-
-if(website.gallery_title){
-
-const title =
-String(
-website.gallery_title
-).trim();
-
-setText(
-"galleryMainTitle",
-title
-);
-
-setText(
-"galleryTitle1",
-"📸 " + title
-);
-
-}
-
-
-if(website.gallery_description){
-
-setText(
-"galleryMainDescription",
-website.gallery_description
-);
-
-}
-
-
-if(website.gallery_label1){
-
-const label1 =
-String(
-website.gallery_label1
-).trim();
-
-if(website.gallery_label2){
-
-const label2 =
-String(
-website.gallery_label2
-).trim();
-
-if(website.gallery_label3){
-
-const label3 =
-String(
-website.gallery_label3
-).trim();
-
-setText(
-"galleryMainLabel",
-"📸 " +
-label1 +
-" • 🎵 " +
-label2 +
-" • 🎬 " +
-label3
-);
-
-}
-
-}
-
-}
-
-
-/*
-  যদি Admin-এ Gallery label দেওয়া থাকে,
-  আলাদা section title-ও update হবে।
-*/
-
-if(website.gallery_label1){
-
-setText(
-"galleryTitle1",
-"📸 " +
-website.gallery_label1
-);
-
-}
-
-if(website.gallery_label2){
-
-setText(
-"galleryTitle2",
-"🎵 " +
-website.gallery_label2
-);
-
-}
-
-if(website.gallery_label3){
-
-setText(
-"galleryTitle3",
-"🎬 " +
-website.gallery_label3
-);
-
-}
-
-
-/*
-  Footer
-*/
-
-if(website.footer_copyright){
-
-setText(
-"galleryFooter",
-website.footer_copyright
-);
-
-}
-
-
-/*
-  Social
-*/
-
-const social =
-content.social || {};
-
-
-const facebook =
-normalizeSocial(
-social.facebook,
-"facebook"
-);
-
-const linkedin =
-normalizeSocial(
-social.linkedin,
-"linkedin"
-);
-
-const whatsapp =
-normalizeSocial(
-social.whatsapp,
-"whatsapp"
-);
-
-
-if(facebook){
-
-document.getElementById(
-"menuFacebook"
-).href =
-facebook;
-
-}
-
-
-if(linkedin){
-
-document.getElementById(
-"menuLinkedin"
-).href =
-linkedin;
-
-}
-
-
-if(whatsapp){
-
-document.getElementById(
-"menuWhatsapp"
-).href =
-whatsapp;
-
-}
-
-
-}catch(error){
-
-console.error(
-"Website content failed:",
-error
-);
-
-}
-
-}
-
-
-/* =========================
-   FIRST LOAD
-========================= */
-
 loadWebsiteContent();
-
-loadPhotos();
-
+loadAllMedia().then(revealNewMedia).catch(e=>{
+  console.error(e);
+  toast("Could not load gallery media.");
+});
 </script>
-
 </body>
 </html>

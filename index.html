@@ -442,6 +442,245 @@ transform:translateY(-4px);
 box-shadow:0 0 20px rgba(115,92,255,.4);
 }
 
+/* ===== NEW PREMIUM PAGE NAVIGATION BOX ===== */
+
+.pageNavBox{
+position:relative;
+width:min(570px,100%);
+margin:25px auto 0;
+padding:18px;
+border-radius:23px;
+background:
+radial-gradient(circle at 0% 0%,rgba(115,92,255,.15),transparent 48%),
+radial-gradient(circle at 100% 100%,rgba(255,60,172,.12),transparent 48%),
+rgba(255,255,255,.045);
+border:1px solid rgba(173,137,255,.27);
+box-shadow:
+0 15px 40px rgba(0,0,0,.16),
+0 0 22px rgba(115,92,255,.10),
+inset 0 1px 0 rgba(255,255,255,.07);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+overflow:hidden;
+isolation:isolate;
+}
+
+.pageNavBox::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:inherit;
+padding:1px;
+background:linear-gradient(
+120deg,
+rgba(115,92,255,.65),
+rgba(255,60,172,.5),
+rgba(0,212,255,.55),
+rgba(115,92,255,.65)
+);
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+pointer-events:none;
+z-index:-1;
+}
+
+.pageNavHeading{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:9px;
+margin-bottom:15px;
+font-size:13px;
+font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#e3d8ff;
+}
+
+.pageNavHeading .navSpark{
+font-size:15px;
+background:linear-gradient(135deg,#b69aff,#ff8bd4,#67e8f9);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.pageNavButtons{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:10px;
+}
+
+.pageNavBtn{
+position:relative;
+min-width:0;
+min-height:76px;
+padding:12px 7px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:7px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.13);
+background:rgba(255,255,255,.045);
+color:#fff;
+font-size:13px;
+font-weight:800;
+letter-spacing:.25px;
+overflow:hidden;
+transition:
+transform .3s ease,
+box-shadow .3s ease,
+border-color .3s ease,
+background .3s ease;
+}
+
+.pageNavBtn::before{
+content:"";
+position:absolute;
+inset:0;
+opacity:0;
+background:linear-gradient(
+135deg,
+rgba(115,92,255,.18),
+rgba(255,60,172,.12),
+rgba(0,212,255,.10)
+);
+transition:opacity .3s ease;
+}
+
+.pageNavBtn:hover{
+transform:translateY(-4px);
+border-color:rgba(255,255,255,.32);
+}
+
+.pageNavBtn:hover::before{
+opacity:1;
+}
+
+.pageNavBtn>*{
+position:relative;
+z-index:1;
+}
+
+.pageNavIcon{
+width:31px;
+height:31px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:10px;
+font-size:17px;
+}
+
+.pageNavBtn.aboutPage{
+border-color:rgba(180,120,255,.38);
+box-shadow:inset 0 0 18px rgba(115,92,255,.055);
+}
+
+.pageNavBtn.aboutPage .pageNavIcon{
+color:#e5d2ff;
+background:linear-gradient(
+135deg,
+rgba(115,92,255,.34),
+rgba(180,120,255,.13)
+);
+box-shadow:0 0 17px rgba(115,92,255,.14);
+}
+
+.pageNavBtn.aboutPage:hover{
+box-shadow:0 8px 24px rgba(115,92,255,.2);
+}
+
+.pageNavBtn.contactPage{
+border-color:rgba(255,105,190,.35);
+box-shadow:inset 0 0 18px rgba(255,60,172,.045);
+}
+
+.pageNavBtn.contactPage .pageNavIcon{
+color:#ffc2e7;
+background:linear-gradient(
+135deg,
+rgba(255,60,172,.30),
+rgba(255,105,190,.12)
+);
+box-shadow:0 0 17px rgba(255,60,172,.12);
+}
+
+.pageNavBtn.contactPage:hover{
+box-shadow:0 8px 24px rgba(255,60,172,.19);
+}
+
+.pageNavBtn.galleryPage{
+border-color:rgba(0,212,255,.35);
+box-shadow:inset 0 0 18px rgba(0,212,255,.045);
+}
+
+.pageNavBtn.galleryPage .pageNavIcon{
+color:#a5f3fc;
+background:linear-gradient(
+135deg,
+rgba(0,212,255,.26),
+rgba(0,150,255,.11)
+);
+box-shadow:0 0 17px rgba(0,212,255,.12);
+}
+
+.pageNavBtn.galleryPage:hover{
+box-shadow:0 8px 24px rgba(0,212,255,.17);
+}
+
+.pageNavHint{
+margin-top:12px;
+color:#8992ad;
+font-size:10px;
+letter-spacing:.3px;
+text-align:center;
+}
+
+body.light .pageNavBox{
+background:
+radial-gradient(circle at 0% 0%,rgba(115,92,255,.09),transparent 48%),
+radial-gradient(circle at 100% 100%,rgba(255,60,172,.08),transparent 48%),
+rgba(255,255,255,.67);
+border-color:rgba(115,92,255,.20);
+box-shadow:
+0 15px 40px rgba(66,52,110,.08),
+0 0 20px rgba(115,92,255,.07),
+inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+body.light .pageNavHeading{
+color:#44316e;
+}
+
+body.light .pageNavBtn{
+color:#28213d;
+background:rgba(255,255,255,.65);
+border-color:rgba(75,60,110,.12);
+}
+
+body.light .pageNavBtn.aboutPage{
+border-color:rgba(115,92,255,.32);
+}
+
+body.light .pageNavBtn.contactPage{
+border-color:rgba(220,50,140,.27);
+}
+
+body.light .pageNavBtn.galleryPage{
+border-color:rgba(0,155,190,.29);
+}
+
+body.light .pageNavHint{
+color:#77728d;
+}
+
+/* ===== END NEW PREMIUM PAGE NAVIGATION BOX ===== */
+
 .glass{
 background:rgba(255,255,255,.055);
 border:1px solid rgba(255,255,255,.10);
@@ -994,7 +1233,6 @@ font-size:20px;
 cursor:pointer;
 display:none;
 z-index:900;
-box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
 .topBtn.show{
@@ -1249,6 +1487,45 @@ font-size:15px;
 padding:9px 17px;
 }
 
+/* NEW: compact premium navigation on mobile */
+
+.pageNavBox{
+margin-top:21px;
+padding:13px 10px;
+border-radius:19px;
+}
+
+.pageNavHeading{
+font-size:11px;
+letter-spacing:1px;
+gap:6px;
+margin-bottom:12px;
+}
+
+.pageNavButtons{
+gap:7px;
+}
+
+.pageNavBtn{
+min-height:69px;
+padding:9px 3px;
+gap:6px;
+border-radius:13px;
+font-size:11px;
+}
+
+.pageNavIcon{
+width:28px;
+height:28px;
+font-size:15px;
+border-radius:9px;
+}
+
+.pageNavHint{
+font-size:9px;
+margin-top:10px;
+}
+
 .stats{
 gap:10px;
 }
@@ -1327,6 +1604,23 @@ border-radius:16px;
 }
 
 }
+
+/* Remove Explore More Pages Outer Box and Moving Light */
+.pageNavBox {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
+
+.pageNavBox::before {
+    display: none !important;
+    animation: none !important;
+}
+
 </style>
 </head>
 
@@ -1450,6 +1744,41 @@ Everything is organized here in one premium personal space.
 <a class="btn btnSecondary" href="#about">
 👤 About Me
 </a>
+
+</div>
+
+<!-- NEW PREMIUM BOX: ADDED BELOW EXPLORE MY WORK AND ABOUT ME -->
+
+<div class="pageNavBox">
+
+<div class="pageNavHeading">
+<span class="navSpark">✦</span>
+<span>Explore More Pages</span>
+<span class="navSpark">✦</span>
+</div>
+
+<div class="pageNavButtons">
+
+<a class="pageNavBtn aboutPage" href="about.html">
+<span class="pageNavIcon">👤</span>
+<span>About</span>
+</a>
+
+<a class="pageNavBtn contactPage" href="contact.html">
+<span class="pageNavIcon">✉️</span>
+<span>Contact</span>
+</a>
+
+<a class="pageNavBtn galleryPage" href="gallery.html">
+<span class="pageNavIcon">▧</span>
+<span>Gallery</span>
+</a>
+
+</div>
+
+<div class="pageNavHint">
+Discover more about SM RAYHAN ✨
+</div>
 
 </div>
 

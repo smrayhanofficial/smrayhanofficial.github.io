@@ -1,2891 +1,2655 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html>  <html lang="en">  
+<head>  <meta charset="UTF-8">  <meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
 
-<meta charset="UTF-8">
+> 
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<title>SM RAYHAN | Contact</title>  <meta name="theme-color" content="#080914">  
+<meta name="description" content="Contact SM RAYHAN">  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  <style>  
+  
+/* =========================  
+   RESET  
+========================= */  
+  
+*{  
+    margin:0;  
+    padding:0;  
+    box-sizing:border-box;  
+}  
+  
+html{  
+    scroll-behavior:smooth;  
+}  
+  
+body{  
+    font-family:Arial,Helvetica,sans-serif;  
+    color:#fff;  
+    min-height:100vh;  
+    overflow-x:hidden;  
+  
+    background:  
+        radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),  
+        radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),  
+        linear-gradient(135deg,#080914,#12152a,#080914);  
+  
+    transition:.4s ease;  
+}  
+  
+/* =========================  
+   BACKGROUND  
+========================= */  
+  
+.bg{  
+    position:fixed;  
+    inset:0;  
+    overflow:hidden;  
+    pointer-events:none;  
+    z-index:-2;  
+}  
+  
+.blob{  
+    position:absolute;  
+    border-radius:50%;  
+    filter:blur(70px);  
+    opacity:.22;  
+    animation:blobMove 12s ease-in-out infinite alternate;  
+}  
+  
+.blob1{  
+    width:280px;  
+    height:280px;  
+    background:#735cff;  
+    left:-100px;  
+    top:10%;  
+}  
+  
+.blob2{  
+    width:300px;  
+    height:300px;  
+    background:#ff3cac;  
+    right:-120px;  
+    bottom:5%;  
+    animation-delay:2s;  
+}  
+  
+.blob3{  
+    width:180px;  
+    height:180px;  
+    background:#00d4ff;  
+    left:45%;  
+    top:40%;  
+    animation-delay:4s;  
+}  
+  
+@keyframes blobMove{  
+    from{  
+        transform:translate(0,0) scale(1);  
+    }  
+    to{  
+        transform:translate(60px,-40px) scale(1.15);  
+    }  
+}  
+  
+/* =========================  
+   TOP BUTTONS  
+========================= */  
+  
+.menu-btn,  
+.theme-btn{  
+    position:fixed;  
+    top:18px;  
+    width:48px;  
+    height:48px;  
+  
+    display:flex;  
+    align-items:center;  
+    justify-content:center;  
+  
+    border:1px solid rgba(255,255,255,.18);  
+    border-radius:15px;  
+    background:rgba(255,255,255,.08);  
+  
+    backdrop-filter:blur(15px);  
+    -webkit-backdrop-filter:blur(15px);  
+  
+    color:#fff;  
+    font-size:23px;  
+    cursor:pointer;  
+    z-index:10002;  
+    transition:.3s ease;  
+}  
+  
+.menu-btn{  
+    left:18px;  
+}  
+  
+.theme-btn{  
+    right:18px;  
+}  
+  
+.menu-btn:hover,  
+.theme-btn:hover{  
+    transform:translateY(-3px);  
+  
+    box-shadow:  
+        0 0 20px rgba(115,92,255,.45),  
+        0 0 30px rgba(255,60,172,.20);  
+}  
+  
+/* =========================  
+   SIDE MENU  
+========================= */  
+  
+.side-menu{  
+    position:fixed;  
+    left:0;  
+    top:0;  
+    bottom:0;  
+  
+    width:50%;  
+  
+    padding:90px 20px 30px;  
+  
+    background:  
+        radial-gradient(  
+            circle at 20% 15%,  
+            rgba(115,92,255,.28),  
+            transparent 35%  
+        ),  
+        radial-gradient(  
+            circle at 80% 80%,  
+            rgba(255,60,172,.22),  
+            transparent 35%  
+        ),  
+        rgba(8,9,20,.97);  
+  
+    backdrop-filter:blur(25px);  
+    -webkit-backdrop-filter:blur(25px);  
+  
+    border-right:1px solid rgba(255,255,255,.10);  
+  
+    box-shadow:20px 0 60px rgba(0,0,0,.35);  
+  
+    transform:translateX(-105%);  
+  
+    opacity:0;  
+    visibility:hidden;  
+  
+    transition:.4s ease;  
+  
+    z-index:10001;  
+}  
+  
+.side-menu.show{  
+    transform:translateX(0);  
+    opacity:1;  
+    visibility:visible;  
+}  
+  
+.side-menu a{  
+    display:block;  
+  
+    color:#fff;  
+    text-decoration:none;  
+  
+    padding:14px 5px;  
+  
+    border-bottom:1px solid rgba(255,255,255,.08);  
+  
+    font-size:15px;  
+    transition:.3s ease;  
+}  
+  
+.side-menu a:hover{  
+    color:#ff75c7;  
+    padding-left:12px;  
+}  
+  
+/* =========================  
+   CONTAINER  
+========================= */  
+  
+.container{  
+    width:min(1180px,92%);  
+    margin:auto;  
+}  
+  
+/* =========================  
+   HERO  
+========================= */  
+  
+.hero{  
+    min-height:auto;  
+  
+    display:flex;  
+    align-items:center;  
+    justify-content:center;  
+  
+    text-align:center;  
+  
+    padding:105px 0 45px;  
+}  
+  
+.heroContent{  
+    width:100%;  
+}  
+  
+.profile{  
+    width:155px;  
+    height:155px;  
+  
+    object-fit:cover;  
+    border-radius:50%;  
+  
+    border:4px solid rgba(255,255,255,.9);  
+  
+    box-shadow:  
+        0 0 25px rgba(115,92,255,.55),  
+        0 0 55px rgba(255,60,172,.30);  
+  
+    animation:profileGlow 4s ease-in-out infinite alternate;  
+  
+    margin-bottom:18px;  
+}  
+  
+@keyframes profileGlow{  
+    from{  
+        box-shadow:  
+            0 0 20px rgba(115,92,255,.45),  
+            0 0 40px rgba(255,60,172,.20);  
+    }  
+  
+    to{  
+        box-shadow:  
+            0 0 35px rgba(115,92,255,.75),  
+            0 0 70px rgba(255,60,172,.40);  
+    }  
+}  
+  
+.hero h1{  
+    font-size:clamp(38px,7vw,70px);  
+  
+    font-weight:900;  
+    letter-spacing:-2px;  
+  
+    background:  
+        linear-gradient(  
+            90deg,  
+            #ffffff,  
+            #bcaeff,  
+            #ff79c8,  
+            #ffffff  
+        );  
+  
+    background-size:250% auto;  
+  
+    -webkit-background-clip:text;  
+    background-clip:text;  
+  
+    color:transparent;  
+  
+    animation:gradientText 6s linear infinite;  
+}  
+  
+@keyframes gradientText{  
+    to{  
+        background-position:250% center;  
+    }  
+}  
+  
+.hero p{  
+    color:#cfcfff;  
+    margin-top:7px;  
+    font-size:17px;  
+}  
+  
+.pageLabel{  
+    margin-top:13px;  
+    color:#ff8bd3;  
+    font-size:14px;  
+    font-weight:bold;  
+}  
+  
+/* =========================  
+   EXPLORE MORE PAGES  
+   NEW ADDITION ONLY  
+========================= */  
+  
+  
+.pageNavBox{  
+    position:relative;  
+    width:100vw;  
+    max-width:100vw;  
+    margin:25px calc(50% - 50vw) 0;  
+    padding:18px;  
+    border-radius:23px;  
+    background:  
+        radial-gradient(circle at 0% 0%,rgba(115,92,255,.15),transparent 48%),  
+        radial-gradient(circle at 100% 100%,rgba(255,60,172,.12),transparent 48%),  
+        rgba(255,255,255,.045);  
+    border:1px solid rgba(173,137,255,.27);  
+    box-shadow:  
+        0 15px 40px rgba(0,0,0,.16),  
+        0 0 22px rgba(115,92,255,.10),  
+        inset 0 1px 0 rgba(255,255,255,.07);  
+    backdrop-filter:blur(20px);  
+    -webkit-backdrop-filter:blur(20px);  
+    overflow:hidden;  
+    isolation:isolate;  
+    text-align:center;  
+    box-sizing:border-box;  
+}  
+  
+  
+.pageNavBox::before{  
+    content:"";  
+    position:absolute;  
+    inset:0;  
+    padding:1.5px;  
+    border-radius:inherit;  
+  
+    background:linear-gradient(  
+        120deg,  
+        #735cff,  
+        #ff3cac,  
+        #00d4ff,  
+        #735cff  
+    );  
+  
+    background-size:250% 250%;  
+    animation:pageNavBorder 6s linear infinite;  
+  
+    -webkit-mask:  
+        linear-gradient(#fff 0 0) content-box,  
+        linear-gradient(#fff 0 0);  
+    -webkit-mask-composite:xor;  
+    mask-composite:exclude;  
+  
+    pointer-events:none;  
+    z-index:-1;  
+}  
+  
+@keyframes pageNavBorder{  
+    0%{  
+        background-position:0% 50%;  
+    }  
+    100%{  
+        background-position:250% 50%;  
+    }  
+}  
+  
+.pageNavHeading{  
+    display:flex;  
+    align-items:center;  
+    justify-content:center;  
+    gap:10px;  
+  
+    margin-bottom:18px;  
+  
+    font-size:17px;  
+    font-weight:800;  
+    letter-spacing:.3px;  
+  
+    color:#fff;  
+}  
+  
+.navSpark{  
+    display:inline-block;  
+    color:#ff79c8;  
+    animation:navSparkle 2s ease-in-out infinite alternate;  
+}  
+  
+.navSpark:last-child{  
+    animation-delay:1s;  
+}  
+  
+@keyframes navSparkle{  
+    from{  
+        transform:scale(.8) rotate(0deg);  
+        opacity:.65;  
+    }  
+    to{  
+        transform:scale(1.25) rotate(35deg);  
+        opacity:1;  
+    }  
+}  
+  
+.pageNavButtons{  
+    display:grid;  
+    grid-template-columns:repeat(3,minmax(0,1fr));  
+    gap:10px;  
+}  
+  
+.pageNavBtn{  
+    position:relative;  
+    overflow:hidden;  
+  
+    display:flex;  
+    flex-direction:column;  
+    align-items:center;  
+    justify-content:center;  
+    gap:8px;  
+  
+    min-width:0;  
+    min-height:82px;  
+    padding:12px 5px;  
+  
+    border:1px solid rgba(255,255,255,.14);  
+    border-radius:17px;  
+  
+    color:#fff;  
+    text-decoration:none;  
+  
+    font-size:13px;  
+    font-weight:800;  
+  
+    transition:  
+        transform .3s ease,  
+        box-shadow .3s ease,  
+        border-color .3s ease;  
+}  
+  
+.pageNavBtn:hover{  
+    transform:translateY(-4px);  
+    box-shadow:0 10px 25px rgba(0,0,0,.20);  
+}  
+  
+.pageNavBtn.homePage{  
+    background:linear-gradient(  
+        145deg,  
+        rgba(115,92,255,.28),  
+        rgba(115,92,255,.08)  
+    );  
+    border-color:rgba(155,135,255,.38);  
+}  
+  
+.pageNavBtn.aboutPage{  
+    background:linear-gradient(  
+        145deg,  
+        rgba(255,60,172,.25),  
+        rgba(255,60,172,.07)  
+    );  
+    border-color:rgba(255,100,190,.38);  
+}  
+  
+.pageNavBtn.galleryPage{  
+    background:linear-gradient(  
+        145deg,  
+        rgba(0,212,255,.22),  
+        rgba(0,212,255,.06)  
+    );  
+    border-color:rgba(0,212,255,.35);  
+}  
+  
+.pageNavIcon{  
+    font-size:25px;  
+    line-height:1;  
+    filter:drop-shadow(0 0 8px rgba(255,255,255,.18));  
+}  
+  
+.pageNavHint{  
+    margin-top:15px;  
+    color:#bfc3da;  
+    font-size:12px;  
+    line-height:1.6;  
+}  
+  
+/* =========================  
+   SECTIONS  
+========================= */  
+  
+section{  
+    padding:65px 0;  
+}  
+  
+.sectionHead{  
+    text-align:center;  
+    margin-bottom:35px;  
+}  
+  
+.sectionHead span{  
+    display:block;  
+  
+    color:#aaa1ff;  
+    font-size:12px;  
+    font-weight:bold;  
+  
+    letter-spacing:2px;  
+    text-transform:uppercase;  
+  
+    margin-bottom:9px;  
+}  
+  
+.sectionHead h2{  
+    font-size:clamp(30px,5vw,48px);  
+  
+    background:  
+        linear-gradient(  
+            90deg,  
+            #fff,  
+            #b7aaff,  
+            #ff65bd  
+        );  
+  
+    -webkit-background-clip:text;  
+    background-clip:text;  
+  
+    color:transparent;  
+  
+    margin-bottom:10px;  
+}  
+  
+.sectionHead p{  
+    max-width:650px;  
+    margin:auto;  
+  
+    color:#aaaec4;  
+    line-height:1.7;  
+}  
+  
+/* =========================  
+   GLASS  
+========================= */  
+  
+.glass{  
+    background:rgba(255,255,255,.055);  
+  
+    border:1px solid rgba(255,255,255,.10);  
+  
+    box-shadow:0 20px 60px rgba(0,0,0,.18);  
+  
+    backdrop-filter:blur(18px);  
+    -webkit-backdrop-filter:blur(18px);  
+}  
+  
+.card{  
+    border-radius:24px;  
+    padding:30px;  
+    transition:.35s ease;  
+}  
+  
+.card:hover{  
+    transform:translateY(-6px);  
+  
+    box-shadow:  
+        0 25px 70px rgba(0,0,0,.25),  
+        0 0 30px rgba(115,92,255,.10);  
+}  
+  
+/* =========================  
+   INTRO  
+========================= */  
+  
+.intro{  
+    position:relative;  
+    overflow:hidden;  
+  
+    padding:32px;  
+    border-radius:24px;  
+  
+    text-align:center;  
+    margin-bottom:60px;  
+  
+    background:rgba(255,255,255,.035);  
+  
+    border:1px solid rgba(255,255,255,.10);  
+  
+    box-shadow:0 20px 60px rgba(0,0,0,.18);  
+  
+    backdrop-filter:blur(18px);  
+    -webkit-backdrop-filter:blur(18px);  
+}  
+  
+.intro:before{  
+    content:"";  
+  
+    position:absolute;  
+    inset:-2px;  
+  
+    border-radius:26px;  
+  
+    background:  
+        conic-gradient(  
+            from 0deg,  
+            #735cff,  
+            #ff3cac,  
+            #00d4ff,  
+            #735cff  
+        );  
+  
+    animation:spinBorder 7s linear infinite;  
+  
+    z-index:-2;  
+  
+    filter:  
+        drop-shadow(0 0 5px rgba(115,92,255,.55))  
+        drop-shadow(0 0 9px rgba(255,60,172,.35));  
+}  
+  
+.intro:after{  
+    content:"";  
+  
+    position:absolute;  
+    inset:2px;  
+  
+    background:  
+        linear-gradient(  
+            135deg,  
+            rgba(8,9,20,.94),  
+            rgba(18,21,42,.90),  
+            rgba(8,9,20,.94)  
+        );  
+  
+    border-radius:22px;  
+    z-index:-1;  
+}  
+  
+@keyframes spinBorder{  
+    to{  
+        transform:rotate(360deg);  
+    }  
+}  
+  
+.intro h3{  
+    font-size:25px;  
+    margin-bottom:10px;  
+}  
+  
+.intro p{  
+    color:#bfc3da;  
+    line-height:1.8;  
+}  
+  
+/* =========================  
+   CONTACT GRID  
+========================= */  
+  
+.contactGrid{  
+    display:grid;  
+    grid-template-columns:repeat(2,1fr);  
+    gap:16px;  
+}  
+  
+.contactCard{  
+    border-radius:20px;  
+    padding:18px 20px;  
+  
+    display:flex;  
+    align-items:center;  
+    justify-content:space-between;  
+  
+    gap:18px;  
+    min-height:92px;  
+  
+    transition:.35s ease;  
+}  
+  
+.contactCard:hover{  
+    transform:translateY(-4px);  
+  
+    box-shadow:  
+        0 20px 50px rgba(0,0,0,.25),  
+        0 0 25px rgba(115,92,255,.12);  
+}  
+  
+.contactTop{  
+    display:flex;  
+    align-items:center;  
+    gap:12px;  
+    min-width:0;  
+}  
+  
+.contactIcon{  
+    width:42px;  
+    height:42px;  
+    flex-shrink:0;  
+  
+    display:flex;  
+    align-items:center;  
+    justify-content:center;  
+  
+    border-radius:13px;  
+    background:rgba(255,255,255,.07);  
+  
+    font-size:20px;  
+}  
+  
+.contactTop h3{  
+    font-size:16px;  
+    font-weight:600;  
+    white-space:nowrap;  
+}  
+  
+.contactBottom{  
+    display:flex;  
+    align-items:center;  
+    justify-content:flex-end;  
+    gap:10px;  
+    min-width:0;  
+}  
+  
+.contactValue{  
+    color:#d3d6e5;  
+    font-size:14px;  
+    line-height:1.4;  
+    word-break:break-word;  
+    text-align:right;  
+}  
+  
+.actionBtn{  
+    flex-shrink:0;  
+    border:0;  
+    border-radius:10px;  
+    padding:8px 12px;  
+  
+    background:linear-gradient(135deg,#735cff,#ff3cac);  
+    color:#fff;  
+    text-decoration:none;  
+    font-size:12px;  
+    font-weight:bold;  
+  
+    cursor:pointer;  
+    transition:.3s ease;  
+}  
+  
+.actionBtn:hover{  
+    transform:translateY(-2px);  
+    box-shadow:0 8px 25px rgba(115,92,255,.35);  
+}  
+  
+/* =========================  
+   FORM  
+========================= */  
+  
+.formCard{  
+    margin-top:20px;  
+}  
+  
+.formGrid{  
+    display:grid;  
+    grid-template-columns:repeat(2,1fr);  
+    gap:18px;  
+}  
+  
+.formGroup{  
+    display:flex;  
+    flex-direction:column;  
+    gap:8px;  
+}  
+  
+.formGroup.full{  
+    grid-column:1/-1;  
+}  
+  
+.formGroup label{  
+    color:#c9cbe0;  
+    font-size:13px;  
+}  
+  
+.formGroup input,  
+.formGroup textarea{  
+    width:100%;  
+  
+    border:1px solid rgba(255,255,255,.10);  
+    outline:none;  
+    border-radius:14px;  
+    padding:14px 15px;  
+  
+    background:rgba(255,255,255,.055);  
+    color:#fff;  
+    font-family:inherit;  
+  
+    transition:.3s ease;  
+}  
+  
+.formGroup textarea{  
+    min-height:150px;  
+    resize:vertical;  
+}  
+  
+.formGroup input:focus,  
+.formGroup textarea:focus{  
+    border-color:#9b8cff;  
+    box-shadow:0 0 0 3px rgba(115,92,255,.10);  
+}  
+  
+.sendBtn{  
+    margin-top:20px;  
+    width:100%;  
+  
+    border:0;  
+    border-radius:15px;  
+    padding:15px;  
+  
+    color:#fff;  
+    font-size:15px;  
+    font-weight:bold;  
+    cursor:pointer;  
+  
+    background:linear-gradient(135deg,#735cff,#ff3cac);  
+    transition:.3s ease;  
+}  
+  
+.sendBtn:hover{  
+    transform:translateY(-3px);  
+    box-shadow:0 15px 35px rgba(115,92,255,.30);  
+}  
+  
+.sendBtn:disabled{  
+    opacity:.65;  
+    cursor:not-allowed;  
+    transform:none;  
+}  
+  
+.success{  
+    display:none;  
+    margin-top:15px;  
+    padding:13px;  
+    border-radius:13px;  
+    text-align:center;  
+  
+    background:rgba(0,255,150,.08);  
+    border:1px solid rgba(0,255,150,.20);  
+    color:#8dffca;  
+    font-size:14px;  
+}  
+  
+/* =========================  
+   SOCIAL  
+========================= */  
+  
+.socialGrid{  
+    display:grid;  
+    grid-template-columns:repeat(3,1fr);  
+    gap:20px;  
+}  
+  
+.socialCard{  
+    text-decoration:none;  
+    color:#fff;  
+    text-align:center;  
+    padding:28px 15px;  
+    border-radius:24px;  
+    transition:.35s ease;  
+}  
+  
+.socialCard:hover{  
+    transform:translateY(-7px);  
+  
+    box-shadow:  
+        0 20px 50px rgba(0,0,0,.25),  
+        0 0 25px rgba(255,60,172,.12);  
+}  
+  
+.socialIcon{  
+    font-size:32px;  
+    margin-bottom:10px;  
+}  
+  
+.socialCard h3{  
+    font-size:17px;  
+    margin-bottom:5px;  
+}  
+  
+.socialCard p{  
+    color:#9fa4bd;  
+    font-size:12px;  
+}  
+  
+/* =========================  
+   AVAILABILITY  
+========================= */  
+  
+.availability{  
+    text-align:center;  
+}  
+  
+.online{  
+    display:inline-flex;  
+    align-items:center;  
+    gap:8px;  
+  
+    color:#8dffca;  
+    font-size:14px;  
+    margin-bottom:15px;  
+}  
+  
+.onlineDot{  
+    width:10px;  
+    height:10px;  
+    border-radius:50%;  
+    background:#35ff9b;  
+    box-shadow:0 0 12px #35ff9b;  
+    animation:pulse 1.7s infinite;  
+}  
+  
+@keyframes pulse{  
+    50%{  
+        transform:scale(1.4);  
+        opacity:.5;  
+    }  
+}  
+  
+.availability h2{  
+    margin-bottom:12px;  
+}  
+  
+.availability p{  
+    color:#aeb2c9;  
+    line-height:1.7;  
+    max-width:650px;  
+    margin:auto;  
+}  
+  
+/* =========================  
+   FINAL CTA  
+========================= */  
+  
+.finalCTA{  
+    text-align:center;  
+    padding:50px 25px;  
+    border-radius:28px;  
+  
+    background:  
+        radial-gradient(circle at 20% 20%,rgba(115,92,255,.20),transparent 35%),  
+        radial-gradient(circle at 80% 80%,rgba(255,60,172,.18),transparent 35%),  
+        rgba(255,255,255,.055);  
+  
+    border:1px solid rgba(255,255,255,.10);  
+    box-shadow:0 25px 70px rgba(0,0,0,.20);  
+}  
+  
+.finalCTA h2{  
+    font-size:clamp(28px,5vw,45px);  
+    margin-bottom:12px;  
+}  
+  
+.finalCTA p{  
+    color:#afb3c9;  
+    max-width:600px;  
+    margin:0 auto 25px;  
+    line-height:1.7;  
+}  
+  
+.btn{  
+    display:inline-flex;  
+    align-items:center;  
+    justify-content:center;  
+    padding:13px 22px;  
+    border-radius:14px;  
+    color:#fff;  
+    text-decoration:none;  
+    font-weight:bold;  
+    transition:.3s ease;  
+}  
+  
+.btnPrimary{  
+    background:linear-gradient(135deg,#735cff,#ff3cac);  
+}  
+  
+.btnPrimary:hover{  
+    transform:translateY(-3px);  
+    box-shadow:0 15px 35px rgba(115,92,255,.35);  
+}  
+  
+/* =========================  
+   FOOTER  
+========================= */  
+  
+footer{  
+    text-align:center;  
+    padding:40px 20px;  
+    color:#858ba8;  
+    font-size:13px;  
+}  
+  
+/* =========================  
+   BACK TO TOP  
+========================= */  
+  
+#topBtn{  
+    position:fixed;  
+    right:18px;  
+    bottom:18px;  
+  
+    width:45px;  
+    height:45px;  
+  
+    border:1px solid rgba(255,255,255,.15);  
+    border-radius:14px;  
+    background:rgba(255,255,255,.08);  
+    color:#fff;  
+  
+    backdrop-filter:blur(15px);  
+    cursor:pointer;  
+    display:none;  
+    z-index:9999;  
+    font-size:20px;  
+}  
+  
+/* =========================  
+   LIGHT MODE  
+========================= */  
+  
+body.light{  
+    color:#17182a;  
+  
+    background:  
+        radial-gradient(circle at 10% 10%,#c8c1ff 0,transparent 28%),  
+        radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),  
+        linear-gradient(135deg,#f5f3ff,#fff5fb,#f4f6ff);  
+}  
+  
+body.light .side-menu{  
+    background:  
+        radial-gradient(circle at 20% 15%,rgba(115,92,255,.22),transparent 35%),  
+        radial-gradient(circle at 80% 80%,rgba(255,60,172,.18),transparent 35%),  
+        rgba(255,255,255,.94);  
+}  
+  
+body.light .side-menu a{  
+    color:#202136;  
+    border-bottom-color:rgba(0,0,0,.08);  
+}  
+  
+body.light .menu-btn,  
+body.light .theme-btn,  
+body.light #topBtn{  
+    color:#202136;  
+    background:rgba(255,255,255,.60);  
+    border-color:rgba(0,0,0,.08);  
+}  
+  
+body.light .hero p,  
+body.light .contactValue,  
+body.light .availability p,  
+body.light .sectionHead p,  
+body.light .socialCard p,  
+body.light .finalCTA p{  
+    color:#62677f;  
+}  
+  
+body.light .glass{  
+    background:rgba(255,255,255,.55);  
+    border-color:rgba(0,0,0,.08);  
+    box-shadow:0 20px 60px rgba(75,65,130,.12);  
+}  
+  
+body.light .intro{  
+    background:rgba(255,255,255,.18);  
+    border-color:rgba(0,0,0,.08);  
+}  
+  
+body.light .intro:after{  
+    background:  
+        linear-gradient(  
+            135deg,  
+            rgba(245,243,255,.94),  
+            rgba(255,247,252,.92),  
+            rgba(242,247,255,.94)  
+        );  
+}  
+  
+body.light .contactTop h3,  
+body.light .socialCard h3,  
+body.light .finalCTA h2,  
+body.light .intro h3,  
+body.light .availability h2{  
+    color:#202136;  
+}  
+  
+body.light .formGroup label{  
+    color:#44485e;  
+}  
+  
+body.light .formGroup input,  
+body.light .formGroup textarea{  
+    color:#202136;  
+    background:rgba(255,255,255,.65);  
+    border-color:rgba(0,0,0,.10);  
+}  
+  
+body.light footer{  
+    color:#73778d;  
+}  
+  
+/* NEW BOX LIGHT MODE */  
+  
+body.light .pageNavBox{  
+    background:rgba(255,255,255,.50);  
+    border-color:rgba(0,0,0,.08);  
+    box-shadow:0 18px 45px rgba(75,65,130,.10);  
+}  
+  
+body.light .pageNavHeading{  
+    color:#202136;  
+}  
+  
+body.light .pageNavBtn{  
+    color:#202136;  
+    border-color:rgba(0,0,0,.10);  
+}  
+  
+body.light .pageNavHint{  
+    color:#62677f;  
+}  
+  
+/* =========================  
+   MOBILE  
+========================= */  
+  
+@media(max-width:800px){  
+  
+    .side-menu{  
+        width:75%;  
+    }  
+  
+    .hero{  
+        padding:100px 0 35px;  
+    }  
+  
+    .profile{  
+        width:145px;  
+        height:145px;  
+    }  
+  
+    .contactGrid{  
+        grid-template-columns:1fr;  
+    }  
+  
+    .formGrid{  
+        grid-template-columns:1fr;  
+    }  
+  
+    .formGroup.full{  
+        grid-column:auto;  
+    }  
+  
+    .socialGrid{  
+        grid-template-columns:repeat(3,1fr);  
+        gap:10px;  
+    }  
+  
+    .socialCard{  
+        padding:20px 5px;  
+    }  
+  
+    .socialIcon{  
+        font-size:28px;  
+        margin-bottom:8px;  
+    }  
+  
+    .socialCard h3{  
+        font-size:13px;  
+        margin-bottom:4px;  
+    }  
+  
+    .socialCard p{  
+        font-size:9px;  
+    }  
+  
+    section{  
+        padding:60px 0;  
+    }  
+  
+    .contactCard{  
+        padding:16px 15px;  
+        min-height:78px;  
+        gap:10px;  
+    }  
+  
+    .contactIcon{  
+        width:38px;  
+        height:38px;  
+        border-radius:11px;  
+        font-size:18px;  
+    }  
+  
+    .contactTop{  
+        gap:9px;  
+    }  
+  
+    .contactTop h3{  
+        font-size:15px;  
+    }  
+  
+    .contactBottom{  
+        gap:7px;  
+    }  
+  
+    .contactValue{  
+        font-size:14px;  
+    }  
+  
+    .actionBtn{  
+        padding:7px 10px;  
+        font-size:11px;  
+    }  
+}  
+  
+/* =========================  
+   SMALL MOBILE  
+========================= */  
+  
+@media(max-width:450px){  
+  
+    .container{  
+        width:94%;  
+    }  
+  
+    .menu-btn,  
+    .theme-btn{  
+        width:44px;  
+        height:44px;  
+        top:15px;  
+    }  
+  
+    .menu-btn{  
+        left:12px;  
+    }  
+  
+    .theme-btn{  
+        right:12px;  
+    }  
+  
+    .hero{  
+        padding:92px 0 30px;  
+    }  
+  
+    .profile{  
+        width:125px;  
+        height:125px;  
+        margin-bottom:15px;  
+    }  
+  
+    .hero p{  
+        font-size:15px;  
+    }  
+  
+    .pageLabel{  
+        margin-top:10px;  
+    }  
+  
+    .card{  
+        padding:22px 16px;  
+    }  
+  
+    .intro{  
+        padding:28px 18px;  
+        margin-bottom:45px;  
+    }  
+  
+    .contactCard{  
+        padding:14px 12px;  
+        min-height:72px;  
+        gap:7px;  
+    }  
+  
+    .contactIcon{  
+        width:36px;  
+        height:36px;  
+        font-size:17px;  
+    }  
+  
+    .contactTop{  
+        gap:8px;  
+    }  
+  
+    .contactTop h3{  
+        font-size:14px;  
+    }  
+  
+    .contactBottom{  
+        gap:6px;  
+    }  
+  
+    .contactValue{  
+        font-size:13px;  
+    }  
+  
+    .actionBtn{  
+        padding:7px 9px;  
+        font-size:10px;  
+        border-radius:9px;  
+    }  
+  
+    .socialGrid{  
+        gap:6px;  
+    }  
+  
+    .socialCard{  
+        padding:16px 2px;  
+    }  
+  
+    .socialIcon{  
+        font-size:24px;  
+    }  
+  
+    .socialCard h3{  
+        font-size:11px;  
+    }  
+  
+    .socialCard p{  
+        font-size:8px;  
+    }  
+}  
+  
 
-<title>SM RAYHAN | Contact</title>
+/* EXPLORE BOX SMALL SCREEN — MATCH ABOUT */
 
-<meta
-    name="theme-color"
-    content="#080914"
->
+@media(max-width:480px){
 
-<meta
-    name="description"
-    content="Contact SM RAYHAN"
->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    color:#fff;
-    min-height:100vh;
-    overflow-x:hidden;
-
-    background:
-        radial-gradient(circle at 10% 10%,#635bff 0,transparent 28%),
-        radial-gradient(circle at 90% 85%,#ff3cac 0,transparent 28%),
-        linear-gradient(135deg,#080914,#12152a,#080914);
-
-    transition:.4s ease;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.bg{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:-2;
-}
-
-.blob{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(70px);
-    opacity:.22;
-    animation:blobMove 12s ease-in-out infinite alternate;
-}
-
-.blob1{
-    width:280px;
-    height:280px;
-    background:#735cff;
-    left:-100px;
-    top:10%;
-}
-
-.blob2{
-    width:300px;
-    height:300px;
-    background:#ff3cac;
-    right:-120px;
-    bottom:5%;
-    animation-delay:2s;
-}
-
-.blob3{
-    width:180px;
-    height:180px;
-    background:#00d4ff;
-    left:45%;
-    top:40%;
-    animation-delay:4s;
-}
-
-@keyframes blobMove{
-    from{
-        transform:translate(0,0) scale(1);
+    .pageNavBox{
+        width:100vw;
+        max-width:100vw;
+        margin:21px calc(50% - 50vw) 0;
+        padding:13px 10px;
+        border-radius:19px;
     }
-    to{
-        transform:translate(60px,-40px) scale(1.15);
-    }
-}
 
-/* =========================
-   TOP BUTTONS
-========================= */
-
-.menu-btn,
-.theme-btn{
-    position:fixed;
-    top:18px;
-    width:48px;
-    height:48px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border:1px solid rgba(255,255,255,.18);
-    border-radius:15px;
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(15px);
-    -webkit-backdrop-filter:blur(15px);
-
-    color:#fff;
-    font-size:23px;
-    cursor:pointer;
-    z-index:10002;
-    transition:.3s ease;
-}
-
-.menu-btn{
-    left:18px;
-}
-
-.theme-btn{
-    right:18px;
-}
-
-.menu-btn:hover,
-.theme-btn:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 0 20px rgba(115,92,255,.45),
-        0 0 30px rgba(255,60,172,.20);
-}
-
-/* =========================
-   SIDE MENU
-========================= */
-
-.side-menu{
-    position:fixed;
-    left:0;
-    top:0;
-    bottom:0;
-
-    width:50%;
-
-    padding:90px 20px 30px;
-
-    background:
-        radial-gradient(
-            circle at 20% 15%,
-            rgba(115,92,255,.28),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(255,60,172,.22),
-            transparent 35%
-        ),
-        rgba(8,9,20,.97);
-
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-
-    border-right:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        20px 0 60px rgba(0,0,0,.35);
-
-    transform:translateX(-105%);
-
-    opacity:0;
-    visibility:hidden;
-
-    transition:.4s ease;
-
-    z-index:10001;
-}
-
-.side-menu.show{
-    transform:translateX(0);
-    opacity:1;
-    visibility:visible;
-}
-
-.side-menu a{
-    display:block;
-
-    color:#fff;
-    text-decoration:none;
-
-    padding:14px 5px;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    font-size:15px;
-    transition:.3s ease;
-}
-
-.side-menu a:hover{
-    color:#ff75c7;
-    padding-left:12px;
-}
-
-/* =========================
-   CONTAINER
-========================= */
-
-.container{
-    width:min(1180px,92%);
-    margin:auto;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:105px 0 45px;
-}
-
-.heroContent{
-    width:100%;
-}
-
-.profile{
-    width:155px;
-    height:155px;
-
-    object-fit:cover;
-    border-radius:50%;
-
-    border:4px solid rgba(255,255,255,.9);
-
-    box-shadow:
-        0 0 25px rgba(115,92,255,.55),
-        0 0 55px rgba(255,60,172,.30);
-
-    animation:
-        profileGlow
-        4s ease-in-out
-        infinite alternate;
-
-    margin-bottom:18px;
-}
-
-@keyframes profileGlow{
-
-    from{
-        box-shadow:
-            0 0 20px rgba(115,92,255,.45),
-            0 0 40px rgba(255,60,172,.20);
+    .pageNavHeading{
+        gap:6px;
+        font-size:11px;
+        letter-spacing:1px;
+        margin-bottom:12px;
     }
 
-    to{
-        box-shadow:
-            0 0 35px rgba(115,92,255,.75),
-            0 0 70px rgba(255,60,172,.40);
-    }
-}
-
-.hero h1{
-    font-size:clamp(38px,7vw,70px);
-
-    font-weight:900;
-    letter-spacing:-2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #bcaeff,
-            #ff79c8,
-            #ffffff
-        );
-
-    background-size:250% auto;
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    animation:
-        gradientText
-        6s linear infinite;
-}
-
-@keyframes gradientText{
-    to{
-        background-position:250% center;
-    }
-}
-
-.hero p{
-    color:#cfcfff;
-    margin-top:7px;
-    font-size:17px;
-}
-
-.pageLabel{
-    margin-top:13px;
-    color:#ff8bd3;
-    font-size:14px;
-    font-weight:bold;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-    padding:65px 0;
-}
-
-.sectionHead{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.sectionHead span{
-    display:block;
-
-    color:#aaa1ff;
-    font-size:12px;
-    font-weight:bold;
-
-    letter-spacing:2px;
-    text-transform:uppercase;
-
-    margin-bottom:9px;
-}
-
-.sectionHead h2{
-    font-size:clamp(30px,5vw,48px);
-
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #b7aaff,
-            #ff65bd
-        );
-
-    -webkit-background-clip:text;
-    background-clip:text;
-
-    color:transparent;
-
-    margin-bottom:10px;
-}
-
-.sectionHead p{
-    max-width:650px;
-    margin:auto;
-
-    color:#aaaec4;
-    line-height:1.7;
-}
-
-/* =========================
-   GLASS
-========================= */
-
-.glass{
-    background:rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.18);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-}
-
-.card{
-    border-radius:24px;
-    padding:30px;
-    transition:.35s ease;
-}
-
-.card:hover{
-    transform:translateY(-6px);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.25),
-        0 0 30px rgba(115,92,255,.10);
-}
-
-/* =========================
-   INTRO
-========================= */
-
-.intro{
-    position:relative;
-    overflow:hidden;
-
-    padding:32px;
-    border-radius:24px;
-
-    text-align:center;
-    margin-bottom:60px;
-
-    background:rgba(255,255,255,.035);
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.18);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-}
-
-.intro:before{
-    content:"";
-
-    position:absolute;
-    inset:-2px;
-
-    border-radius:26px;
-
-    background:
-        conic-gradient(
-            from 0deg,
-            #735cff,
-            #ff3cac,
-            #00d4ff,
-            #735cff
-        );
-
-    animation:
-        spinBorder
-        7s linear infinite;
-
-    z-index:-2;
-
-    filter:
-        drop-shadow(
-            0 0 5px rgba(115,92,255,.55)
-        )
-        drop-shadow(
-            0 0 9px rgba(255,60,172,.35)
-        );
-}
-
-.intro:after{
-    content:"";
-
-    position:absolute;
-    inset:2px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(8,9,20,.94),
-            rgba(18,21,42,.90),
-            rgba(8,9,20,.94)
-        );
-
-    border-radius:22px;
-    z-index:-1;
-}
-
-@keyframes spinBorder{
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-.intro h3{
-    font-size:25px;
-    margin-bottom:10px;
-}
-
-.intro p{
-    color:#bfc3da;
-    line-height:1.8;
-}
-
-/* =========================
-   CONTACT GRID
-========================= */
-
-.contactGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-}
-
-.contactCard{
-    border-radius:20px;
-
-    padding:18px 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:18px;
-
-    min-height:92px;
-
-    transition:.35s ease;
-}
-
-.contactCard:hover{
-    transform:translateY(-4px);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.25),
-        0 0 25px rgba(115,92,255,.12);
-}
-
-.contactTop{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:0;
-}
-
-.contactIcon{
-    width:42px;
-    height:42px;
-
-    flex-shrink:0;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    border-radius:13px;
-
-    background:rgba(255,255,255,.07);
-
-    font-size:20px;
-}
-
-.contactTop h3{
-    font-size:16px;
-    font-weight:600;
-    white-space:nowrap;
-}
-
-.contactBottom{
-    display:flex;
-    align-items:center;
-    justify-content:flex-end;
-
-    gap:10px;
-    min-width:0;
-}
-
-.contactValue{
-    color:#d3d6e5;
-
-    font-size:14px;
-    line-height:1.4;
-
-    word-break:break-word;
-    text-align:right;
-}
-
-.actionBtn{
-    flex-shrink:0;
-
-    border:0;
-    border-radius:10px;
-
-    padding:8px 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #735cff,
-            #ff3cac
-        );
-
-    color:#fff;
-
-    text-decoration:none;
-
-    font-size:12px;
-    font-weight:bold;
-
-    cursor:pointer;
-    transition:.3s ease;
-}
-
-.actionBtn:hover{
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 8px 25px rgba(115,92,255,.35);
-}
-
-/* =========================
-   FORM
-========================= */
-
-.formCard{
-    margin-top:20px;
-}
-
-.formGrid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.formGroup{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.formGroup.full{
-    grid-column:1/-1;
-}
-
-.formGroup label{
-    color:#c9cbe0;
-    font-size:13px;
-}
-
-.formGroup input,
-.formGroup textarea{
-    width:100%;
-
-    border:1px solid rgba(255,255,255,.10);
-
-    outline:none;
-    border-radius:14px;
-
-    padding:14px 15px;
-
-    background:rgba(255,255,255,.055);
-
-    color:#fff;
-
-    font-family:inherit;
-
-    transition:.3s ease;
-}
-
-.formGroup textarea{
-    min-height:150px;
-    resize:vertical;
-}
-
-.formGroup input:focus,
-.formGroup textarea:focus{
-    border-color:#9b8cff;
-
-    box-shadow:
-        0 0 0 3px rgba(115,92,255,.10);
-}
-
-.sendBtn{
-    margin-top:20px;
-    width:100%;
-
-    border:0;
-    border-radius:15px;
-
-    padding:15px;
-
-    color:#fff;
-
-    font-size:15px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    background:
-        linear-gradient(
-            135deg,
-            #735cff,
-            #ff3cac
-        );
-
-    transition:.3s ease;
-}
-
-.sendBtn:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 15px 35px rgba(115,92,255,.30);
-}
-
-.sendBtn:disabled{
-    opacity:.65;
-    cursor:not-allowed;
-    transform:none;
-}
-
-.success{
-    display:none;
-
-    margin-top:15px;
-    padding:13px;
-
-    border-radius:13px;
-
-    text-align:center;
-
-    background:rgba(0,255,150,.08);
-
-    border:1px solid rgba(0,255,150,.20);
-
-    color:#8dffca;
-
-    font-size:14px;
-}
-
-/* =========================
-   SOCIAL
-========================= */
-
-.socialGrid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.socialCard{
-    text-decoration:none;
-    color:#fff;
-
-    text-align:center;
-
-    padding:28px 15px;
-
-    border-radius:24px;
-
-    transition:.35s ease;
-}
-
-.socialCard:hover{
-    transform:translateY(-7px);
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.25),
-        0 0 25px rgba(255,60,172,.12);
-}
-
-.socialIcon{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-.socialCard h3{
-    font-size:17px;
-    margin-bottom:5px;
-}
-
-.socialCard p{
-    color:#9fa4bd;
-    font-size:12px;
-}
-
-/* =========================
-   AVAILABILITY
-========================= */
-
-.availability{
-    text-align:center;
-}
-
-.online{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-
-    color:#8dffca;
-    font-size:14px;
-
-    margin-bottom:15px;
-}
-
-.onlineDot{
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#35ff9b;
-
-    box-shadow:0 0 12px #35ff9b;
-
-    animation:pulse 1.7s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.4);
-        opacity:.5;
-    }
-}
-
-.availability h2{
-    margin-bottom:12px;
-}
-
-.availability p{
-    color:#aeb2c9;
-
-    line-height:1.7;
-
-    max-width:650px;
-    margin:auto;
-}
-
-/* =========================
-   FINAL CTA
-========================= */
-
-.finalCTA{
-    text-align:center;
-
-    padding:50px 25px;
-
-    border-radius:28px;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(115,92,255,.20),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(255,60,172,.18),
-            transparent 35%
-        ),
-        rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.10);
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.20);
-}
-
-.finalCTA h2{
-    font-size:clamp(28px,5vw,45px);
-    margin-bottom:12px;
-}
-
-.finalCTA p{
-    color:#afb3c9;
-
-    max-width:600px;
-
-    margin:0 auto 25px;
-
-    line-height:1.7;
-}
-
-.btn{
-    display:inline-flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:13px 22px;
-
-    border-radius:14px;
-
-    color:#fff;
-
-    text-decoration:none;
-    font-weight:bold;
-
-    transition:.3s ease;
-}
-
-.btnPrimary{
-    background:
-        linear-gradient(
-            135deg,
-            #735cff,
-            #ff3cac
-        );
-}
-
-.btnPrimary:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 15px 35px rgba(115,92,255,.35);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    text-align:center;
-
-    padding:40px 20px;
-
-    color:#858ba8;
-    font-size:13px;
-}
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-#topBtn{
-    position:fixed;
-
-    right:18px;
-    bottom:18px;
-
-    width:45px;
-    height:45px;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:14px;
-
-    background:rgba(255,255,255,.08);
-
-    color:#fff;
-
-    backdrop-filter:blur(15px);
-
-    cursor:pointer;
-
-    display:none;
-
-    z-index:9999;
-
-    font-size:20px;
-}
-
-/* =========================
-   LIGHT MODE
-========================= */
-
-body.light{
-    color:#17182a;
-
-    background:
-        radial-gradient(circle at 10% 10%,#c8c1ff 0,transparent 28%),
-        radial-gradient(circle at 90% 85%,#ffc4e7 0,transparent 28%),
-        linear-gradient(135deg,#f5f3ff,#fff5fb,#f4f6ff);
-}
-
-body.light .side-menu{
-    background:
-        radial-gradient(
-            circle at 20% 15%,
-            rgba(115,92,255,.22),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 80%,
-            rgba(255,60,172,.18),
-            transparent 35%
-        ),
-        rgba(255,255,255,.94);
-}
-
-body.light .side-menu a{
-    color:#202136;
-    border-bottom-color:rgba(0,0,0,.08);
-}
-
-body.light .menu-btn,
-body.light .theme-btn,
-body.light #topBtn{
-    color:#202136;
-
-    background:rgba(255,255,255,.60);
-
-    border-color:rgba(0,0,0,.08);
-}
-
-body.light .hero p,
-body.light .contactValue,
-body.light .availability p,
-body.light .sectionHead p,
-body.light .socialCard p,
-body.light .finalCTA p{
-    color:#62677f;
-}
-
-body.light .glass{
-    background:rgba(255,255,255,.55);
-
-    border-color:rgba(0,0,0,.08);
-
-    box-shadow:
-        0 20px 60px rgba(75,65,130,.12);
-}
-
-body.light .intro{
-    background:rgba(255,255,255,.18);
-    border-color:rgba(0,0,0,.08);
-}
-
-body.light .intro:after{
-    background:
-        linear-gradient(
-            135deg,
-            rgba(245,243,255,.94),
-            rgba(255,247,252,.92),
-            rgba(242,247,255,.94)
-        );
-}
-
-body.light .contactTop h3,
-body.light .socialCard h3,
-body.light .finalCTA h2,
-body.light .intro h3,
-body.light .availability h2{
-    color:#202136;
-}
-
-body.light .formGroup label{
-    color:#44485e;
-}
-
-body.light .formGroup input,
-body.light .formGroup textarea{
-    color:#202136;
-
-    background:rgba(255,255,255,.65);
-
-    border-color:rgba(0,0,0,.10);
-}
-
-body.light footer{
-    color:#73778d;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:800px){
-
-    .side-menu{
-        width:75%;
-    }
-
-    .hero{
-        padding:100px 0 35px;
-    }
-
-    .profile{
-        width:145px;
-        height:145px;
-    }
-
-    .contactGrid{
-        grid-template-columns:1fr;
-    }
-
-    .formGrid{
-        grid-template-columns:1fr;
-    }
-
-    .formGroup.full{
-        grid-column:auto;
-    }
-
-    .socialGrid{
-        grid-template-columns:repeat(3,1fr);
-        gap:10px;
-    }
-
-    .socialCard{
-        padding:20px 5px;
-    }
-
-    .socialIcon{
-        font-size:28px;
-        margin-bottom:8px;
-    }
-
-    .socialCard h3{
-        font-size:13px;
-        margin-bottom:4px;
-    }
-
-    .socialCard p{
-        font-size:9px;
-    }
-
-    section{
-        padding:60px 0;
-    }
-
-    .contactCard{
-        padding:16px 15px;
-        min-height:78px;
-        gap:10px;
-    }
-
-    .contactIcon{
-        width:38px;
-        height:38px;
-        border-radius:11px;
-        font-size:18px;
-    }
-
-    .contactTop{
-        gap:9px;
-    }
-
-    .contactTop h3{
-        font-size:15px;
-    }
-
-    .contactBottom{
+    .pageNavButtons{
         gap:7px;
     }
 
-    .contactValue{
-        font-size:14px;
-    }
-
-    .actionBtn{
-        padding:7px 10px;
+    .pageNavBtn{
+        min-height:69px;
+        padding:9px 3px;
+        gap:6px;
+        border-radius:13px;
         font-size:11px;
     }
-}
 
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media(max-width:450px){
-
-    .container{
-        width:94%;
-    }
-
-    .menu-btn,
-    .theme-btn{
-        width:44px;
-        height:44px;
-        top:15px;
-    }
-
-    .menu-btn{
-        left:12px;
-    }
-
-    .theme-btn{
-        right:12px;
-    }
-
-    .hero{
-        padding:92px 0 30px;
-    }
-
-    .profile{
-        width:125px;
-        height:125px;
-        margin-bottom:15px;
-    }
-
-    .hero p{
+    .pageNavIcon{
+        width:28px;
+        height:28px;
         font-size:15px;
-    }
-
-    .pageLabel{
-        margin-top:10px;
-    }
-
-    .card{
-        padding:22px 16px;
-    }
-
-    .intro{
-        padding:28px 18px;
-        margin-bottom:45px;
-    }
-
-    .contactCard{
-        padding:14px 12px;
-        min-height:72px;
-        gap:7px;
-    }
-
-    .contactIcon{
-        width:36px;
-        height:36px;
-        font-size:17px;
-    }
-
-    .contactTop{
-        gap:8px;
-    }
-
-    .contactTop h3{
-        font-size:14px;
-    }
-
-    .contactBottom{
-        gap:6px;
-    }
-
-    .contactValue{
-        font-size:13px;
-    }
-
-    .actionBtn{
-        padding:7px 9px;
-        font-size:10px;
         border-radius:9px;
     }
 
-    .socialGrid{
+    .pageNavHint{
+        margin-top:10px;
+        font-size:9px;
+    }
+}
+
+  
+@media(max-width:480px){
+
+    .pageNavBox{
+        margin-top:21px;
+        padding:13px 10px;
+        border-radius:19px;
+    }
+
+    .pageNavHeading{
+        font-size:11px;
+        letter-spacing:1px;
         gap:6px;
+        margin-bottom:12px;
     }
 
-    .socialCard{
-        padding:16px 2px;
+    .pageNavButtons{
+        gap:7px;
     }
 
-    .socialIcon{
-        font-size:24px;
-    }
-
-    .socialCard h3{
+    .pageNavBtn{
+        min-height:69px;
+        padding:9px 3px;
+        gap:6px;
+        border-radius:13px;
         font-size:11px;
     }
 
-    .socialCard p{
-        font-size:8px;
+    .pageNavIcon{
+        width:28px;
+        height:28px;
+        font-size:15px;
+        border-radius:9px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .pageNavHint{
+        font-size:9px;
+        margin-top:10px;
     }
 }
 
-</style>
 
-</head>
+/* Remove Explore More Pages Outer Box and Moving Light */
+.pageNavBox {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+}
 
-<body>
+.pageNavBox::before {
+    display: none !important;
+    animation: none !important;
+}
 
-<!-- BACKGROUND -->
 
-<div class="bg">
+/* SM RAYHAN - Smooth Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+}
 
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+
+</style>  </head>  <body>  <!-- BACKGROUND -->  <div class="bg">  
+    <div class="blob blob1"></div>  
+    <div class="blob blob2"></div>  
+    <div class="blob blob3"></div>  
+</div>  <!-- TOP BUTTONS -->  <button
+class="menu-btn"
+id="menuBtn"
+onclick="toggleMenu()"
+
+> 
+
+☰
+
+</button>  <button
+class="theme-btn"
+id="themeBtn"
+onclick="toggleTheme()"
+
+> 
+
+🌙
+
+</button>  <!-- SIDE MENU -->  <nav class="side-menu" id="sideMenu">  <a href="index.html">🏠 Home</a>  
+<a href="about.html">👤 About</a>  
+<a href="contact.html">📞 Contact</a>  
+<a href="gallery.html">🖼️ Gallery</a>  
+
+<a  
+    href="#"  
+    id="menuFacebook"  
+    target="_blank"  
+    rel="noopener"  
+>  
+    📘 Facebook  
+</a>  
+
+<a  
+    href="#"  
+    id="menuLinkedin"  
+    target="_blank"  
+    rel="noopener"  
+>  
+    💼 LinkedIn  
+</a>  
+
+<a  
+    href="#"  
+    id="menuWhatsapp"  
+    target="_blank"  
+    rel="noopener"  
+>  
+    💬 WhatsApp  
+</a>  
+
+<a href="app.html">📱 Get App</a>  
+<a href="admin.html">🔐 Admin Login</a>
+
+</nav>  <!-- HERO -->  <header class="hero reveal">  <div class="container heroContent">  
+
+    <img  
+        src="smraihan.jpg"  
+        class="profile"  
+        id="profileImage"  
+        alt="SM RAYHAN"  
+    >  
+
+    <h1 id="profileName">SM RAYHAN</h1>  
+
+    <p id="profileSubtitle">  
+        Welcome to My Website ❤️  
+    </p>  
+
+    <div class="pageLabel">  
+        📞 Contact Me  
+    </div>  
+
+    <!-- EXPLORE MORE PAGES: NEW BOX -->  
+
+    <div class="pageNavBox">  
+
+        <div class="pageNavHeading">  
+            <span class="navSpark">✦</span>  
+            <span>Explore More Pages</span>  
+            <span class="navSpark">✦</span>  
+        </div>  
+
+        <div class="pageNavButtons">  
+
+            <a  
+                class="pageNavBtn homePage"  
+                href="index.html"  
+            >  
+                <span class="pageNavIcon">🏠</span>  
+                <span>Home</span>  
+            </a>  
+
+            <a  
+                class="pageNavBtn aboutPage"  
+                href="about.html"  
+            >  
+                <span class="pageNavIcon">👤</span>  
+                <span>About</span>  
+            </a>  
+
+            <a  
+                class="pageNavBtn galleryPage"  
+                href="gallery.html"  
+            >  
+                <span class="pageNavIcon">▧</span>  
+                <span>Gallery</span>  
+            </a>  
+
+        </div>  
+
+        <div class="pageNavHint">  
+            Discover more about SM RAYHAN ✨  
+        </div>  
+
+    </div>  
 
 </div>
 
+</header>  <main>  <!-- CONTACT INTRO -->  <section>  <div class="container">  <div class="sectionHead">  
 
-<!-- TOP BUTTONS -->
-
-<button
-    class="menu-btn"
-    id="menuBtn"
-    onclick="toggleMenu()"
->
-    ☰
-</button>
-
-<button
-    class="theme-btn"
-    id="themeBtn"
-    onclick="toggleTheme()"
->
-    🌙
-</button>
+    <span id="contactEyebrow">  
+        Get In Touch  
+    </span>  
 
+    <h2 id="contactMainTitle">  
+        Let's Connect  
+    </h2>  
 
-<!-- SIDE MENU -->
+    <p id="contactMainDescription">  
+        Have a question, project idea, or something  
+        you'd like to discuss? Feel free to contact me.  
+    </p>  
 
-<nav
-    class="side-menu"
-    id="sideMenu"
->
+</div>  
 
-    <a href="index.html">
-        🏠 Home
-    </a>
+<div class="intro">  
 
-    <a href="about.html">
-        👤 About
-    </a>
+    <h3 id="contactIntroTitle">  
+        Let's Connect 🤝  
+    </h3>  
 
-    <a href="contact.html">
-        📞 Contact
-    </a>
+    <p id="contactIntroText">  
+        I am always open to new ideas, projects,  
+        opportunities, and meaningful connections.  
+    </p>  
 
-    <a href="gallery.html">
-        🖼️ Gallery
-    </a>
+</div>  
 
-    <a
-        href="#"
-        id="menuFacebook"
-        target="_blank"
-        rel="noopener"
-    >
-        📘 Facebook
-    </a>
+<div class="sectionHead">  
 
-    <a
-        href="#"
-        id="menuLinkedin"
-        target="_blank"
-        rel="noopener"
-    >
-        💼 LinkedIn
-    </a>
+    <span>Contact Information</span>  
 
-    <a
-        href="#"
-        id="menuWhatsapp"
-        target="_blank"
-        rel="noopener"
-    >
-        💬 WhatsApp
-    </a>
+    <h2>💌 Let's Stay Connected</h2>  
 
-    <a href="app.html">
-        📱 Get App
-    </a>
+    <p>  
+        You can reach me directly by email or phone.  
+    </p>  
 
-    <a href="admin.html">
-        🔐 Admin Login
-    </a>
+</div>  
 
-</nav>
+<div class="contactGrid">  
 
+    <!-- EMAIL -->  
 
-<!-- HERO -->
+    <div class="contactCard glass">  
 
-<header class="hero">
+        <div class="contactTop">  
 
-    <div class="container heroContent">
+            <div class="contactIcon">✉️</div>  
 
-        <img
-            src="smraihan.jpg"
-            class="profile"
-            id="profileImage"
-            alt="SM RAYHAN"
-        >
+            <h3>Email</h3>  
 
-        <h1 id="profileName">
-            SM RAYHAN
-        </h1>
+        </div>  
 
-        <p id="profileSubtitle">
-            Welcome to My Website ❤️
-        </p>
+        <div class="contactBottom">  
 
-        <div class="pageLabel">
-            📞 Contact Me
-        </div>
+            <div class="contactValue" id="email">  
+                Loading...  
+            </div>  
 
-    </div>
+            <a  
+                class="actionBtn"  
+                id="emailLink"  
+                href="#"  
+                onclick="handleEmail(event)"  
+            >  
+                ✉️ Mail  
+            </a>  
 
-</header>
+        </div>  
 
+    </div>  
 
-<main>
+    <!-- PHONE -->  
 
+    <div class="contactCard glass">  
 
-<!-- CONTACT INTRO -->
+        <div class="contactTop">  
 
-<section>
+            <div class="contactIcon">📞</div>  
 
-<div class="container">
+            <h3>Phone</h3>  
 
-    <div class="sectionHead">
+        </div>  
 
-        <span id="contactEyebrow">
-            Get In Touch
-        </span>
+        <div class="contactBottom">  
 
-        <h2 id="contactMainTitle">
-            Let's Connect
-        </h2>
+            <div class="contactValue" id="phone">  
+                Loading...  
+            </div>  
 
-        <p id="contactMainDescription">
-            Have a question, project idea, or something
-            you'd like to discuss? Feel free to contact me.
-        </p>
+            <a  
+                class="actionBtn"  
+                id="phoneCall"  
+                href="#"  
+                onclick="handleCall(event)"  
+            >  
+                📞 Call  
+            </a>  
 
-    </div>
+        </div>  
 
-
-    <div class="intro">
-
-        <h3 id="contactIntroTitle">
-            Let's Connect 🤝
-        </h3>
-
-        <p id="contactIntroText">
-            I am always open to new ideas, projects,
-            opportunities, and meaningful connections.
-        </p>
-
-    </div>
-
-
-    <div class="sectionHead">
-
-        <span>
-            Contact Information
-        </span>
-
-        <h2>
-            💌 Let's Stay Connected
-        </h2>
-
-        <p>
-            You can reach me directly by email or phone.
-        </p>
-
-    </div>
-
-
-    <div class="contactGrid">
-
-
-        <!-- EMAIL -->
-
-        <div class="contactCard glass">
-
-            <div class="contactTop">
-
-                <div class="contactIcon">
-                    ✉️
-                </div>
-
-                <h3>
-                    Email
-                </h3>
-
-            </div>
-
-            <div class="contactBottom">
-
-                <div
-                    class="contactValue"
-                    id="email"
-                >
-                    Loading...
-                </div>
-
-                <a
-                    class="actionBtn"
-                    id="emailLink"
-                    href="#"
-                    onclick="handleEmail(event)"
-                >
-                    ✉️ Mail
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- PHONE -->
-
-        <div class="contactCard glass">
-
-            <div class="contactTop">
-
-                <div class="contactIcon">
-                    📞
-                </div>
-
-                <h3>
-                    Phone
-                </h3>
-
-            </div>
-
-            <div class="contactBottom">
-
-                <div
-                    class="contactValue"
-                    id="phone"
-                >
-                    Loading...
-                </div>
-
-                <a
-                    class="actionBtn"
-                    id="phoneCall"
-                    href="#"
-                    onclick="handleCall(event)"
-                >
-                    📞 Call
-                </a>
-
-            </div>
-
-        </div>
-
-
-    </div>
+    </div>  
 
 </div>
 
-</section>
+</div>  </section>  <!-- SEND MESSAGE -->  <section>  <div class="container">  <div class="sectionHead">  
 
+    <span>Send Message</span>  
 
-<!-- SEND MESSAGE -->
+    <h2>Write To Me</h2>  
 
-<section>
+    <p>  
+        Fill out the form below and send your message.  
+    </p>  
 
-<div class="container">
+</div>  
 
-    <div class="sectionHead">
+<div class="card glass formCard">  
 
-        <span>
-            Send Message
-        </span>
+    <div class="formGrid">  
 
-        <h2>
-            Write To Me
-        </h2>
+        <div class="formGroup">  
 
-        <p>
-            Fill out the form below and send your message.
-        </p>
+            <label>Your Name</label>  
 
-    </div>
+            <input  
+                type="text"  
+                id="name"  
+                placeholder="Enter your name"  
+                autocomplete="name"  
+            >  
 
+        </div>  
 
-    <div class="card glass formCard">
+        <div class="formGroup">  
 
-        <div class="formGrid">
+            <label>Mobile Number</label>  
 
-            <div class="formGroup">
+            <input  
+                type="tel"  
+                id="mobile"  
+                placeholder="Enter your mobile number"  
+                autocomplete="tel"  
+            >  
 
-                <label>
-                    Your Name
-                </label>
+        </div>  
 
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    autocomplete="name"
-                >
+        <div class="formGroup">  
 
-            </div>
+            <label>Subject</label>  
 
+            <input  
+                type="text"  
+                id="subject"  
+                placeholder="Enter message subject"  
+            >  
 
-            <div class="formGroup">
+        </div>  
 
-                <label>
-                    Mobile Number
-                </label>
+        <div class="formGroup full">  
 
-                <input
-                    type="tel"
-                    id="mobile"
-                    placeholder="Enter your mobile number"
-                    autocomplete="tel"
-                >
+            <label>Message</label>  
 
-            </div>
+            <textarea  
+                id="message"  
+                placeholder="Write your message..."  
+            ></textarea>  
 
+        </div>  
 
-            <div class="formGroup">
+    </div>  
 
-                <label>
-                    Subject
-                </label>
+    <button  
+        class="sendBtn"  
+        id="sendBtn"  
+        type="button"  
+        onclick="sendMessage()"  
+    >  
+        🚀 Send Message  
+    </button>  
 
-                <input
-                    type="text"
-                    id="subject"
-                    placeholder="Enter message subject"
-                >
-
-            </div>
-
-
-            <div class="formGroup full">
-
-                <label>
-                    Message
-                </label>
-
-                <textarea
-                    id="message"
-                    placeholder="Write your message..."
-                ></textarea>
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="sendBtn"
-            id="sendBtn"
-            type="button"
-            onclick="sendMessage()"
-        >
-            🚀 Send Message
-        </button>
-
-
-        <div
-            class="success"
-            id="successMessage"
-        >
-            ✅ Your message has been sent successfully!
-        </div>
-
-    </div>
+    <div class="success" id="successMessage">  
+        ✅ Your message has been sent successfully!  
+    </div>  
 
 </div>
 
-</section>
+</div>  </section>  <!-- SOCIAL -->  <section>  <div class="container">  <div class="sectionHead">  
 
+    <span>Social Media</span>  
 
-<!-- SOCIAL -->
+    <h2>Find Me Online</h2>  
 
-<section>
+    <p>  
+        Connect with me through my social media profiles.  
+    </p>  
 
-<div class="container">
+</div>  
 
-    <div class="sectionHead">
+<div class="socialGrid">  
 
-        <span>
-            Social Media
-        </span>
+    <a  
+        href="#"  
+        id="facebookLink"  
+        class="socialCard glass"  
+        target="_blank"  
+        rel="noopener"  
+    >  
 
-        <h2>
-            Find Me Online
-        </h2>
+        <div class="socialIcon">📘</div>  
 
-        <p>
-            Connect with me through my social media profiles.
-        </p>
+        <h3 id="facebookTitle">Facebook</h3>  
 
-    </div>
+        <p id="facebookDesc">Connect with me</p>  
 
+    </a>  
 
-    <div class="socialGrid">
+    <a  
+        href="#"  
+        id="linkedinLink"  
+        class="socialCard glass"  
+        target="_blank"  
+        rel="noopener"  
+    >  
 
+        <div class="socialIcon">💼</div>  
 
-        <a
-            href="#"
-            id="facebookLink"
-            class="socialCard glass"
-            target="_blank"
-            rel="noopener"
-        >
+        <h3 id="linkedinTitle">LinkedIn</h3>  
 
-            <div class="socialIcon">
-                📘
-            </div>
+        <p id="linkedinDesc">Professional profile</p>  
 
-            <h3 id="facebookTitle">
-                Facebook
-            </h3>
+    </a>  
 
-            <p id="facebookDesc">
-                Connect with me
-            </p>
+    <a  
+        href="#"  
+        id="whatsappLink"  
+        class="socialCard glass"  
+        target="_blank"  
+        rel="noopener"  
+    >  
 
-        </a>
+        <div class="socialIcon">💬</div>  
 
+        <h3 id="whatsappTitle">WhatsApp</h3>  
 
-        <a
-            href="#"
-            id="linkedinLink"
-            class="socialCard glass"
-            target="_blank"
-            rel="noopener"
-        >
+        <p id="whatsappDesc">Chat with me</p>  
 
-            <div class="socialIcon">
-                💼
-            </div>
-
-            <h3 id="linkedinTitle">
-                LinkedIn
-            </h3>
-
-            <p id="linkedinDesc">
-                Professional profile
-            </p>
-
-        </a>
-
-
-        <a
-            href="#"
-            id="whatsappLink"
-            class="socialCard glass"
-            target="_blank"
-            rel="noopener"
-        >
-
-            <div class="socialIcon">
-                💬
-            </div>
-
-            <h3 id="whatsappTitle">
-                WhatsApp
-            </h3>
-
-            <p id="whatsappDesc">
-                Chat with me
-            </p>
-
-        </a>
-
-
-    </div>
+    </a>  
 
 </div>
 
-</section>
+</div>  </section>  <!-- AVAILABILITY -->  <section>  <div class="container">  <div class="card glass availability">  
 
+    <div class="online">  
+        <span class="onlineDot"></span>  
+        Currently Available  
+    </div>  
 
-<!-- AVAILABILITY -->
+    <h2 id="availabilityTitle">  
+        Open For New Opportunities  
+    </h2>  
 
-<section>
-
-<div class="container">
-
-    <div class="card glass availability">
-
-        <div class="online">
-
-            <span class="onlineDot"></span>
-
-            Currently Available
-
-        </div>
-
-        <h2 id="availabilityTitle">
-            Open For New Opportunities
-        </h2>
-
-        <p id="availabilityText">
-            Available for new projects, website development,
-            Excel work, and other professional opportunities.
-        </p>
-
-    </div>
+    <p id="availabilityText">  
+        Available for new projects, website development,  
+        Excel work, and other professional opportunities.  
+    </p>  
 
 </div>
 
-</section>
+</div>  </section>  <!-- FINAL CTA -->  <section>  <div class="container">  <div class="finalCTA">  
 
+    <h2 id="ctaTitle">  
+        Have Something In Mind? 🚀  
+    </h2>  
 
-<!-- FINAL CTA -->
+    <p id="ctaText">  
+        Send me a message directly on WhatsApp  
+        and let's discuss your idea.  
+    </p>  
 
-<section>
-
-<div class="container">
-
-    <div class="finalCTA">
-
-        <h2 id="ctaTitle">
-            Have Something In Mind? 🚀
-        </h2>
-
-        <p id="ctaText">
-            Send me a message directly on WhatsApp
-            and let's discuss your idea.
-        </p>
-
-        <a
-            href="#"
-            id="finalWhatsapp"
-            class="btn btnPrimary"
-            target="_blank"
-            rel="noopener"
-        >
-            💬 Chat On WhatsApp
-        </a>
-
-    </div>
+    <a  
+        href="#"  
+        id="finalWhatsapp"  
+        class="btn btnPrimary"  
+        target="_blank"  
+        rel="noopener"  
+    >  
+        💬 Chat On WhatsApp  
+    </a>  
 
 </div>
 
-</section>
-
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <span id="footerCopyright">
-        © 2026 SM RAYHAN | My Personal Website ❤️
-    </span>
-
-</footer>
-
-
-<!-- BACK TO TOP -->
-
-<button
-    id="topBtn"
-    type="button"
->
-    ↑
-</button>
-
-
-<script>
-
-/* =========================
-   SUPABASE
-========================= */
-
-const SUPABASE_URL =
-"https://oppmdnnzgqdnwpqqkwsq.supabase.co";
-
-const SUPABASE_KEY =
-"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";
-
-const supabaseClient =
-    supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
-
-
-/* =========================
-   VARIABLES
-========================= */
-
-let phoneNumber = "";
-let emailAddress = "";
-let whatsappNumber = "";
-let locationText = "";
-
-
-/* =========================
-   HELPER
-========================= */
-
-function setText(id,value){
-
-    const element =
-        document.getElementById(id);
-
-    if(
-        element &&
-        value !== undefined &&
-        value !== null &&
-        String(value).trim() !== ""
-    ){
-
-        element.textContent =
-            value;
-    }
-
-}
-
-
-/* =========================
-   WHATSAPP LINK
-========================= */
-
-function makeWhatsAppLink(value){
-
-    if(!value){
-        return "";
-    }
-
-    const text =
-        String(value).trim();
-
-    if(!text){
-        return "";
-    }
-
-    if(
-        text.startsWith("http://") ||
-        text.startsWith("https://")
-    ){
-
-        return text;
-    }
-
-    const number =
-        text
-        .replace(/^\+/,"")
-        .replace(/[^\d]/g,"");
-
-    if(!number){
-        return "";
-    }
-
-    return "https://wa.me/" + number;
-}
-
-
-/* =========================
-   PHONE LINK
-========================= */
-
-function makePhoneLink(value){
-
-    if(!value){
-        return "";
-    }
-
-    let number =
-        String(value).trim();
-
-    number =
-        number.replace(/[^\d+]/g,"");
-
-    if(number.startsWith("00")){
-
-        number =
-            "+" +
-            number.substring(2);
-    }
-
-    if(
-        !number.startsWith("+") &&
-        number.startsWith("0")
-    ){
-
-        number =
-            "+880" +
-            number.substring(1);
-    }
-
-    if(!number){
-        return "";
-    }
-
-    return "tel:" + number;
-}
-
-
-/* =========================
-   EMAIL LINK
-========================= */
-
-function makeEmailLink(value){
-
-    if(!value){
-        return "";
-    }
-
-    const email =
-        String(value).trim();
-
-    if(!email){
-        return "";
-    }
-
-    return "mailto:" + email;
-}
-
-
-/* =========================
-   SET LINK
-========================= */
-
-function setLink(id,url){
-
-    const element =
-        document.getElementById(id);
-
-    if(!element){
-        return;
-    }
-
-    if(url){
-
-        element.href =
-            url;
-
-        element.style.pointerEvents =
-            "auto";
-
-        element.style.opacity =
-            "1";
-
-    }
-
-}
-
-
-/* =========================
-   CALL
-========================= */
-
-function handleCall(event){
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    if(!phoneNumber){
-
-        alert(
-            "Phone number is not available."
-        );
-
-        return;
-    }
-
-    const phoneLink =
-        makePhoneLink(
-            phoneNumber
-        );
-
-    if(!phoneLink){
-
-        alert(
-            "Invalid phone number."
-        );
-
-        return;
-    }
-
-    window.location.href =
-        phoneLink;
-}
-
-
-/* =========================
-   EMAIL
-========================= */
-
-function handleEmail(event){
-
-    event.preventDefault();
-    event.stopPropagation();
-
-    if(!emailAddress){
-
-        alert(
-            "Email address is not available."
-        );
-
-        return;
-    }
-
-    const emailLink =
-        makeEmailLink(
-            emailAddress
-        );
-
-    if(!emailLink){
-
-        alert(
-            "Invalid email address."
-        );
-
-        return;
-    }
-
-    window.location.href =
-        emailLink;
-}
-
-
-/* =========================
-   LOAD CONTACT
-========================= */
-
-async function loadContact(){
-
-    try{
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-            .from("website_content")
-            .select("section,content");
-
-
-        if(error){
-
-            console.error(
-                "Website content error:",
-                error
-            );
-
-            setText(
-                "phone",
-                "Not available"
-            );
-
-            setText(
-                "email",
-                "Not available"
-            );
-
-            return;
-        }
-
-
-        const content = {};
-
-
-        (data || []).forEach(row=>{
-
-            if(!content[row.section]){
-
-                content[row.section] =
-                    {};
-            }
-
-            if(
-                row.content &&
-                typeof row.content === "object"
-            ){
-
-                Object.assign(
-                    content[row.section],
-                    row.content
-                );
-            }
-
-        });
-
-
-        const home =
-            content.home || {};
-
-        const contact =
-            content.contact || {};
-
-        const social =
-            content.social || {};
-
-        const website =
-            content.website || {};
-
-        const profile =
-            content.profile || {};
-
-
-        /* =========================
-           PROFILE
-        ========================= */
-
-        setText(
-            "profileName",
-            home.name ||
-            "SM RAYHAN"
-        );
-
-
-        setText(
-            "profileSubtitle",
-            home.subtitle ||
-            "Welcome to My Website ❤️"
-        );
-
-
-        if(profile.image_url){
-
-            const image =
-                document.getElementById(
-                    "profileImage"
-                );
-
-            if(image){
-
-                image.src =
-                    profile.image_url;
-
-            }
-
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        phoneNumber =
-            contact.contact_phone ||
-            contact.phone ||
-            "";
-
-        emailAddress =
-            contact.contact_email ||
-            contact.email ||
-            "";
-
-        whatsappNumber =
-            contact.contact_whatsapp ||
-            contact.whatsapp ||
-            social.whatsapp ||
-            "";
-
-        locationText =
-            contact.contact_location ||
-            contact.location ||
-            "";
-
-
-        setText(
-            "phone",
-            phoneNumber ||
-            "Not available"
-        );
-
-        setText(
-            "email",
-            emailAddress ||
-            "Not available"
-        );
-
-
-        /* =========================
-           PHONE
-        ========================= */
-
-        if(phoneNumber){
-
-            setLink(
-                "phoneCall",
-                makePhoneLink(
-                    phoneNumber
-                )
-            );
-
-        }
-
-
-        /* =========================
-           EMAIL
-        ========================= */
-
-        if(emailAddress){
-
-            setLink(
-                "emailLink",
-                makeEmailLink(
-                    emailAddress
-                )
-            );
-
-        }
-
-
-        /* =========================
-           WHATSAPP
-        ========================= */
-
-        const whatsappURL =
-            makeWhatsAppLink(
-                whatsappNumber
-            );
-
-
-        if(whatsappURL){
-
-            setLink(
-                "whatsappLink",
-                whatsappURL
-            );
-
-            setLink(
-                "finalWhatsapp",
-                whatsappURL
-            );
-
-            setLink(
-                "menuWhatsapp",
-                whatsappURL
-            );
-
-        }
-
-
-        /* =========================
-           FACEBOOK
-        ========================= */
-
-        if(social.facebook){
-
-            setLink(
-                "facebookLink",
-                social.facebook
-            );
-
-            setLink(
-                "menuFacebook",
-                social.facebook
-            );
-
-        }
-
-
-        /* =========================
-           LINKEDIN
-        ========================= */
-
-        if(social.linkedin){
-
-            setLink(
-                "linkedinLink",
-                social.linkedin
-            );
-
-            setLink(
-                "menuLinkedin",
-                social.linkedin
-            );
-
-        }
-
-
-        /* =========================
-           WEBSITE CONTENT
-        ========================= */
-
-        setText(
-            "contactMainTitle",
-            website.about_title ||
-            "Let's Connect"
-        );
-
-        setText(
-            "contactMainDescription",
-            website.cta_text ||
-            "Have a question, project idea, or something you'd like to discuss? Feel free to contact me."
-        );
-
-        setText(
-            "contactIntroTitle",
-            website.cta_title ||
-            "Let's Connect 🤝"
-        );
-
-        setText(
-            "contactIntroText",
-            website.cta_text ||
-            "I am always open to new ideas, projects, opportunities, and meaningful connections."
-        );
-
-
-        /* =========================
-           SOCIAL TEXT
-        ========================= */
-
-        setText(
-            "facebookTitle",
-            website.facebook_title ||
-            "Facebook"
-        );
-
-        setText(
-            "facebookDesc",
-            website.facebook_desc ||
-            "Connect with me"
-        );
-
-
-        setText(
-            "linkedinTitle",
-            website.linkedin_title ||
-            "LinkedIn"
-        );
-
-        setText(
-            "linkedinDesc",
-            website.linkedin_desc ||
-            "Professional profile"
-        );
-
-
-        setText(
-            "whatsappTitle",
-            website.whatsapp_title ||
-            "WhatsApp"
-        );
-
-        setText(
-            "whatsappDesc",
-            website.whatsapp_desc ||
-            "Chat with me"
-        );
-
-
-        /* =========================
-           AVAILABILITY
-        ========================= */
-
-        setText(
-            "availabilityTitle",
-            website.info_status ||
-            "Open For New Opportunities"
-        );
-
-        setText(
-            "availabilityText",
-            website.cta_text ||
-            "Available for new projects, website development, Excel work, and other professional opportunities."
-        );
-
-
-        /* =========================
-           FINAL CTA
-        ========================= */
-
-        setText(
-            "ctaTitle",
-            website.cta_title ||
-            "Have Something In Mind? 🚀"
-        );
-
-        setText(
-            "ctaText",
-            website.cta_text ||
-            "Send me a message directly on WhatsApp and let's discuss your idea."
-        );
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        setText(
-            "footerCopyright",
-            website.footer_copyright ||
-            "© 2026 SM RAYHAN | My Personal Website ❤️"
-        );
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Contact loading failed:",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================
-   SEND MESSAGE
-========================= */
-
-async function sendMessage(){
-
-    const name =
-        document
-        .getElementById("name")
-        .value
-        .trim();
-
-    const mobile =
-        document
-        .getElementById("mobile")
-        .value
-        .trim();
-
-    const subject =
-        document
-        .getElementById("subject")
-        .value
-        .trim();
-
-    const message =
-        document
-        .getElementById("message")
-        .value
-        .trim();
-
-
-    if(!name){
-
-        alert(
-            "Please enter your name."
-        );
-
-        document
-        .getElementById("name")
-        .focus();
-
-        return;
-    }
-
-
-    if(!mobile){
-
-        alert(
-            "Please enter your mobile number."
-        );
-
-        document
-        .getElementById("mobile")
-        .focus();
-
-        return;
-    }
-
-
-    if(!message){
-
-        alert(
-            "Please write your message."
-        );
-
-        document
-        .getElementById("message")
-        .focus();
-
-        return;
-    }
-
-
-    const sendBtn =
-        document
-        .getElementById("sendBtn");
-
-    const success =
-        document
-        .getElementById("successMessage");
-
-
-    sendBtn.disabled =
-        true;
-
-    sendBtn.innerText =
-        "⏳ Sending...";
-
-
-    try{
-
-        const {
-            error
-        } =
-            await supabaseClient
-            .from("contact_messages")
-            .insert([
-                {
-                    name:name,
-                    mobile:mobile,
-                    subject:subject,
-                    message:message
-                }
-            ]);
-
-
-        if(error){
-
-            console.error(
-                "Message save error:",
-                error
-            );
-
-            alert(
-                "Message could not be saved. Please try again."
-            );
-
-            sendBtn.disabled =
-                false;
-
-            sendBtn.innerText =
-                "🚀 Send Message";
-
-            return;
-        }
-
-
-        success.style.display =
-            "block";
-
-        success.innerText =
-            "✅ Your message has been sent successfully!";
-
-
-        document
-        .getElementById("name")
-        .value = "";
-
-        document
-        .getElementById("mobile")
-        .value = "";
-
-        document
-        .getElementById("subject")
-        .value = "";
-
-        document
-        .getElementById("message")
-        .value = "";
-
-
-        sendBtn.disabled =
-            false;
-
-        sendBtn.innerText =
-            "🚀 Send Message";
-
-
-        setTimeout(()=>{
-
-            success.style.display =
-                "none";
-
-        },5000);
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Send message failed:",
-            error
-        );
-
-        alert(
-            "Something went wrong. Please try again."
-        );
-
-        sendBtn.disabled =
-            false;
-
-        sendBtn.innerText =
-            "🚀 Send Message";
-    }
-
-}
-
-
-/* =========================
-   MENU
-========================= */
-
-function toggleMenu(){
-
-    const menu =
-        document
-        .getElementById("sideMenu");
-
-    menu.classList.toggle(
-        "show"
-    );
-
-}
-
-
-document.addEventListener(
-    "click",
-    function(event){
-
-        const menu =
-            document
-            .getElementById("sideMenu");
-
-        const button =
-            document
-            .getElementById("menuBtn");
-
-
-        if(
-            menu.classList.contains("show") &&
-            !menu.contains(event.target) &&
-            !button.contains(event.target)
-        ){
-
-            menu.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
-
-
-document
-.querySelectorAll(
-    "#sideMenu a"
-)
-.forEach(function(link){
-
-    link.addEventListener(
-        "click",
-        function(){
-
-            document
-            .getElementById("sideMenu")
-            .classList
-            .remove("show");
-
-        }
-    );
-
+</div>  </section>  </main>  <!-- FOOTER -->  <footer>  <span id="footerCopyright">  
+    © 2026 SM RAYHAN | My Personal Website ❤️  
+</span>
+
+</footer>  <!-- BACK TO TOP -->  <button id="topBtn" type="button">  
+    ↑  
+</button>  <script>  
+  
+/* =========================  
+   SUPABASE  
+========================= */  
+  
+const SUPABASE_URL =  
+"https://oppmdnnzgqdnwpqqkwsq.supabase.co";  
+  
+const SUPABASE_KEY =  
+"sb_publishable__PhPsPq-M7xfHLbPwOaUzA_vEDzn22B";  
+  
+const supabaseClient =  
+    supabase.createClient(  
+        SUPABASE_URL,  
+        SUPABASE_KEY  
+    );  
+  
+/* =========================  
+   VARIABLES  
+========================= */  
+  
+let phoneNumber = "";  
+let emailAddress = "";  
+let whatsappNumber = "";  
+let locationText = "";  
+  
+/* =========================  
+   HELPER  
+========================= */  
+  
+function setText(id,value){  
+  
+    const element =  
+        document.getElementById(id);  
+  
+    if(  
+        element &&  
+        value !== undefined &&  
+        value !== null &&  
+        String(value).trim() !== ""  
+    ){  
+  
+        element.textContent = value;  
+    }  
+  
+}  
+  
+/* =========================  
+   WHATSAPP LINK  
+========================= */  
+  
+function makeWhatsAppLink(value){  
+  
+    if(!value){  
+        return "";  
+    }  
+  
+    const text = String(value).trim();  
+  
+    if(!text){  
+        return "";  
+    }  
+  
+    if(  
+        text.startsWith("http://") ||  
+        text.startsWith("https://")  
+    ){  
+  
+        return text;  
+    }  
+  
+    const number =  
+        text  
+        .replace(/^\+/,"")  
+        .replace(/[^\d]/g,"");  
+  
+    if(!number){  
+        return "";  
+    }  
+  
+    return "https://wa.me/" + number;  
+}  
+  
+/* =========================  
+   PHONE LINK  
+========================= */  
+  
+function makePhoneLink(value){  
+  
+    if(!value){  
+        return "";  
+    }  
+  
+    let number = String(value).trim();  
+  
+    number = number.replace(/[^\d+]/g,"");  
+  
+    if(number.startsWith("00")){  
+        number = "+" + number.substring(2);  
+    }  
+  
+    if(  
+        !number.startsWith("+") &&  
+        number.startsWith("0")  
+    ){  
+  
+        number = "+880" + number.substring(1);  
+    }  
+  
+    if(!number){  
+        return "";  
+    }  
+  
+    return "tel:" + number;  
+}  
+  
+/* =========================  
+   EMAIL LINK  
+========================= */  
+  
+function makeEmailLink(value){  
+  
+    if(!value){  
+        return "";  
+    }  
+  
+    const email = String(value).trim();  
+  
+    if(!email){  
+        return "";  
+    }  
+  
+    return "mailto:" + email;  
+}  
+  
+/* =========================  
+   SET LINK  
+========================= */  
+  
+function setLink(id,url){  
+  
+    const element = document.getElementById(id);  
+  
+    if(!element){  
+        return;  
+    }  
+  
+    if(url){  
+  
+        element.href = url;  
+        element.style.pointerEvents = "auto";  
+        element.style.opacity = "1";  
+  
+    }  
+  
+}  
+  
+/* =========================  
+   CALL  
+========================= */  
+  
+function handleCall(event){  
+  
+    event.preventDefault();  
+    event.stopPropagation();  
+  
+    if(!phoneNumber){  
+  
+        alert("Phone number is not available.");  
+        return;  
+  
+    }  
+  
+    const phoneLink = makePhoneLink(phoneNumber);  
+  
+    if(!phoneLink){  
+  
+        alert("Invalid phone number.");  
+        return;  
+  
+    }  
+  
+    window.location.href = phoneLink;  
+}  
+  
+/* =========================  
+   EMAIL  
+========================= */  
+  
+function handleEmail(event){  
+  
+    event.preventDefault();  
+    event.stopPropagation();  
+  
+    if(!emailAddress){  
+  
+        alert("Email address is not available.");  
+        return;  
+  
+    }  
+  
+    const emailLink = makeEmailLink(emailAddress);  
+  
+    if(!emailLink){  
+  
+        alert("Invalid email address.");  
+        return;  
+  
+    }  
+  
+    window.location.href = emailLink;  
+}  
+  
+/* =========================  
+   LOAD CONTACT  
+========================= */  
+  
+async function loadContact(){  
+  
+    try{  
+  
+        const {  
+            data,  
+            error  
+        } = await supabaseClient  
+            .from("website_content")  
+            .select("section,content");  
+  
+        if(error){  
+  
+            console.error("Website content error:",error);  
+  
+            setText("phone","Not available");  
+            setText("email","Not available");  
+  
+            return;  
+        }  
+  
+        const content = {};  
+  
+        (data || []).forEach(row=>{  
+  
+            if(!content[row.section]){  
+                content[row.section] = {};  
+            }  
+  
+            if(  
+                row.content &&  
+                typeof row.content === "object"  
+            ){  
+  
+                Object.assign(  
+                    content[row.section],  
+                    row.content  
+                );  
+  
+            }  
+  
+        });  
+  
+        const home = content.home || {};  
+        const contact = content.contact || {};  
+        const social = content.social || {};  
+        const website = content.website || {};  
+        const profile = content.profile || {};  
+  
+        /* PROFILE */  
+  
+        setText(  
+            "profileName",  
+            home.name || "SM RAYHAN"  
+        );  
+  
+        setText(  
+            "profileSubtitle",  
+            home.subtitle || "Welcome to My Website ❤️"  
+        );  
+  
+        if(profile.image_url){  
+  
+            const image = document.getElementById("profileImage");  
+  
+            if(image){  
+                image.src = profile.image_url;  
+            }  
+  
+        }  
+  
+        /* CONTACT */  
+  
+        phoneNumber =  
+            contact.contact_phone ||  
+            contact.phone ||  
+            "";  
+  
+        emailAddress =  
+            contact.contact_email ||  
+            contact.email ||  
+            "";  
+  
+        whatsappNumber =  
+            contact.contact_whatsapp ||  
+            contact.whatsapp ||  
+            social.whatsapp ||  
+            "";  
+  
+        locationText =  
+            contact.contact_location ||  
+            contact.location ||  
+            "";  
+  
+        setText(  
+            "phone",  
+            phoneNumber || "Not available"  
+        );  
+  
+        setText(  
+            "email",  
+            emailAddress || "Not available"  
+        );  
+  
+        /* PHONE */  
+  
+        if(phoneNumber){  
+  
+            setLink(  
+                "phoneCall",  
+                makePhoneLink(phoneNumber)  
+            );  
+  
+        }  
+  
+        /* EMAIL */  
+  
+        if(emailAddress){  
+  
+            setLink(  
+                "emailLink",  
+                makeEmailLink(emailAddress)  
+            );  
+  
+        }  
+  
+        /* WHATSAPP */  
+  
+        const whatsappURL =  
+            makeWhatsAppLink(whatsappNumber);  
+  
+        if(whatsappURL){  
+  
+            setLink("whatsappLink",whatsappURL);  
+            setLink("finalWhatsapp",whatsappURL);  
+            setLink("menuWhatsapp",whatsappURL);  
+  
+        }  
+  
+        /* FACEBOOK */  
+  
+        if(social.facebook){  
+  
+            setLink("facebookLink",social.facebook);  
+            setLink("menuFacebook",social.facebook);  
+  
+        }  
+  
+        /* LINKEDIN */  
+  
+        if(social.linkedin){  
+  
+            setLink("linkedinLink",social.linkedin);  
+            setLink("menuLinkedin",social.linkedin);  
+  
+        }  
+  
+        /* WEBSITE CONTENT */  
+  
+        setText(  
+            "contactMainTitle",  
+            website.about_title || "Let's Connect"  
+        );  
+  
+        setText(  
+            "contactMainDescription",  
+            website.cta_text ||  
+            "Have a question, project idea, or something you'd like to discuss? Feel free to contact me."  
+        );  
+  
+        setText(  
+            "contactIntroTitle",  
+            website.cta_title || "Let's Connect 🤝"  
+        );  
+  
+        setText(  
+            "contactIntroText",  
+            website.cta_text ||  
+            "I am always open to new ideas, projects, opportunities, and meaningful connections."  
+        );  
+  
+        /* SOCIAL TEXT */  
+  
+        setText(  
+            "facebookTitle",  
+            website.facebook_title || "Facebook"  
+        );  
+  
+        setText(  
+            "facebookDesc",  
+            website.facebook_desc || "Connect with me"  
+        );  
+  
+        setText(  
+            "linkedinTitle",  
+            website.linkedin_title || "LinkedIn"  
+        );  
+  
+        setText(  
+            "linkedinDesc",  
+            website.linkedin_desc || "Professional profile"  
+        );  
+  
+        setText(  
+            "whatsappTitle",  
+            website.whatsapp_title || "WhatsApp"  
+        );  
+  
+        setText(  
+            "whatsappDesc",  
+            website.whatsapp_desc || "Chat with me"  
+        );  
+  
+        /* AVAILABILITY */  
+  
+        setText(  
+            "availabilityTitle",  
+            website.info_status || "Open For New Opportunities"  
+        );  
+  
+        setText(  
+            "availabilityText",  
+            website.cta_text ||  
+            "Available for new projects, website development, Excel work, and other professional opportunities."  
+        );  
+  
+        /* FINAL CTA */  
+  
+        setText(  
+            "ctaTitle",  
+            website.cta_title || "Have Something In Mind? 🚀"  
+        );  
+  
+        setText(  
+            "ctaText",  
+            website.cta_text ||  
+            "Send me a message directly on WhatsApp and let's discuss your idea."  
+        );  
+  
+        /* FOOTER */  
+  
+        setText(  
+            "footerCopyright",  
+            website.footer_copyright ||  
+            "© 2026 SM RAYHAN | My Personal Website ❤️"  
+        );  
+  
+    }  
+  
+    catch(error){  
+  
+        console.error("Contact loading failed:",error);  
+  
+    }  
+  
+}  
+  
+/* =========================  
+   SEND MESSAGE  
+========================= */  
+  
+async function sendMessage(){  
+  
+    const name =  
+        document.getElementById("name").value.trim();  
+  
+    const mobile =  
+        document.getElementById("mobile").value.trim();  
+  
+    const subject =  
+        document.getElementById("subject").value.trim();  
+  
+    const message =  
+        document.getElementById("message").value.trim();  
+  
+    if(!name){  
+  
+        alert("Please enter your name.");  
+  
+        document.getElementById("name").focus();  
+  
+        return;  
+    }  
+  
+    if(!mobile){  
+  
+        alert("Please enter your mobile number.");  
+  
+        document.getElementById("mobile").focus();  
+  
+        return;  
+    }  
+  
+    if(!message){  
+  
+        alert("Please write your message.");  
+  
+        document.getElementById("message").focus();  
+  
+        return;  
+    }  
+  
+    const sendBtn = document.getElementById("sendBtn");  
+    const success = document.getElementById("successMessage");  
+  
+    sendBtn.disabled = true;  
+    sendBtn.innerText = "⏳ Sending...";  
+  
+    try{  
+  
+        const {  
+            error  
+        } = await supabaseClient  
+            .from("contact_messages")  
+            .insert([  
+                {  
+                    name:name,  
+                    mobile:mobile,  
+                    subject:subject,  
+                    message:message  
+                }  
+            ]);  
+  
+        if(error){  
+  
+            console.error("Message save error:",error);  
+  
+            alert("Message could not be saved. Please try again.");  
+  
+            sendBtn.disabled = false;  
+            sendBtn.innerText = "🚀 Send Message";  
+  
+            return;  
+        }  
+  
+        success.style.display = "block";  
+  
+        success.innerText =  
+            "✅ Your message has been sent successfully!";  
+  
+        document.getElementById("name").value = "";  
+        document.getElementById("mobile").value = "";  
+        document.getElementById("subject").value = "";  
+        document.getElementById("message").value = "";  
+  
+        sendBtn.disabled = false;  
+        sendBtn.innerText = "🚀 Send Message";  
+  
+        setTimeout(()=>{  
+  
+            success.style.display = "none";  
+  
+        },5000);  
+  
+    }  
+  
+    catch(error){  
+  
+        console.error("Send message failed:",error);  
+  
+        alert("Something went wrong. Please try again.");  
+  
+        sendBtn.disabled = false;  
+        sendBtn.innerText = "🚀 Send Message";  
+  
+    }  
+  
+}  
+  
+/* =========================  
+   MENU  
+========================= */  
+  
+function toggleMenu(){  
+  
+    const menu = document.getElementById("sideMenu");  
+  
+    menu.classList.toggle("show");  
+  
+}  
+  
+document.addEventListener("click",function(event){  
+  
+    const menu = document.getElementById("sideMenu");  
+    const button = document.getElementById("menuBtn");  
+  
+    if(  
+        menu.classList.contains("show") &&  
+        !menu.contains(event.target) &&  
+        !button.contains(event.target)  
+    ){  
+  
+        menu.classList.remove("show");  
+  
+    }  
+  
+});  
+  
+document  
+.querySelectorAll("#sideMenu a")  
+.forEach(function(link){  
+  
+    link.addEventListener("click",function(){  
+  
+        document  
+        .getElementById("sideMenu")  
+        .classList  
+        .remove("show");  
+  
+    });  
+  
+});  
+  
+/* =========================  
+   THEME  
+========================= */  
+  
+function applyTheme(){  
+  
+    if(localStorage.getItem("theme") === "light"){  
+  
+        document.body.classList.add("light");  
+  
+        document.getElementById("themeBtn").innerText = "☀️";  
+  
+    }  
+  
+    else{  
+  
+        document.body.classList.remove("light");  
+  
+        document.getElementById("themeBtn").innerText = "🌙";  
+  
+    }  
+  
+}  
+  
+function toggleTheme(){  
+  
+    document.body.classList.toggle("light");  
+  
+    const button = document.getElementById("themeBtn");  
+  
+    if(document.body.classList.contains("light")){  
+  
+        button.innerText = "☀️";  
+  
+        localStorage.setItem("theme","light");  
+  
+    }  
+  
+    else{  
+  
+        button.innerText = "🌙";  
+  
+        localStorage.setItem("theme","dark");  
+  
+    }  
+  
+}  
+  
+/* =========================  
+   BACK TO TOP  
+========================= */  
+  
+const topBtn = document.getElementById("topBtn");  
+  
+window.addEventListener("scroll",function(){  
+  
+    if(window.scrollY > 400){  
+  
+        topBtn.style.display = "flex";  
+        topBtn.style.alignItems = "center";  
+        topBtn.style.justifyContent = "center";  
+  
+    }  
+  
+    else{  
+  
+        topBtn.style.display = "none";  
+  
+    }  
+  
+});  
+  
+topBtn.addEventListener("click",function(){  
+  
+    window.scrollTo({  
+        top:0,  
+        behavior:"smooth"  
+    });  
+  
+});  
+  
+/* =========================  
+   START  
+========================= */  
+  
+applyTheme();  
+loadContact();  
+ 
+
+
+/* SM RAYHAN - Smooth Reveal Animation */
+
+/* Automatically add reveal animation to page sections and cards */
+document.querySelectorAll(
+    "main > section, " +
+    "main > section .sectionHead, " +
+    "main > section .intro, " +
+    "main > section .contactCard, " +
+    "main > section .formCard, " +
+    "main > section .socialCard, " +
+    "main > section .availability, " +
+    "main > section .finalCTA, " +
+    "footer"
+).forEach(element => {
+    element.classList.add("reveal");
 });
 
-
-/* =========================
-   THEME
-========================= */
-
-function applyTheme(){
-
-    if(
-        localStorage.getItem("theme")
-        ===
-        "light"
-    ){
-
-        document.body
-        .classList
-        .add("light");
-
-        document
-        .getElementById("themeBtn")
-        .innerText =
-            "☀️";
-
-    }
-
-    else{
-
-        document.body
-        .classList
-        .remove("light");
-
-        document
-        .getElementById("themeBtn")
-        .innerText =
-            "🌙";
-
-    }
-
-}
-
-
-function toggleTheme(){
-
-    document.body
-    .classList
-    .toggle("light");
-
-
-    const button =
-        document
-        .getElementById("themeBtn");
-
-
-    if(
-        document.body
-        .classList
-        .contains("light")
-    ){
-
-        button.innerText =
-            "☀️";
-
-        localStorage.setItem(
-            "theme",
-            "light"
-        );
-
-    }
-
-    else{
-
-        button.innerText =
-            "🌙";
-
-        localStorage.setItem(
-            "theme",
-            "dark"
-        );
-
-    }
-
-}
-
-
-/* =========================
-   BACK TO TOP
-========================= */
-
-const topBtn =
-    document
-    .getElementById("topBtn");
-
-
-window.addEventListener(
-    "scroll",
-    function(){
-
-        if(
-            window.scrollY > 400
-        ){
-
-            topBtn.style.display =
-                "flex";
-
-            topBtn.style.alignItems =
-                "center";
-
-            topBtn.style.justifyContent =
-                "center";
-
+/* Observe elements when they enter the screen */
+const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            revealObserver.unobserve(entry.target);
         }
+    });
+}, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -30px 0px"
+});
 
-        else{
+/* Animate all reveal elements */
+document.querySelectorAll(".reveal").forEach(element => {
+    revealObserver.observe(element);
+});
 
-            topBtn.style.display =
-                "none";
-
-        }
-
-    }
-);
-
-
-topBtn.addEventListener(
-    "click",
-    function(){
-
-        window.scrollTo({
-
-            top:0,
-
-            behavior:"smooth"
-
-        });
-
-    }
-);
-
-
-/* =========================
-   START
-========================= */
-
-applyTheme();
-
-loadContact();
+/* Animate the hero immediately on page opening */
+document.querySelectorAll(".hero.reveal").forEach(element => {
+    requestAnimationFrame(() => {
+        element.classList.add("active");
+        revealObserver.unobserve(element);
+    });
+});
 
 </script>
-
-</body>
-</html>
+</body>  
+</html>  
